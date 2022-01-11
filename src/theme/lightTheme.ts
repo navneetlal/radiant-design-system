@@ -3,7 +3,7 @@ import typography from './typography.json';
 
 import type { TypographyOptions } from "@mui/material/styles/createTypography";
 
-export let lightTheme = createTheme({
+let lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
@@ -39,8 +39,15 @@ export let lightTheme = createTheme({
 
 lightTheme = createTheme(lightTheme, {
   components: {
+
     MuiButton: {
       styleOverrides: {
+        root : {
+          '&.Mui-disabled': {
+            backgroundColor: lightTheme.palette.secondary.light + " !important",
+            color: '#A1A1A1' + " !important",
+          },
+        },
         sizeSmall: {
           minWidth: 118,
           height: 32,
@@ -62,10 +69,7 @@ lightTheme = createTheme(lightTheme, {
           padding: "12px 32px",
           textTransform: "none",
         },
-        disabled: {
-          backgroundColor: lightTheme.palette.secondary.light + " !important",
-          color: '#A1A1A1' + " !important",
-        },
+        
       },
     },
     MuiBadge: {
@@ -80,7 +84,7 @@ lightTheme = createTheme(lightTheme, {
         
       },
     },
-    MuiBreadcrumbs: {
+    MuiBreadcrumb: {
       styleOverrides: {
         root: {
           color: lightTheme.palette.secondary.dark,
@@ -172,7 +176,8 @@ lightTheme = createTheme(lightTheme, {
       styleOverrides: {
         root: {
           "label + &": {
-            marginTop: lightTheme.spacing(1),
+            // marginTop: lightTheme.spacing(1),
+            
           },
         },
         input: {
@@ -219,3 +224,6 @@ lightTheme = createTheme(lightTheme, {
     MuiDrawer: {},
   },
 });
+
+
+export default lightTheme;

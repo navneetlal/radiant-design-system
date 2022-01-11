@@ -30,8 +30,14 @@ function App() {
   return (
     <Container maxWidth="lg">
       <Grid container>
-        <Button variant="contained" sx={{ m: 4 }} onClick={handleDrawer}>
+        <Button variant="outlined" size = "large" color = "error" onClick={handleDrawer}>
           Hello
+        </Button>
+        <Button variant="outlined" size = "medium" color = "warning" onClick={handleDrawer}>
+          Click Me HI Siddhant
+        </Button>
+        <Button variant="contained" size = "large" color = "warning" onClick={handleDrawer}>
+          Yes
         </Button>
         <Badge badgeContent={4} color="primary" sx={{ m: 7 }}>
           hello
@@ -99,6 +105,7 @@ function App() {
           sx={{ m: 4 }}
           disableRipple
         />
+        
       </Grid>
 
       <Drawer
