@@ -1,10 +1,8 @@
 import {
   Autocomplete,
-  Badge,
   Breadcrumbs,
   Button,
   Checkbox,
-  Chip,
   Container,
   Grid,
   InputBase,
@@ -12,16 +10,24 @@ import {
   Link,
   Pagination,
   Radio,
-  Snackbar,
   Drawer,
   Switch,
   TextField,
   Tooltip,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
 
+import { useState } from "react";
+import { useTheme } from "@emotion/react";
+import Badge from "./components/Badges";
+import Chip from "./components/Chip";
+import Snackbar from "./components/Snackbar";
+
+const TempComponent = () => {
+  return <p>badge</p>;
+};
 function App() {
+  const theme = useTheme();
   const [drawer, setDrawer] = useState(false);
   const handleDrawer = () => {
     setDrawer((prevState) => !prevState);
@@ -30,17 +36,43 @@ function App() {
   return (
     <Container maxWidth="lg">
       <Grid container>
-        <Button variant="outlined" size = "large" color = "error" onClick={handleDrawer}>
+        <Button
+          variant="outlined"
+          size="large"
+          color="error"
+          onClick={handleDrawer}
+        >
           Hello
         </Button>
-        <Button variant="outlined" size = "medium" color = "warning" onClick={handleDrawer}>
+        <Button
+          variant="outlined"
+          size="medium"
+          color="warning"
+          onClick={handleDrawer}
+        >
           Click Me HI Siddhant
         </Button>
-        <Button variant="contained" size = "large" color = "warning" onClick={handleDrawer}>
+        <Button
+          variant="contained"
+          size="large"
+          color="warning"
+          onClick={handleDrawer}
+        >
           Yes
         </Button>
-        <Badge badgeContent={4} color="primary" sx={{ m: 7 }}>
-          hello
+
+        <Badge
+          rounded={true}
+          text={"4"}
+          size="large"
+          overlap="circle"
+          color="error"
+          // @ts-ignore
+          backgroundcolor={theme.palette.warning.light}
+          // @ts-ignore
+          textcolor={theme.palette.warning.dark}
+        >
+          <TempComponent />
         </Badge>
         <Breadcrumbs aria-label="breadcrumb" sx={{ m: 4 }} separator=">">
           <Link underline="hover" color="inherit" href="/">
@@ -56,14 +88,12 @@ function App() {
           <Typography color="text.primary">Breadcrumbs</Typography>
         </Breadcrumbs>
 
-        <Chip color="primary" label="testing" sx={{ m: 4 }} />
+        <Chip color="primary" text="testing" size="medium" selected={false} />
 
         <Snackbar
-          autoHideDuration={3000}
-          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           open={true}
           message="Random testing message"
-          action={" "}
+          color="primary"
         />
         <Pagination
           sx={{ m: 4 }}
@@ -105,7 +135,6 @@ function App() {
           sx={{ m: 4 }}
           disableRipple
         />
-        
       </Grid>
 
       <Drawer

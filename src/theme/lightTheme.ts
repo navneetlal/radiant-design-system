@@ -1,51 +1,71 @@
 import { createTheme } from "@mui/material/styles";
-import typography from './typography.json';
+import typography from "./typography.json";
 
 import type { TypographyOptions } from "@mui/material/styles/createTypography";
 
 let lightTheme = createTheme({
   palette: {
-    mode: 'light',
+    mode: "light",
     primary: {
-      light: "#91B0FA",
-      main: "#2C63E5",
-      dark: "#264CA4"
+      // blue
+      light: '#91B0FA',
+      main: '#2C63E5',
+      dark: '#264CA4',
+      contrastText: '#F5F8FF',
+      200: '#BFD2FD',
+      100: '#D7E3FE',
+      600: '#264CA4',
     },
     secondary: {
-      light: "#F2F2F2",
-      main: "#C7C7C7",
-      dark: "#666666"
+      // gray
+      light: '#F2F2F2',
+      main: '#C7C7C7',
+      dark: '#666666',
+      contrastText: '#E3E3E3',
+      50: '#FFF7E5',
+      300: '#A1A1A1',
     },
     error: {
-      light: "#F9D7D7",
-      main: "#FF5757",
-      dark: "#CC3333"
+      // red
+      light: '#F9D7D7',
+      main: '#FF5757',
+      dark: '#CC3333',
+      contrastText: '#F9D7D7',
     },
     warning: {
-      light: "#FFECDB",
-      main: "#F2984A",
-      dark: "#D97E2E"
+      // orange
+      light: '#FFECDB',
+      main: '#F2984A',
+      dark: '#D97E2E',
+      600: '#D97F30',
+      contrastText: '#FFECDB',
     },
     success: {
-      light: "#C2FAEA",
-      main: "#00C28B",
-      dark: "#008F66"
-    }
+      // green
+      light: '#C2FAEA',
+      main: '#00C28B',
+      dark: '#008F66',
+      contrastText: '#C2FAEA',
+    },
+    //@ts-ignore
+    blackAndWhite: {
+      main: '#1A1A1A',
+      light: '#fff',
+    },
   },
   typography: {
-    ...typography as TypographyOptions
+    ...(typography as TypographyOptions),
   },
 });
 
 lightTheme = createTheme(lightTheme, {
   components: {
-
     MuiButton: {
       styleOverrides: {
-        root : {
-          '&.Mui-disabled': {
+        root: {
+          "&.Mui-disabled": {
             backgroundColor: lightTheme.palette.secondary.light + " !important",
-            color: '#A1A1A1' + " !important",
+            color: "#A1A1A1" + " !important",
           },
         },
         sizeSmall: {
@@ -69,7 +89,6 @@ lightTheme = createTheme(lightTheme, {
           padding: "12px 32px",
           textTransform: "none",
         },
-        
       },
     },
     MuiBadge: {
@@ -81,14 +100,11 @@ lightTheme = createTheme(lightTheme, {
           borderRadius: "50%",
           ...lightTheme.typography.body1,
         },
-        
       },
     },
     MuiBreadcrumb: {
       styleOverrides: {
-        root: {
-          color: lightTheme.palette.secondary.dark,
-        },
+        
       },
     },
     MuiChip: {
@@ -106,30 +122,13 @@ lightTheme = createTheme(lightTheme, {
           ...lightTheme.typography.body1,
           borderRadius: 5000,
         },
-        root: {
-          backgroundColor: lightTheme.palette.primary.main,
-          "&:focus": {
-            backgroundColor: lightTheme.palette.primary.main,
-          },
-          "&:hover": {
-            backgroundColor: lightTheme.palette.primary.dark,
-          },
-        },
       },
     },
     MuiSnackbar: {
       styleOverrides: {
         root: {
-          minWidth: 860,
+          minWidth: 360,
           padding: "8px 16px",
-          //color : lightTheme.palette.primary.light
-        },
-      },
-    },
-    MuiSnackbarContent: {
-      styleOverrides: {
-        root: {
-          backgroundColor: lightTheme.palette.primary.main,
         },
       },
     },
@@ -177,7 +176,6 @@ lightTheme = createTheme(lightTheme, {
         root: {
           "label + &": {
             // marginTop: lightTheme.spacing(1),
-            
           },
         },
         input: {
@@ -224,6 +222,5 @@ lightTheme = createTheme(lightTheme, {
     MuiDrawer: {},
   },
 });
-
 
 export default lightTheme;

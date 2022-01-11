@@ -6,15 +6,16 @@ export interface IBadgeProps {
     rounded?: boolean;
     color?: "default" | "primary" | "secondary" | "error" | "info" | "success" | "warning";
     text: string;
-    children: ReactElement;
+    children?: ReactElement;
     size: 'small' | 'medium' | 'large';
-    [key: string]: any;
+    [key: string] : any;
 }
 
 const Badge = ({ rounded, text, children, size = 'medium', ...otherProps }: IBadgeProps) => {
     const theme = useTheme()
     return (
         <MuiBadge
+            style={{margin : '9rem'}}
             badgeContent={text}
             sx={[
                 size === 'small' && {
@@ -34,8 +35,7 @@ const Badge = ({ rounded, text, children, size = 'medium', ...otherProps }: IBad
                 },
                 !!rounded && {
                     borderRadius: '50%',
-                },
-
+                }
             ]}
             {...otherProps}
         >
