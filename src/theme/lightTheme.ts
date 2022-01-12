@@ -8,49 +8,49 @@ let lightTheme = createTheme({
     mode: "light",
     primary: {
       // blue
-      light: '#91B0FA',
-      main: '#2C63E5',
-      dark: '#264CA4',
-      contrastText: '#F5F8FF',
-      200: '#BFD2FD',
-      100: '#D7E3FE',
-      600: '#264CA4',
+      light: "#91B0FA",
+      main: "#2C63E5",
+      dark: "#264CA4",
+      contrastText: "#F5F8FF",
+      200: "#BFD2FD",
+      100: "#D7E3FE",
+      600: "#264CA4",
     },
     secondary: {
       // gray
-      light: '#F2F2F2',
-      main: '#C7C7C7',
-      dark: '#666666',
-      contrastText: '#E3E3E3',
-      50: '#FFF7E5',
-      300: '#A1A1A1',
+      light: "#F2F2F2",
+      main: "#C7C7C7",
+      dark: "#666666",
+      contrastText: "#E3E3E3",
+      50: "#FFF7E5",
+      300: "#A1A1A1",
     },
     error: {
       // red
-      light: '#F9D7D7',
-      main: '#FF5757',
-      dark: '#CC3333',
-      contrastText: '#F9D7D7',
+      light: "#F9D7D7",
+      main: "#FF5757",
+      dark: "#CC3333",
+      contrastText: "#F9D7D7",
     },
     warning: {
       // orange
-      light: '#FFECDB',
-      main: '#F2984A',
-      dark: '#D97E2E',
-      600: '#D97F30',
-      contrastText: '#FFECDB',
+      light: "#FFECDB",
+      main: "#F2984A",
+      dark: "#D97E2E",
+      600: "#D97F30",
+      contrastText: "#FFECDB",
     },
     success: {
       // green
-      light: '#C2FAEA',
-      main: '#00C28B',
-      dark: '#008F66',
-      contrastText: '#C2FAEA',
+      light: "#C2FAEA",
+      main: "#00C28B",
+      dark: "#008F66",
+      contrastText: "#C2FAEA",
     },
     //@ts-ignore
     blackAndWhite: {
-      main: '#1A1A1A',
-      light: '#fff',
+      main: "#1A1A1A",
+      light: "#fff",
     },
   },
   typography: {
@@ -103,9 +103,7 @@ lightTheme = createTheme(lightTheme, {
       },
     },
     MuiBreadcrumb: {
-      styleOverrides: {
-        
-      },
+      styleOverrides: {},
     },
     MuiChip: {
       styleOverrides: {
@@ -162,11 +160,14 @@ lightTheme = createTheme(lightTheme, {
         },
         tooltipPlacementTop: {
           //@ts-ignore
-          backgroundColor: lightTheme.palette.primary[600],
-          //@ts-ignore
           border: `1px solid ${lightTheme.palette.primary[200]}`,
           borderRadius: 4,
+          //@ts-ignore
+          backgroundColor: lightTheme.palette.primary[600],
+          //@ts-ignore
+          color: lightTheme.palette.blackAndWhite.light,
           ...lightTheme.typography.body2,
+
           padding: "4px 8px",
         },
       },
@@ -189,13 +190,18 @@ lightTheme = createTheme(lightTheme, {
           alignSelf: "flex-end",
           height: 32,
           padding: "8px 12px",
-          "&:focus": {
-            borderColor: lightTheme.palette.primary.main,
-          },
-          "&:not(:placeholder-shown):invalid": {
-            borderColor: lightTheme.palette.error.main,
-          },
+          //@ts-ignore
+          color: `${lightTheme.palette.blackAndWhite.main} !important`,
+
           boxSizing: "border-box",
+        },
+        sizeSmall: {
+          ...lightTheme.typography.body2,
+          height: 30 - 16,
+        },
+        sizeMedium: {
+          ...lightTheme.typography.body1,
+          height: 38 - 16,
         },
       },
     },
@@ -203,8 +209,10 @@ lightTheme = createTheme(lightTheme, {
       styleOverrides: {
         root: {
           display: "flex",
-          flexDirection: "row",
           width: "max-content",
+          '&>span:hover': {
+            backgroundColor: 'transparent !important',
+          },
         },
       },
     },
@@ -212,14 +220,25 @@ lightTheme = createTheme(lightTheme, {
     MuiCheckbox: {
       styleOverrides: {
         root: {
-          display: "flex",
-          color: lightTheme.palette.common.black,
-          flexDirection: "row",
-          width: "max-content",
-        },
+          padding: '9px 9px 9px 0',
+    
+        }
       },
     },
     MuiDrawer: {},
+    MuiTabs : {
+      root : {
+        textTransform: 'none',
+        color: lightTheme.palette.common.black,
+        borderBottom: `1px solid ${lightTheme.palette.secondary.main}`,
+        ...lightTheme.typography.h5,
+        maxWidth: '100%',
+        minWidth: '50%',
+        '&:hover': {
+          color: lightTheme.palette.primary.main,
+        },
+      }
+    }
   },
 });
 
