@@ -1,6 +1,5 @@
 import MuiChip from "@mui/material/Chip";
-import { useTheme } from "@emotion/react";
-
+import { useTheme } from "@mui/material";
 
 export interface IChipsProps {
   selected?: boolean;
@@ -27,50 +26,23 @@ const Chip = ({
       sx={[
         {
           backgroundColor: selected
-            ? //@ts-ignore
-              theme.palette.primary.main
-            : //@ts-ignore
-
-              theme.palette.secondary?.contrastText,
-          color: selected
-            ? //@ts-ignore
-
-              theme.palette?.blackAndWhite.light
-            : //@ts-ignore
-
-              theme.palette?.blackAndWhite.main,
+            ? theme.palette.primary.main
+            : theme.palette.secondary?.contrastText,
+          color: selected ? "#fff" : "#1A1A1A",
           "&:focus": {
             backgroundColor: selected
-              ? //@ts-ignore
-
-                theme.palette.primary.main
-              : //@ts-ignore
-
-                theme.palette.secondary?.contrastText,
+              ? theme.palette.primary.main
+              : theme.palette.secondary?.contrastText,
           },
           "&:hover": {
             backgroundColor: selected
-              ? //@ts-ignore
-
-                theme.palette.primary.dark
+              ? theme.palette.primary.dark
               : //@ts-ignore
-
                 theme.palette?.primary[100],
 
-            color: selected
-              ? //@ts-ignore
-                theme.palette?.blackAndWhite.light
-              : //@ts-ignore
-
-                theme.palette?.blackAndWhite.main,
+            color: selected ? "#fff" : "#1A1A1A",
             "& path": {
-              fill: selected
-                ? //@ts-ignore
-
-                  theme.palette?.blackAndWhite.light
-                : //@ts-ignore
-
-                  theme.palette?.blackAndWhite.main,
+              fill: selected ? "#fff" : "#1A1A1A",
             },
           },
         },
