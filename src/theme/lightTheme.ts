@@ -19,11 +19,11 @@ let lightTheme = createTheme({
     secondary: {
       // gray
       light: "#F2F2F2",
-      main: "#C7C7C7",
+      main: "#A1A1A1",
       dark: "#666666",
       contrastText: "#E3E3E3",
       50: "#FFF7E5",
-      300: "#A1A1A1",
+      300: "#C7C7C7",
     },
     error: {
       // red

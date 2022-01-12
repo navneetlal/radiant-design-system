@@ -16,11 +16,11 @@ import {
 } from "@mui/material";
 
 import { useState } from "react";
-import { useTheme } from "@emotion/react";
+import { useTheme } from "@mui/material";
 import Badge from "./components/Badges";
 import Chip from "./components/Chip";
 import Snackbar from "./components/Snackbar";
-import Tooltip from "./components/Tooltip";
+// import Tooltip from "./components/Tooltip";
 import Button from "./components/Button";
 const TempComponent = () => {
   return <p>badge</p>;
@@ -37,10 +37,11 @@ function App() {
       <Grid container>
         <Button
           variant="outlined"
-          color="primary"
+          color="secondary"
           // startIcon={<MuiAdjustIcon />}
-
-        ></Button>
+          text="
+          Testing this button"
+        />
         <Badge
           rounded={true}
           text={"4"}
@@ -85,9 +86,9 @@ function App() {
 
         <Switch checked={true} sx={{ m: 4 }} />
 
-        <Tooltip title="Sample" color="error">
+        {/* <Tooltip title="Sample" color="error">
           <span>This is a tooltip</span>
-        </Tooltip>
+        </Tooltip> */}
 
         <InputLabel sx={{ m: 4 }}>
           <span>Random Label</span>
