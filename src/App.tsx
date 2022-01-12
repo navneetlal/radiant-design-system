@@ -1,7 +1,6 @@
 import {
   Autocomplete,
   Breadcrumbs,
-  Button,
   Checkbox,
   Container,
   Grid,
@@ -13,7 +12,6 @@ import {
   Drawer,
   Switch,
   TextField,
-  Tooltip,
   Typography,
 } from "@mui/material";
 
@@ -22,7 +20,8 @@ import { useTheme } from "@emotion/react";
 import Badge from "./components/Badges";
 import Chip from "./components/Chip";
 import Snackbar from "./components/Snackbar";
-
+import Tooltip from "./components/Tooltip";
+import Button from "./components/Button";
 const TempComponent = () => {
   return <p>badge</p>;
 };
@@ -38,29 +37,10 @@ function App() {
       <Grid container>
         <Button
           variant="outlined"
-          size="large"
-          color="error"
-          onClick={handleDrawer}
-        >
-          Hello
-        </Button>
-        <Button
-          variant="outlined"
-          size="medium"
-          color="warning"
-          onClick={handleDrawer}
-        >
-          Click Me HI Siddhant
-        </Button>
-        <Button
-          variant="contained"
-          size="large"
-          color="warning"
-          onClick={handleDrawer}
-        >
-          Yes
-        </Button>
+          color="primary"
+          // startIcon={<MuiAdjustIcon />}
 
+        ></Button>
         <Badge
           rounded={true}
           text={"4"}
@@ -105,7 +85,7 @@ function App() {
 
         <Switch checked={true} sx={{ m: 4 }} />
 
-        <Tooltip title="Sample" placement="top" sx={{ m: 4 }} arrow>
+        <Tooltip title="Sample" color="error">
           <span>This is a tooltip</span>
         </Tooltip>
 
