@@ -36,8 +36,8 @@ function App() {
     <Container maxWidth="lg">
       <Grid container>
         <Button
-          variant="contained"
-          color="primary"
+          variant="outlined"
+          color="warning"
           // startIcon={<MuiAdjustIcon />}
           text="
           Testing this button"

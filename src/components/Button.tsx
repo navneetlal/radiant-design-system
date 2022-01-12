@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button as MuiButton} from '@mui/material';
-
+import { useTheme } from '@mui/material';
 
 export interface IButtonProps {
   variant?: 'outlined' | 'contained' | 'text';
@@ -21,6 +21,7 @@ const Button = ({
   rightIcon,
   ...otherProps
 }: IButtonProps) => {
+  const theme = useTheme();
   return (
     <MuiButton
       variant={variant}
@@ -28,6 +29,17 @@ const Button = ({
       startIcon={leftIcon}
       endIcon={rightIcon}
       {...otherProps}
+      sx = {[
+        variant === 'outlined' && {
+          color : `${theme}.pallete.${color}.main`,
+          background : 'fff',
+          border: `1px solid`,
+          borderColor : `${theme}.pallete.${color}.main`,
+          '&:hover' : {
+            background : `${theme}.pallete.${color}.contrastText`
+          }
+        }
+      ]}
     >
       {text}
     </MuiButton>
