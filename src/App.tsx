@@ -37,7 +37,7 @@ function App() {
       <Grid container>
         <Button
           variant="outlined"
-          color="warning"
+          color="secondary"
           // startIcon={<MuiAdjustIcon />}
           text="
           Testing this button"

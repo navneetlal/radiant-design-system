@@ -28,17 +28,34 @@ const Button = ({
       color= {color}
       startIcon={leftIcon}
       endIcon={rightIcon}
+      size={size}
       {...otherProps}
       sx = {[
         variant === 'outlined' && {
-          color : `${theme}.pallete.${color}.main`,
-          background : 'fff',
+          color : `${theme}.palette.${color}.main`,
+          backgroundColor : `#ffffff`,
           border: `1px solid`,
-          borderColor : `${theme}.pallete.${color}.main`,
+          borderColor : `${theme}.palette.${color}.main`,
           '&:hover' : {
-            background : `${theme}.pallete.${color}.contrastText`
+            backgroundColor : `${theme}.palette.${color}.contastText`
+          }
+        },
+        variant === 'contained' && {
+          color : '#ffffff',
+          '&:hover' : {
+            background : `${theme}.palette.${color}.dark`
+          },
+          boxShadow : 'none'
+        },
+        color === 'secondary' && {
+          color : '#000000',
+          background : `#ffffff`,
+          borderColor : `${theme}.palette.${color}.main`,
+          '&:hover' : {
+              borderColor : '#000000'  
           }
         }
+        
       ]}
     >
       {text}
