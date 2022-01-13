@@ -1,4 +1,4 @@
-import { Checkbox as MuiCheckbox } from '@mui/material';
+import { Box, Checkbox as MuiCheckbox } from '@mui/material';
 import { Typography as MuiTypography } from '@mui/material';
 import { useTheme } from '@mui/material';
 
@@ -29,7 +29,23 @@ const Checkbox = ({
 }: ICheckboxProps) => {
     const theme = useTheme();
   return (
-    <div>
+    <Box sx={[
+      {
+        display : 'flex',
+        color : theme.palette.common.black,
+        flexDirection : reverse ? 'row-reverse' : 'row',
+        width : 'max-content',
+        fontFamily : "'Source Sans Pro', sans-serif",
+        '& svg' : {
+          width : size === 'small' ? 16 : 20,
+          height : size === 'small' ? 16 : 20
+        },
+        '&>span' : {
+          padding:0,
+          paddingRight : size === 'small' ? 0 : 4
+        }
+      }
+    ]}>
       <MuiCheckbox
         //checkedIcon={<CheckIcon />}
         //icon={<UnCheckedIcon alert={alert} />}
@@ -40,23 +56,6 @@ const Checkbox = ({
         disabled={disabled}
         disableRipple
         color="primary"
-        sx={
-            [
-                {
-                    flexDirection : reverse ? 'row-reverse' : 'row',
-                    '& svg' : {
-                        width : size === 'small' ? 16 : 20,
-                        height : size === 'small' ? 16 : 20
-                    },
-                    '&>span' : {
-                        padding : 0,
-                        paddingRight : size === 'small' ? 0 : 4
-                    }
-                }
-            ]
-
-
-        }
         {...otherProps}
       />
       {label ? (
@@ -74,7 +73,7 @@ const Checkbox = ({
       ) : (
         ''
       )}
-    </div>
+    </Box>
   );
 };
 

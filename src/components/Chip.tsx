@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material";
 export interface IChipsProps {
   selected?: boolean;
   onDelete?: any;
-  size?: "small" | "medium" | "large";
+  size: "small" | "medium";
   text: string;
   [key: string]: any;
 }
@@ -22,7 +22,8 @@ const Chip = ({
       color="primary"
       label={text}
       onDelete={onDelete}
-      //   deleteIcon={<ChipIcon />}
+      size={size}
+      //deleteIcon={<ChipIcon />}
       sx={[
         {
           backgroundColor: selected

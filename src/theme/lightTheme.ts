@@ -65,8 +65,12 @@ lightTheme = createTheme(lightTheme, {
         root: {
           "&.Mui-disabled": {
             backgroundColor: lightTheme.palette.secondary.light + " !important",
-            color: "#A1A1A1" + " !important",
+            color: "#A1A1A1",
           },
+        },
+        startIcon: {
+          marginRight: 0,
+          marginLeft: 0,
         },
         sizeSmall: {
           minWidth: 118,
@@ -147,11 +151,67 @@ lightTheme = createTheme(lightTheme, {
         },
       },
     },
-    MuiSwitch: {
-      styleOverrides: {
-        root: {},
-      },
-    },
+
+    // MuiSwitch: {
+    //   variants : [
+    //     {
+    //       props : {checked : true},
+    //       style : {
+    //         padding : 2,
+    //         color : 'pink',
+    //         '&$checked' : {
+
+    //         }
+    //       }
+    //     }
+    //   ],
+    //   // styleOverrides: {
+    //   //   switchBase: {
+    //   //     padding: 2,
+    //   //     color: "white",
+    //   //     "&$checked": {
+    //   //       color: "white",
+    //   //       variants: [
+    //   //         {
+    //   //           props: { size: "small" },
+    //   //           style: {
+    //   //             transform: `translateX(12/1)px`,
+    //   //           },
+    //   //         },
+    //   //       ],
+    //   //     },
+    //   //     "& + $track": {
+    //   //       opacity: 1,
+    //   //       variants: [
+    //   //         {
+    //   //           props: { colored: true, disabled: true },
+    //   //           style: {
+    //   //             backgroundColor: lightTheme.palette.success.light,
+    //   //           },
+    //   //         },
+    //   //         {
+    //   //           props: { colored: true, disabled: false },
+    //   //           style: {
+    //   //             backgroundColor: lightTheme.palette.success.main,
+    //   //           },
+    //   //         },
+    //   //         {
+    //   //           props: { colored: false, disabled: true },
+    //   //           style: {
+    //   //             backgroundColor: lightTheme.palette.primary.light,
+    //   //           },
+    //   //         },
+    //   //         {
+    //   //           props: { colored: false, disabled: false },
+    //   //           style: {
+    //   //             backgroundColor: lightTheme.palette.primary.main,
+    //   //           },
+    //   //         },
+    //   //       ],
+    //   //     },
+    //   //   },
+    //   // },
+    // },
     MuiTooltip: {
       styleOverrides: {
         arrow: {
@@ -172,74 +232,107 @@ lightTheme = createTheme(lightTheme, {
         },
       },
     },
-    MuiInputBase: {
-      styleOverrides: {
-        root: {
-          "label + &": {
-            // marginTop: lightTheme.spacing(1),
-          },
-        },
-        input: {
-          borderRadius: 4,
-          position: "relative",
-          ...lightTheme.typography.body2,
-          border: `1px solid ${lightTheme.palette.secondary.main}`,
-          width: 192,
-          cursor: "pointer",
-          borderColor: lightTheme.palette.secondary.main,
-          alignSelf: "flex-end",
-          height: 32,
-          padding: "8px 12px",
-          //@ts-ignore
-          color: `${lightTheme.palette.blackAndWhite.main} !important`,
-
-          boxSizing: "border-box",
-        },
-        sizeSmall: {
-          ...lightTheme.typography.body2,
-          height: 30 - 16,
-        },
-        sizeMedium: {
-          ...lightTheme.typography.body1,
-          height: 38 - 16,
-        },
-      },
-    },
+    
     MuiRadio: {
-      styleOverrides: {
-        root: {
-          display: "flex",
-          width: "max-content",
-          '&>span:hover': {
-            backgroundColor: 'transparent !important',
-          },
-        },
-      },
+      // variants : [
+      //   {
+      //     props : {disabled : true},
+      //     style : {
+      //       color : lightTheme.palette.secondary.main
+      //     }
+      //   },
+      //   {
+      //     props : {disabled : false,alert : true},
+      //     style : {
+      //       color : lightTheme.palette.error.main,
+            
+      //     }
+      //   },
+      //    {
+      //      props : {disabled : false , alert : false},
+      //      style : {
+      //        color : lightTheme.palette.primary.main
+      //      }
+      //    }
+      // ],
     },
     MuiAutocomplete: {},
     MuiCheckbox: {
       styleOverrides: {
-        root: {
-          padding: '9px 9px 9px 0',
-    
-        }
+        disabled: {
+          color: lightTheme.palette.secondary.main,
+          cursor: "not-allowed",
+        },
       },
     },
     MuiDrawer: {},
-    MuiTabs : {
-      root : {
-        textTransform: 'none',
+    MuiTabs: {
+      root: {
+        textTransform: "none",
         color: lightTheme.palette.common.black,
         borderBottom: `1px solid ${lightTheme.palette.secondary.main}`,
         ...lightTheme.typography.h5,
-        maxWidth: '100%',
-        minWidth: '50%',
-        '&:hover': {
+        maxWidth: "100%",
+        minWidth: "50%",
+        "&:hover": {
           color: lightTheme.palette.primary.main,
         },
-      }
-    }
+      },
+    },
   },
 });
 
 export default lightTheme;
+
+const tempTheme = createTheme({
+  components: {
+    MuiSwitch : {
+      variants : [
+        {
+          props : {checked : true},
+          style : {
+            ":switchBase" : {
+              padding : 2,
+              color : 'pink',
+              '&$checked' : {
+
+              }
+            }
+          }
+        }
+      ]
+    }
+    //   MuiSwitch : {
+    //     styleOverrides : {
+    //       checked : {
+
+    //       }
+    //     }
+    //     variants : [
+    //         {
+    //           props : {},
+    //           style : {
+
+    //           }
+    //         }
+    //     ]
+
+    //     // variants : [
+    //     //   {
+    //     //     props: { size: "small" },
+    //     //     style: {
+
+    //     //       transform: `translateX(12)px`,
+    //     //     },
+    //     //   },
+    //     //   {
+    //     //     props: { size: "medium" },
+    //     //     style: {
+    //     //       transform: `translate(16)px`,
+    //     //     },
+    //     //   },
+    //     // ]
+    //   }
+    // }
+  },
+});

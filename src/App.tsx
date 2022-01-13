@@ -1,19 +1,16 @@
 import {
   Autocomplete,
   Breadcrumbs,
-  Checkbox,
   Container,
   Grid,
-  InputBase,
   InputLabel,
   Link,
   Pagination,
-  Radio,
   Drawer,
-  Switch,
   TextField,
   Typography,
 } from "@mui/material";
+import Checkbox from "./components/Checkbox";
 
 import { useState } from "react";
 import { useTheme } from "@mui/material";
@@ -22,6 +19,13 @@ import Chip from "./components/Chip";
 import Snackbar from "./components/Snackbar";
 // import Tooltip from "./components/Tooltip";
 import Button from "./components/Button";
+import Switch from "./components/Switch";
+import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import IconButton from "./components/Iconbutton";
+import Stack from "@mui/material/Stack";
+import Radio from "./components/Radio";
+
+import BootstrapInput from "./components/InputBase";
 const TempComponent = () => {
   return <p>badge</p>;
 };
@@ -35,12 +39,21 @@ function App() {
   return (
     <Container maxWidth="lg">
       <Grid container>
+      <Switch checked={true} size="small" colored  = {true} label="Switch" disabled={false}/>
+
         <Button
           variant="outlined"
           color="secondary"
           // startIcon={<MuiAdjustIcon />}
           text="
           Testing this button"
+        />
+        <IconButton
+          variant="contained"
+          color="primary"
+          size="small"
+          icon={<CheckRoundedIcon />}
+          text="Random info"
         />
         <Badge
           rounded={true}
@@ -69,23 +82,17 @@ function App() {
           <Typography color="text.primary">Breadcrumbs</Typography>
         </Breadcrumbs>
 
-        <Chip color="primary" text="testing" size="medium" selected={false} />
+        <Chip color="primary" text="testing" size="medium" selected={false}/>
 
         <Snackbar
           open={true}
           message="Random testing message"
           color="primary"
         />
-        <Pagination
-          sx={{ m: 4 }}
-          count={2}
-          shape="rounded"
-          color="primary"
-          page={1}
-        />
-
-        <Switch checked={true} sx={{ m: 4 }} />
-
+        <Stack spacing={2}>
+          <Pagination count={10} color="primary" shape="rounded" />
+        </Stack>
+        
         {/* <Tooltip title="Sample" color="error">
           <span>This is a tooltip</span>
         </Tooltip> */}
@@ -93,14 +100,14 @@ function App() {
         <InputLabel sx={{ m: 4 }}>
           <span>Random Label</span>
         </InputLabel>
-        <InputBase
-          style={{ width: "100%" }}
-          sx={{ m: 4 }}
-          autoFocus
-          placeholder="Some random data"
+        <BootstrapInput
+          placeholder={"Random"}
+          required={false}
+          width={100}
+          alert={false}
+          disabled={false}
         />
-
-        <Radio checked={true} color="primary" sx={{ m: 4 }} />
+        <Radio checked={true} size="medium" disabled={false} alert={true}/>
 
         <Autocomplete
           disablePortal
@@ -111,7 +118,9 @@ function App() {
         />
 
         <Checkbox
-          defaultChecked
+          checked
+          size="medium"
+          label="Checkbox"
           aria-label="demo"
           sx={{ m: 4 }}
           disableRipple
