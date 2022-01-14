@@ -1,7 +1,7 @@
 import React from 'react';
 import MuiChip from "@mui/material/Chip";
 import { useTheme } from "@mui/material";
-import ChipIcon from "../icons/ChipIcon";
+import ChipIcon from "../../icons/Chip";
 export interface IChipsProps {
   selected?: boolean;
   onDelete?: any;

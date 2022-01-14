@@ -10,7 +10,7 @@ import '@fontsource/poppins/700.css';
 
 import { ThemeProvider } from '@mui/material/styles';
 // import { LightTheme, DarkTheme } from './theme'
-import LightTheme from './theme'
+import LightTheme from './themes'
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={LightTheme}>
