@@ -24,4 +24,5 @@ ToolTip.propTypes = {
   text: PropTypes.string,
   children: PropTypes.element,
 };
+
 export default ToolTip;

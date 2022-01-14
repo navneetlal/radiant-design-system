@@ -10,22 +10,22 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import Checkbox from "./components/Checkbox";
+import Checkbox from "./components/Checkbox/Checkbox";
 
 import React, { useState } from "react";
 import { useTheme } from "@mui/material";
-import Badge from "./components/Badges";
-import Chip from "./components/Chip";
-import Snackbar from "./components/Snackbar";
+import Badge from "./components/Badge/Badge";
+import Chip from "./components/Chip/Chip";
+import Snackbar from "./components/Snackbar/Snackbar";
 // import Tooltip from "./components/Tooltip";
-import Button from "./components/Button";
-import Switch from "./components/Switch";
+import Button from "./components/Button/Button";
+import Switch from "./components/Switch/Switch";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
-import IconButton from "./components/Iconbutton";
+import IconButton from "./components/IconButton/Iconbutton";
 import Stack from "@mui/material/Stack";
-import Radio from "./components/Radio";
+import Radio from "./components/Radio/Radio";
 
-import BootstrapInput from "./components/InputBase";
+import BootstrapInput from "./components/InputBase/InputBase";
 const TempComponent = () => {
   return <p>badge</p>;
 };
