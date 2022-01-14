@@ -96,15 +96,11 @@ lightTheme = createTheme(lightTheme, {
       },
     },
     MuiBadge: {
-      styleOverrides: {
-        root: {
-          color: lightTheme.palette.primary.light,
-          height: "32px", // medium
-          transform: "scale(1) translate(90%, -60%)",
-          borderRadius: "50%",
-          ...lightTheme.typography.body1,
-        },
-      },
+      variants : [
+        {
+          props : {}
+        }
+      ]
     },
     MuiBreadcrumb: {
       styleOverrides: {},
@@ -126,13 +122,13 @@ lightTheme = createTheme(lightTheme, {
         },
       },
     },
-    MuiSnackbar: {
-      styleOverrides: {
-        root: {
-          minWidth: 360,
-          padding: "8px 16px",
-        },
-      },
+    MuiSnackbarContent : {
+        styleOverrides : {
+          root : {
+            minWidth: 360,
+            padding: `8px 16px`,
+          }
+        }
     },
     MuiPagination: {
       styleOverrides: {
@@ -286,18 +282,12 @@ export default lightTheme;
 
 const tempTheme = createTheme({
   components: {
-    MuiSwitch : {
+    MuiBadge : {
       variants : [
         {
-          props : {checked : true},
+          props : {},
           style : {
-            ":switchBase" : {
-              padding : 2,
-              color : 'pink',
-              '&$checked' : {
-
-              }
-            }
+            
           }
         }
       ]
