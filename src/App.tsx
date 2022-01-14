@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import Checkbox from "./components/Checkbox";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useTheme } from "@mui/material";
 import Badge from "./components/Badges";
 import Chip from "./components/Chip";

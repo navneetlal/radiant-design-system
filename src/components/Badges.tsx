@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { Badge as MuiBadge } from '@mui/material';
 import { useTheme } from '@mui/material';
 

@@ -1,5 +1,6 @@
 import { Snackbar as MUISnackbar } from "@mui/material";
-import { useTheme } from "@emotion/react";
+import { useTheme } from "@mui/material";
+import React from 'react'
 
 export interface ISnackbarProps {
   open: boolean;

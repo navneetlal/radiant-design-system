@@ -1,5 +1,6 @@
 import MuiChip from "@mui/material/Chip";
 import { useTheme } from "@mui/material";
+import React from 'react'
 
 export interface IChipsProps {
   selected?: boolean;
