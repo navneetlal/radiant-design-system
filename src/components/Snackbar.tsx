@@ -54,7 +54,7 @@ const Snackbar = ({
       action={action}
       ContentProps = {{
           sx:{
-              backgroundColor : finalColor
+              backgroundColor : finalColor,
           }
       }}
       {...otherProps}

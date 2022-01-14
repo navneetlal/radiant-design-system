@@ -1,5 +1,4 @@
 import {
-  Autocomplete,
   Breadcrumbs,
   Container,
   Grid,
@@ -7,14 +6,13 @@ import {
   Link,
   Pagination,
   Drawer,
-  TextField,
   Typography,
 } from "@mui/material";
 import Checkbox from "./components/Checkbox";
 
 import { useState } from "react";
 import { useTheme } from "@mui/material";
-import Badge from "./components/Badges";
+import {StyledBadge as Badge} from "./components/Badges";
 import Chip from "./components/Chip";
 import Snackbar from "./components/Snackbar";
 // import Tooltip from "./components/Tooltip";
@@ -24,8 +22,9 @@ import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import IconButton from "./components/Iconbutton";
 import Stack from "@mui/material/Stack";
 import Radio from "./components/Radio";
-
+import AutoComplete from "./components/Autocomplete";
 import BootstrapInput from "./components/InputBase";
+// import CustomChipDropdown from "./components/CustomChipDropdown";
 const TempComponent = () => {
   return <p>badge</p>;
 };
@@ -36,11 +35,14 @@ function App() {
     setDrawer((prevState) => !prevState);
   };
 
+  const handleDelete = () => {
+    
+  }
+
   return (
     <Container maxWidth="lg">
       <Grid container>
-      <Switch checked={true} size="small" colored  = {true} label="Switch" disabled={false}/>
-
+      
         <Button
           variant="outlined"
           color="secondary"
@@ -56,14 +58,11 @@ function App() {
           text="Random info"
         />
         <Badge
-          rounded={true}
-          text={"4"}
-          size="large"
+          badgeContent={5}
           overlap="circle"
           color="error"
           // @ts-ignore
           backgroundcolor={theme.palette.warning.light}
-          // @ts-ignore
           textcolor={theme.palette.warning.dark}
         >
           <TempComponent />
@@ -82,12 +81,12 @@ function App() {
           <Typography color="text.primary">Breadcrumbs</Typography>
         </Breadcrumbs>
 
-        <Chip color="primary" text="testing" size="medium" selected={false}/>
-
+        <Chip color="primary" text="testing" size="medium" selected={false} disabled onDelete={handleDelete}/>
         <Snackbar
           open={true}
-          message="Random testing message"
-          color="primary"
+          message="nice random message to test this thing"
+          color="success"
+          action={''}
         />
         <Stack spacing={2}>
           <Pagination count={10} color="primary" shape="rounded" />
@@ -109,14 +108,7 @@ function App() {
         />
         <Radio checked={true} size="medium" disabled={false} alert={true}/>
 
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={["hello world", "testing this thing"]}
-          sx={{ width: 300, m: 4 }}
-          renderInput={(params) => <TextField {...params} label="Movie" />}
-        />
-
+        
         <Checkbox
           checked
           size="medium"
@@ -125,7 +117,9 @@ function App() {
           sx={{ m: 4 }}
           disableRipple
         />
+        
       </Grid>
+      <Switch checked={true} size="small" colored  = {false} label="Switch" disabled={false}/>
 
       <Drawer
         variant="temporary"

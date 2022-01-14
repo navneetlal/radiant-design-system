@@ -1,6 +1,6 @@
 import MuiChip from "@mui/material/Chip";
 import { useTheme } from "@mui/material";
-
+import ChipIcon from "./icons/ChipIcon";
 export interface IChipsProps {
   selected?: boolean;
   onDelete?: any;
@@ -23,9 +23,10 @@ const Chip = ({
       label={text}
       onDelete={onDelete}
       size={size}
-      //deleteIcon={<ChipIcon />}
+      deleteIcon={<ChipIcon />}
       sx={[
         {
+          
           backgroundColor: selected
             ? theme.palette.primary.main
             : theme.palette.secondary?.contrastText,

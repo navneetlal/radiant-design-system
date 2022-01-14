@@ -4,8 +4,10 @@ import {
 } from "@mui/material";
 
 import { useTheme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
 
+import { Theme } from "@mui/material";
 const styles = {
   small: {
     root: {
@@ -35,6 +37,7 @@ const styles = {
   },
 } as const;
 
+
 export interface ISwitchProps {
   checked?: any;
   onChange?: any;
@@ -59,6 +62,7 @@ const Switch = ({
   ...otherProps
 }: ISwitchProps) => {
   const theme = useTheme();
+  
   return (
     <Box
       sx={[
@@ -84,38 +88,42 @@ const Switch = ({
         name={name}
         size={size}
         disabled={disabled}
+        
         sx={[
           {
             "& .MuiSwitch-root": {
-              width: `${styles}.${size}.root.width`,
-              height: `${styles}.${size}.root.height`,
+              width: `${styles}.${size}.root.width !important`,
+              height: `${styles}.${size}.root.height !important`,
               padding: 0,
               display: `flex !important`,
             },
           },
-          disabled && {
-            "& + $track": {
-              backgroundColor: `${
-                theme.palette[colored ? "error" : "primary"].light
-              }!important`,
-              opacity: `${1}!important`,
-            },
-            color: `fff !important`,
-            "&$checked": {
+          {
+            "& .Mui-disabled": {
               "& + $track": {
-                opacity: 1,
                 backgroundColor: `${
-                  theme.palette[colored ? "success" : "primary"].light
+                  theme.palette[colored ? "error" : "primary"].light
                 }!important`,
-                borderColor: `${
-                  theme.palette[colored ? "success" : "primary"].light
-                }!important`,
+                opacity: `${1}!important`,
+              },
+              color: `fff !important`,
+              "&$checked": {
+                "& + $track": {
+                  opacity: 1,
+                  backgroundColor: `${
+                    theme.palette[colored ? "success" : "primary"].light
+                  }!important`,
+                  borderColor: `${
+                    theme.palette[colored ? "success" : "primary"].light
+                  }!important`,
+                },
               },
             },
           },
+
           {
             "& .MuiSwitch-switchBase": {
-              padding: 2,
+              padding: 1,
               color: "white",
               "&$checked": {
                 transform: `translateX(${
@@ -124,34 +132,35 @@ const Switch = ({
                 color: `white !important`,
                 "& + $track": {
                   opacity: 1,
-                  backgroundColor:
-                    `${theme.palette[colored ? "success" : "primary"][
+                  backgroundColor: `${
+                    theme.palette[colored ? "success" : "primary"][
                       disabled ? "light" : "main"
-                    ]} !important`,
-                  borderColor:
-                    `${theme.palette[colored ? "success" : "primary"][
+                    ]
+                  } !important`,
+                  borderColor: `${
+                    theme.palette[colored ? "success" : "primary"][
                       disabled ? "light" : "main"
-                    ]} !important`,
+                    ]
+                  } !important`,
                 },
               },
             },
             "& .MuiSwitch-checked": {
               transform: `translateX(${styles[size].switchBase.transform})px !important`,
-              
             },
             "& .MuiSwitch-thumb": {
               width: `${styles[size].thumb.width}px !important`,
               height: `${styles[size].thumb.height}px !important`,
               boxShadow: "none",
-            
             },
             "& .MuiSwitch-track": {
               height: styles[size].root.height,
+              width : `${styles[size].root.height} !important`,
               borderRadius: 50,
               opacity: 1,
-              backgroundColor : `${colored ? theme.palette.error.main : theme.palette.primary.main} !important`
-              // backgroundColor:
-              //   theme.palette[colored ? "error" : "primary"].main,
+              backgroundColor: `${
+                colored ? theme.palette.error.main : theme.palette.primary.main
+              } !important`,
             },
           },
         ]}
