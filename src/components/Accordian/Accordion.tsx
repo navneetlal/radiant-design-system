@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Typography as MuiTypography, Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { ExpandLess as MuiExpandLessIcon, ExpandMore as MuiExpandMoreIcon } from '@mui/icons-material';
+
 const useStyles = makeStyles((theme:any) => ({
   divOne: {
     height: '78px',
