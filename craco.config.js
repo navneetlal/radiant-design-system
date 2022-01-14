@@ -1,5 +1,7 @@
+const { ESLINT_MODES } = require("@craco/craco");
+
 module.exports = {
-  webpack: {
-    entryPoint: './src/server.tsx'
-  }
-}
+    eslint: {
+        mode: ESLINT_MODES.file
+    },
+};
