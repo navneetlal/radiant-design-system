@@ -1,40 +1,70 @@
 import {
-  Autocomplete,
-  Badge,
   Breadcrumbs,
-  Button,
-  Checkbox,
-  Chip,
   Container,
   Grid,
-  InputBase,
   InputLabel,
   Link,
   Pagination,
-  Radio,
-  Snackbar,
   Drawer,
-  Switch,
-  TextField,
-  Tooltip,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import Checkbox from "./components/Checkbox/Checkbox";
 
+import React, { useState } from "react";
+import { useTheme } from "@mui/material";
+import Badge from "./components/Badge/Badge";
+import Chip from "./components/Chip/Chip";
+import Snackbar from "./components/Snackbar/Snackbar";
+// import Tooltip from "./components/Tooltip";
+import Button from "./components/Button/Button";
+import Switch from "./components/Switch/Switch";
+import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import IconButton from "./components/IconButton/Iconbutton";
+import Stack from "@mui/material/Stack";
+import Radio from "./components/Radio/Radio";
+
+import BootstrapInput from "./components/InputBase/InputBase";
+const TempComponent = () => {
+  return <p>badge</p>;
+};
 function App() {
+  const theme = useTheme();
   const [drawer, setDrawer] = useState(false);
   const handleDrawer = () => {
     setDrawer((prevState) => !prevState);
   };
 
+  const handleDelete = () => {
+    
+  }
+
   return (
     <Container maxWidth="lg">
       <Grid container>
-        <Button variant="contained" sx={{ m: 4 }} onClick={handleDrawer}>
-          Hello
-        </Button>
-        <Badge badgeContent={4} color="primary" sx={{ m: 7 }}>
-          hello
+      
+        <Button
+          variant="outlined"
+          color="secondary"
+          // startIcon={<MuiAdjustIcon />}
+          text="
+          Testing this button"
+        />
+        <IconButton
+          variant="contained"
+          color="primary"
+          size="small"
+          icon={<CheckRoundedIcon />}
+          text="Random info"
+        />
+        <Badge
+          badgeContent={5}
+          overlap="circle"
+          color="error"
+          // @ts-ignore
+          backgroundcolor={theme.palette.warning.light}
+          textcolor={theme.palette.warning.dark}
+        >
+          <TempComponent />
         </Badge>
         <Breadcrumbs aria-label="breadcrumb" sx={{ m: 4 }} separator=">">
           <Link underline="hover" color="inherit" href="/">
@@ -50,56 +80,45 @@ function App() {
           <Typography color="text.primary">Breadcrumbs</Typography>
         </Breadcrumbs>
 
-        <Chip color="primary" label="testing" sx={{ m: 4 }} />
-
+        <Chip color="primary" text="testing" size="medium" selected={false} disabled onDelete={handleDelete}/>
         <Snackbar
-          autoHideDuration={3000}
-          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           open={true}
-          message="Random testing message"
-          action={" "}
+          message="nice random message to test this thing"
+          color="success"
+          action={''}
         />
-        <Pagination
-          sx={{ m: 4 }}
-          count={2}
-          shape="rounded"
-          color="primary"
-          page={1}
-        />
-
-        <Switch checked={true} sx={{ m: 4 }} />
-
-        <Tooltip title="Sample" placement="top" sx={{ m: 4 }} arrow>
+        <Stack spacing={2}>
+          <Pagination count={10} color="primary" shape="rounded" />
+        </Stack>
+        
+        {/* <Tooltip title="Sample" color="error">
           <span>This is a tooltip</span>
-        </Tooltip>
+        </Tooltip> */}
 
         <InputLabel sx={{ m: 4 }}>
           <span>Random Label</span>
         </InputLabel>
-        <InputBase
-          style={{ width: "100%" }}
-          sx={{ m: 4 }}
-          autoFocus
-          placeholder="Some random data"
+        <BootstrapInput
+          placeholder={"Random"}
+          required={false}
+          width={100}
+          alert={false}
+          disabled={false}
         />
+        <Radio checked={true} size="medium" disabled={false} alert={true}/>
 
-        <Radio checked={true} color="primary" sx={{ m: 4 }} />
-
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={["hello world", "testing this thing"]}
-          sx={{ width: 300, m: 4 }}
-          renderInput={(params) => <TextField {...params} label="Movie" />}
-        />
-
+        
         <Checkbox
-          defaultChecked
+          checked
+          size="medium"
+          label="Checkbox"
           aria-label="demo"
           sx={{ m: 4 }}
           disableRipple
         />
+        
       </Grid>
+      <Switch checked={true} size="small" colored  = {false} label="Switch" disabled={false}/>
 
       <Drawer
         variant="temporary"
