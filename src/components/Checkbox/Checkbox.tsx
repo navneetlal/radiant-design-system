@@ -2,6 +2,8 @@ import { Box, Checkbox as MuiCheckbox } from '@mui/material';
 import { Typography as MuiTypography } from '@mui/material';
 import { useTheme } from '@mui/material';
 import React from 'react'
+import CheckIcon from '../../icons/CheckedIcon/CheckedIcon';
+import UnCheckedIcon from '../../icons/UncheckedIcon/UncheckedIcon';
 
 // import CheckIcon from '../icons/CheckIcon';
 // import UnCheckedIcon from '../icons/UnCheckedIcon';
@@ -48,8 +50,8 @@ const Checkbox = ({
       }
     ]}>
       <MuiCheckbox
-        //checkedIcon={<CheckIcon />}
-        //icon={<UnCheckedIcon alert={alert} />}
+        checkedIcon={<CheckIcon/>}
+        icon={<UnCheckedIcon alert={alert}/>}
         size={size}
         checked={checked}
         onChange={onChange}
@@ -58,6 +60,11 @@ const Checkbox = ({
         disableRipple
         color="primary"
         {...otherProps}
+        sx={[
+          {
+        
+          }
+        ]}
       />
       {label ? (
         <MuiTypography

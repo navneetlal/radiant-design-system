@@ -96,11 +96,11 @@ lightTheme = createTheme(lightTheme, {
       },
     },
     MuiBadge: {
-      variants : [
+      variants: [
         {
-          props : {}
-        }
-      ]
+          props: {},
+        },
+      ],
     },
     MuiBreadcrumb: {
       styleOverrides: {},
@@ -122,13 +122,22 @@ lightTheme = createTheme(lightTheme, {
         },
       },
     },
-    MuiSnackbarContent : {
-        styleOverrides : {
-          root : {
-            minWidth: 360,
-            padding: `8px 16px`,
-          }
-        }
+    MuiSnackbar: {
+      styleOverrides: {
+        root: {
+          borderRadius: `4px`,
+        },
+      },
+    },
+    MuiSnackbarContent: {
+      styleOverrides: {
+        root: {
+          width: 328,
+          position: "relative",
+          minWidth: 360,
+          padding: `8px 16px`,
+        },
+      },
     },
     MuiPagination: {
       styleOverrides: {
@@ -210,25 +219,21 @@ lightTheme = createTheme(lightTheme, {
     // },
     MuiTooltip: {
       styleOverrides: {
-        arrow: {
-          //@ts-ignore
-          color: lightTheme.palette.primary[600],
-        },
-        tooltipPlacementTop: {
+        
+        tooltip: {
           //@ts-ignore
           border: `1px solid ${lightTheme.palette.primary[200]}`,
           borderRadius: 4,
-          //@ts-ignore
-          backgroundColor: lightTheme.palette.primary[600],
-          //@ts-ignore
-          color: lightTheme.palette.blackAndWhite.light,
           ...lightTheme.typography.body2,
+          //@ts-ignore
+          
+          //backgroundColor: lightTheme.palette.primary[600],
 
           padding: "4px 8px",
         },
       },
     },
-    
+
     MuiRadio: {
       // variants : [
       //   {
@@ -241,7 +246,6 @@ lightTheme = createTheme(lightTheme, {
       //     props : {disabled : false,alert : true},
       //     style : {
       //       color : lightTheme.palette.error.main,
-            
       //     }
       //   },
       //    {
@@ -282,16 +286,15 @@ export default lightTheme;
 
 const tempTheme = createTheme({
   components: {
-    MuiBadge : {
-      variants : [
-        {
-          props : {},
-          style : {
-            
-          }
-        }
-      ]
-    }
+    MuiBadge: {
+      styleOverrides: {
+        badge: {
+          color: `1A1A1A`,
+          borderRadius: "4px",
+          fontFamily: '"Source Sans Pro", sans-serif',
+        },
+      },
+    },
     //   MuiSwitch : {
     //     styleOverrides : {
     //       checked : {

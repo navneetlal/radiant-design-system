@@ -1,12 +1,9 @@
 import {
-  Breadcrumbs,
   Container,
   Grid,
   InputLabel,
-  Link,
   Pagination,
   Drawer,
-  Typography,
 } from "@mui/material";
 import Checkbox from "./components/Checkbox/Checkbox";
 
@@ -24,24 +21,37 @@ import Stack from "@mui/material/Stack";
 import Radio from "./components/Radio/Radio";
 
 import BootstrapInput from "./components/InputBase/InputBase";
+import Breadcrumbs from "./components/Breadcrumb/Breadcrumb";
+import Tooltip from "./components/Tooltip/Tooltip";
 const TempComponent = () => {
   return <p>badge</p>;
 };
 function App() {
   const theme = useTheme();
   const [drawer, setDrawer] = useState(false);
+  const [check, setCheck] = useState(true);
   const handleDrawer = () => {
     setDrawer((prevState) => !prevState);
   };
 
-  const handleDelete = () => {
-    
-  }
+  const handleDelete = () => {};
+
+  const handleCheckbox = () => {
+    setCheck((prevState) => !prevState);
+  };
 
   return (
     <Container maxWidth="lg">
       <Grid container>
-      
+        <Checkbox
+          checked={check}
+          size="medium"
+          aria-label="demo"
+          sx={{ m: 4 }}
+          disableRipple
+          onChange={handleCheckbox}
+        />
+
         <Button
           variant="outlined"
           color="secondary"
@@ -56,44 +66,52 @@ function App() {
           icon={<CheckRoundedIcon />}
           text="Random info"
         />
+
         <Badge
           badgeContent={5}
-          overlap="circle"
+          overlap="circular"
           color="error"
+          rounded
           // @ts-ignore
           backgroundcolor={theme.palette.warning.light}
           textcolor={theme.palette.warning.dark}
         >
-          <TempComponent />
+          <CheckRoundedIcon />
         </Badge>
-        <Breadcrumbs aria-label="breadcrumb" sx={{ m: 4 }} separator=">">
-          <Link underline="hover" color="inherit" href="/">
-            MUI
-          </Link>
-          <Link
-            underline="hover"
-            color="inherit"
-            href="/getting-started/installation/"
-          >
-            Core
-          </Link>
-          <Typography color="text.primary">Breadcrumbs</Typography>
-        </Breadcrumbs>
 
-        <Chip color="primary" text="testing" size="medium" selected={false} disabled onDelete={handleDelete}/>
-        <Snackbar
-          open={true}
-          message="nice random message to test this thing"
-          color="success"
-          action={''}
+        <Breadcrumbs
+          text="TMS"
+          links={[
+            {
+              name: "Delhi",
+              url: "https://www.figma.com/file/v8m3AEgxYahOv0s5oGbTXm/Intugine-Product-Design-Library-v1.6?node-id=0%3A22012",
+            },
+            {
+              name: "Mumbai",
+              url: "https://www.figma.com/file/v8m3AEgxYahOv0s5oGbTXm/Intugine-Product-Design-Library-v1.6?node-id=0%3A22012",
+            },
+          ]}
         />
+
+        <Chip
+          color="primary"
+          text="testing"
+          size="medium"
+          selected={false}
+          
+          onDelete={handleDelete}
+        />
+
+        <Snackbar open={true} message="Label" color="success" action={""} />
+
+          
         <Stack spacing={2}>
           <Pagination count={10} color="primary" shape="rounded" />
         </Stack>
-        
-        {/* <Tooltip title="Sample" color="error">
+
+        <Tooltip title="Sample" color="dark">
           <span>This is a tooltip</span>
-        </Tooltip> */}
+        </Tooltip>
 
         <InputLabel sx={{ m: 4 }}>
           <span>Random Label</span>
@@ -105,20 +123,16 @@ function App() {
           alert={false}
           disabled={false}
         />
-        <Radio checked={true} size="medium" disabled={false} alert={true}/>
+        <Radio checked={true} size="medium" disabled={false} alert={true} />
 
-        
-        <Checkbox
-          checked
-          size="medium"
-          label="Checkbox"
-          aria-label="demo"
-          sx={{ m: 4 }}
-          disableRipple
+        <Switch
+          checked={true}
+          size="small"
+          colored={false}
+          label="Switch"
+          disabled={false}
         />
-        
       </Grid>
-      <Switch checked={true} size="small" colored  = {false} label="Switch" disabled={false}/>
 
       <Drawer
         variant="temporary"
