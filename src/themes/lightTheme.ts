@@ -144,11 +144,17 @@ lightTheme = createTheme(lightTheme, {
         root: {
           ...lightTheme.typography.body2,
           height: 32,
+          color : `#2C63E5`,
           "& ul>li>button:hover": {
-            color: lightTheme.palette.info.main,
+            backgroundColor: `rgba(0, 0, 0, 0.04)`
+            
           },
           "& ul>li>button:hover.Mui-selected": {
-            color: lightTheme.palette.info.dark,
+            color: `#F5F8FF`,
+            backgroundColor: `#2C63E5`
+          },
+          "& ul>li>button:hover.Mui-selected:hover" : {
+            backgroundColor: `#264CA4`
           },
           "& svg": {
             fill: lightTheme.palette.primary.main,
