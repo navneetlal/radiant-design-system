@@ -26,12 +26,13 @@ const Chip = ({
       size={size}
       deleteIcon={<ChipIcon />}
       sx={[
+        
         {
           
-          backgroundColor: selected
+          backgroundColor: selected && !otherProps.disabled
             ? theme.palette.primary.main
             : theme.palette.secondary?.contrastText,
-          color: selected ? "#fff" : "#1A1A1A",
+          color: selected && !otherProps.disabled ? "#ffffff" : "#1A1A1A",
           "&:focus": {
             backgroundColor: selected
               ? theme.palette.primary.main
@@ -43,9 +44,9 @@ const Chip = ({
               : //@ts-ignore
                 theme.palette?.primary[100],
 
-            color: selected ? "#fff" : "#1A1A1A",
+            color: selected ? "#ffffff" : "#1A1A1A",
             "& path": {
-              fill: selected ? "#fff" : "#1A1A1A",
+              fill: selected ? "#ffffff" : "#1A1A1A",
             },
           },
         },

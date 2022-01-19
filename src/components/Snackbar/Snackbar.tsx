@@ -1,7 +1,6 @@
 import { Snackbar as MUISnackbar } from "@mui/material";
 import { useTheme } from "@mui/material";
 import React from 'react'
-
 export interface ISnackbarProps {
   open: boolean;
   message: string;
@@ -56,6 +55,7 @@ const Snackbar = ({
       ContentProps = {{
           sx:{
               backgroundColor : finalColor,
+              cursor : 'pointer'
           }
       }}
       {...otherProps}

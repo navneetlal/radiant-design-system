@@ -1,18 +1,19 @@
 import {
   Container,
   Grid,
-  InputLabel,
   Pagination,
   Drawer,
+  Tabs as MuiTabs,
+  Tab,
 } from "@mui/material";
 import Checkbox from "./components/Checkbox/Checkbox";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 import React, { useState } from "react";
 import { useTheme } from "@mui/material";
 import Badge from "./components/Badge/Badge";
 import Chip from "./components/Chip/Chip";
 import Snackbar from "./components/Snackbar/Snackbar";
-// import Tooltip from "./components/Tooltip";
 import Button from "./components/Button/Button";
 import Switch from "./components/Switch/Switch";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
@@ -20,9 +21,11 @@ import IconButton from "./components/IconButton/Iconbutton";
 import Stack from "@mui/material/Stack";
 import Radio from "./components/Radio/Radio";
 
-import BootstrapInput from "./components/InputBase/InputBase";
+import Textbox from "./components/Textbox/Textbox";
 import Breadcrumbs from "./components/Breadcrumb/Breadcrumb";
 import Tooltip from "./components/Tooltip/Tooltip";
+import AutoComplete from "./components/Autocomplete/Autocomplete";
+
 const TempComponent = () => {
   return <p>badge</p>;
 };
@@ -37,36 +40,36 @@ function App() {
   const handleDelete = () => {};
 
   const handleCheckbox = () => {
+    
     setCheck((prevState) => !prevState);
   };
 
   return (
     <Container maxWidth="lg">
       <Grid container>
-        <Checkbox
-          checked={check}
-          size="medium"
-          aria-label="demo"
-          sx={{ m: 4 }}
-          disableRipple
-          onChange={handleCheckbox}
-        />
-
         <Button
-          variant="outlined"
-          color="secondary"
+          variant="contained"
+          color="primary"
           // startIcon={<MuiAdjustIcon />}
           text="
           Testing this button"
+          
         />
         <IconButton
-          variant="contained"
+          variant="outlined"
           color="primary"
           size="small"
           icon={<CheckRoundedIcon />}
-          text="Random info"
         />
 
+        {/* <AutoComplete
+          label="Testing this"
+          disable={false}
+          placeholder="delhi"
+          width={192}
+          height="small"
+          options={["Delhi", "Mumbai", "Goa", "Chennai"]}
+        /> */}
         <Badge
           badgeContent={5}
           overlap="circular"
@@ -98,40 +101,78 @@ function App() {
           text="testing"
           size="medium"
           selected={false}
-          
           onDelete={handleDelete}
         />
 
-        <Snackbar open={true} message="Label" color="success" action={""} />
+        <Snackbar
+          open={true}
+          message="Label"
+          color="success"
+          action={<KeyboardArrowUpIcon onClick={handleCheckbox} />}
+        />
 
-          
         <Stack spacing={2}>
           <Pagination count={10} color="primary" shape="rounded" />
         </Stack>
-
-        <Tooltip title="Sample" color="dark">
-          <span>This is a tooltip</span>
-        </Tooltip>
-
-        <InputLabel sx={{ m: 4 }}>
-          <span>Random Label</span>
-        </InputLabel>
-        <BootstrapInput
-          placeholder={"Random"}
-          required={false}
-          width={100}
-          alert={false}
-          disabled={false}
+        
+        <Radio
+          checked={check}
+          size="medium"
+          disabled={true}
+          alert={true}
+          onClick={handleCheckbox}
         />
-        <Radio checked={true} size="medium" disabled={false} alert={true} />
 
+        <MuiTabs
+          value={"This is a tab"}
+          indicatorColor="primary"
+          textColor="primary"
+          //onChange={handleChange}
+          aria-label="disabled tabs example"
+        >
+          {["Delhi", "Mumbai", "Pune", "Bangalore"].map((item: any) => (
+            <Tab label={item} />
+          ))}
+        </MuiTabs>
         <Switch
-          checked={true}
+          checked={check}
+    
           size="small"
-          colored={false}
+          colored={true}
           label="Switch"
           disabled={false}
+          onChange={handleCheckbox}
         />
+        <Grid>
+          <Tooltip title="Sample" color="dark" size="medium">
+            <span>This is a tooltip</span>
+          </Tooltip>
+        </Grid>
+        <Grid>
+          <Textbox
+            placeholder={"Random"}
+            required={false}
+            width={192}
+            label="Testing"
+            size="small"
+            alert={false}
+            disabled={false}
+            height="small"
+            action={{ text: "Add", onClick: handleCheckbox }}
+          />
+        </Grid>
+
+        <Grid>
+          <Checkbox
+            checked={check}
+            size="medium"
+            aria-label="demo"
+            label="hi there"
+            disableRipple
+            alert
+            onChange={handleCheckbox}
+          />
+        </Grid>
       </Grid>
 
       <Drawer

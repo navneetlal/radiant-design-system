@@ -6,7 +6,7 @@ import {
 import { useTheme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
-import React from 'react'
+import React from "react";
 
 import { Theme } from "@mui/material";
 const styles = {
@@ -38,7 +38,6 @@ const styles = {
   },
 } as const;
 
-
 export interface ISwitchProps {
   checked?: any;
   onChange?: any;
@@ -63,7 +62,7 @@ const Switch = ({
   ...otherProps
 }: ISwitchProps) => {
   const theme = useTheme();
-  
+
   return (
     <Box
       sx={[
@@ -85,83 +84,144 @@ const Switch = ({
 
       <MuiSwitch
         checked={checked}
-        onChange={onChange}
+        onClick={onChange}
         name={name}
         size={size}
         disabled={disabled}
-        
+        // sx={[
+        //   {
+        //     "& .MuiSwitch-root": {
+        //       width: `${styles}.${size}.root.width !important`,
+        //       height: `${styles}.${size}.root.height !important`,
+        //       padding: 0,
+        //       display: `flex !important`,
+        //     },
+        //   },
+        //   {
+        //     "& .Mui-disabled": {
+        //       "& + $track": {
+        //         backgroundColor: `${
+        //           theme.palette[colored ? "error" : "primary"].light
+        //         }!important`,
+        //         opacity: `${1}!important`,
+        //       },
+        //       color: `fff !important`,
+        //       "&$checked": {
+        //         "& + $track": {
+        //           opacity: 1,
+        //           backgroundColor: `${
+        //             theme.palette[colored ? "success" : "primary"].light
+        //           }!important`,
+        //           borderColor: `${
+        //             theme.palette[colored ? "success" : "primary"].light
+        //           }!important`,
+        //         },
+        //       },
+        //     },
+        //   },
+
+        //   {
+        //     "& .MuiSwitch-switchBase": {
+        //       padding : 2,
+        //       color: "white",
+        //       "&$checked": {
+        //         transform: `translateX(${
+        //           styles[size].switchBase.transform / 1
+        //         }px) !important`,
+        //         color: `white !important`,
+        //         "& + $track": {
+        //           opacity: 1,
+        //           backgroundColor: `${
+        //             theme.palette[colored ? "success" : "primary"][
+        //               disabled ? "light" : "main"
+        //             ]
+        //           } !important`,
+        //           borderColor: `${
+        //             theme.palette[colored ? "success" : "primary"][
+        //               disabled ? "light" : "main"
+        //             ]
+        //           } !important`,
+        //         },
+        //       },
+        //     },
+        //     "& .Mui-checked": {
+        //       transform: `translateX(${styles[size].switchBase.transform})px !important`,
+        //     },
+        //     "& .MuiSwitch-thumb": {
+        //       width: `${styles[size].thumb.width}px !important`,
+        //       height: `${styles[size].thumb.height}px !important`,
+        //       boxShadow: "none",
+        //       margin : 2
+        //     },
+        //     "& .MuiSwitch-track": {
+        //       height: 16,
+        //       width: 16,
+        //       borderRadius: 22 / 2,
+        //       '&:before, &:after': {
+        //         content: '""',
+        //         position: 'absolute',
+        //         top: '50%',
+        //         transform: 'translateY(-50%)',
+        //       },
+        //       backgroundColor: `${
+        //         colored ? theme.palette.error.main : theme.palette.primary.main
+        //       } !important`,
+
+        //     },
+        //   },
+        // ]}
         sx={[
           {
-            "& .MuiSwitch-root": {
-              width: `${styles}.${size}.root.width !important`,
-              height: `${styles}.${size}.root.height !important`,
-              padding: 0,
-              display: `flex !important`,
-            },
-          },
-          {
-            "& .Mui-disabled": {
-              "& + $track": {
-                backgroundColor: `${
-                  theme.palette[colored ? "error" : "primary"].light
-                }!important`,
-                opacity: `${1}!important`,
-              },
-              color: `fff !important`,
-              "&$checked": {
-                "& + $track": {
-                  opacity: 1,
-                  backgroundColor: `${
-                    theme.palette[colored ? "success" : "primary"].light
-                  }!important`,
-                  borderColor: `${
-                    theme.palette[colored ? "success" : "primary"].light
-                  }!important`,
-                },
-              },
-            },
-          },
-
-          {
+            width: 36,
+            height: 20,
+            padding: 0,
+            borderRadius : '5000px',
             "& .MuiSwitch-switchBase": {
-              padding: 1,
-              color: "white",
-              "&$checked": {
-                transform: `translateX(${
-                  styles[size].switchBase.transform / 1
-                }px) !important`,
-                color: `white !important`,
-                "& + $track": {
+              padding: 0,
+              margin: 1.5,
+              transitionDuration: "300ms",
+              "&.Mui-checked": {
+                transform: "translateX(16px)",
+                color: "#fff",
+                "& + .MuiSwitch-track": {
+                  backgroundColor:
+                    theme.palette.mode === "dark" ? "#2ECA45" : "#65C466",
                   opacity: 1,
-                  backgroundColor: `${
-                    theme.palette[colored ? "success" : "primary"][
-                      disabled ? "light" : "main"
-                    ]
-                  } !important`,
-                  borderColor: `${
-                    theme.palette[colored ? "success" : "primary"][
-                      disabled ? "light" : "main"
-                    ]
-                  } !important`,
+                  border: 0,
+                },
+                "&.Mui-disabled + .MuiSwitch-track": {
+                  opacity: 0.5,
                 },
               },
-            },
-            "& .MuiSwitch-checked": {
-              transform: `translateX(${styles[size].switchBase.transform})px !important`,
+              "&.Mui-focusVisible .MuiSwitch-thumb": {
+                color: "#33cf4d",
+                border: "6px solid #fff",
+              },
+              "&.Mui-disabled .MuiSwitch-thumb": {
+                color:
+                  theme.palette.mode === "light"
+                    ? theme.palette.grey[100]
+                    : theme.palette.grey[600],
+              },
+              "&.Mui-disabled + .MuiSwitch-track": {
+                opacity: theme.palette.mode === "light" ? 0.7 : 0.3,
+              },
             },
             "& .MuiSwitch-thumb": {
-              width: `${styles[size].thumb.width}px !important`,
-              height: `${styles[size].thumb.height}px !important`,
-              boxShadow: "none",
+              boxSizing: "border-box",
+              width: '16px',
+              height: '16px',
+              position : 'absolute',
+              top: '-10px',
+              right: '-6px',
+              boxShadow : 'none'
+
             },
             "& .MuiSwitch-track": {
-              height: styles[size].root.height,
-              width : `${styles[size].root.height} !important`,
-              borderRadius: 50,
+              backgroundColor:
+                theme.palette.mode === "light" ? "#E9E9EA" : "#39393D",
               opacity: 1,
-              backgroundColor: `${
-                colored ? theme.palette.error.main : theme.palette.primary.main
-              } !important`,
+              
             },
           },
         ]}

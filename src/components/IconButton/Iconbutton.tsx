@@ -7,7 +7,7 @@ import { useTheme } from '@mui/material';
 
 export interface IButtonProps {
   variant?: 'outlined' | 'contained';
-  color?: 'primary' | 'secondary' | 'error' | 'warning' | 'blackAndWhite' | 'success';
+  color?: "primary" | "secondary" | "error" | "warning" | "success" | "inherit" | "info";
   size?: 'small' | 'medium' | 'large';
   icon?: React.ReactElement;
   [key: string]: any;
@@ -18,6 +18,7 @@ const IconButton = ({ variant, color, size, text, icon, ...otherProps }: IButton
   return (
     <MuiButton
       variant={variant}
+      color={color}
       sx = {[
           {
             minWidth: 32,
@@ -33,19 +34,24 @@ const IconButton = ({ variant, color, size, text, icon, ...otherProps }: IButton
             },
           },
           variant === 'contained' && {
-              background: `${theme}.palette.${color}.main`,
+            //@ts-ignore
+              background: theme.palette[color].main,
               color : `#ffffff`,
               '&:hover' : {
-                  background : `${theme}.palette.${color}.dark`
+                //@ts-ignore
+                  background : theme.palette[color].dark
               }
           },
           variant === 'outlined' && {
-                color : `${theme}.palette.${color}.main`,
+            //@ts-ignore
+                color : theme.palette[color].main,
                 background : '#ffffff',
                 border : `1px solid`,
-                borderColor : `${theme}.palette.${color}.main`,
+                //@ts-ignore
+                borderColor : theme.palette[color].main,
                 '&:hover' : {
-                    background : `${theme}.palette.${color}.contastText`
+                  //@ts-ignore
+                    background : theme.palette[color].contrastText
                 }
           },
           size === 'small' && {
@@ -82,7 +88,6 @@ const IconButton = ({ variant, color, size, text, icon, ...otherProps }: IButton
       startIcon={icon}
       {...otherProps}
     >
-      {text && <span style={{textTransform : 'none', whiteSpace : 'nowrap'}}>{text}</span>}
     </MuiButton>
   );
 };

@@ -83,8 +83,15 @@ const Radio = ({
           {
             padding: `9px 9px 9px 0`,
           },
+          !checked && {
+            color : `#C7C7C7 !important`
+          },
           {
-            color : theme.palette.error.main
+            "&&:hover" : {
+
+              //@ts-ignore
+              color : `${theme.palette[alert ? 'error' : 'primary'].main} !important`
+            }
           },
           disabled && {
             color : theme.palette.secondary.main

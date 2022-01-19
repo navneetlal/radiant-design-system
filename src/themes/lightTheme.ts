@@ -24,6 +24,7 @@ let lightTheme = createTheme({
       contrastText: "#E3E3E3",
       50: "#FFF7E5",
       300: "#C7C7C7",
+      
     },
     error: {
       // red
@@ -62,11 +63,13 @@ lightTheme = createTheme(lightTheme, {
   components: {
     MuiButton: {
       styleOverrides: {
-        root: {
-          "&.Mui-disabled": {
-            backgroundColor: lightTheme.palette.secondary.light + " !important",
-            color: "#A1A1A1",
-          },
+        
+        disabled : {
+          backgroundColor: `#ffffff !important`,
+          color: `#A1A1A1 !important`,
+          borderColor : `#A1A1A1 !important`
+          
+          
         },
         startIcon: {
           marginRight: 0,
@@ -115,11 +118,15 @@ lightTheme = createTheme(lightTheme, {
           borderRadius: 5000,
         },
         sizeMedium: {
+          // minWidth: 90,
           height: 40,
           padding: "10px 0px",
           ...lightTheme.typography.body1,
           borderRadius: 5000,
         },
+        disabled : {
+          //backgroundColor : `${lightTheme.palette.secondary.contrastText} !important`,
+        }
       },
     },
     MuiSnackbar: {
@@ -265,6 +272,10 @@ lightTheme = createTheme(lightTheme, {
     MuiAutocomplete: {},
     MuiCheckbox: {
       styleOverrides: {
+        root : {
+          
+
+        },
         disabled: {
           color: lightTheme.palette.secondary.main,
           cursor: "not-allowed",
@@ -272,7 +283,7 @@ lightTheme = createTheme(lightTheme, {
       },
     },
     MuiDrawer: {},
-    MuiTabs: {
+    MuiTab: {
       root: {
         textTransform: "none",
         color: lightTheme.palette.common.black,
