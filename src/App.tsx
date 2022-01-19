@@ -134,13 +134,14 @@ function App() {
             <Tab label={item} />
           ))}
         </MuiTabs>
+        
         <Switch
           checked={check}
     
           size="small"
-          colored={true}
+          colored={false}
           label="Switch"
-          disabled={false}
+          disabled={true}
           onChange={handleCheckbox}
         />
         <Grid>

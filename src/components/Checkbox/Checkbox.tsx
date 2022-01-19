@@ -68,9 +68,12 @@ const Checkbox = ({
         <MuiTypography
           variant={size === "small" ? "body2" : "body1"}
           sx={[
-            disabled && {
-              color: theme.palette.secondary.main,
-              cursor: "not-allowed",
+            {
+              "& .Mui-disabled" : {
+                color: theme.palette.secondary.main,
+                cursor: "not-allowed",
+
+              }
             },
             size === "medium" && {
               marginLeft: "-31px",
