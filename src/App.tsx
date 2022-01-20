@@ -55,7 +55,7 @@ function App() {
           Testing this button"
         />
         <IconButton
-          variant="outlined"
+          variant="contained"
           color="primary"
           size="medium"
           icon={<CheckRoundedIcon />}
@@ -97,19 +97,12 @@ function App() {
 
         <Chip
           text="testing"
-          size="medium"
-          selected={false}
-          disabled
-          onDelete={handleDelete}
-        />
-        {/* <Chip
-          color="primary"
-          text="testing"
-          size="medium"
-          selected={false}
+          size="small"
+          selected={true}
           
           onDelete={handleDelete}
-        /> */}
+        />
+        
         <Snackbar
           open={true}
           message="Label"
@@ -156,16 +149,17 @@ function App() {
             onChange={handleCheckbox}
           />
         </Grid>
-        <Tooltip title="tooltip" color="dark" size="medium" placement="top">
+        <Tooltip title="tooltip" color="dark" size="small" placement="top">
           <span>This is a tooltip</span>
         </Tooltip>
 
         <Textbox
           placeholder={"Placeholder"}
-          //label="Label"
-          size="medium"
+          label="Label"
+          size="small"
+          
           //alert
-          //required
+          required
           action={{ text: "Add", onClick: handleCheckbox }}
         />
       </Grid>

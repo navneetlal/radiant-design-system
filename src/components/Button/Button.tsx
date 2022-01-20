@@ -12,6 +12,7 @@ export interface IButtonProps {
   inputSize?: 'small' | 'medium';
   inputAlert ?: boolean;
   inputReq ?: boolean;
+  inputLabel ?: boolean;
   [key: string]: any;
 }
 
@@ -25,6 +26,7 @@ const Button = ({
   inputSize,
   inputAlert,
   inputReq,
+  inputLabel,
   ...otherProps
 }: IButtonProps) => {
   const theme = useTheme();
@@ -72,7 +74,7 @@ const Button = ({
             position: `absolute`,
             right: '12px',
             height : inputSize === 'small' ? '16px' : '20px',
-            top: inputReq ? (inputSize === 'medium' ? '39px' : '33px') : (inputSize === 'medium' ? '19px' : '17px'),
+            top: inputReq || inputLabel ? (inputSize === 'medium' ? '39px' : '29px') : (inputSize === 'medium' ? '19px' : '13px'),
             
             //bottom: '8px',
             color: otherProps.disabled || inputAlert && theme.palette.secondary.main,

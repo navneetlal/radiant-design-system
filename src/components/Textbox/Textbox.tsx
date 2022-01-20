@@ -58,17 +58,23 @@ const BootstrapInput = ({
               : `#ffffff`,
             width: width ? width : "312px",
             cursor: disabled ? "not-allowed" : "pointer",
-            borderColor: alert && !disabled
-              ? theme.palette.error.main
-              : theme.palette.secondary.main,
-            alignSelf: "flex-end",
-            ...size === 'small' ? {
-              ...theme.typography.body2
-            } : {
-              ...theme.typography.body1
+            borderColor:
+              alert && !disabled
+                ? theme.palette.error.main
+                : theme.palette.secondary.main,
+            "&::placeholder": {
+              opacity: `1 !important`,
             },
+            alignSelf: "flex-end",
+            ...(size === "small"
+              ? {
+                  ...theme.typography.body2,
+                }
+              : {
+                  ...theme.typography.body1,
+                }),
             height: size === "small" ? "32px" : "40px",
-            padding: "8px 12px",
+            padding: size === 'small' ? "8px 12px" : '10px 16px',
             color: disabled ? theme.palette.secondary.main : `#1A1A1A`,
             "&:focus": {
               borderColor: theme.palette.primary.main,
@@ -143,8 +149,9 @@ const Textbox = ({
             ...theme.typography.h5,
           },
           {
-            color : disabled ? theme.palette.secondary.main : '#1A1A1A'
-          }
+            color: disabled ? theme.palette.secondary.main : "#1A1A1A",
+            marginBottom : size === 'small' ? '4px' : '8px'
+          },
         ]}
         htmlFor={id}
       >
@@ -172,10 +179,10 @@ const Textbox = ({
           color="primary"
           disabled={disabled}
           {...action}
-          inputAlert = {alert}
-          inputSize = {size}
-          inputReq = {required}
-
+          inputAlert={alert}
+          inputSize={size}
+          inputReq={required}
+          inputLabel = {label && label !== ''}
         />
       )}
     </Box>

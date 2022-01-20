@@ -6,6 +6,9 @@ import type { TypographyOptions } from "@mui/material/styles/createTypography";
 let lightTheme = createTheme({
   palette: {
     mode: "light",
+    background : {
+      
+    },
     primary: {
       // blue
       light: "#91B0FA",

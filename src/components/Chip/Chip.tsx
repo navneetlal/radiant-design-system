@@ -37,7 +37,7 @@ const Chip = ({
           },
           "&:hover": {
             backgroundColor: selected
-              ? theme.palette.primary.dark
+              ? ''
               : //@ts-ignore
                 theme.palette?.primary[100],
 
@@ -48,7 +48,8 @@ const Chip = ({
           },
         },
         otherProps.disabled && {
-          backgroundColor: `#000000`,
+          backgroundColor: `${theme.palette.secondary.contrastText} !important`,
+          opacity : `1 !important`
         },
       ]}
       {...otherProps}

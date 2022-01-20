@@ -39,8 +39,9 @@ const IconButton = ({ variant, color, size, icon, ...otherProps }: IButtonProps)
               color : `#ffffff`,
               '&:hover' : {
                 //@ts-ignore
-                  background : theme.palette[color].dark
-              }
+                  background : theme.palette[color].dark,
+                },
+              boxShadow : 'none !important'
           },
           variant === 'outlined' && {
             //@ts-ignore
