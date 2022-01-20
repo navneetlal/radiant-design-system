@@ -28,23 +28,41 @@ const BootstrapInput = ({
   const theme = useTheme();
   return (
     <MuiInputBase
+      size={size}
       sx={[
+        size === "small"
+          ? {
+              "& .MuiInputBase-input": {
+                ...theme.typography.body2,
+              },
+            }
+          : {
+              "& .MuiInputBase-input": {
+                ...theme.typography.body1,
+              },
+            },
         {
+          "& .MuiInputBase-root": {
+            "label + &": {
+              marginTop: theme.spacing(1),
+            },
+          },
+
           "& .MuiInputBase-input": {
-            borderRadius: '4px',
+            borderRadius: "4px",
             position: "relative",
-            ...theme.typography.body2,
+
             border: `1px solid ${theme.palette.secondary.main}`,
             backgroundColor: disabled
               ? theme.palette.secondary.light
               : `#ffffff`,
-            width: width ? width : 192,
+            width: width ? width : "192px",
             cursor: disabled ? "not-allowed" : "pointer",
             borderColor: alert
               ? theme.palette.error.main
               : theme.palette.secondary.main,
             alignSelf: "flex-end",
-            height: '32px',
+            height: size === "small" ? "32px" : "40px",
             padding: "8px 12px",
             color: `#1A1A1A !important`,
             "&:focus": {
@@ -57,10 +75,6 @@ const BootstrapInput = ({
             boxSizing: "border-box",
           },
         },
-        size === "medium" && {
-          height: 40,
-          ...theme.typography.body1,
-        },
       ]}
       disabled={disabled}
       style={{
@@ -71,7 +85,6 @@ const BootstrapInput = ({
     />
   );
 };
-
 
 export interface ITextboxProps {
   label?: string;
@@ -137,7 +150,7 @@ const Textbox = ({
       >
         {label} <span>{required ? "*" : ""}</span>
       </MuiInputLabel>
-      
+
       <BootstrapInput
         size={size}
         placeholder={placeholder}
@@ -151,7 +164,7 @@ const Textbox = ({
         pattern={pattern}
         {...otherProps}
       />
-      
+
       {action && (
         <Button
           variant="text"
@@ -159,7 +172,9 @@ const Textbox = ({
           color="primary"
           disabled={disabled}
           {...action}
-          fromTextBox
+
+          inputSize = {size}
+
         />
       )}
     </Box>

@@ -13,7 +13,7 @@ export interface IButtonProps {
   [key: string]: any;
 }
 
-const IconButton = ({ variant, color, size, text, icon, ...otherProps }: IButtonProps) => {
+const IconButton = ({ variant, color, size, icon, ...otherProps }: IButtonProps) => {
   const theme = useTheme();
   return (
     <MuiButton
@@ -55,31 +55,31 @@ const IconButton = ({ variant, color, size, text, icon, ...otherProps }: IButton
                 }
           },
           size === 'small' && {
-            minWidth: 32,
-            height: 32,
+            width: '32px',
+            height: '32px',
             padding: '8px',
             '& svg': {
-              width: 16,
-              height: 16,
+              width: '16px',
+              height: '16px',
             },
           },
           size === 'medium' && {
-            minWidth: 40,
-            height: 40,
+            width: '40px',
+            height: '40px',
             padding: '10px',
             '& svg': {
-              width: 20,
-              height: 20,
+              width: '20px',
+              height: '20px',
             },
           },
           size === 'large' && {
-            minWidth: 48,
-            height: 48,
+            width: '48px',
+            height: '48px',
             ...theme.typography.h4,
             padding: '12px',
             '& svg': {
-              width: 24,
-              height: 24,
+              width: '24px',
+              height: '24px',
             },
           }
 

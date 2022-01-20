@@ -119,6 +119,11 @@ const Switch = ({
                 "& + .MuiSwitch-track": {
                   opacity: 1,
                   border: 0,
+                  backgroundColor: `${
+                    colored
+                      ? theme.palette.success.main
+                      : theme.palette.error.main
+                  }`,
                 },
               },
               "&.Mui-disabled .MuiSwitch-thumb": {

@@ -63,14 +63,6 @@ lightTheme = createTheme(lightTheme, {
   components: {
     MuiButton: {
       styleOverrides: {
-        
-        disabled : {
-          backgroundColor: `#ffffff !important`,
-          color: `#A1A1A1 !important`,
-          borderColor : `#A1A1A1 !important`
-          
-          
-        },
         startIcon: {
           marginRight: 0,
           marginLeft: 0,
@@ -96,6 +88,7 @@ lightTheme = createTheme(lightTheme, {
           padding: "12px 32px",
           textTransform: "none",
         },
+        
       },
     },
     MuiBadge: {
@@ -151,17 +144,18 @@ lightTheme = createTheme(lightTheme, {
         root: {
           ...lightTheme.typography.body2,
           height: 32,
-          color : `#2C63E5`,
+          color : lightTheme.palette.primary.main,
           "& ul>li>button:hover": {
             backgroundColor: `rgba(0, 0, 0, 0.04)`
             
           },
           "& ul>li>button:hover.Mui-selected": {
-            color: `#F5F8FF`,
-            backgroundColor: `#2C63E5`
+            color: lightTheme.palette.primary.contrastText,
+            backgroundColor: lightTheme.palette.primary.main
           },
           "& ul>li>button:hover.Mui-selected:hover" : {
-            backgroundColor: `#264CA4`
+            //@ts-ignore
+            backgroundColor: lightTheme.palette.primary[600]
           },
           "& svg": {
             fill: lightTheme.palette.primary.main,
@@ -230,21 +224,14 @@ lightTheme = createTheme(lightTheme, {
     //   //   },
     //   // },
     // },
-    MuiTooltip: {
-      styleOverrides: {
-        
-        tooltip: {
-          //@ts-ignore
-          border: `1px solid ${lightTheme.palette.primary[200]}`,
-          borderRadius: 4,
-          ...lightTheme.typography.body2,
-          //@ts-ignore
-          
-          //backgroundColor: lightTheme.palette.primary[600],
-
-          padding: "4px 8px",
-        },
-      },
+    MuiTooltip : {
+      styleOverrides : {
+        // tooltip : (props : any) => ({
+        //   ...props.size === "small" && {
+        //     ...lightTheme.typography.h1
+        //   }
+        // })
+      }
     },
 
     MuiRadio: {
@@ -303,15 +290,31 @@ export default lightTheme;
 
 const tempTheme = createTheme({
   components: {
-    MuiBadge: {
-      styleOverrides: {
-        badge: {
-          color: `1A1A1A`,
-          borderRadius: "4px",
-          fontFamily: '"Source Sans Pro", sans-serif',
-        },
-      },
+    MuiButton : {
+      styleOverrides : {
+        outlined : (props) => ({
+          //@ts-ignore
+            color : lightTheme.palette[props.color].main,
+            backgroundColor: `#ffffff`,
+            border: `1px solid`,
+            //@ts-ignore
+          
+            borderColor: `${lightTheme.palette[props.color].main}`,
+            "&:hover": {
+              //@ts-ignore
+          
+              backgroundColor: props.color !== 'secondary' && `${lightTheme.palette[props.color].contrastText}`,
+            },       
+        })
+      }
     },
+    
+
+
+  }
+
+})
+    
     //   MuiSwitch : {
     //     styleOverrides : {
     //       checked : {
@@ -344,5 +347,4 @@ const tempTheme = createTheme({
     //     // ]
     //   }
     // }
-  },
-});
+  

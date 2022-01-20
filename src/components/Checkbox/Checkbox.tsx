@@ -61,24 +61,21 @@ const Checkbox = ({
         disableRipple
         color="primary"
         {...otherProps}
-        sx={[
-        ]}
+        sx={[]}
       />
       {label ? (
         <MuiTypography
           variant={size === "small" ? "body2" : "body1"}
           sx={[
             {
-              "& .Mui-disabled" : {
+              "& .Mui-disabled": {
                 color: theme.palette.secondary.main,
                 cursor: "not-allowed",
-
-              }
+              },
             },
             size === "medium" && {
               marginLeft: "-31px",
-            }
-           
+            },
           ]}
         >
           {label}

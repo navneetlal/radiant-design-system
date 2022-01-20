@@ -9,6 +9,7 @@ export interface IButtonProps {
   text?: string;
   leftIcon?: React.ReactElement;
   rightIcon?: React.ReactElement;
+  inputSize?: 'small' | 'medium';
   [key: string]: any;
 }
 
@@ -19,6 +20,7 @@ const Button = ({
   text,
   leftIcon,
   rightIcon,
+  inputSize,
   ...otherProps
 }: IButtonProps) => {
   const theme = useTheme();
@@ -37,15 +39,21 @@ const Button = ({
           border: `1px solid`,
           borderColor: `${theme.palette[color].main}`,
           "&:hover": {
-            backgroundColor: `${theme.palette[color].contrastText}`,
+            backgroundColor: color !== 'secondary' && `${theme.palette[color].contrastText}`,
           },
         },
+        otherProps.disabled && {
+          color : `${theme.palette.secondary.main} !important`,
+          backgroundColor :  variant ===  'contained' ? `${theme.palette.secondary.light} !important` : '#ffffff',
+          borderColor : variant === 'outlined' && `${theme.palette.secondary.main}`
+        },
+
         variant === "contained" && {
           color: "#ffffff",
           "&:hover": {
             background: `${theme.palette[color].dark}`,
           },
-          boxShadow: "none",
+          boxShadow: `none !important`,
         },
         color === "secondary" && variant === 'outlined' && {
           color: "#000000",
@@ -59,9 +67,9 @@ const Button = ({
             minWidth: "50px !important",
             position: `absolute`,
             right: '2px',
-            top: '24px',
-            bottom: '8px',
-            height: 16,
+            top: inputSize === 'medium' ? '28px' : '22px',
+            //bottom: '8px',
+            height: '24px',
             padding: "8px 8px",
             alignSelf: "center",
             backgroundColor: "transparent",

@@ -40,7 +40,6 @@ function App() {
   const handleDelete = () => {};
 
   const handleCheckbox = () => {
-    
     setCheck((prevState) => !prevState);
   };
 
@@ -48,17 +47,17 @@ function App() {
     <Container maxWidth="lg">
       <Grid container>
         <Button
-          variant="contained"
+          variant="outlined"
           color="primary"
           // startIcon={<MuiAdjustIcon />}
+          
           text="
           Testing this button"
-          
         />
         <IconButton
           variant="outlined"
           color="primary"
-          size="small"
+          size="medium"
           icon={<CheckRoundedIcon />}
         />
 
@@ -111,9 +110,7 @@ function App() {
           action={<KeyboardArrowUpIcon onClick={handleCheckbox} />}
         />
 
-        <Stack spacing={2}>
           <Pagination count={10} color="primary" shape="rounded" />
-        </Stack>
         
         <Radio
           checked={check}
@@ -123,7 +120,7 @@ function App() {
           onClick={handleCheckbox}
         />
 
-        <MuiTabs
+        {/* <MuiTabs
           value={"This is a tab"}
           indicatorColor="primary"
           textColor="primary"
@@ -133,32 +130,29 @@ function App() {
           {["Delhi", "Mumbai", "Pune", "Bangalore"].map((item: any) => (
             <Tab label={item} />
           ))}
-        </MuiTabs>
-        
+        </MuiTabs> */}
+
         <Switch
           checked={check}
-    
-          size="small"
-          colored={false}
+          size="medium"
+          colored={true}
           label="Switch"
-          disabled={true}
+          disabled={false}
           onChange={handleCheckbox}
         />
-        <Grid>
-          <Tooltip title="Sample" color="dark" size="medium">
+        
+          <Tooltip title="this is tooltip" color="light" size="small">
             <span>This is a tooltip</span>
           </Tooltip>
-        </Grid>
         <Grid>
           <Textbox
             placeholder={"Random"}
             required={false}
-            width={192}
+            width={312}
             label="Testing"
             size="small"
             alert={false}
             disabled={false}
-            height="small"
             action={{ text: "Add", onClick: handleCheckbox }}
           />
         </Grid>
