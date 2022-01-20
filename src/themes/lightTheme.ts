@@ -57,6 +57,7 @@ let lightTheme = createTheme({
   typography: {
     ...(typography as TypographyOptions),
   },
+  
 });
 
 lightTheme = createTheme(lightTheme, {
@@ -116,9 +117,6 @@ lightTheme = createTheme(lightTheme, {
           padding: "10px 0px",
           ...lightTheme.typography.body1,
           borderRadius: 5000,
-        },
-        disabled : {
-          //backgroundColor : `${lightTheme.palette.secondary.contrastText} !important`,
         }
       },
     },

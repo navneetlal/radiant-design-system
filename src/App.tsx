@@ -96,13 +96,20 @@ function App() {
         />
 
         <Chip
+          text="testing"
+          size="medium"
+          selected={false}
+          disabled
+          onDelete={handleDelete}
+        />
+        {/* <Chip
           color="primary"
           text="testing"
           size="medium"
           selected={false}
+          
           onDelete={handleDelete}
-        />
-
+        /> */}
         <Snackbar
           open={true}
           message="Label"
@@ -149,7 +156,7 @@ function App() {
             onChange={handleCheckbox}
           />
         </Grid>
-        <Tooltip title="this is tooltip" color="light" size="small">
+        <Tooltip title="tooltip" color="dark" size="medium" placement="top">
           <span>This is a tooltip</span>
         </Tooltip>
 

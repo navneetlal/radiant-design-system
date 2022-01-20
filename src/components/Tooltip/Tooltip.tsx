@@ -8,6 +8,18 @@ export interface IToolTipProps {
   children: JSX.Element;
   color: "light" | "dark";
   size: "small" | "medium";
+  placement:
+    | "bottom-start"
+    | "bottom"
+    | "left-end"
+    | "left-start"
+    | "left"
+    | "right-end"
+    | "right-start"
+    | "right"
+    | "top-end"
+    | "top-start"
+    | "top";
   [key: string]: any;
 }
 
@@ -15,40 +27,41 @@ const ToolTip = ({
   title,
   children,
   color,
+  placement,
   ...otherProps
 }: IToolTipProps) => {
   const theme = useTheme();
   return (
     <MuiTooltip
+      open
       title={title}
-      placement="top"
+      placement={placement}
       arrow
-
       {...otherProps}
       componentsProps={{
         tooltip: {
           sx: {
             backgroundColor:
-            //@ts-ignore
+              //@ts-ignore
               color === "dark" ? theme.palette.primary[600] : "#ffffff",
             color: color === "dark" ? "#ffffff" : "#1A1A1A",
 
-            height: otherProps.size === "medium" ? "28px" : "24px",
+            height: otherProps.size === "medium" ? "18px" : "14px",
             //@ts-ignore
             border: `1px solid ${theme.palette.primary[200]}`,
             borderRadius: "4px",
 
-            minWidth: otherProps.size === "small" ? "53px" : "72px",
+            minWidth: otherProps.size === "small" ? "35px" : "38px",
             textAlign: "center",
             //justifyContent : 'center',
-            ...otherProps.size === 'small' ? {
-              ...theme.typography.body2
-            } : {
-              ...theme.typography.body1
-            },
+            ...(otherProps.size === "small"
+              ? {
+                  ...theme.typography.body2,
+                }
+              : {
+                  ...theme.typography.body1,
+                }),
             padding: otherProps.size === "medium" ? "8px 16px" : "4px 8px", // Top Down  Left Right
-            paddingTop:
-              otherProps.size === "small" ? "12px !important" : "24px !important",
           },
         },
         arrow: {
@@ -56,12 +69,7 @@ const ToolTip = ({
             //@ts-ignore
             color: color === "dark" ? theme.palette.primary[600] : "#ffffff",
             position: "absolute",
-            top: otherProps.size === "medium" ? "60.2px" : "40.2px",
-
-            // width: '10px',
-            // height: '4px',
-            // //color : '#ffffff',
-            // //@ts-ignore
+            top: otherProps.size === "medium" ? "34.2px" : "22.2px",
 
             "&:before": {
               border: `.1px solid`,

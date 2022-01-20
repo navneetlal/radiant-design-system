@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import MuiChip from "@mui/material/Chip";
 import { useTheme } from "@mui/material";
 import ChipIcon from "../../icons/Chip";
@@ -20,19 +20,16 @@ const Chip = ({
   const theme = useTheme();
   return (
     <MuiChip
-      color="primary"
       label={text}
       onDelete={onDelete}
       size={size}
       deleteIcon={<ChipIcon />}
       sx={[
-        
         {
-          
-          backgroundColor: selected && !otherProps.disabled
+          backgroundColor: selected
             ? theme.palette.primary.main
             : theme.palette.secondary?.contrastText,
-          color: selected && !otherProps.disabled ? "#ffffff" : "#1A1A1A",
+          color: selected ? "#ffffff" : theme.palette.secondary.main,
           "&:focus": {
             backgroundColor: selected
               ? theme.palette.primary.main
@@ -49,6 +46,9 @@ const Chip = ({
               fill: selected ? "#ffffff" : "#1A1A1A",
             },
           },
+        },
+        otherProps.disabled && {
+          backgroundColor: `#000000`,
         },
       ]}
       {...otherProps}
