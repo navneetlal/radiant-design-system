@@ -18,7 +18,7 @@ export interface IBootstrapInputProps {
 
 const BootstrapInput = ({
   alert = false,
-  width = 192,
+  width = 312,
   size = "small",
   classes,
   disabled = false,
@@ -33,12 +33,12 @@ const BootstrapInput = ({
         size === "small"
           ? {
               "& .MuiInputBase-input": {
-                ...theme.typography.body2,
+                ...theme.typography.h6,
               },
             }
           : {
               "& .MuiInputBase-input": {
-                ...theme.typography.body1,
+                ...theme.typography.h5,
               },
             },
         {
@@ -51,20 +51,25 @@ const BootstrapInput = ({
           "& .MuiInputBase-input": {
             borderRadius: "4px",
             position: "relative",
-
-            border: `1px solid ${theme.palette.secondary.main}`,
+            //@ts-ignore
+            border: `1px solid ${theme.palette.secondary[300]}`,
             backgroundColor: disabled
               ? theme.palette.secondary.light
               : `#ffffff`,
-            width: width ? width : "192px",
+            width: width ? width : "312px",
             cursor: disabled ? "not-allowed" : "pointer",
-            borderColor: alert
+            borderColor: alert && !disabled
               ? theme.palette.error.main
               : theme.palette.secondary.main,
             alignSelf: "flex-end",
+            ...size === 'small' ? {
+              ...theme.typography.body2
+            } : {
+              ...theme.typography.body1
+            },
             height: size === "small" ? "32px" : "40px",
             padding: "8px 12px",
-            color: `#1A1A1A !important`,
+            color: disabled ? theme.palette.secondary.main : `#1A1A1A`,
             "&:focus": {
               borderColor: theme.palette.primary.main,
             },
@@ -131,20 +136,15 @@ const Textbox = ({
     >
       <MuiInputLabel
         sx={[
-          {
-            "& .MuiInputLabel-root": {
-              color: "1A1A1A",
-              "&>span": {
-                color: theme.palette.error.main,
-              },
-            },
-          },
           size === "small" && {
             ...theme.typography.h6,
           },
           size === "medium" && {
             ...theme.typography.h5,
           },
+          {
+            color : disabled ? theme.palette.secondary.main : '#1A1A1A'
+          }
         ]}
         htmlFor={id}
       >
@@ -172,7 +172,7 @@ const Textbox = ({
           color="primary"
           disabled={disabled}
           {...action}
-
+          inputAlert = {alert}
           inputSize = {size}
 
         />

@@ -164,6 +164,17 @@ lightTheme = createTheme(lightTheme, {
       },
     },
 
+    MuiInputLabel : {
+      styleOverrides : {
+        root : {
+          marginBottom : '8px',
+          "&>span": {
+            color: lightTheme.palette.error.main,
+          },
+
+        }
+      }
+    },
     // MuiSwitch: {
     //   variants : [
     //     {

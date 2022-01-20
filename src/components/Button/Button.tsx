@@ -10,6 +10,7 @@ export interface IButtonProps {
   leftIcon?: React.ReactElement;
   rightIcon?: React.ReactElement;
   inputSize?: 'small' | 'medium';
+  inputAlert ?: boolean;
   [key: string]: any;
 }
 
@@ -21,6 +22,7 @@ const Button = ({
   leftIcon,
   rightIcon,
   inputSize,
+  inputAlert,
   ...otherProps
 }: IButtonProps) => {
   const theme = useTheme();
@@ -66,10 +68,11 @@ const Button = ({
           //"& .MuiButton-text": {
             minWidth: "50px !important",
             position: `absolute`,
-            right: '2px',
-            top: inputSize === 'medium' ? '28px' : '22px',
+            right: '12px',
+            height : inputSize === 'small' ? '16px' : '20px',
+            top: inputSize === 'medium' ? '39px' : '33px',
             //bottom: '8px',
-            height: '24px',
+            color: otherProps.disabled || inputAlert && theme.palette.secondary.main,
             padding: "8px 8px",
             alignSelf: "center",
             backgroundColor: "transparent",

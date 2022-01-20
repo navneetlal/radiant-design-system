@@ -18,7 +18,6 @@ import Button from "./components/Button/Button";
 import Switch from "./components/Switch/Switch";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import IconButton from "./components/IconButton/Iconbutton";
-import Stack from "@mui/material/Stack";
 import Radio from "./components/Radio/Radio";
 
 import Textbox from "./components/Textbox/Textbox";
@@ -144,19 +143,18 @@ function App() {
           <Tooltip title="this is tooltip" color="light" size="small">
             <span>This is a tooltip</span>
           </Tooltip>
-        <Grid>
+          <Grid>
           <Textbox
-            placeholder={"Random"}
-            required={false}
-            width={312}
-            label="Testing"
-            size="small"
-            alert={false}
-            disabled={false}
+            placeholder={"Placeholder"}
+            label="Label"
+            size="medium"
+            
+            alert            
+            
+            required
             action={{ text: "Add", onClick: handleCheckbox }}
           />
         </Grid>
-
         <Grid>
           <Checkbox
             checked={check}
