@@ -24,6 +24,7 @@ import Textbox from "./components/Textbox/Textbox";
 import Breadcrumbs from "./components/Breadcrumb/Breadcrumb";
 import Tooltip from "./components/Tooltip/Tooltip";
 import AutoComplete from "./components/Autocomplete/Autocomplete";
+import UnCheckedIcon from "./icons/UncheckedIcon/UncheckedIcon";
 
 const TempComponent = () => {
   return <p>badge</p>;
@@ -49,7 +50,7 @@ function App() {
           variant="outlined"
           color="primary"
           // startIcon={<MuiAdjustIcon />}
-          
+
           text="
           Testing this button"
         />
@@ -109,8 +110,8 @@ function App() {
           action={<KeyboardArrowUpIcon onClick={handleCheckbox} />}
         />
 
-          <Pagination count={10} color="primary" shape="rounded" />
-        
+        <Pagination count={10} color="primary" shape="rounded" />
+
         <Radio
           checked={check}
           size="medium"
@@ -139,33 +140,27 @@ function App() {
           disabled={false}
           onChange={handleCheckbox}
         />
-        
-          <Tooltip title="this is tooltip" color="light" size="small">
-            <span>This is a tooltip</span>
-          </Tooltip>
-          <Grid>
-          <Textbox
-            placeholder={"Placeholder"}
-            label="Label"
-            size="medium"
-            
-            alert            
-            
-            required
-            action={{ text: "Add", onClick: handleCheckbox }}
-          />
-        </Grid>
         <Grid>
           <Checkbox
             checked={check}
             size="medium"
             aria-label="demo"
             label="hi there"
-            disableRipple
-            alert
             onChange={handleCheckbox}
           />
         </Grid>
+        <Tooltip title="this is tooltip" color="light" size="small">
+          <span>This is a tooltip</span>
+        </Tooltip>
+
+        <Textbox
+          placeholder={"Placeholder"}
+          //label="Label"
+          size="medium"
+          //alert
+          //required
+          action={{ text: "Add", onClick: handleCheckbox }}
+        />
       </Grid>
 
       <Drawer

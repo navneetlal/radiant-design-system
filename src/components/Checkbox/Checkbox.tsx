@@ -47,6 +47,7 @@ const Checkbox = ({
             padding: 0,
             paddingRight: size === "small" ? 0 : 4,
           },
+          
         },
       ]}
     >
@@ -72,9 +73,10 @@ const Checkbox = ({
                 color: theme.palette.secondary.main,
                 cursor: "not-allowed",
               },
+              
             },
             size === "medium" && {
-              marginLeft: "-31px",
+              marginLeft: "-30px",
             },
           ]}
         >

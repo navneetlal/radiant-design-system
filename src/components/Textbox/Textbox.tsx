@@ -130,7 +130,7 @@ const Textbox = ({
           flexWrap: "wrap",
           position: "relative",
           // width: 'max-content',
-          width: "100%",
+          width: "auto",
         },
       ]}
     >
@@ -174,6 +174,7 @@ const Textbox = ({
           {...action}
           inputAlert = {alert}
           inputSize = {size}
+          inputReq = {required}
 
         />
       )}

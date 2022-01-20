@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
         stroke: theme.palette.primary.main,
         fill: '#F5F8FF',
       },
-    },
+    }
+    
   },
 }));
 
