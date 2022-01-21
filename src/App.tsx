@@ -25,6 +25,7 @@ import Breadcrumbs from "./components/Breadcrumb/Breadcrumb";
 import Tooltip from "./components/Tooltip/Tooltip";
 import AutoComplete from "./components/Autocomplete/Autocomplete";
 import UnCheckedIcon from "./icons/UncheckedIcon/UncheckedIcon";
+import Dropdown from "./components/Dropdown/Dropdown";
 
 const TempComponent = () => {
   return <p>badge</p>;
@@ -99,15 +100,32 @@ function App() {
           text="testing"
           size="small"
           selected={true}
-          
           onDelete={handleDelete}
         />
-        
+
         <Snackbar
           open={true}
           message="Label"
           color="success"
           action={<KeyboardArrowUpIcon onClick={handleCheckbox} />}
+        />
+
+        <Dropdown
+          placeholder="Text"
+          width={150}
+          size="medium"
+          
+          // alert
+          options={[
+            { id: 0, name: "Text" },
+            { id: 1, name: "Number" },
+          ]}
+          value={{id : 1 , name : 'Testing'}}
+          onChange={(e: any) => {
+            console.log(e);
+            // customHeaders[index].type = e;
+            // setCustomHeaders([...customHeaders]);
+          }}
         />
 
         <Pagination count={10} color="primary" shape="rounded" />
@@ -140,6 +158,7 @@ function App() {
           disabled={false}
           onChange={handleCheckbox}
         />
+
         <Grid>
           <Checkbox
             checked={check}
@@ -153,15 +172,14 @@ function App() {
           <span>This is a tooltip</span>
         </Tooltip>
 
-        <Textbox
+        {/* <Textbox
           placeholder={"Placeholder"}
-          label="Label"
+          //label="Label"
           size="small"
-          
           //alert
-          required
+          //required
           action={{ text: "Add", onClick: handleCheckbox }}
-        />
+        /> */}
       </Grid>
 
       <Drawer

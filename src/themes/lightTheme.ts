@@ -165,6 +165,25 @@ lightTheme = createTheme(lightTheme, {
       },
     },
 
+    MuiPaper : {
+      styleOverrides : {
+        root : {
+          //display: "none",
+          margin: 0,
+          padding: 0,
+          zIndex: 999,
+          position: "absolute",
+          //top: 58,
+          "& p": {
+            padding: "6px 16px",
+            cursor: "pointer",
+            "&:hover": {
+              backgroundColor: lightTheme.palette.primary.contrastText,
+            },
+          },
+        }
+      }
+    },
     MuiInputLabel : {
       styleOverrides : {
         root : {
@@ -320,6 +339,7 @@ const tempTheme = createTheme({
         })
       }
     },
+    
     
 
 
