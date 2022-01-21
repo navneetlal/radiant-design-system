@@ -74,7 +74,7 @@ const Button = ({
             position: `absolute`,
             right: '12px',
             height : inputSize === 'small' ? '16px' : '20px',
-            top: inputReq || inputLabel ? (inputSize === 'medium' ? '39px' : '29px') : (inputSize === 'medium' ? '19px' : '13px'),
+            top: inputReq || inputLabel ? (inputSize === 'medium' ? '39px' : '29px') : (inputSize === 'medium' ? '11px' : '9px'),
             
             //bottom: '8px',
             color: otherProps.disabled || inputAlert && theme.palette.secondary.main,

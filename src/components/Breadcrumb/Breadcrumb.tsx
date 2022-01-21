@@ -30,9 +30,7 @@ const Breadcrumbs = ({ links, text }: IBreadcrumbsProps) => {
             color : `${theme.palette.secondary.dark} !important`,
             height :'20px',
             textDecoration : 'none',
-            "&:hover" : {
-                textDecoration : 'underline'
-            }
+            
         }]} key={index}>
           {item.name}
         </MuiLink>

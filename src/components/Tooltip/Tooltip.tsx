@@ -70,7 +70,14 @@ const ToolTip = ({
             color: color === "dark" ? theme.palette.primary[600] : "#ffffff",
             position: "absolute",
             top: otherProps.size === "medium" ? "34.2px" : "22.2px",
+            ...(placement === 'bottom' && {
+              marginTop : '4px', 
 
+            }),
+            ...(placement === 'top' && {
+              marginBottom : '4px'
+            }),
+            //marginTop : '4px',
             "&:before": {
               border: `.1px solid`,
               //@ts-ignore

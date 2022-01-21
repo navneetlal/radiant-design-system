@@ -7,6 +7,7 @@ export interface IChipsProps {
   onDelete?: any;
   size: "small" | "medium";
   text: string;
+  fromMultiSelect ?: boolean,
   [key: string]: any;
 }
 
@@ -14,6 +15,7 @@ const Chip = ({
   selected,
   onDelete,
   size,
+  fromMultiSelect = false,
   text,
   ...otherProps
 }: IChipsProps) => {
@@ -29,7 +31,10 @@ const Chip = ({
           backgroundColor: selected
             ? theme.palette.primary.main
             : theme.palette.secondary?.contrastText,
-          color: selected ? "#ffffff" : theme.palette.secondary.main,
+          color: selected ? "#ffffff" : '#1A1A1A',
+          ...(fromMultiSelect && {
+            marginRight: '4px',
+          }),
           "&:focus": {
             backgroundColor: selected
               ? theme.palette.primary.main
@@ -49,7 +54,8 @@ const Chip = ({
         },
         otherProps.disabled && {
           backgroundColor: `${theme.palette.secondary.contrastText} !important`,
-          opacity : `1 !important`
+          opacity : `1 !important`,
+          color : theme.palette.secondary.main
         },
       ]}
       {...otherProps}

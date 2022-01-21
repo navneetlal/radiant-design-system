@@ -16,11 +16,12 @@ export interface IBootstrapInputProps {
   [key: string]: any;
 }
 
-const BootstrapInput = ({
+export const BootstrapInput = ({
   alert = false,
   width = 312,
   size = "small",
   classes,
+  label,
   disabled = false,
   pattern,
   ...otherProps
@@ -44,7 +45,8 @@ const BootstrapInput = ({
         {
           "& .MuiInputBase-root": {
             "label + &": {
-              marginTop: theme.spacing(1),
+
+              marginTop: label && theme.spacing(1),
             },
           },
 
@@ -63,6 +65,9 @@ const BootstrapInput = ({
                 ? theme.palette.error.main
                 : theme.palette.secondary.main,
             "&::placeholder": {
+              color: disabled
+                ? theme.palette.secondary.main
+                : `${theme.palette.secondary.dark} !important`,
               opacity: `1 !important`,
             },
             alignSelf: "flex-end",
@@ -74,7 +79,7 @@ const BootstrapInput = ({
                   ...theme.typography.body1,
                 }),
             height: size === "small" ? "32px" : "40px",
-            padding: size === 'small' ? "8px 12px" : '10px 16px',
+            padding: size === "small" ? "8px 12px" : "10px 16px",
             color: disabled ? theme.palette.secondary.main : `#1A1A1A`,
             "&:focus": {
               borderColor: theme.palette.primary.main,
@@ -137,27 +142,32 @@ const Textbox = ({
           position: "relative",
           // width: 'max-content',
           width: "auto",
-        },
+          ...(!label && !required && {
+            height : size === 'small' ? '32px' : '40px'
+          } )
+        }
       ]}
     >
-      <MuiInputLabel
-        sx={[
-          size === "small" && {
-            ...theme.typography.h6,
-          },
-          size === "medium" && {
-            ...theme.typography.h5,
-          },
-          {
-            color: disabled ? theme.palette.secondary.main : "#1A1A1A",
-            marginBottom : size === 'small' ? '4px' : '8px'
-          },
-        ]}
-        htmlFor={id}
-      >
-        {label} <span>{required ? "*" : ""}</span>
-      </MuiInputLabel>
-
+        {(label || required) && <MuiInputLabel
+          sx={[
+            size === "small" && {
+              ...theme.typography.h6,
+            },
+            size === "medium" && {
+              ...theme.typography.h5,
+            },
+            {
+              marginBottom: size === "small" ? "4px" : "8px",
+              color: disabled
+                ? theme.palette.secondary.main
+                : `#1A1A1A !important`,
+            },
+          ]}
+          htmlFor={id}
+        >
+          {label} <span>{required ? "*" : ""}</span>
+        </MuiInputLabel>
+      }
       <BootstrapInput
         size={size}
         placeholder={placeholder}
@@ -165,6 +175,7 @@ const Textbox = ({
         required={required}
         alert={alert}
         id={id}
+        label = {label}
         value={value}
         onClick={onClick}
         disabled={disabled}
@@ -182,7 +193,7 @@ const Textbox = ({
           inputAlert={alert}
           inputSize={size}
           inputReq={required}
-          inputLabel = {label && label !== ''}
+          inputLabel={label && label !== ""}
         />
       )}
     </Box>

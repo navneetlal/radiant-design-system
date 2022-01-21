@@ -23,9 +23,11 @@ import Radio from "./components/Radio/Radio";
 import Textbox from "./components/Textbox/Textbox";
 import Breadcrumbs from "./components/Breadcrumb/Breadcrumb";
 import Tooltip from "./components/Tooltip/Tooltip";
-import AutoComplete from "./components/Autocomplete/Autocomplete";
+//import AutoComplete from "./components/Autocomplete/Autocomplete";
 import UnCheckedIcon from "./icons/UncheckedIcon/UncheckedIcon";
 import Dropdown from "./components/Dropdown/Dropdown";
+import Filter from "./components/Filter/Filter";
+import MultiSelect from "./components/MultiSelect/MultiSelect";
 
 const TempComponent = () => {
   return <p>badge</p>;
@@ -70,6 +72,15 @@ function App() {
           height="small"
           options={["Delhi", "Mumbai", "Goa", "Chennai"]}
         /> */}
+
+        <MultiSelect
+          label="Add email addresses"
+          autofocus
+          placeholder="Type here"
+          name="emails"
+          width={416}
+          onChange={(e: any) => console.log("hello")}
+        />
         <Badge
           badgeContent={5}
           overlap="circular"
@@ -110,31 +121,14 @@ function App() {
           action={<KeyboardArrowUpIcon onClick={handleCheckbox} />}
         />
 
-        <Dropdown
-          placeholder="Text"
-          width={150}
-          size="medium"
-          
-          // alert
-          options={[
-            { id: 0, name: "Text" },
-            { id: 1, name: "Number" },
-          ]}
-          value={{id : 1 , name : 'Testing'}}
-          onChange={(e: any) => {
-            console.log(e);
-            // customHeaders[index].type = e;
-            // setCustomHeaders([...customHeaders]);
-          }}
-        />
-
         <Pagination count={10} color="primary" shape="rounded" />
 
         <Radio
           checked={check}
-          size="medium"
-          disabled={true}
-          alert={true}
+          size="small"
+          label="radio"
+          //disabled={true}
+          //alert={true}
           onClick={handleCheckbox}
         />
 
@@ -172,14 +166,15 @@ function App() {
           <span>This is a tooltip</span>
         </Tooltip>
 
-        {/* <Textbox
+        <Textbox
           placeholder={"Placeholder"}
-          //label="Label"
-          size="small"
+          label="Label"
+          size="medium"
           //alert
-          //required
+
+          required
           action={{ text: "Add", onClick: handleCheckbox }}
-        /> */}
+        />
       </Grid>
 
       <Drawer
@@ -193,6 +188,26 @@ function App() {
       >
         {"This is the content inside the drawer. Random"}
       </Drawer>
+
+      <Dropdown
+        placeholder="Text"
+        width={150}
+        size="medium"
+        label="label"
+        required
+        // alert
+        options={[
+          { id: 0, name: "Text" },
+          { id: 1, name: "Number" },
+        ]}
+        value={{ id: 1, name: "Testing" }}
+        onChange={(e: any) => {
+          console.log(e);
+          // customHeaders[index].type = e;
+          // setCustomHeaders([...customHeaders]);
+        }}
+      />
+      {/* <Filter /> */}
     </Container>
   );
 }
