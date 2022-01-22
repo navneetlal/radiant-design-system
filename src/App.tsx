@@ -3,8 +3,7 @@ import {
   Grid,
   Pagination,
   Drawer,
-  Tabs as MuiTabs,
-  Tab,
+  Typography as MuiTypography,
 } from "@mui/material";
 import Checkbox from "./components/Checkbox/Checkbox";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -28,6 +27,7 @@ import UnCheckedIcon from "./icons/UncheckedIcon/UncheckedIcon";
 import Dropdown from "./components/Dropdown/Dropdown";
 import Filter from "./components/Filter/Filter";
 import MultiSelect from "./components/MultiSelect/MultiSelect";
+import Tabs from "./components/Tabs/Tabs";
 
 const TempComponent = () => {
   return <p>badge</p>;
@@ -39,6 +39,7 @@ function App() {
   const handleDrawer = () => {
     setDrawer((prevState) => !prevState);
   };
+  const [tab, setTab] = useState(parseInt("0"));
 
   const handleDelete = () => {};
 
@@ -132,17 +133,46 @@ function App() {
           onClick={handleCheckbox}
         />
 
-        {/* <MuiTabs
-          value={"This is a tab"}
-          indicatorColor="primary"
-          textColor="primary"
-          //onChange={handleChange}
-          aria-label="disabled tabs example"
+        <div
+          style={{ height: "calc(100% - 89px)", backgroundColor: "#F5F8FF" }}
         >
-          {["Delhi", "Mumbai", "Pune", "Bangalore"].map((item: any) => (
-            <Tab label={item} />
-          ))}
-        </MuiTabs> */}
+          <Tabs
+            style={{
+              width: "100%",
+            }}
+            initialTabValue={parseInt("0")}
+            onTabChange={(value: number) => setTab(value)}
+            tabs={[
+              {
+                label: "Alerts",
+              },
+              {
+                label: "Notifications",
+              },
+            ]}
+          />
+          {tab === 0 ? (
+            <div
+              style={{ width: 1182, height: "calc(100% - 59px)", padding: 40 }}
+            >
+              <MuiTypography variant="h5" sx={{ marginBottom: "16px" }}>
+                All Alerts
+              </MuiTypography>
+              {/* <AlertsTable /> */}
+              <TempComponent />
+            </div>
+          ) : (
+            <div
+              style={{ width: 1182, height: "calc(100% - 59px)", padding: 40 }}
+            >
+              <MuiTypography variant="h5" sx={{ marginBottom: "16px" }}>
+                All Notifications
+              </MuiTypography>
+              {/* <NotificationsTable /> */}
+              <TempComponent />
+            </div>
+          )}
+        </div>
 
         <Switch
           checked={check}

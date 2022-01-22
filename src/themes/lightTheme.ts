@@ -301,19 +301,18 @@ lightTheme = createTheme(lightTheme, {
       },
     },
     MuiDrawer: {},
-    MuiTab: {
-      root: {
-        textTransform: "none",
-        color: lightTheme.palette.common.black,
-        borderBottom: `1px solid ${lightTheme.palette.secondary.main}`,
-        ...lightTheme.typography.h5,
-        maxWidth: "100%",
-        minWidth: "50%",
-        "&:hover": {
-          color: lightTheme.palette.primary.main,
-        },
-      },
-    },
+    // MuiTab: {
+    //   root: {
+    //     textTransform: "none",
+    //     borderBottom: `1px solid ${lightTheme.palette.secondary.main}`,
+    //     ...lightTheme.typography.h5,
+    //     maxWidth: "100%",
+    //     minWidth: "50%",
+    //     "&:hover": {
+    //       color: lightTheme.palette.primary.main,
+    //     },
+    //   },
+    // },
   },
 });
 
