@@ -185,7 +185,7 @@ function App() {
           size="medium"
           colored={true}
           label="Switch"
-          //disabled={true}
+          //disabled={false}
           onChange={handleCheckbox}
         />
 
