@@ -28,15 +28,15 @@ const Snackbar = ({
       break;
     case "error":
       //@ts-ignore
-      finalColor = theme.palette.error.dark;
+      finalColor = theme.palette?.support?.error?.dark;
       break;
     case "warning":
       //@ts-ignore
-      finalColor = theme.palette.warning[600];
+      finalColor = theme.palette?.support?.warning[600];
       break;
     case "success":
       //@ts-ignore
-      finalColor = theme.palette.success.dark;
+      finalColor = theme.palette?.support?.success?.dark;
       break;
     default:
       //@ts-ignore

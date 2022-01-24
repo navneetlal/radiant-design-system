@@ -8,7 +8,7 @@ import {
 
 import { useTheme } from '@mui/material';
 
-import BreadcrumbArrow from '../../icons/BreadcrumbArrow';
+import BreadcrumbArrow from '../../icons/BreadcrumbArrow/BreadcrumbArrow';
 
 
 export interface IBreadcrumbsProps {
@@ -27,7 +27,7 @@ const Breadcrumbs = ({ links, text }: IBreadcrumbsProps) => {
       </MuiTypography>
       {links.map((item, index) => (
         <MuiLink color="primary" href={item.url} sx = {[{
-            color : `${theme.palette.secondary.dark} !important`,
+            color : `${theme.palette.grey[650]} !important`,
             height :'20px',
             textDecoration : 'none',
             

@@ -54,20 +54,20 @@ export const BootstrapInput = ({
             borderRadius: "4px",
             position: "relative",
             //@ts-ignore
-            border: `1px solid ${theme.palette.secondary[300]}`,
+            border: `1px solid ${theme.palette.grey[350]}`,
             backgroundColor: disabled
-              ? theme.palette.secondary.light
+              ? theme.palette.grey[150]
               : `#ffffff`,
             width: width ? width : "312px",
             cursor: disabled ? "not-allowed" : "pointer",
             borderColor:
               alert && !disabled
-                ? theme.palette.error.main
-                : theme.palette.secondary.main,
+                ? theme.palette?.support?.error?.main
+                : theme.palette.grey[100],
             "&::placeholder": {
               color: disabled
-                ? theme.palette.secondary.main
-                : `${theme.palette.secondary.dark} !important`,
+                ? theme.palette.grey[100]
+                : `${theme.palette.grey[650]} !important`,
               opacity: `1 !important`,
             },
             alignSelf: "flex-end",
@@ -80,12 +80,12 @@ export const BootstrapInput = ({
                 }),
             height: size === "small" ? "32px" : "40px",
             padding: size === "small" ? "8px 12px" : "10px 16px",
-            color: disabled ? theme.palette.secondary.main : `#1A1A1A`,
+            color: disabled ? theme.palette.grey[100] : `#1A1A1A`,
             "&:focus": {
               borderColor: theme.palette.primary.main,
             },
             "&:not(:placeholder-shown):invalid": {
-              borderColor: theme.palette.error.main,
+              borderColor: theme.palette?.support?.error?.main,
             },
 
             boxSizing: "border-box",
@@ -159,7 +159,7 @@ const Textbox = ({
             {
               marginBottom: size === "small" ? "4px" : "8px",
               color: disabled
-                ? theme.palette.secondary.main
+                ? theme.palette.grey[100]
                 : `#1A1A1A !important`,
             },
           ]}

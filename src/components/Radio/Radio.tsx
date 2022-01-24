@@ -36,7 +36,7 @@ const Radio = ({
           width: "max-content",
           height:  'auto',
           "&>p": {
-            color: disabled ? theme.palette.secondary.main : "#1A1A1A",
+            color: disabled ? theme.palette.grey[100] : "#1A1A1A",
           },
           "&>span:hover": {
             backgroundColor: `transparent !important`,
@@ -94,7 +94,7 @@ const Radio = ({
             color: `#C7C7C7 !important`,
           },
           alert && !checked && !disabled && {
-            color: `${theme.palette.error.main} !important`,
+            color: `${theme.palette?.support?.error?.main} !important`,
           },
           
           {
@@ -106,11 +106,11 @@ const Radio = ({
             },
           },
           disabled && {
-            color: theme.palette.secondary.main,
+            color: theme.palette.grey[100],
           },
           !disabled &&
             alert &&  {
-              color: theme.palette.error.main,
+              color: theme.palette?.support?.error?.main,
             },
           !disabled &&
             !alert && {

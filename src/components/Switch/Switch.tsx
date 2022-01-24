@@ -101,15 +101,15 @@ const Switch = ({
               "& + .MuiSwitch-track": {
                 backgroundColor: `${
                   colored
-                    ? theme.palette.success.main
-                    : theme.palette.error.main
+                    ? theme.palette?.support?.success?.main
+                    : theme.palette?.support?.error?.main
                 }`,
               },
               "&.Mui-disabled + .MuiSwitch-track": {
                 opacity: 0.7,
                 backgroundColor: colored
-                  ? theme.palette.success.light
-                  : theme.palette.error.light,
+                  ? theme.palette?.support?.success?.light
+                  : theme.palette?.support?.error?.light,
               },
 
               "&.Mui-checked": {
@@ -121,8 +121,8 @@ const Switch = ({
                   border: 0,
                   backgroundColor: `${
                     colored
-                      ? theme.palette.success.main
-                      : theme.palette.error.main
+                      ? theme.palette?.support?.success?.main
+                      : theme.palette?.support?.error?.main
                   }`,
                 },
               },

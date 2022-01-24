@@ -53,9 +53,9 @@ const Chip = ({
           },
         },
         otherProps.disabled && {
-          backgroundColor: `${theme.palette.secondary.contrastText} !important`,
+          backgroundColor: `${theme.palette.grey[300]} !important`,
           opacity : `1 !important`,
-          color : theme.palette.secondary.main
+          color : theme.palette.grey[100]
         },
       ]}
       {...otherProps}

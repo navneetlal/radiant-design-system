@@ -51,10 +51,10 @@ function App() {
     <Container maxWidth="lg">
       <Grid container>
         <Button
-          variant="outlined"
+          variant="contained"
           color="primary"
           // startIcon={<MuiAdjustIcon />}
-
+          
           text="
           Testing this button"
         />
@@ -62,6 +62,7 @@ function App() {
           variant="contained"
           color="primary"
           size="medium"
+          
           icon={<CheckRoundedIcon />}
         />
 
@@ -79,23 +80,23 @@ function App() {
           autofocus
           placeholder="Type here"
           name="emails"
+          
           width={416}
           onChange={(e: any) => console.log("hello")}
         />
         <Badge
           badgeContent={5}
           overlap="circular"
-          color="error"
+          color="info"
           rounded
-          // @ts-ignore
-          backgroundcolor={theme.palette.warning.light}
-          textcolor={theme.palette.warning.dark}
+          
         >
           <CheckRoundedIcon />
         </Badge>
 
         <Breadcrumbs
           text="TMS"
+          
           links={[
             {
               name: "Delhi",
@@ -111,6 +112,7 @@ function App() {
         <Chip
           text="testing"
           size="small"
+          
           selected={true}
           onDelete={handleDelete}
         />
@@ -118,6 +120,7 @@ function App() {
         <Snackbar
           open={true}
           message="Label"
+          
           color="success"
           action={<KeyboardArrowUpIcon onClick={handleCheckbox} />}
         />
@@ -125,6 +128,7 @@ function App() {
         <Pagination count={10} color="primary" shape="rounded" />
 
         <Radio
+        
           checked={check}
           size="small"
           label="radio"
@@ -137,6 +141,7 @@ function App() {
           style={{ height: "calc(100% - 89px)", backgroundColor: "#F5F8FF" }}
         >
           <Tabs
+          
             style={{
               width: "100%",
             }}
@@ -175,11 +180,12 @@ function App() {
         </div>
 
         <Switch
+        
           checked={check}
           size="medium"
           colored={true}
           label="Switch"
-          disabled={false}
+          //disabled={true}
           onChange={handleCheckbox}
         />
 
@@ -189,10 +195,11 @@ function App() {
             size="medium"
             aria-label="demo"
             label="hi there"
+            disabled
             onChange={handleCheckbox}
           />
         </Grid>
-        <Tooltip title="tooltip" color="dark" size="small" placement="top">
+        <Tooltip title="tooltip" color="dark" size="small" placement="top" >
           <span>This is a tooltip</span>
         </Tooltip>
 

@@ -44,8 +44,8 @@ import {BootstrapInput} from '../Textbox/Textbox';
 //               borderRadius: 4,
 //               position: "relative",
 //               ...theme.typography.body1,
-//               border: `1px solid ${theme.palette.secondary.main}`,
-//               borderColor: disabled ? theme.palette.secondary.light : "#ffffff",
+//               border: `1px solid ${theme.palette.grey[100]}`,
+//               borderColor: disabled ? theme.palette.grey[150] : "#ffffff",
 //               alignSelf: "flex-end",
 //               // height: ({ height }: any) => (height === 'small' ? 32 - 16 : 40 - 16), // Subtracting padding...!
 //               padding: "8px 12px",
@@ -58,7 +58,7 @@ import {BootstrapInput} from '../Textbox/Textbox';
 //               width: width ? width - 24 : 200 - 24,
 //               "&:focus": {
 //                 borderColor: alert
-//                   ? theme.palette.error.main
+//                   ? theme.palette?.support?.error?.main
 //                   : theme.palette.primary.main,
 //               },
 //             },
@@ -165,7 +165,7 @@ const AutoComplete = ({
               ...theme.typography.h6,
               color: "#1A1A1A",
               "&>span": {
-                color: theme.palette.error.main,
+                color: theme.palette?.support?.error?.main,
               },
             },
           ]}

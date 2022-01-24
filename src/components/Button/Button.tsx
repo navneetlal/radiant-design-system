@@ -49,9 +49,9 @@ const Button = ({
           },
         },
         otherProps.disabled && {
-          color : `${theme.palette.secondary.main} !important`,
-          backgroundColor :  variant ===  'contained' ? `${theme.palette.secondary.light} !important` : '#ffffff',
-          borderColor : variant === 'outlined' && `${theme.palette.secondary.main}`
+          color : `${theme.palette.grey[100]} !important`,
+          backgroundColor :  variant ===  'contained' ? `${theme.palette.grey[150]} !important` : '#ffffff',
+          borderColor : variant === 'outlined' && `${theme.palette.grey[100]}`
         },
 
         variant === "contained" && {
@@ -77,7 +77,7 @@ const Button = ({
             top: inputReq || inputLabel ? (inputSize === 'medium' ? '39px' : '29px') : (inputSize === 'medium' ? '11px' : '9px'),
             
             //bottom: '8px',
-            color: otherProps.disabled || inputAlert && theme.palette.secondary.main,
+            color: otherProps.disabled || inputAlert && theme.palette.grey[100],
             padding: "8px 8px",
             alignSelf: "center",
             backgroundColor: "transparent",

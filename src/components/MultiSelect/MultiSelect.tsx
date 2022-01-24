@@ -33,8 +33,8 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
             padding: 0,
             ...theme.typography.body2,
             borderColor: alert
-              ? theme.palette.error.main
-              : theme.palette.secondary.main,
+              ? theme.palette?.support?.error?.main
+              : theme.palette.grey[100],
             alignSelf: "flex-end",
             height: '32px',
             color: `${theme.palette.common.black} !important`,
@@ -118,11 +118,11 @@ export default function MultiSelect({
               borderRadius: '4px',
               position: "relative",
               ...theme.typography.body2,
-              border: `1px solid ${theme.palette.secondary.main}`,
+              border: `1px solid ${theme.palette.grey[100]}`,
               backgroundColor: "#ffffff",
               borderColor: alert
-                ? theme.palette.error.main
-                : theme.palette.secondary.main,
+                ? theme.palette?.support?.error?.main
+                : theme.palette.grey[100],
               alignSelf: "flex-end",
               minHeight: '40px', // Subtracting padding 4px * 2
               overflow: "hidden",

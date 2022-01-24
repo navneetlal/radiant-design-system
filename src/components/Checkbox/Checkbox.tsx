@@ -70,7 +70,7 @@ const Checkbox = ({
           sx={[
             {
               "& .Mui-disabled": {
-                color: theme.palette.secondary.main,
+                color: theme.palette.grey[100],
                 cursor: "not-allowed",
               },
               

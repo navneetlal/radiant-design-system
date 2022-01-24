@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Typography as MuiTypography, Grid } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+//import { makeStyles } from '@mui/styles';
 import { ExpandLess as MuiExpandLessIcon, ExpandMore as MuiExpandMoreIcon } from '@mui/icons-material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme:any) => ({
   divOne: {
     height: '78px',
-    backgroundColor: theme.palette.secondary.light,
+    backgroundColor: theme.palette.grey[150],
     display: 'flex',
     alignItems: 'center',
     padding: '0 40px',

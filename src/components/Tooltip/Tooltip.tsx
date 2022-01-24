@@ -43,7 +43,7 @@ const ToolTip = ({
           sx: {
             backgroundColor:
               //@ts-ignore
-              color === "dark" ? theme.palette.primary[600] : "#ffffff",
+              color === "dark" ? theme.palette.primary.dark : "#ffffff",
             color: color === "dark" ? "#ffffff" : "#1A1A1A",
 
             height: otherProps.size === "medium" ? "18px" : "14px",
@@ -67,7 +67,7 @@ const ToolTip = ({
         arrow: {
           sx: {
             //@ts-ignore
-            color: color === "dark" ? theme.palette.primary[600] : "#ffffff",
+            color: color === "dark" ? theme.palette.primary.dark : "#ffffff",
             position: "absolute",
             top: otherProps.size === "medium" ? "34.2px" : "22.2px",
             ...(placement === 'bottom' && {

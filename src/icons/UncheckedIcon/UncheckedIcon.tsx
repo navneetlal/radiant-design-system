@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     height: 20,
     '&>path': {
         //@ts-ignore
-      stroke: ({ alert }: any) => (alert ? theme.palette.error.main : theme.palette.secondary.main),
+      stroke: ({ alert }: any) => (alert ? theme.palette?.support?.error?.main : theme.palette.grey[100]),
       '&:hover': {
           //@ts-ignore
         stroke: theme.palette.primary.main,

@@ -66,7 +66,7 @@ const Badge = ({ rounded, color, text, children, size, ...otherProps }: IBadgePr
 };
 
 
-export const StyledBadge = withStyles((theme) => ({
+export const StyledBadge = withStyles((theme:any) => ({
     badge: {
       border: (props) => (props.border && `2px solid ${theme.palette.background.paper}`) || 0,
       padding: '0 4px',

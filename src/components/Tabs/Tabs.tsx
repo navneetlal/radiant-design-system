@@ -42,7 +42,7 @@ const Tabs = ({
             !disabled
               ? theme.palette.primary.main
               : //@ts-ignore
-                theme.palette.secondary[300]
+                theme.palette.grey[350]
           }`,
         },
       }}

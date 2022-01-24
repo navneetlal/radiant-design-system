@@ -1,7 +1,5 @@
 import React, { forwardRef, useState, useEffect } from "react";
 import {
-  makeStyles,
-  Theme,
   Typography as MuiTypography,
   InputBase as MuiInputBase,
   InputLabel as MuiInputLabel,
@@ -9,13 +7,11 @@ import {
   Box,
 } from "@mui/material";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { ClassNameMap } from "@mui/styles";
 import { useTheme } from "@mui/material";
 
 export interface IBootstrapInputProps {
   alert: boolean;
   width: number;
-  classes: ClassNameMap<string>;
   disabled: boolean;
   size: "small" | "medium";
   [key: string]: any;
@@ -38,12 +34,12 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
                 : {
                     ...theme.typography.body2,
                   }),
-              border: `1px solid ${theme.palette.secondary.main}`,
+              border: `1px solid ${theme.palette.grey[100]}`,
               borderColor: alert
-                ? theme.palette.error.main
-                : theme.palette.secondary.main,
+                ? theme.palette?.support?.error?.main
+                : theme.palette.grey[100],
               backgroundColor: disabled
-                ? theme.palette.secondary.light
+                ? theme.palette.grey[150]
                 : "#ffffff",
               alignSelf: "flex-end",
               height: size === "small" ? "14px" : "18px",
@@ -65,7 +61,7 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
                   : "278px",
               "&:focus": {
                 borderColor: alert
-                  ? theme.palette.error.main
+                  ? theme.palette?.support?.error?.main
                   : theme.palette.primary.main,
               },
             },
@@ -151,7 +147,7 @@ const Dropdown = ({
             {
               color: "#1A1A1A",
               "&>span": {
-                color: theme.palette.error.main,
+                color: theme.palette?.support?.error?.main,
               },
             },
           ]}

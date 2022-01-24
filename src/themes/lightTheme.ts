@@ -40,10 +40,12 @@ let lightTheme = createTheme({
         light: "#FFECDB",
         main: "#F2984A",
         dark: "#D97E2E",
+        600 : "#D97F30",
         contrastText: '#FFECDB'
       }
     },
     grey: {
+      100 : '#A1A1A1',
       150: '#F2F2F2', // grey50
       300: '#E3E3E3', // grey100
       350: '#C7C7C7', // grey200
@@ -61,9 +63,9 @@ let lightTheme = createTheme({
 
 lightTheme = createTheme(lightTheme, {
   palette: {
-    warning: lightTheme.palette.warning,
-    error: lightTheme.palette.error,
-    success: lightTheme.palette.success
+    warning: lightTheme.palette?.support?.warning,
+    error: lightTheme.palette?.support?.error,
+    success: lightTheme.palette?.support?.success
   }
 })
 
@@ -190,7 +192,7 @@ lightTheme = createTheme(lightTheme, {
         root: {
           marginBottom: "8px",
           "&>span": {
-            color: lightTheme.palette.error.main,
+            color: lightTheme.palette.support?.error?.main,
           },
         },
       },
@@ -201,7 +203,7 @@ lightTheme = createTheme(lightTheme, {
       styleOverrides: {
         root: {},
         disabled: {
-          color: lightTheme.palette.secondary.main,
+          color: lightTheme.palette.grey[100],
           cursor: "not-allowed",
         },
       },
