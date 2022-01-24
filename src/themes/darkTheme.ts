@@ -29,7 +29,7 @@ export let darkTheme = createTheme({
         success: {
             light: "#C2FAEA",
             main: "#00C28B",
-            dark: "#008F66"
+            dark: "#008F66",
         }
     },
     typography: {

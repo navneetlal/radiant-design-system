@@ -8,57 +8,64 @@ let lightTheme = createTheme({
     mode: "light",
     background: {},
     primary: {
-      // blue
-      light: "#91B0FA",
-      main: "#2C63E5",
-      dark: "#264CA4",
+      light: "#91B0FA", // primary300
+      main: "#2C63E5", // primary500
+      dark: "#264CA4", // primary600
+      900: '#151E33',
+      800: '#24428A',
+      200: '#BFD2FD',
+      100: '#D7E3FE',
+      50: '#F5F8FF',
       contrastText: "#F5F8FF",
-      200: "#BFD2FD",
-      100: "#D7E3FE",
-      600: "#264CA4",
     },
-    
     secondary: {
-      // gray
-      light: "#F2F2F2",
-      main: "#A1A1A1",
-      dark: "#666666",
-      contrastText: "#E3E3E3",
-      50: "#FFF7E5",
-      300: "#C7C7C7",
+      light: '#FFF7E6',
+      main: '#FFCD59',
+      dark: '#CC981F'
     },
-    error: {
-      // red
-      light: "#F9D7D7",
-      main: "#FF5757",
-      dark: "#CC3333",
-      contrastText: "#F9D7D7",
+    support: {
+      success: {
+        light: "#C2FAEA",
+        main: "#00C28B",
+        dark: "#008F66",
+        contrastText: '#C2FAEA'
+      },
+      error: {
+        light: "#F9D7D7",
+        main: "#FF5757",
+        dark: "#CC3333",
+        contrastText: '#F9D7D7'
+      },
+      warning: {
+        light: "#FFECDB",
+        main: "#F2984A",
+        dark: "#D97E2E",
+        contrastText: '#FFECDB'
+      }
     },
-    warning: {
-      // orange
-      light: "#FFECDB",
-      main: "#F2984A",
-      dark: "#D97E2E",
-      600: "#D97F30",
-      contrastText: "#FFECDB",
+    grey: {
+      150: '#F2F2F2', // grey50
+      300: '#E3E3E3', // grey100
+      350: '#C7C7C7', // grey200
+      650: '#666666' // grey500
     },
-    success: {
-      // green
-      light: "#C2FAEA",
-      main: "#00C28B",
-      dark: "#008F66",
-      contrastText: "#C2FAEA",
-    },
-    //@ts-ignore
-    blackAndWhite: {
-      main: "#1A1A1A",
-      light: "#fff",
-    },
+    common: {
+      black: '#1A1A1A',
+      white: '#ffffff'
+    }
   },
   typography: {
     ...(typography as TypographyOptions),
   },
 });
+
+lightTheme = createTheme(lightTheme, {
+  palette: {
+    warning: lightTheme.palette.warning,
+    error: lightTheme.palette.error,
+    success: lightTheme.palette.success
+  }
+})
 
 lightTheme = createTheme(lightTheme, {
   components: {
@@ -150,8 +157,7 @@ lightTheme = createTheme(lightTheme, {
             backgroundColor: lightTheme.palette.primary.main,
           },
           "& ul>li>button:hover.Mui-selected:hover": {
-            //@ts-ignore
-            backgroundColor: lightTheme.palette.primary[600],
+            backgroundColor: lightTheme.palette.primary.dark,
           },
           "& svg": {
             fill: lightTheme.palette.primary.main,
