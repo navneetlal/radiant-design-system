@@ -1,5 +1,4 @@
 import { Tooltip as MuiTooltip } from "@mui/material";
-import PropTypes from "prop-types";
 import { useTheme } from "@mui/material";
 import React from "react";
 
@@ -90,12 +89,6 @@ const ToolTip = ({
       <span>{children}</span>
     </MuiTooltip>
   );
-};
-
-ToolTip.propTypes = {
-  text: PropTypes.string,
-  children: PropTypes.element,
-  sx: PropTypes.element,
 };
 
 export default ToolTip;
