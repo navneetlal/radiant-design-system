@@ -4,7 +4,6 @@ import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 // import { terser } from "rollup-plugin-terser";
-import multi from "@rollup/plugin-multi-entry";
 import json from '@rollup/plugin-json'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
@@ -32,7 +31,6 @@ export default [
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss(),
-      multi({ exports: true })
       // terser(),
     ],
     external: ["react", "react-dom", "@mui/material", "@mui/styles", "@mui/lab", "@mui/icons-material", "@emotion/react", "@emotion/styled"]
