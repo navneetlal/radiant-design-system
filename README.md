@@ -55,7 +55,7 @@ import '@fontsource/poppins/700.css'
 ## 🎈 Usage <a name="usage"></a>
 
 1. Import theme and ThemeProvider. You have 2 default theme to use, namely - `light` & `dark`.
-```ts
+```tsx
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '@intugine-technologies/mui';
 
