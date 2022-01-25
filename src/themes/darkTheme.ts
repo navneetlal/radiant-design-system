@@ -219,3 +219,5 @@ export let darkTheme = createTheme({
 //         MuiDrawer: {},
 //     },
 // });
+
+export default darkTheme

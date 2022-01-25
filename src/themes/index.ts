@@ -1,4 +1,5 @@
 import lightTheme from './lightTheme'
+import darkTheme from './darkTheme'
 
 declare module '@mui/material' {
   export interface Color {
@@ -23,6 +24,11 @@ declare module '@mui/material/styles' {
       warning?: PaletteOptions['primary'],
     };
   }
+}
+
+export const theme = {
+  lightTheme,
+  darkTheme
 }
 
 export default lightTheme

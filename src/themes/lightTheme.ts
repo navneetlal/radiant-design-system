@@ -16,7 +16,7 @@ export let lightTheme = createTheme({
       200: '#BFD2FD',
       100: '#D7E3FE',
       50: '#F5F8FF',
-      contrastText: "#F5F8FF",
+      // contrastText: "#F5F8FF",
     },
     secondary: {
       light: '#FFF7E6',
@@ -28,20 +28,20 @@ export let lightTheme = createTheme({
         light: "#C2FAEA",
         main: "#00C28B",
         dark: "#008F66",
-        contrastText: '#C2FAEA'
+        // contrastText: '#C2FAEA'
       },
       error: {
         light: "#F9D7D7",
         main: "#FF5757",
         dark: "#CC3333",
-        contrastText: '#F9D7D7'
+        // contrastText: '#F9D7D7'
       },
       warning: {
         light: "#FFECDB",
         main: "#F2984A",
         dark: "#D97E2E",
         600 : "#D97F30",
-        contrastText: '#FFECDB'
+        // contrastText: '#FFECDB'
       }
     },
     grey: {
