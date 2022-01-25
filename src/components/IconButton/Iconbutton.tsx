@@ -7,17 +7,18 @@ import { useTheme } from '@mui/material';
 
 export interface IButtonProps {
   variant?: 'outlined' | 'contained';
-  color?: 'primary' | 'secondary' | 'error' | 'warning' | 'blackAndWhite' | 'success';
+  color?: "primary" | "secondary" | "error" | "warning" | "success" | "inherit" | "info";
   size?: 'small' | 'medium' | 'large';
   icon?: React.ReactElement;
   [key: string]: any;
 }
 
-const IconButton = ({ variant, color, size, text, icon, ...otherProps }: IButtonProps) => {
+const IconButton = ({ variant, color, size, icon, ...otherProps }: IButtonProps) => {
   const theme = useTheme();
   return (
     <MuiButton
       variant={variant}
+      color={color}
       sx = {[
           {
             minWidth: 32,
@@ -33,47 +34,53 @@ const IconButton = ({ variant, color, size, text, icon, ...otherProps }: IButton
             },
           },
           variant === 'contained' && {
-              background: `${theme}.palette.${color}.main`,
+            //@ts-ignore
+              background: theme.palette[color].main,
               color : `#ffffff`,
               '&:hover' : {
-                  background : `${theme}.palette.${color}.dark`
-              }
+                //@ts-ignore
+                  background : theme.palette[color].dark,
+                },
+              boxShadow : 'none !important'
           },
           variant === 'outlined' && {
-                color : `${theme}.palette.${color}.main`,
+            //@ts-ignore
+                color : theme.palette[color].main,
                 background : '#ffffff',
                 border : `1px solid`,
-                borderColor : `${theme}.palette.${color}.main`,
+                //@ts-ignore
+                borderColor : theme.palette[color].main,
                 '&:hover' : {
-                    background : `${theme}.palette.${color}.contastText`
+                  //@ts-ignore
+                    background : theme.palette[color].contrastText
                 }
           },
           size === 'small' && {
-            minWidth: 32,
-            height: 32,
+            width: '32px',
+            height: '32px',
             padding: '8px',
             '& svg': {
-              width: 16,
-              height: 16,
+              width: '16px',
+              height: '16px',
             },
           },
           size === 'medium' && {
-            minWidth: 40,
-            height: 40,
+            width: '40px',
+            height: '40px',
             padding: '10px',
             '& svg': {
-              width: 20,
-              height: 20,
+              width: '20px',
+              height: '20px',
             },
           },
           size === 'large' && {
-            minWidth: 48,
-            height: 48,
+            width: '48px',
+            height: '48px',
             ...theme.typography.h4,
             padding: '12px',
             '& svg': {
-              width: 24,
-              height: 24,
+              width: '24px',
+              height: '24px',
             },
           }
 
@@ -82,7 +89,6 @@ const IconButton = ({ variant, color, size, text, icon, ...otherProps }: IButton
       startIcon={icon}
       {...otherProps}
     >
-      {text && <span style={{textTransform : 'none', whiteSpace : 'nowrap'}}>{text}</span>}
     </MuiButton>
   );
 };

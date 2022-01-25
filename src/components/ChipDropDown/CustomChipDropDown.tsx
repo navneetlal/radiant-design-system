@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { ClassNameMap } from "@mui/material";
-import Chips from "./Chip";
+import Chips from "../Chip";
 
 export interface IBootstrapInputProps {
   alert: boolean;
@@ -36,7 +36,7 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
               padding: 0,
               minWidth: 30,
               ...theme.typography.body2,
-              borderColor: alert ? theme.palette.error.main : "#C7C7C7",
+              borderColor: alert ? theme.palette?.support?.error?.main : "#C7C7C7",
               alignSelf: "flex-end",
               height: 32 - 8,
               color: `1A1A1A !important`,
@@ -139,7 +139,7 @@ export default function CustomChipDropdown({
             sx={[
               focused && {
                 borderColor: alert
-                  ? theme.palette.error.main
+                  ? theme.palette?.support?.error?.main
                   : theme.palette.primary.main,
                 alignSelf: "flex-end",
               },
@@ -149,11 +149,11 @@ export default function CustomChipDropdown({
                 borderRadius: 4,
                 position: "relative",
                 ...theme.typography.body2,
-                border: `1px solid ${theme.palette.secondary.main}`,
+                border: `1px solid ${theme.palette.grey[100]}`,
                 backgroundColor: `#ffffff`,
                 borderColor: alert
-                  ? theme.palette.error.main
-                  : theme.palette.secondary.main,
+                  ? theme.palette?.support?.error?.main
+                  : theme.palette.grey[100],
                 alignSelf: "flex-end",
                 minHeight: 32 - 8, // Subtracting padding 4px * 2
                 overflow: "hidden",
@@ -167,7 +167,7 @@ export default function CustomChipDropdown({
                 width: width ? width - 24 : 200 - 24,
                 "&:focus": {
                   borderColor: alert
-                    ? theme.palette.error.main
+                    ? theme.palette?.support?.error?.main
                     : theme.palette.primary.main,
                 },
               },

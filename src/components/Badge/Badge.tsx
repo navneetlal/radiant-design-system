@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { Badge as MuiBadge } from '@mui/material';
 import { useTheme } from '@mui/material';
 import { withStyles } from '@mui/styles';
+
 export interface IBadgeProps {
     rounded?: boolean;
     color?: "default" | "primary" | "secondary" | "error" | "info" | "success" | "warning";
@@ -12,7 +13,7 @@ export interface IBadgeProps {
 
 }
 
-const Badge = ({ rounded, text, children, size = 'medium', ...otherProps }: IBadgeProps) => {
+const Badge = ({ rounded, color, text, children, size, ...otherProps }: IBadgeProps) => {
     const theme = useTheme()
     return (
         <MuiBadge
@@ -22,7 +23,7 @@ const Badge = ({ rounded, text, children, size = 'medium', ...otherProps }: IBad
                 {
                 "& .MuiBadge-badge" : {
                     //@ts-ignore
-                    backgroundColor : theme.palette[otherProps.color].light,
+                    backgroundColor : theme.palette[color].light,
                     color : `1A1A1A`,
                     borderRadius : '4px',
                     fontFamily: '"Source Sans Pro", sans-serif',
@@ -36,7 +37,7 @@ const Badge = ({ rounded, text, children, size = 'medium', ...otherProps }: IBad
                 },
                 size === 'medium' && {
                     "& .MuiBadge-badge" : {
-                        height: '24px',
+                        height: '32px',
                         transform: 'scale(1) translate(90%, -60%)',
                         ...theme.typography.body1,
                     }        
@@ -65,7 +66,7 @@ const Badge = ({ rounded, text, children, size = 'medium', ...otherProps }: IBad
 };
 
 
-export const StyledBadge = withStyles((theme) => ({
+export const StyledBadge = withStyles((theme:any) => ({
     badge: {
       border: (props) => (props.border && `2px solid ${theme.palette.background.paper}`) || 0,
       padding: '0 4px',

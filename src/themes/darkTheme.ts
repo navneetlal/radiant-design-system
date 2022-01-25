@@ -29,7 +29,7 @@ export let darkTheme = createTheme({
         success: {
             light: "#C2FAEA",
             main: "#00C28B",
-            dark: "#008F66"
+            dark: "#008F66",
         }
     },
     typography: {
@@ -63,7 +63,7 @@ export let darkTheme = createTheme({
 //                     textTransform: "none",
 //                 },
 //                 disabled: {
-//                     backgroundColor: darkTheme.palette.secondary.light + " !important",
+//                     backgroundColor: darktheme.palette.grey[150] + " !important",
 //                     color: '#A1A1A1' + " !important",
 //                 },
 //             },
@@ -83,7 +83,7 @@ export let darkTheme = createTheme({
 //         MuiBreadcrumbs: {
 //             styleOverrides: {
 //                 root: {
-//                     color: darkTheme.palette.secondary.dark,
+//                     color: darktheme.palette.grey[650],
 //                 },
 //             },
 //         },
@@ -155,11 +155,11 @@ export let darkTheme = createTheme({
 //             styleOverrides: {
 //                 arrow: {
 //                     //@ts-ignore
-//                     color: darkTheme.palette.primary[600],
+//                     color: darktheme.palette.primary.dark,
 //                 },
 //                 tooltipPlacementTop: {
 //                     //@ts-ignore
-//                     backgroundColor: darkTheme.palette.primary[600],
+//                     backgroundColor: darktheme.palette.primary.dark,
 //                     //@ts-ignore
 //                     border: `1px solid ${darkTheme.palette.primary[200]}`,
 //                     borderRadius: 4,
@@ -179,10 +179,10 @@ export let darkTheme = createTheme({
 //                     borderRadius: 4,
 //                     position: "relative",
 //                     ...darkTheme.typography.body2,
-//                     border: `1px solid ${darkTheme.palette.secondary.main}`,
+//                     border: `1px solid ${darktheme.palette.grey[100]}`,
 //                     width: 192,
 //                     cursor: "pointer",
-//                     borderColor: darkTheme.palette.secondary.main,
+//                     borderColor: darktheme.palette.grey[100],
 //                     alignSelf: "flex-end",
 //                     height: 32,
 //                     padding: "8px 12px",
@@ -190,7 +190,7 @@ export let darkTheme = createTheme({
 //                         borderColor: darkTheme.palette.primary.main,
 //                     },
 //                     "&:not(:placeholder-shown):invalid": {
-//                         borderColor: darkTheme.palette.error.main,
+//                         borderColor: darktheme.palette?.support?.error?.main,
 //                     },
 //                     boxSizing: "border-box",
 //                 },
@@ -219,3 +219,5 @@ export let darkTheme = createTheme({
 //         MuiDrawer: {},
 //     },
 // });
+
+export default darkTheme

@@ -4,11 +4,9 @@ import {
 } from "@mui/material";
 
 import { useTheme } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import { Box } from "@mui/system";
-import React from 'react'
+import React from "react";
 
-import { Theme } from "@mui/material";
 const styles = {
   small: {
     root: {
@@ -38,7 +36,6 @@ const styles = {
   },
 } as const;
 
-
 export interface ISwitchProps {
   checked?: any;
   onChange?: any;
@@ -63,7 +60,7 @@ const Switch = ({
   ...otherProps
 }: ISwitchProps) => {
   const theme = useTheme();
-  
+
   return (
     <Box
       sx={[
@@ -85,83 +82,64 @@ const Switch = ({
 
       <MuiSwitch
         checked={checked}
-        onChange={onChange}
+        onClick={onChange}
+        focusVisibleClassName=".Mui-focusVisible"
+        disableRipple
         name={name}
         size={size}
         disabled={disabled}
-        
         sx={[
           {
-            "& .MuiSwitch-root": {
-              width: `${styles}.${size}.root.width !important`,
-              height: `${styles}.${size}.root.height !important`,
-              padding: 0,
-              display: `flex !important`,
-            },
-          },
-          {
-            "& .Mui-disabled": {
-              "& + $track": {
-                backgroundColor: `${
-                  theme.palette[colored ? "error" : "primary"].light
-                }!important`,
-                opacity: `${1}!important`,
-              },
-              color: `fff !important`,
-              "&$checked": {
-                "& + $track": {
-                  opacity: 1,
-                  backgroundColor: `${
-                    theme.palette[colored ? "success" : "primary"].light
-                  }!important`,
-                  borderColor: `${
-                    theme.palette[colored ? "success" : "primary"].light
-                  }!important`,
-                },
-              },
-            },
-          },
-
-          {
+            width: `${styles[size].root.width}px`,
+            height: `${styles[size].root.height}px`,
+            padding: 0,
+            borderRadius: "5000px",
             "& .MuiSwitch-switchBase": {
-              padding: 1,
-              color: "white",
-              "&$checked": {
-                transform: `translateX(${
-                  styles[size].switchBase.transform / 1
-                }px) !important`,
-                color: `white !important`,
-                "& + $track": {
+              padding: 0,
+              margin: "1.5px",
+              transitionDuration: "300ms",
+              "& + .MuiSwitch-track": {
+                backgroundColor: `${
+                  colored
+                    ? theme.palette?.support?.success?.main
+                    : theme.palette?.support?.error?.main
+                }`,
+              },
+              "&.Mui-disabled + .MuiSwitch-track": {
+                opacity: 0.7,
+                backgroundColor: colored
+                  ? theme.palette?.support?.success?.light
+                  : theme.palette?.support?.error?.light,
+              },
+
+              "&.Mui-checked": {
+                transform: `translateX(${styles[size].switchBase.transform}px)`,
+                color: "#fff",
+
+                "& + .MuiSwitch-track": {
                   opacity: 1,
+                  border: 0,
                   backgroundColor: `${
-                    theme.palette[colored ? "success" : "primary"][
-                      disabled ? "light" : "main"
-                    ]
-                  } !important`,
-                  borderColor: `${
-                    theme.palette[colored ? "success" : "primary"][
-                      disabled ? "light" : "main"
-                    ]
-                  } !important`,
+                    colored
+                      ? theme.palette?.support?.success?.main
+                      : theme.palette?.support?.error?.main
+                  }`,
                 },
               },
-            },
-            "& .MuiSwitch-checked": {
-              transform: `translateX(${styles[size].switchBase.transform})px !important`,
+              "&.Mui-disabled .MuiSwitch-thumb": {
+                color: "#ffffff",
+              },
             },
             "& .MuiSwitch-thumb": {
-              width: `${styles[size].thumb.width}px !important`,
-              height: `${styles[size].thumb.height}px !important`,
+              boxSizing: "border-box",
+              width: `${styles[size].thumb.width}px`,
+              height: `${styles[size].thumb.height}px`,
+
               boxShadow: "none",
             },
+
             "& .MuiSwitch-track": {
-              height: styles[size].root.height,
-              width : `${styles[size].root.height} !important`,
-              borderRadius: 50,
               opacity: 1,
-              backgroundColor: `${
-                colored ? theme.palette.error.main : theme.palette.primary.main
-              } !important`,
             },
           },
         ]}

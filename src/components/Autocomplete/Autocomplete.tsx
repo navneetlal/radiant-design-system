@@ -1,88 +1,86 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { Typography as MuiTypography } from "@mui/material";
-import { InputBase as MuiInputBase } from "@mui/material";
 import { InputLabel as MuiInputLabel } from "@mui/material";
 import { useAutocomplete } from "@mui/material";
 import { Paper as MuiPaper } from "@mui/material";
-import { ClassNameMap } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { Box } from "@mui/system";
+import {BootstrapInput} from '../Textbox/Textbox';
+// export interface IBootstrapInputProps {
+//   alert?: boolean;
+//   height: "small" | "medium";
+//   width?: number;
+//   classes?: ClassNameMap<string>;
+//   disabled?: boolean;
+//   value: string;
+//   [key: string]: any;
+// }
 
-export interface IBootstrapInputProps {
-  alert?: boolean;
-  height: "small" | "medium";
-  width?: number;
-  classes?: ClassNameMap<string>;
-  disabled?: boolean;
-  value: string;
-  [key: string]: any;
-}
-
-const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
-  (
-    {
-      alert = false,
-      width = 192,
-      classes,
-      disabled = false,
-      placeholder,
-      height,
-      value,
-      ...otherProps
-    },
-    ref
-  ) => {
-    const theme = useTheme();
-    return (
-      <MuiInputBase
-        sx={[
-          {
-            "& .MuiInputBase-root": {
-              "label + &": {
-                marginTop: theme.spacing(1),
-              },
-            },
-            "& .MuiInputBase-input": {
-              borderRadius: 4,
-              position: "relative",
-              ...theme.typography.body1,
-              border: `1px solid ${theme.palette.secondary.main}`,
-              borderColor: disabled ? theme.palette.secondary.light : "#ffffff",
-              alignSelf: "flex-end",
-              // height: ({ height }: any) => (height === 'small' ? 32 - 16 : 40 - 16), // Subtracting padding...!
-              padding: "8px 12px",
-              cursor: disabled ? "not-allowed" : "text",
-              color: `#1A1A1A !important`,
-              // backgroundImage: 'url(/images/DropdownIcon.svg)',
-              // backgroundRepeat: 'no-repeat',
-              // backgroundPosition: '95% 50%',
-              // backgroundSize: '8px',
-              width: width ? width - 24 : 200 - 24,
-              "&:focus": {
-                borderColor: alert
-                  ? theme.palette.error.main
-                  : theme.palette.primary.main,
-              },
-            },
-          },
-          height === "small" && {
-            ...theme.typography.body2,
-            height: 30 - 16,
-          },
-          height === "medium" && {
-            ...theme.typography.body1,
-            height: 38 - 16,
-          },
-        ]}
-        ref={ref}
-        disabled={disabled}
-        value={value}
-        placeholder={placeholder}
-        {...otherProps}
-      />
-    );
-  }
-);
+// const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
+//   (
+//     {
+//       alert = false,
+//       width = 192,
+//       classes,
+//       disabled = false,
+//       placeholder,
+//       height,
+//       value,
+//       ...otherProps
+//     },
+//     ref
+//   ) => {
+//     const theme = useTheme();
+//     return (
+//       <MuiInputBase
+//         sx={[
+//           {
+//             "& .MuiInputBase-root": {
+//               "label + &": {
+//                 marginTop: theme.spacing(1),
+//               },
+//             },
+//             "& .MuiInputBase-input": {
+//               borderRadius: 4,
+//               position: "relative",
+//               ...theme.typography.body1,
+//               border: `1px solid ${theme.palette.grey[100]}`,
+//               borderColor: disabled ? theme.palette.grey[150] : "#ffffff",
+//               alignSelf: "flex-end",
+//               // height: ({ height }: any) => (height === 'small' ? 32 - 16 : 40 - 16), // Subtracting padding...!
+//               padding: "8px 12px",
+//               cursor: disabled ? "not-allowed" : "text",
+//               color: `#1A1A1A !important`,
+//               // backgroundImage: 'url(/images/DropdownIcon.svg)',
+//               // backgroundRepeat: 'no-repeat',
+//               // backgroundPosition: '95% 50%',
+//               // backgroundSize: '8px',
+//               width: width ? width - 24 : 200 - 24,
+//               "&:focus": {
+//                 borderColor: alert
+//                   ? theme.palette?.support?.error?.main
+//                   : theme.palette.primary.main,
+//               },
+//             },
+//           },
+//           height === "small" && {
+//             ...theme.typography.body2,
+//             height: 30 - 16,
+//           },
+//           height === "medium" && {
+//             ...theme.typography.body1,
+//             height: 38 - 16,
+//           },
+//         ]}
+//         ref={ref}
+//         disabled={disabled}
+//         value={value}
+//         placeholder={placeholder}
+//         {...otherProps}
+//       />
+//     );
+//   }
+// );
 
 export interface IAutoComplete {
   label?: string;
@@ -167,7 +165,7 @@ const AutoComplete = ({
               ...theme.typography.h6,
               color: "#1A1A1A",
               "&>span": {
-                color: theme.palette.error.main,
+                color: theme.palette?.support?.error?.main,
               },
             },
           ]}
@@ -179,6 +177,7 @@ const AutoComplete = ({
           placeholder={placeholder}
           required={required}
           width={width}
+          size = "small"
           height={height}
           disabled={disabled}
           value={
