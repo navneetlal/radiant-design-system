@@ -32,7 +32,7 @@ const ToolTip = ({
   const theme = useTheme();
   return (
     <MuiTooltip
-    open
+    
       title={title}
       placement={placement}
       arrow
