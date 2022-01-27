@@ -27,6 +27,8 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
           },
           flexGrow: 1,
           WebkitBoxFlex: 1,
+          paddingBottom : '0px !important',
+            
 
           "& .MuiInputBase-input": {
             order: "3px",
@@ -124,7 +126,7 @@ export default function MultiSelect({
                 ? theme.palette?.support?.error?.main
                 : theme.palette.grey[100],
               alignSelf: "flex-end",
-              minHeight: '40px', // Subtracting padding 4px * 2
+              minHeight: '32px', 
               overflow: "hidden",
               padding: "4px 12px",
               paddingRight: 0,
@@ -141,7 +143,7 @@ export default function MultiSelect({
                     text={item}
                     selected
                     fromMultiSelect
-                    size="medium"
+                    size="small"
                     onDelete={handleDelete(item)}
                   />
                 </Grid>

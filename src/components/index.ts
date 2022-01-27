@@ -1,4 +1,3 @@
-export { default as Accordian } from './Accordian'
 export { default as Autocomplete } from './Autocomplete'
 export { default as Badge } from "./Badge";
 export { default as Button } from "./Button";

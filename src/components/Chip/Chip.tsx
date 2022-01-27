@@ -30,7 +30,7 @@ const Chip = ({
         {
           backgroundColor: selected
             ? theme.palette.primary.main
-            : theme.palette.secondary?.contrastText,
+            : theme.palette.grey[300],
           color: selected ? "#ffffff" : '#1A1A1A',
           ...(fromMultiSelect && {
             marginRight: '4px',
@@ -38,7 +38,7 @@ const Chip = ({
           "&:focus": {
             backgroundColor: selected
               ? theme.palette.primary.main
-              : theme.palette.secondary?.contrastText,
+              : theme.palette.grey[300],
           },
           "&:hover": {
             backgroundColor: selected

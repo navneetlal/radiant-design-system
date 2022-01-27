@@ -73,7 +73,11 @@ const Switch = ({
       ]}
     >
       {label ? (
-        <MuiTypography variant={size === "small" ? "body2" : "body1"}>
+        <MuiTypography variant={size === "small" ? "body2" : "body1"} sx = {[
+          disabled && {
+            color : theme.palette.grey[100]
+          }
+        ]}>
           {label}
         </MuiTypography>
       ) : (
@@ -107,9 +111,10 @@ const Switch = ({
               },
               "&.Mui-disabled + .MuiSwitch-track": {
                 opacity: 0.7,
-                backgroundColor: colored
-                  ? theme.palette?.support?.success?.light
-                  : theme.palette?.support?.error?.light,
+                // backgroundColor: colored
+                //   ? theme.palette?.support?.success?.light
+                //   : theme.palette?.support?.error?.light,
+                backgroundColor: theme.palette.grey[150],
               },
 
               "&.Mui-checked": {
@@ -121,19 +126,20 @@ const Switch = ({
                   border: 0,
                   backgroundColor: `${
                     colored
-                      ? theme.palette?.support?.success?.main
-                      : theme.palette?.support?.error?.main
+                      ? theme.palette?.support?.success?.[disabled ? 'light' : 'main']
+                      : theme.palette?.support?.error?.[disabled ? 'light' : 'main']
                   }`,
                 },
               },
               "&.Mui-disabled .MuiSwitch-thumb": {
-                color: "#ffffff",
+                //color: theme.palette.grey[100],
               },
             },
             "& .MuiSwitch-thumb": {
               boxSizing: "border-box",
               width: `${styles[size].thumb.width}px`,
               height: `${styles[size].thumb.height}px`,
+              color: (disabled && !checked) ? theme.palette.grey[100] : "#ffffff",
 
               boxShadow: "none",
             },

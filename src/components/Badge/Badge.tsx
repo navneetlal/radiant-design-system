@@ -31,6 +31,7 @@ const Badge = ({ rounded, color, text, children, size, ...otherProps }: IBadgePr
                 size === 'small' && {
                     "& .MuiBadge-badge" : {
                         height: '24px',
+                        width : '24px',
                         transform: 'scale(1) translate(90%, -50%)',
                         ...theme.typography.body2,
                     }
@@ -38,6 +39,7 @@ const Badge = ({ rounded, color, text, children, size, ...otherProps }: IBadgePr
                 size === 'medium' && {
                     "& .MuiBadge-badge" : {
                         height: '32px',
+                        width : '32px',
                         transform: 'scale(1) translate(90%, -60%)',
                         ...theme.typography.body1,
                     }        
@@ -46,6 +48,7 @@ const Badge = ({ rounded, color, text, children, size, ...otherProps }: IBadgePr
                 size === 'large' && {
                     "& .MuiBadge-badge" : {
                         height: '40px  ',
+                        width : '24px',
                         transform: 'scale(1) translate(90%, -70%)',
                         ...theme.typography.subtitle2,
 
@@ -66,13 +69,13 @@ const Badge = ({ rounded, color, text, children, size, ...otherProps }: IBadgePr
 };
 
 
-export const StyledBadge = withStyles((theme:any) => ({
-    badge: {
-      border: (props) => (props.border && `2px solid ${theme.palette.background.paper}`) || 0,
-      padding: '0 4px',
-      backgroundColor: (props) => props.backgroundcolor || theme.palette.background.default,
-      color: (props) => props.textcolor || theme.palette.background.default,
-    },
-  }))(Badge);
+// export const StyledBadge = withStyles((theme:any) => ({
+//     badge: {
+//       border: (props) => (props.border && `2px solid ${theme.palette.background.paper}`) || 0,
+//       padding: '0 4px',
+//       backgroundColor: (props) => props.backgroundcolor || theme.palette.background.default,
+//       color: (props) => props.textcolor || theme.palette.background.default,
+//     },
+//   }))(Badge);
   
-export default StyledBadge;
+export default Badge;

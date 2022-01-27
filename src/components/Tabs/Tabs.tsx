@@ -53,12 +53,11 @@ const Tabs = ({
           disabled={disabled}
           {...item}
           sx={{
-            color: "#1A1A1A",
+            color: theme.palette.common.black,
             textTransform: "none",
 
             ...theme.typography.h5,
             maxWidth: "100%",
-            minWidth: "50%",
             "&&:hover": {
               color: theme.palette.primary.main,
             },

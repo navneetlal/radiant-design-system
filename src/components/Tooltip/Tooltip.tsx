@@ -32,6 +32,7 @@ const ToolTip = ({
   const theme = useTheme();
   return (
     <MuiTooltip
+    open
       title={title}
       placement={placement}
       arrow
@@ -60,6 +61,14 @@ const ToolTip = ({
                   ...theme.typography.body1,
                 }),
             padding: otherProps.size === "medium" ? "8px 16px" : "4px 8px", // Top Down  Left Right
+            ...(placement === 'top' && {
+
+              marginBottom : '4px !important',
+            }),
+            ...(placement === 'bottom' && {
+              marginTop : '4px !important'
+            })
+            
           },
         },
         arrow: {
@@ -68,13 +77,8 @@ const ToolTip = ({
             color: color === "dark" ? theme.palette.primary.dark : "#ffffff",
             position: "absolute",
             top: otherProps.size === "medium" ? "34.2px" : "22.2px",
-            ...(placement === 'bottom' && {
-              marginTop : '4px', 
-
-            }),
-            ...(placement === 'top' && {
-              marginBottom : '4px'
-            }),
+            
+            
             //marginTop : '4px',
             "&:before": {
               border: `.1px solid`,
@@ -83,7 +87,7 @@ const ToolTip = ({
               borderRadius: "2px",
             },
           },
-        },
+        }
       }}
     >
       <span>{children}</span>

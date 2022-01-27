@@ -29,10 +29,10 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               position: "relative",
               ...(size === "small"
                 ? {
-                    ...theme.typography.body1,
+                    ...theme.typography.body2,
                   }
                 : {
-                    ...theme.typography.body2,
+                    ...theme.typography.body1,
                   }),
               border: `1px solid ${theme.palette.grey[100]}`,
               borderColor: alert
@@ -46,11 +46,15 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               padding: size === "small" ? "8px 12px" : "10px 16px",
               cursor: disabled ? "not-allowed" : "pointer",
               caretColor: "transparent",
-              color: `#1A1A1A !important`,
               backgroundImage: `url(/DropdownIcon.svg)`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
               backgroundSize: "8px",
+              "&::placeholder" : {
+                opacity : `1 !important`,
+                color: disabled ? `${theme.palette.grey[100]} !important` : `#1A1A1A !important`,
+
+              },
               width:
                 size === "small"
                   ? width
@@ -135,7 +139,8 @@ const Dropdown = ({
         onFocus={() => setisOpen(true)}
         onBlur={() => setisOpen(false)}
       >
-        <MuiInputLabel
+        
+        { (label || required) && <MuiInputLabel
           sx={[
             size === "small"
               ? {
@@ -145,15 +150,16 @@ const Dropdown = ({
                   ...theme.typography.h5,
                 },
             {
-              color: "#1A1A1A",
+              color: disabled ? theme.palette.grey[100] : "#1A1A1A",
               "&>span": {
                 color: theme.palette?.support?.error?.main,
               },
+              marginBottom : size === 'small' ? '4px' : '8px'
             },
           ]}
         >
-          {label} <span>{required && label ? "*" : ""}</span>
-        </MuiInputLabel>
+          {label} <span>{required ? "*" : ""}</span>
+        </MuiInputLabel>}
         <BootstrapInput
           placeholder={placeholder}
           required={required}
@@ -171,7 +177,6 @@ const Dropdown = ({
           width: width ? `${width}px` : "312px",
         }}
       >
-        {children}
         <PerfectScrollbar style={{ maxHeight: "180px" }}>
           {options ? (
             options.map((option, index) => (
@@ -195,6 +200,8 @@ const Dropdown = ({
             </Paper>
           )}
         </PerfectScrollbar>
+        
+        {children}
       </Paper>
     </div>
   );
