@@ -1,27 +1,27 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Switch from "../components/Switch";
+import Radio from "../components/Radio";
 
 export default {
-  title: "Components/Switch",
-  component: Switch,
+  title: "Components/Radio",
+  component: Radio,
   args: {
-    label: "Switch",
+    label: " I am Radio forever",
     size: "medium",
   },
-} as ComponentMeta<typeof Switch>;
+} as ComponentMeta<typeof Radio>;
 
-const Template: ComponentStory<typeof Switch> = (args) => <Switch {...args} />;
+const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />;
 
 export const Checked = Template.bind({});
 Checked.args = {
   checked: true,
 };
 
-export const Colored = Template.bind({});
-Colored.args = {
-  colored: true,
+export const Alert = Template.bind({});
+Alert.args = {
+  alert: true,
 };
 
 export const Disabled = Template.bind({});

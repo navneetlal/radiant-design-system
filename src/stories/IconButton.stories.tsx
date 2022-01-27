@@ -1,18 +1,22 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import Close from "@mui/icons-material/Close";
 
-import Button from "../components/Button";
+import IconButton from "../components/IconButton";
 
 export default {
-  title: "Components/Button",
-  component: Button,
+  title: "Components/IconButton",
+  component: IconButton,
   args: {
-    text: "Button",
     variant: "outlined",
+    size: "small",
+    icon: <Close />,
   },
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof IconButton>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof IconButton> = (args) => (
+  <IconButton {...args} />
+);
 
 export const Primary = Template.bind({});
 
