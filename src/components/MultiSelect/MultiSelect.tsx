@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import {
-  NoSsr,
-  InputBase as MuiInputBase,
-  InputLabel as MuiInputLabel,
-  Grid,
-  Box,
-} from "@mui/material";
-import { useTheme } from "@mui/material";
+
+import MuiInputBase from '@mui/material/InputBase';
+import MuiInputLabel from '@mui/material/InputLabel';
+import MuiGrid from '@mui/material/Grid';
+import MuiBox from '@mui/material/Box';
+import NoSsr from '@mui/material/NoSsr';
+
+import { useTheme } from "@mui/material/styles";
 import Chips from "../Chip/Chip";
 
 export interface IBootstrapInputProps {
@@ -71,9 +71,6 @@ export default function MultiSelect({
   width,
   alert,
   options,
-  // selectedOptions,
-  // children,
-  // ...otherProps,
   disabled,
 }: IMultiSelectProps) {
   const [value, setValue] = useState("");
@@ -109,7 +106,7 @@ export default function MultiSelect({
           >
             {label}
           </MuiInputLabel>
-          <Box
+          <MuiBox
             sx={{
               "label + &": {
                 marginTop: theme.spacing(1),
@@ -136,9 +133,9 @@ export default function MultiSelect({
               },
             }}
           >
-            <Grid container spacing={1}>
+            <MuiGrid container spacing={1}>
               {[...option].map((item, index) => (
-                <Grid item key={index}>
+                <MuiGrid item key={index}>
                   <Chips
                     text={item}
                     selected
@@ -146,7 +143,7 @@ export default function MultiSelect({
                     size="small"
                     onDelete={handleDelete(item)}
                   />
-                </Grid>
+                </MuiGrid>
               ))}
               <BootstrapInput
                 placeholder={placeholder}
@@ -166,8 +163,8 @@ export default function MultiSelect({
                 }}
                 disabled={disabled}
               />
-            </Grid>
-          </Box>
+            </MuiGrid>
+          </MuiBox>
         </div>
       </div>
     </NoSsr>

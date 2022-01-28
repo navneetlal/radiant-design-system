@@ -1,12 +1,13 @@
-import { Box, Radio as MuiRadio } from "@mui/material";
-import { useTheme } from "@mui/material";
 import React from "react";
 
-export interface IRadioProps {
+import MuiBox from "@mui/material/Box";
+import MuiRadio from '@mui/material/Radio'
+
+import { useTheme } from "@mui/material/styles";
+import type { RadioProps } from '@mui/material/Radio'
+
+export interface IRadioProps extends RadioProps {
   checked?: boolean;
-  onChange?: any;
-  required?: boolean;
-  size: "small" | "medium";
   label?: string;
   disabled?: boolean;
   reverse?: boolean;
@@ -17,8 +18,6 @@ export interface IRadioProps {
 const Radio = ({
   reverse,
   checked,
-  onChange,
-  required,
   size = "medium",
   label,
   disabled = false,
@@ -27,14 +26,14 @@ const Radio = ({
 }: IRadioProps) => {
   const theme = useTheme();
   return (
-    <Box
+    <MuiBox
       sx={[
         {
           display: "flex",
-          alignItems : 'center',
+          alignItems: 'center',
           flexDirection: reverse ? "row-reverse" : "row",
           width: "max-content",
-          height:  'auto',
+          height: 'auto',
           "&>p": {
             color: disabled ? theme.palette.grey[100] : "#1A1A1A",
           },
@@ -48,7 +47,7 @@ const Radio = ({
           },
           "&>p": {
             ...theme.typography.body2,
-            
+
           },
           "&>span": {
             width: '16px',
@@ -62,7 +61,7 @@ const Radio = ({
           },
           "&>p": {
             ...theme.typography.body1,
-            
+
           },
           "&>span": {
             width: '24px',
@@ -74,8 +73,6 @@ const Radio = ({
     >
       <MuiRadio
         checked={checked}
-        onChange={onChange}
-        required={required}
         disabled={disabled}
         size={size}
         disableRipple
@@ -86,9 +83,6 @@ const Radio = ({
         sx={[
           {
             padding: `9px 9px 9px 0`,
-            //height : size === 'small' ? '12px' : '16px',
-            
-            
           },
           !checked && {
             color: `#C7C7C7 !important`,
@@ -96,30 +90,27 @@ const Radio = ({
           alert && !checked && !disabled && {
             color: `${theme.palette?.support?.error?.main} !important`,
           },
-          
           {
             "&&:hover": {
-              //@ts-ignore
-              color: `${
-                theme.palette["primary"].main
-              } !important`,
+              color: `${theme.palette.primary.main
+                } !important`,
             },
           },
           disabled && {
             color: theme.palette.grey[100],
           },
           !disabled &&
-            alert &&  {
-              color: theme.palette?.support?.error?.main,
-            },
+          alert && {
+            color: theme.palette?.support?.error?.main,
+          },
           !disabled &&
-            !alert && {
-              color: theme.palette.primary.main,
-            },
+          !alert && {
+            color: theme.palette.primary.main,
+          },
         ]}
       />
-      {label ? <p>{label}</p> : ""}
-    </Box>
+      {label && <p>{label}</p>}
+    </MuiBox>
   );
 };
 
