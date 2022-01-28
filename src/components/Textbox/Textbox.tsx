@@ -45,6 +45,7 @@ export const BootstrapInput = ({
         {
           "& .MuiInputBase-root": {
             "label + &": {
+
               marginTop: label && theme.spacing(1),
             },
           },
@@ -54,7 +55,9 @@ export const BootstrapInput = ({
             position: "relative",
             //@ts-ignore
             border: `1px solid ${theme.palette.grey[350]}`,
-            backgroundColor: disabled ? theme.palette.grey[150] : `#ffffff`,
+            backgroundColor: disabled
+              ? theme.palette.grey[150]
+              : `#ffffff`,
             width: width ? width : "312px",
             cursor: disabled ? "not-allowed" : "pointer",
             borderColor:
@@ -137,17 +140,15 @@ const Textbox = ({
         {
           flexWrap: "wrap",
           position: "relative",
-          width: "max-content", // don't remove this width either that action button will come out of the textbox
-          // width: "auto",
-          ...(!label &&
-            !required && {
-              height: size === "small" ? "32px" : "40px",
-            }),
-        },
+          // width: 'max-content',
+          width: "auto",
+          ...(!label && !required && {
+            height : size === 'small' ? '32px' : '40px'
+          } )
+        }
       ]}
     >
-      {(label || required) && (
-        <MuiInputLabel
+        {(label || required) && <MuiInputLabel
           sx={[
             size === "small" && {
               ...theme.typography.h6,
@@ -157,14 +158,16 @@ const Textbox = ({
             },
             {
               marginBottom: size === "small" ? "4px" : "8px",
-              color: disabled ? theme.palette.grey[100] : `#1A1A1A !important`,
+              color: disabled
+                ? theme.palette.grey[100]
+                : `#1A1A1A !important`,
             },
           ]}
           htmlFor={id}
         >
           {label} <span>{required ? "*" : ""}</span>
         </MuiInputLabel>
-      )}
+      }
       <BootstrapInput
         size={size}
         placeholder={placeholder}
@@ -172,7 +175,7 @@ const Textbox = ({
         required={required}
         alert={alert}
         id={id}
-        label={label}
+        label = {label}
         value={value}
         onClick={onClick}
         disabled={disabled}
@@ -186,12 +189,12 @@ const Textbox = ({
           size="small"
           color="primary"
           disabled={disabled}
-          {...action}
+          onClick={action.onClick}
           inputAlert={alert}
           inputSize={size}
           inputReq={required}
-          inputLabel={label && label !== ""}
-        />
+          inputLabel={!!label && label.length > 0}
+        >{action.text}</Button>
       )}
     </Box>
   );
