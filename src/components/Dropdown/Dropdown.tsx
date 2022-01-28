@@ -1,24 +1,26 @@
 import React, { forwardRef, useState, useEffect } from "react";
-import {
-  Typography as MuiTypography,
-  InputBase as MuiInputBase,
-  InputLabel as MuiInputLabel,
-  Paper,
-  Box,
-} from "@mui/material";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import { useTheme } from "@mui/material";
 
-export interface IBootstrapInputProps {
-  alert: boolean;
-  width: number;
-  disabled: boolean;
-  size: "small" | "medium";
+import MuiTypography from '@mui/material/Typography'
+import MuiInputBase from '@mui/material/InputBase'
+import MuiInputLabel from '@mui/material/InputLabel'
+import MuiPaper from '@mui/material/Paper'
+import MuiBox from '@mui/material/Box'
+
+import PerfectScrollbar from "react-perfect-scrollbar";
+import { useTheme } from "@mui/material/styles";
+
+import type { InputBaseProps } from '@mui/material/InputBase'
+
+export interface IBootstrapInputProps extends InputBaseProps {
+  alert?: boolean;
+  width?: number;
+  disabled?: boolean;
+  size?: "small" | "medium";
   [key: string]: any;
 }
 
 const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
-  ({ alert, width, classes, disabled, size = "small", ...otherProps }, ref) => {
+  ({ alert = false, width = 300, disabled = false, size = "small", ...otherProps }, ref) => {
     const theme = useTheme();
     return (
       <MuiInputBase
@@ -29,11 +31,11 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               position: "relative",
               ...(size === "small"
                 ? {
-                    ...theme.typography.body2,
-                  }
+                  ...theme.typography.body2,
+                }
                 : {
-                    ...theme.typography.body1,
-                  }),
+                  ...theme.typography.body1,
+                }),
               border: `1px solid ${theme.palette.grey[100]}`,
               borderColor: alert
                 ? theme.palette?.support?.error?.main
@@ -50,8 +52,8 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
               backgroundSize: "8px",
-              "&::placeholder" : {
-                opacity : `1 !important`,
+              "&::placeholder": {
+                opacity: `1 !important`,
                 color: disabled ? `${theme.palette.grey[100]} !important` : `#1A1A1A !important`,
 
               },
@@ -61,8 +63,8 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
                     ? `${width - 26}px`
                     : "286px"
                   : width
-                  ? `${width - 34}px`
-                  : "278px",
+                    ? `${width - 34}px`
+                    : "278px",
               "&:focus": {
                 borderColor: alert
                   ? theme.palette?.support?.error?.main
@@ -92,7 +94,7 @@ export interface IDropDown {
     name: string;
   };
   onChange?: any;
-  children?: React.ReactElement;
+  children?: React.ReactNode;
   disabled?: boolean;
   [key: string]: any;
 }
@@ -110,10 +112,9 @@ const Dropdown = ({
   children,
   disabled,
   elevation,
-  ...otherProps
 }: IDropDown) => {
   const [data, setData] = useState(value);
-  const [isOpen, setisOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     setData(value);
   }, [value]);
@@ -123,38 +124,26 @@ const Dropdown = ({
   };
   const theme = useTheme();
   return (
-    <div
-      {...otherProps}
-      style={{
-        position: "relative",
-      }}
-    >
-      <Box
-        // sx = {{
-        //   '&:focus-within' : {
-
-        //   }
-
-        // }}
-        onFocus={() => setisOpen(true)}
-        onBlur={() => setisOpen(false)}
+    <MuiBox sx={{ position: "relative" }}>
+      <MuiBox
+        onFocus={() => setIsOpen(true)}
+        onBlur={() => setIsOpen(false)}
       >
-        
-        { (label || required) && <MuiInputLabel
+        {(label || required) && <MuiInputLabel
           sx={[
             size === "small"
               ? {
-                  ...theme.typography.h6,
-                }
+                ...theme.typography.h6,
+              }
               : {
-                  ...theme.typography.h5,
-                },
+                ...theme.typography.h5,
+              },
             {
               color: disabled ? theme.palette.grey[100] : "#1A1A1A",
               "&>span": {
                 color: theme.palette?.support?.error?.main,
               },
-              marginBottom : size === 'small' ? '4px' : '8px'
+              marginBottom: size === 'small' ? '4px' : '8px'
             },
           ]}
         >
@@ -169,8 +158,8 @@ const Dropdown = ({
           value={data ? (data.name ? data.name : "") : ""}
           disabled={disabled}
         />
-      </Box>
-      <Paper
+      </MuiBox>
+      <MuiPaper
         elevation={elevation ?? 1}
         sx={{
           display: isOpen ? "block" : "none",
@@ -189,21 +178,20 @@ const Dropdown = ({
               </MuiTypography>
             ))
           ) : (
-            <Paper
+            <MuiPaper
               elevation={1}
               sx={{
                 display: isOpen ? "block" : "none",
                 width: width ? `${width}px` : "312px",
               }}
             >
-              {children}
-            </Paper>
+              {children} //! Need to test if this is required
+            </MuiPaper>
           )}
         </PerfectScrollbar>
-        
         {children}
-      </Paper>
-    </div>
+      </MuiPaper>
+    </MuiBox>
   );
 };
 

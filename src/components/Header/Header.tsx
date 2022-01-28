@@ -1,8 +1,13 @@
-import React from 'react';
-import { makeStyles } from '@mui/styles';
-import { ClassNameMap } from '@mui/styles';
+//! Revisit to remove @mui/styles as a dependency
 
-const useStyles = makeStyles((theme:any) => ({
+import React from 'react';
+import MuiBox from '@mui/material/Box';
+
+import { makeStyles } from '@mui/styles';
+
+import type { BoxProps } from '@mui/material/Box'
+
+const useStyles = makeStyles((theme: any) => ({
   root: {
     width: 'auto',
     height: '88px',
@@ -14,18 +19,16 @@ const useStyles = makeStyles((theme:any) => ({
   },
 }));
 
-export interface IHeaderProps {
-  children: React.ReactElement | React.ReactElement[];
-  className?: ClassNameMap<string>;
-  style?: any;
+export interface IHeaderProps extends BoxProps {
+  children: React.ReactNode;
 }
 
-const Header = (props: IHeaderProps) => {
+const Header = ({ children, className, ...otherProps }: IHeaderProps) => {
   const classes = useStyles();
   return (
-    <header className={`${classes.root} ${props.className} `} style={props.style}>
-      {props.children}
-    </header>
+    <MuiBox className={`${classes.root} ${className} `} {...otherProps}>
+      {children}
+    </MuiBox>
   );
 };
 
