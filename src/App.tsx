@@ -20,7 +20,7 @@ import IconButton from "./components/IconButton/Iconbutton";
 import Radio from "./components/Radio/Radio";
 
 import Textbox from "./components/Textbox/Textbox";
-import Breadcrumbs from "./components/Breadcrumb/Breadcrumb";
+import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
 import Tooltip from "./components/Tooltip/Tooltip";
 //import AutoComplete from "./components/Autocomplete/Autocomplete";
 import UnCheckedIcon from "./icons/UncheckedIcon/UncheckedIcon";
