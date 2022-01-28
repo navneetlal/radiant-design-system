@@ -3,14 +3,15 @@ import { SvgIcon as MuiSvgIcon } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme:any) => ({
   root: {
     width: 20,
     height: 20,
     margin: 'auto',
+    
   },
 }));
-const CheckIcon = () => {
+const CheckIcon = ({disabled} :any) => {
   const classes = useStyles();
   return (
     <MuiSvgIcon className={classes.root} viewBox="0 0 20 20">
@@ -18,8 +19,8 @@ const CheckIcon = () => {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M0 6C0 3.79086 1.79086 2 4 2H12C14.2091 2 16 3.79086 16 6V14C16 16.2091 14.2091 18 12 18H4C1.79086 18 0 16.2091 0 14V6Z"
-        fill="#2C63E5"
-        stroke="#2C63E5"
+        fill= { disabled === true ? "#A1A1A1" : "#2C63E5"}
+        stroke={ disabled === true ? "#A1A1A1" : "#2C63E5"}
         strokeWidth="1px"
         transform="translate(1 0)"
       />

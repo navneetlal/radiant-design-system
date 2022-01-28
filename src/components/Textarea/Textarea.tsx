@@ -11,7 +11,7 @@ const useStyles = makeStyles<Theme, any>((theme) => ({
     ...theme.typography.h6,
     color: theme.palette.common.black,
     '&>span': {
-      color: theme.palette.error.main,
+      color: theme.palette?.support?.error?.main,
     },
   },
   textarea: {
@@ -23,12 +23,12 @@ const useStyles = makeStyles<Theme, any>((theme) => ({
     borderRadius: 4,
     position: 'relative',
     ...theme.typography.body2,
-    border: `1px solid ${theme.palette.secondary.main}`,
+    border: `1px solid ${theme.palette.grey[350]}`,
     backgroundColor: ({ disabled }: any) =>
       disabled ? theme.palette.grey[100] : theme.palette.common.white,
     width: ({ width }: any) => width || 408,
     borderColor: ({ alert }: any) =>
-      alert ? theme.palette.error.main : theme.palette.secondary.main,
+      alert ?  theme.palette?.support?.error?.main :theme.palette.grey[350],
     alignSelf: 'flex-end',
     padding: '8px 12px',
     '&:focus': {

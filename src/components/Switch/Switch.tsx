@@ -111,9 +111,6 @@ const Switch = ({
               },
               "&.Mui-disabled + .MuiSwitch-track": {
                 opacity: 0.7,
-                // backgroundColor: colored
-                //   ? theme.palette?.support?.success?.light
-                //   : theme.palette?.support?.error?.light,
                 backgroundColor: theme.palette.grey[150],
               },
 

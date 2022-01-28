@@ -8,14 +8,14 @@ const useStyles = makeStyles((theme:any) => ({
   input: {
     width: 260,
     height: 32,
-    border: '1px solid #c7c7c7',
+    border: `1px solid ${theme.palette.grey[350]}`,
     borderRadius: 4,
     padding: 0,
     paddingLeft: 12,
     color: 'black',
     ...theme.typography.body2,
     '&::placeholder': {
-      color: theme.palette.secondary.dark,
+      color: theme.palette.grey[650],
       fontSize: 12,
       fontFamily: '"Source Sans Pro", FontAwesome',
     },

@@ -78,37 +78,27 @@ lightTheme = createTheme(lightTheme, {
           marginLeft: 0,
         },
         sizeSmall: {
-          minWidth: 118,
+          minWidth: '98px',
           height: 32,
           ...lightTheme.typography.h6,
           padding: "8px 16px",
           textTransform: "none",
         },
         sizeMedium: {
-          minWidth: 144,
-          height: 40,
+          minWidth: '120px',
+          height: '40px',
           ...lightTheme.typography.h5,
           padding: "10px 24px",
           textTransform: "none",
         },
         sizeLarge: {
-          minWidth: 193,
-          height: 48,
+          minWidth: '161px',
+          height: '48px',
           ...lightTheme.typography.h4,
           padding: "12px 32px",
           textTransform: "none",
         },
       },
-    },
-    MuiBadge: {
-      variants: [
-        {
-          props: {},
-        },
-      ],
-    },
-    MuiBreadcrumb: {
-      styleOverrides: {},
     },
     MuiChip: {
       styleOverrides: {
@@ -198,7 +188,6 @@ lightTheme = createTheme(lightTheme, {
       },
     },
 
-    MuiAutocomplete: {},
     MuiCheckbox: {
       styleOverrides: {
         root: {},
@@ -209,7 +198,6 @@ lightTheme = createTheme(lightTheme, {
       },
     },
 
-    MuiDrawer: {},
     MuiTableCell: {
       styleOverrides: {
         root: {
@@ -232,60 +220,3 @@ lightTheme = createTheme(lightTheme, {
 
 export default lightTheme;
 
-// const tempTheme = createTheme({
-//   components: {
-//     MuiButton: {
-//       styleOverrides: {
-//         outlined: (props) => ({
-//           //@ts-ignore
-//           color: lightTheme.palette[props.color].main,
-//           backgroundColor: `#ffffff`,
-//           border: `1px solid`,
-//           //@ts-ignore
-
-//           borderColor: `${lightTheme.palette[props.color].main}`,
-//           "&:hover": {
-//             //@ts-ignore
-
-//             backgroundColor:
-//               props.color !== "secondary" &&
-//               `${lightTheme.palette[props.color].contrastText}`,
-//           },
-//         }),
-//       },
-//     },
-//   },
-// });
-
-//   MuiSwitch : {
-//     styleOverrides : {
-//       checked : {
-
-//       }
-//     }
-//     variants : [
-//         {
-//           props : {},
-//           style : {
-
-//           }
-//         }
-//     ]
-
-//     // variants : [
-//     //   {
-//     //     props: { size: "small" },
-//     //     style: {
-
-//     //       transform: `translateX(12)px`,
-//     //     },
-//     //   },
-//     //   {
-//     //     props: { size: "medium" },
-//     //     style: {
-//     //       transform: `translate(16)px`,
-//     //     },
-//     //   },
-//     // ]
-//   }
-// }

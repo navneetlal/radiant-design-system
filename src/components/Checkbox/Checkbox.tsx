@@ -16,6 +16,7 @@ export interface ICheckboxProps {
   label?: string;
   reverse?: boolean;
   alert?: boolean;
+  disabled?: boolean;
   [key: string]: any;
 }
 const Checkbox = ({
@@ -25,7 +26,7 @@ const Checkbox = ({
   size = "medium",
   label,
   reverse = false,
-  disabled,
+  disabled = false,
   alert,
   ...otherProps
 }: ICheckboxProps) => {
@@ -35,7 +36,12 @@ const Checkbox = ({
       sx={[
         {
           display: "flex",
-          color: theme.palette.common.black,
+          color: disabled
+            ? theme.palette.grey[100]
+            : theme.palette.common.black,
+
+          alignItems: "center",
+
           flexDirection: reverse ? "row-reverse" : "row",
           width: "max-content",
           fontFamily: "'Source Sans Pro', sans-serif",
@@ -47,13 +53,12 @@ const Checkbox = ({
             padding: 0,
             paddingRight: size === "small" ? 0 : 4,
           },
-          
         },
       ]}
     >
       <MuiCheckbox
-        checkedIcon={<CheckIcon />}
-        icon={<UnCheckedIcon alert={alert} />}
+        checkedIcon={<CheckIcon disabled={disabled} />}
+        icon={<UnCheckedIcon alert={alert} disabled={disabled} />}
         size={size}
         checked={checked}
         onChange={onChange}
@@ -68,13 +73,10 @@ const Checkbox = ({
         <MuiTypography
           variant={size === "small" ? "body2" : "body1"}
           sx={[
-            {
-              "& .Mui-disabled": {
-                color: theme.palette.grey[100],
-                cursor: "not-allowed",
-              },
-              
+            disabled && {
+              cursor: "not-allowed",
             },
+
             size === "medium" && {
               marginLeft: "-30px",
             },

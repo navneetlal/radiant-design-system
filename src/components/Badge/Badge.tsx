@@ -48,7 +48,7 @@ const Badge = ({ rounded, color, text, children, size, ...otherProps }: IBadgePr
                 size === 'large' && {
                     "& .MuiBadge-badge" : {
                         height: '40px  ',
-                        width : '24px',
+                        width : '40px',
                         transform: 'scale(1) translate(90%, -70%)',
                         ...theme.typography.subtitle2,
 

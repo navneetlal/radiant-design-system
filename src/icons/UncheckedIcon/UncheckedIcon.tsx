@@ -3,13 +3,15 @@ import { SvgIcon as MuiSvgIcon } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 
-const useStyles = makeStyles((theme) => ({
+
+const useStyles = makeStyles((theme:any) => ({
   root: {
     width: 20,
     height: 20,
     '&>path': {
         //@ts-ignore
       stroke: ({ alert }: any) => (alert ? theme.palette?.support?.error?.main : theme.palette.grey[100]),
+      fill : ({disabled} :any) => (disabled && theme.palette?.grey[150]),
       '&:hover': {
           //@ts-ignore
         stroke: theme.palette.primary.main,
@@ -20,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UnCheckedIcon = ({ alert }: any) => {
-  const classes = useStyles({ alert });
+const UnCheckedIcon = ({ alert,disabled }: any) => {
+  const classes = useStyles({ alert, disabled});
   const styles = {
     border: '1px solid gray',
   };
