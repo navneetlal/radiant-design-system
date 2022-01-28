@@ -1,30 +1,26 @@
 import React from "react";
+
 import MuiChip from "@mui/material/Chip";
-import { useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import type { ChipProps } from "@mui/material/Chip";
+
 import ChipIcon from "../../icons/Chip";
-export interface IChipsProps {
+
+export interface IChipsProps extends ChipProps {
   selected?: boolean;
-  onDelete?: any;
-  size: "small" | "medium";
-  text: string;
-  fromMultiSelect ?: boolean,
+  fromMultiSelect?: boolean,
   [key: string]: any;
 }
 
 const Chip = ({
   selected,
-  onDelete,
-  size,
   fromMultiSelect = false,
-  text,
+  disabled = false,
   ...otherProps
 }: IChipsProps) => {
   const theme = useTheme();
   return (
     <MuiChip
-      label={text}
-      onDelete={onDelete}
-      size={size}
       deleteIcon={<ChipIcon />}
       sx={[
         {
@@ -41,21 +37,17 @@ const Chip = ({
               : theme.palette.grey[300],
           },
           "&:hover": {
-            backgroundColor: selected
-              ? ''
-              : //@ts-ignore
-                theme.palette?.primary[100],
-
+            backgroundColor: selected ? 'inherit' : theme.palette.primary[100],
             color: selected ? "#ffffff" : "#1A1A1A",
             "& path": {
               fill: selected ? "#ffffff" : "#1A1A1A",
             },
           },
         },
-        otherProps.disabled && {
+        disabled && {
           backgroundColor: `${theme.palette.grey[300]} !important`,
-          opacity : `1 !important`,
-          color : theme.palette.grey[100]
+          opacity: `1 !important`,
+          color: theme.palette.grey[100]
         },
       ]}
       {...otherProps}

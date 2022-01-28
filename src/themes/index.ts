@@ -3,6 +3,7 @@ import darkTheme from './darkTheme'
 
 declare module '@mui/material' {
   export interface Color {
+    100: string;
     150: string;
     350: string;
     650: string;
@@ -23,6 +24,14 @@ declare module '@mui/material/styles' {
       error?: PaletteOptions['primary'],
       warning?: PaletteOptions['primary'],
     };
+  }
+
+  export interface PaletteColor {
+    900: string,
+    800: string,
+    200: string,
+    100: string,
+    50: string,
   }
 }
 
