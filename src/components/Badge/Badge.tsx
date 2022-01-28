@@ -7,7 +7,7 @@ import type { BadgeProps } from '@mui/material/Badge'
 export interface IBadgeProps extends BadgeProps {
   rounded?: boolean;
   color?: "primary" | "secondary" | "error" | "info" | "success" | "warning";
-  children?: React.ReactElement;
+  children?: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
   [key: string]: any;
 }

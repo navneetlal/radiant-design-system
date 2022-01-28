@@ -1,17 +1,17 @@
-import { Box, Checkbox as MuiCheckbox } from "@mui/material";
-import { Typography as MuiTypography } from "@mui/material";
-import { useTheme } from "@mui/material";
 import React from "react";
+
+import MuiBox from '@mui/material/Box';
+import MuiCheckbox from "@mui/material/Checkbox";
+import MuiTypography from "@mui/material/Typography";
+
+import { useTheme } from "@mui/material/styles";
+
+import type { CheckboxProps } from '@mui/material/Checkbox'
+
 import CheckIcon from "../../icons/CheckedIcon/CheckedIcon";
 import UnCheckedIcon from "../../icons/UncheckedIcon/UncheckedIcon";
 
-// import CheckIcon from '../icons/CheckIcon';
-// import UnCheckedIcon from '../icons/UnCheckedIcon';
-
-export interface ICheckboxProps {
-  checked?: boolean;
-  onChange?: any;
-  required?: boolean;
+export interface ICheckboxProps extends CheckboxProps {
   size?: "small" | "medium";
   label?: string;
   reverse?: boolean;
@@ -20,9 +20,6 @@ export interface ICheckboxProps {
   [key: string]: any;
 }
 const Checkbox = ({
-  checked,
-  onChange,
-  required,
   size = "medium",
   label,
   reverse = false,
@@ -32,16 +29,14 @@ const Checkbox = ({
 }: ICheckboxProps) => {
   const theme = useTheme();
   return (
-    <Box
+    <MuiBox
       sx={[
         {
           display: "flex",
           color: disabled
             ? theme.palette.grey[100]
             : theme.palette.common.black,
-
           alignItems: "center",
-
           flexDirection: reverse ? "row-reverse" : "row",
           width: "max-content",
           fontFamily: "'Source Sans Pro', sans-serif",
@@ -60,23 +55,18 @@ const Checkbox = ({
         checkedIcon={<CheckIcon disabled={disabled} />}
         icon={<UnCheckedIcon alert={alert} disabled={disabled} />}
         size={size}
-        checked={checked}
-        onChange={onChange}
-        required={required}
         disabled={disabled}
         disableRipple
         color="primary"
         {...otherProps}
-        sx={[]}
       />
-      {label ? (
+      {!!label && (
         <MuiTypography
           variant={size === "small" ? "body2" : "body1"}
           sx={[
             disabled && {
               cursor: "not-allowed",
             },
-
             size === "medium" && {
               marginLeft: "-30px",
             },
@@ -84,10 +74,8 @@ const Checkbox = ({
         >
           {label}
         </MuiTypography>
-      ) : (
-        ""
       )}
-    </Box>
+    </MuiBox>
   );
 };
 

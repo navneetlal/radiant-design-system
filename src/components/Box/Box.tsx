@@ -6,7 +6,7 @@ import type { BoxProps } from '@mui/material/Box';
 
 export interface IBoxProps extends BoxProps {
   color?: 'primary' | 'secondary' | 'error' | 'success' | 'warning';
-  children?: React.ReactElement;
+  children?: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
   style?: any;
   variant?: string
