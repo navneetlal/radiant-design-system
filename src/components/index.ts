@@ -7,7 +7,7 @@ export { default as Radio } from "./Radio";
 export { default as Snackbar } from "./Snackbar";
 export { default as Switch } from "./Switch";
 export { default as Tooltip } from "./Tooltip";
-export { default as Base } from "./Base";
+export { default as Base } from "./Box";
 export { default as Breadcrumb } from "./Breadcrumb";
 export { default as Dropdown } from "./Dropdown";
 export { default as Header } from "./Header";

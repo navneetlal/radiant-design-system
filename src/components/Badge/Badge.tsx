@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 
 import type { BadgeProps } from '@mui/material/Badge'
 
-interface IBadgeProps extends BadgeProps {
+export interface IBadgeProps extends BadgeProps {
   rounded?: boolean;
   color?: "primary" | "secondary" | "error" | "info" | "success" | "warning";
   children?: React.ReactElement;
