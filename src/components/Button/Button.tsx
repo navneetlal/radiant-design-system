@@ -1,13 +1,13 @@
 import React from "react";
-import { Button as MuiButton } from "@mui/material";
+import MuiButton from "@mui/material/Button";
 
+import { useTheme } from "@mui/material/styles";
 import type { ButtonProps } from '@mui/material/Button'
-import { useTheme } from "@mui/material";
 
 export interface IButtonProps extends ButtonProps {
   variant?: "outlined" | "contained" | "text";
   color?: "primary" | "secondary" | "error" | "warning" | "success";
-  children?: React.ReactChildren;
+  children?: React.ReactNode;
   inputSize?: 'small' | 'medium';
   inputAlert?: boolean;
   inputReq?: boolean;
@@ -16,7 +16,7 @@ export interface IButtonProps extends ButtonProps {
 }
 
 const Button = ({
-  variant,
+  variant = "text",
   color = "primary",
   children,
   inputSize,
