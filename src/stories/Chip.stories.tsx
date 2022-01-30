@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Chip> = (args) => <Chip {...args} />;
 
 export const OnDelete = Template.bind({});
 OnDelete.args = {
-  onDelete: true,
+  onDelete: () => alert("deleted"),
 };
 
 export const Disabled = Template.bind({});

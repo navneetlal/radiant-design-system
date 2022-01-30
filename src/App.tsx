@@ -25,7 +25,7 @@ import Tooltip from "./components/Tooltip/Tooltip";
 //import AutoComplete from "./components/Autocomplete/Autocomplete";
 import UnCheckedIcon from "./icons/UncheckedIcon/UncheckedIcon";
 import Dropdown from "./components/Dropdown/Dropdown";
-import Filter from "./components/Filter/Filter";
+// import Filter from "./components/Filter/Filter";
 import MultiSelect from "./components/MultiSelect/MultiSelect";
 import Tabs from "./components/Tabs/Tabs";
 

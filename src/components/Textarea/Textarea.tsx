@@ -1,39 +1,41 @@
-import React from 'react';
-import { InputLabel as MuiInputLabel } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material';
+import React from "react";
+import { InputLabel as MuiInputLabel } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import { Theme } from "@mui/material";
 
 const useStyles = makeStyles<Theme, any>((theme) => ({
   root: {
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
   },
   label: {
     ...theme.typography.h6,
-    color: theme.palette.common.black,
-    '&>span': {
+    marginBottom: 4,
+    color: ({ disabled }: any) =>
+      disabled ? "#A1A1A1" : theme.palette.common.black,
+    "&>span": {
       color: theme.palette?.support?.error?.main,
     },
   },
   textarea: {
-    'label + &': {
-      marginTop: theme.spacing(1),
-    },
-    resize: 'none',
+    // 'label + &': {
+    //   marginTop: theme.spacing(1),
+    // },
+    resize: "none",
     color: theme.palette.text.primary,
     borderRadius: 4,
-    position: 'relative',
+    position: "relative",
     ...theme.typography.body2,
     border: `1px solid ${theme.palette.grey[350]}`,
     backgroundColor: ({ disabled }: any) =>
-      disabled ? theme.palette.grey[100] : theme.palette.common.white,
+      disabled ? "#F2F2F2" : theme.palette.common.white,
     width: ({ width }: any) => width || 408,
     borderColor: ({ alert }: any) =>
-      alert ?  theme.palette?.support?.error?.main :theme.palette.grey[350],
-    alignSelf: 'flex-end',
-    padding: '8px 12px',
-    '&:focus': {
+      alert ? theme.palette?.support?.error?.main : theme.palette.grey[350],
+    alignSelf: "flex-end",
+    padding: "8px 12px",
+    "&:focus": {
       borderColor: theme.palette.primary.main,
-      outline: 'none',
+      outline: "none",
     },
   },
 }));
@@ -65,11 +67,11 @@ const TextArea = ({
   children,
   ...otherProps
 }: ITextAreaProps) => {
-  const classes = useStyles({ width, disabled, alert });
+  const classes = useStyles({ width: 408, disabled, alert });
   return (
     <div className={classes.root}>
       <MuiInputLabel className={classes.label} htmlFor={id}>
-        {label} <span>{required ? '*' : ''}</span>
+        {label} <span>{required ? "*" : ""}</span>
       </MuiInputLabel>
       <textarea
         rows={3}
