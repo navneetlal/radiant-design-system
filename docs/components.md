@@ -15,6 +15,19 @@
   - number
   - label
   - color (for count)
+- counter3
+  - number
+  - label
+  - icon
+  - infoMessage
+  - change
+    - direction: up | down
+    - color
+    - value
+- counter4 (circular progress)
+  - label
+  - value
+  - valueColor
 - Confirm
   - message
   - onClickYes
