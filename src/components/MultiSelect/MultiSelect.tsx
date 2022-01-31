@@ -64,10 +64,14 @@ export interface IMultiSelectProps {
   [key: string]: any;
 }
 
+const tempFunc = () => {
+  console.log();
+}
+
 export default function MultiSelect({
   label,
   placeholder,
-  onChange,
+  onChange = tempFunc,
   width,
   alert,
   options,

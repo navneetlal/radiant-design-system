@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-import MuiTab from '@mui/material/Tab';
-import MuiTabs from '@mui/material/Tabs'
+import MuiTab from "@mui/material/Tab";
+import MuiTabs from "@mui/material/Tabs";
 
 import { useTheme } from "@mui/material/styles";
-import type { TabsProps } from '@mui/material/Tabs'
+import type { TabsProps } from "@mui/material/Tabs";
 
 export interface ITabProps extends TabsProps {
   tabs: any[];
   onTabChange?: any;
-  initialTabValue: number;
+  initialTabValue?: number;
   disabled?: boolean;
   [key: string]: any;
 }
@@ -43,10 +43,9 @@ const Tabs = ({
       aria-label="disabled tabs example"
       sx={{
         "& .MuiTabs-indicator": {
-          backgroundColor: `${!disabled
-            ? theme.palette.primary.main
-            : theme.palette.grey[350]
-            }`,
+          backgroundColor: `${
+            !disabled ? theme.palette.primary.main : theme.palette.grey[350]
+          }`,
         },
       }}
       {...otherProps}

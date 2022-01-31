@@ -31,6 +31,7 @@ const Button = ({
     <MuiButton
       variant={variant}
       color={color}
+      disabled = {disabled}
       {...otherProps}
       sx={[
         variant === "outlined" && {

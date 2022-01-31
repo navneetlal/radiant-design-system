@@ -5,8 +5,8 @@ import MuiInputBase from "@mui/material/InputBase";
 import MuiInputLabel from "@mui/material/InputLabel";
 import MuiPaper from "@mui/material/Paper";
 import MuiBox from "@mui/material/Box";
-
 import PerfectScrollbar from "react-perfect-scrollbar";
+import DropdownIcon from "../../icons/DropdownIcon/DropdownIcon";
 import { useTheme } from "@mui/material/styles";
 
 import type { InputBaseProps } from "@mui/material/InputBase";
@@ -23,7 +23,7 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
   (
     {
       alert = false,
-      width = 300,
+      width = 312,
       disabled = false,
       size = "small",
       ...otherProps
@@ -36,6 +36,7 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
         sx={[
           {
             "& .MuiInputBase-input": {
+
               borderRadius: "4px",
               position: "relative",
               ...(size === "small"
@@ -55,7 +56,7 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               padding: size === "small" ? "8px 12px" : "10px 16px",
               cursor: disabled ? "not-allowed" : "pointer",
               caretColor: "transparent",
-              backgroundImage: `url(/DropdownIcon.svg)`,
+              backgroundImage: `${DropdownIcon}`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
               backgroundSize: "8px",
