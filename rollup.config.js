@@ -33,7 +33,7 @@ export default [
       postcss(),
       // terser(),
     ],
-    external: ["react", "react-dom", "@mui/material", "@mui/styles", "@mui/lab", "@mui/icons-material", "@emotion/react", "@emotion/styled"]
+    external: ["react", "react-dom", "@mui/material", "@mui/styles", "@mui/icons-material", "@emotion/react", "@emotion/styled"]
   },
   {
     input: "dist/esm/types/index.d.ts",
