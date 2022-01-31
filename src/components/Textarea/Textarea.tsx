@@ -1,3 +1,5 @@
+//! remove makeStyles
+
 import React from "react";
 import { InputLabel as MuiInputLabel } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -17,9 +19,6 @@ const useStyles = makeStyles<Theme, any>((theme) => ({
     },
   },
   textarea: {
-    // 'label + &': {
-    //   marginTop: theme.spacing(1),
-    // },
     resize: "none",
     color: theme.palette.text.primary,
     borderRadius: 4,

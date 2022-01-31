@@ -1,18 +1,16 @@
 import React from "react";
-import {
-  InputBase as MuiInputBase,
-  InputLabel as MuiInputLabel,
-} from "@mui/material";
-import { useTheme } from "@mui/material";
-import Button from "../Button/Button";
-import { Box } from "@mui/system";
 
-export interface IBootstrapInputProps {
+import MuiBox from "@mui/material/Box";
+import MuiInputBase from "@mui/material/InputBase";
+import MuiInputLabel from "@mui/material/InputLabel";
+
+import { useTheme } from "@mui/material/styles";
+import type { InputBaseProps } from '@mui/material/InputBase'
+
+import Button from "../Button/Button";
+export interface IBootstrapInputProps extends InputBaseProps {
   alert?: boolean;
-  size: "small" | "medium";
   width?: number | string;
-  disabled?: boolean;
-  placeholder?: string;
   [key: string]: any;
 }
 
@@ -20,10 +18,8 @@ export const BootstrapInput = ({
   alert = false,
   width = 312,
   size = "small",
-  classes,
   label,
   disabled = false,
-  pattern,
   ...otherProps
 }: IBootstrapInputProps) => {
   const theme = useTheme();
@@ -33,15 +29,15 @@ export const BootstrapInput = ({
       sx={[
         size === "small"
           ? {
-              "& .MuiInputBase-input": {
-                ...theme.typography.h6,
-              },
-            }
-          : {
-              "& .MuiInputBase-input": {
-                ...theme.typography.h5,
-              },
+            "& .MuiInputBase-input": {
+              ...theme.typography.h6,
             },
+          }
+          : {
+            "& .MuiInputBase-input": {
+              ...theme.typography.h5,
+            },
+          },
         {
           "& .MuiInputBase-root": {
             "label + &": {
@@ -52,7 +48,6 @@ export const BootstrapInput = ({
           "& .MuiInputBase-input": {
             borderRadius: "4px",
             position: "relative",
-            //@ts-ignore
             border: `1px solid ${theme.palette.grey[350]}`,
             backgroundColor: disabled ? theme.palette.grey[150] : `#ffffff`,
             width: width ? width : "312px",
@@ -70,11 +65,11 @@ export const BootstrapInput = ({
             alignSelf: "flex-end",
             ...(size === "small"
               ? {
-                  ...theme.typography.body2,
-                }
+                ...theme.typography.body2,
+              }
               : {
-                  ...theme.typography.body1,
-                }),
+                ...theme.typography.body1,
+              }),
             height: size === "small" ? "32px" : "40px",
             padding: size === "small" ? "8px 12px" : "10px 16px",
             color: disabled ? theme.palette.grey[100] : `#1A1A1A`,
@@ -93,23 +88,16 @@ export const BootstrapInput = ({
       style={{
         width: "100%",
       }}
-      //inputProps={{ className: size === 'medium' ? classe.medium : '', pattern }}
       {...otherProps}
     />
   );
 };
 
-export interface ITextboxProps {
+export interface ITextboxProps extends InputBaseProps {
   label?: string;
-  placeholder?: string;
-  width?: number | string;
   size: "small" | "medium";
   alert?: boolean;
-  value?: string;
   id?: string;
-  onClick?: any;
-  required?: boolean;
-  disabled?: boolean;
   children?: React.ReactElement;
   action?: any;
   [key: string]: any;
@@ -118,31 +106,25 @@ export interface ITextboxProps {
 const Textbox = ({
   label,
   size = "small",
-  placeholder,
-  width,
   alert,
-  value,
   id,
-  onClick,
   required,
   disabled,
   action,
-  pattern,
   ...otherProps
 }: ITextboxProps) => {
   const theme = useTheme();
   return (
-    <Box
+    <MuiBox
       sx={[
         {
           flexWrap: "wrap",
           position: "relative",
           width: "max-content",
-          // width: "auto",
           ...(!label &&
             !required && {
-              height: size === "small" ? "32px" : "40px",
-            }),
+            height: size === "small" ? "32px" : "40px",
+          }),
         },
       ]}
     >
@@ -167,16 +149,11 @@ const Textbox = ({
       )}
       <BootstrapInput
         size={size}
-        placeholder={placeholder}
-        width={width}
         required={required}
         alert={alert}
         id={id}
         label={label}
-        value={value}
-        onClick={onClick}
         disabled={disabled}
-        pattern={pattern}
         {...otherProps}
       />
 
@@ -195,7 +172,7 @@ const Textbox = ({
           {action.text}
         </Button>
       )}
-    </Box>
+    </MuiBox>
   );
 };
 export default Textbox;
