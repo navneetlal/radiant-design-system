@@ -1,7 +1,7 @@
-import MUISnackbar from "@mui/material/Snackbar";
-import type { SnackbarProps } from '@mui/material/Snackbar'
-import { useTheme } from "@mui/material";
 import React from 'react'
+import MUISnackbar from "@mui/material/Snackbar";
+import { useTheme } from "@mui/material/styles";
+import type { SnackbarProps } from '@mui/material/Snackbar'
 export interface ISnackbarProps extends SnackbarProps {
   color: "primary" | "error" | "warning" | "success";
   [key: string]: any;
