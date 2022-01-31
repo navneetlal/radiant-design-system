@@ -7,7 +7,7 @@ export default {
   title: "Components/Chip",
   component: Chip,
   args: {
-    text: "Chip",
+    label: "Chip",
     size: "medium",
   },
 } as ComponentMeta<typeof Chip>;

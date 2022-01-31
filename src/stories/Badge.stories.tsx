@@ -8,7 +8,7 @@ export default {
   title: "Components/Badge",
   component: Badge,
   args: {
-    text: "10",
+    badgeContent : '5',
     size: "small",
     color: "primary",
   },
@@ -22,6 +22,6 @@ Rounded.args = {
 };
 export const Children = Template.bind({});
 Children.args = {
-  children: <Button text="close" variant="outlined" color="success" />,
+  children: <Button variant="outlined" color="success">Button</Button>,
   rounded: true,
 };

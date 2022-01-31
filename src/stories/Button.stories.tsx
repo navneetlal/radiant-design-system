@@ -7,7 +7,7 @@ export default {
   title: "Components/Button",
   component: Button,
   args: {
-    text: "Button",
+    children: "Button",
     variant: "outlined",
   },
 } as ComponentMeta<typeof Button>;

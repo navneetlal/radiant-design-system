@@ -10,7 +10,7 @@ export default {
   args: {
     variant: "outlined",
     size: "small",
-    icon: <Close />,
+    startIcon: <Close />,
   },
 } as ComponentMeta<typeof IconButton>;
 

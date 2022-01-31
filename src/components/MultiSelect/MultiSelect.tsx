@@ -137,7 +137,7 @@ export default function MultiSelect({
               {[...option].map((item, index) => (
                 <MuiGrid item key={index}>
                   <Chips
-                    text={item}
+                    label={item}
                     selected
                     fromMultiSelect
                     size="small"

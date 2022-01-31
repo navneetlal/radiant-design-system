@@ -37,7 +37,7 @@ const Chip = ({
               : theme.palette.grey[300],
           },
           "&:hover": {
-            backgroundColor: selected ? 'inherit' : theme.palette.primary[100],
+            backgroundColor: selected ? theme.palette.primary.main : theme.palette.primary[100],
             color: selected ? "#ffffff" : "#1A1A1A",
             "& path": {
               fill: selected ? "#ffffff" : "#1A1A1A",

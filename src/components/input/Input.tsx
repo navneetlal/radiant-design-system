@@ -1,82 +1,69 @@
 //! Revisit --> can use unstyled Input
 
 import React from "react";
-import { makeStyles } from "@mui/styles";
+import { useTheme } from "@mui/material/styles";
+import MuiBox from "@mui/material/Box";
+import MuiInputBase  from "@mui/material/InputBase";
 
-const useStyles = makeStyles((theme: any) => ({
-  label: {
-    ...theme.typography.h6,
-  },
-  input: {
-    borderTop: "auto",
-    outline: "none",
-    border: `1px solid ${theme.palette.grey[350]}`,
-    borderRadius: 4,
-    padding: 0,
-    paddingLeft: 12,
-    color: "black",
-    ...theme.typography.body2,
-    "&::placeholder": {
-      color: theme.palette.grey[650],
-      fontSize: 12,
-      fontFamily: '"Source Sans Pro", FontAwesome',
-    },
-    "&:focus": {
-      outline: "none",
-      border: `1px solid ${theme.palette.primary.main}`,
-    },
-  },
-}));
 
 export interface IInputProps {
-  placeholder?: string;
   label?: string;
   size?: "small" | "medium";
-  value?: string;
-  onChange?: any;
   [key: string]: any;
 }
 
 const Input = ({
-  placeholder,
   label,
   size,
-  value,
-  onChange,
-  className,
   ...otherProps
 }: IInputProps) => {
   const styles = {
     medium: {
-      height: 40,
-      width: 256,
+      height: '40px',
+      width: '256px',
     },
     small: {
-      height: 32,
-      width: 216,
+      height: '32px',
+      width: '216px',
     },
   };
-  const classes = useStyles();
+  const theme = useTheme();
   return (
-    <div>
-      {label ? (
+    <MuiBox>
+      {label && (
         <>
-          <label className={classes.label}>{label}</label>
+          <label style={{ ...theme.typography.h6 }}>{label}</label>
           <br />
         </>
-      ) : (
-        ""
       )}
 
-      <input
-        className={`${classes.input} ${className}`}
-        style={size ? styles[size] : {}}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
+      <MuiInputBase
+        sx={{
+          "& .MuiInputBase-input" : {
+            ...(size && styles[size]),
+            borderTop: "auto",
+            outline: "none",
+            border: `1px solid ${theme.palette.grey[350]}`,
+            borderRadius: '4px',
+            padding: 0,
+            paddingLeft: '12px',
+            color: "black",
+            ...theme.typography.body2,
+            "&::placeholder": {
+              color: theme.palette.grey[650],
+              fontSize: '12px',
+              fontFamily: '"Source Sans Pro", FontAwesome',
+            },
+            "&:focus": {
+              outline: "none",
+              border: `1px solid ${theme.palette.primary.main} !important`,
+            },
+
+          }
+        }}
         {...otherProps}
       />
-    </div>
+    </MuiBox>
   );
 };
 

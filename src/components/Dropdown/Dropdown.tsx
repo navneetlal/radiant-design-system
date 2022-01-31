@@ -174,7 +174,7 @@ const Dropdown = ({
         }}
       >
         <PerfectScrollbar style={{ maxHeight: "180px" }}>
-          {options ? (
+          {options && (
             options.map((option, index) => (
               <MuiTypography
                 variant="body1"
@@ -184,16 +184,6 @@ const Dropdown = ({
                 {option.name}
               </MuiTypography>
             ))
-          ) : (
-            <MuiPaper
-              elevation={1}
-              sx={{
-                display: isOpen ? "block" : "none",
-                width: width ? `${width}px` : "312px",
-              }}
-            >
-              {children} //! Need to test if this is required
-            </MuiPaper>
           )}
         </PerfectScrollbar>
         {children}
