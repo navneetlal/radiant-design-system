@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import { Tabs as MuiTabs, Tab } from "@mui/material";
-import { useTheme } from "@mui/material";
-export interface ITABSPROPS {
-  tabs: any;
+
+import MuiTab from '@mui/material/Tab';
+import MuiTabs from '@mui/material/Tabs'
+
+import { useTheme } from "@mui/material/styles";
+import type { TabsProps } from '@mui/material/Tabs'
+
+export interface ITabProps extends TabsProps {
+  tabs: any[];
   onTabChange?: any;
   initialTabValue: number;
   disabled?: boolean;
@@ -14,7 +19,7 @@ const Tabs = ({
   initialTabValue = 0,
   disabled = false,
   ...otherProps
-}: ITABSPROPS) => {
+}: ITabProps) => {
   const theme = useTheme();
   const [value, setValue] = useState(initialTabValue);
   const handleChange = (_: any, newValue: number) => {
@@ -38,24 +43,21 @@ const Tabs = ({
       aria-label="disabled tabs example"
       sx={{
         "& .MuiTabs-indicator": {
-          backgroundColor: `${
-            !disabled
-              ? theme.palette.primary.main
-              : //@ts-ignore
-                theme.palette.grey[350]
-          }`,
+          backgroundColor: `${!disabled
+            ? theme.palette.primary.main
+            : theme.palette.grey[350]
+            }`,
         },
       }}
       {...otherProps}
     >
       {tabs.map((item: any) => (
-        <Tab
+        <MuiTab
           disabled={disabled}
           {...item}
           sx={{
             color: theme.palette.common.black,
             textTransform: "none",
-
             ...theme.typography.h5,
             maxWidth: "100%",
             "&&:hover": {
