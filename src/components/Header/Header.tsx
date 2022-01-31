@@ -1,12 +1,9 @@
-//! Revisit to remove @mui/styles as a dependency
-
 import React from "react";
 import MuiBox from "@mui/material/Box";
 
 import { useTheme } from "@mui/material/styles";
 
 import type { BoxProps } from "@mui/material/Box";
-
 
 export interface IHeaderProps extends BoxProps {
   children: React.ReactNode;

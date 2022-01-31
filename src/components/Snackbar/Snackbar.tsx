@@ -1,62 +1,42 @@
-import { Snackbar as MUISnackbar } from "@mui/material";
+import MUISnackbar from "@mui/material/Snackbar";
+import type { SnackbarProps } from '@mui/material/Snackbar'
 import { useTheme } from "@mui/material";
 import React from 'react'
-export interface ISnackbarProps {
-  open: boolean;
-  message: string;
+export interface ISnackbarProps extends SnackbarProps {
   color: "primary" | "error" | "warning" | "success";
-  action?: string | React.ReactElement;
-  handleClose?: any;
   [key: string]: any;
 }
 
 const Snackbar = ({
-  open,
-  message,
   color,
-  action,
-  handleClose,
   ...otherProps
 }: ISnackbarProps) => {
   const theme = useTheme();
 
-  let finalColor;
-  switch (color) {
-    case "primary":
-      //@ts-ignore
-      finalColor = theme.palette.primary.main;
-      break;
-    case "error":
-      //@ts-ignore
-      finalColor = theme.palette?.support?.error?.dark;
-      break;
-    case "warning":
-      //@ts-ignore
-      finalColor = theme.palette?.support?.warning[600];
-      break;
-    case "success":
-      //@ts-ignore
-      finalColor = theme.palette?.support?.success?.dark;
-      break;
-    default:
-      //@ts-ignore
-      finalColor = theme.palette.primary.main;
-      break;
+  const getBackgroundColor = (color: ISnackbarProps['color']) => {
+    switch (color) {
+      case "primary":
+        return theme.palette.primary.main;
+      case "error":
+        return theme.palette?.support?.error?.dark;
+      case "warning":
+        return theme.palette?.support?.warning?.[600];
+      case "success":
+        return theme.palette?.support?.success?.dark;
+      default:
+        return theme.palette.primary.main;
+    }
   }
 
   return (
     <MUISnackbar
       autoHideDuration={3000}
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-      open={open}
-      onClose={handleClose}
-      message={message}
-      action={action}
-      ContentProps = {{
-          sx:{
-              backgroundColor : finalColor,
-              cursor : 'pointer'
-          }
+      ContentProps={{
+        sx: {
+          backgroundColor: getBackgroundColor(color),
+          cursor: 'pointer'
+        }
       }}
       {...otherProps}
     />

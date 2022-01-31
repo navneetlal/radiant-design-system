@@ -11,6 +11,14 @@ declare module '@mui/material' {
 }
 
 declare module '@mui/material/styles' {
+  export interface PaletteColor {
+    900: string,
+    800: string,
+    600: string,
+    200: string,
+    100: string,
+    50: string,
+  }
   export interface Palette {
     support?: {
       success?: Palette['primary'],
@@ -26,13 +34,6 @@ declare module '@mui/material/styles' {
     };
   }
 
-  export interface PaletteColor {
-    900: string,
-    800: string,
-    200: string,
-    100: string,
-    50: string,
-  }
 }
 
 export const theme = {

@@ -1,12 +1,13 @@
-//! Revisit --> can use unstyled Input
-
 import React from "react";
-import { useTheme } from "@mui/material/styles";
+
 import MuiBox from "@mui/material/Box";
-import MuiInputBase  from "@mui/material/InputBase";
+import MuiInputBase from "@mui/material/InputBase";
 
+import { useTheme } from "@mui/material/styles";
 
-export interface IInputProps {
+import type { InputBaseProps } from "@mui/material/InputBase";
+
+export interface IInputProps extends InputBaseProps {
   label?: string;
   size?: "small" | "medium";
   [key: string]: any;
@@ -39,7 +40,7 @@ const Input = ({
 
       <MuiInputBase
         sx={{
-          "& .MuiInputBase-input" : {
+          "& .MuiInputBase-input": {
             ...(size && styles[size]),
             borderTop: "auto",
             outline: "none",
