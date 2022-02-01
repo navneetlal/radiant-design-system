@@ -7,11 +7,11 @@
 -> 01/02/2022
 
 # Molecules
-- Counter1
+- Counter1 ( Done )
   - number
   - label
   - icon?
-- counter2
+- counter2  ( Done )
   - number
   - label
   - color (for count)

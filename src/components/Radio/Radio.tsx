@@ -10,13 +10,11 @@ export interface IRadioProps extends RadioProps {
   checked?: boolean;
   label?: string;
   disabled?: boolean;
-  reverse?: boolean;
   alert?: boolean;
   [key: string]: any;
 }
 
 const Radio = ({
-  reverse,
   checked = true,
   size = "medium",
   label,
@@ -31,7 +29,7 @@ const Radio = ({
         {
           display: "flex",
           alignItems: 'center',
-          flexDirection: reverse ? "row-reverse" : "row",
+          flexDirection: "row",
           width: "max-content",
           height: 'auto',
           "&>p": {
