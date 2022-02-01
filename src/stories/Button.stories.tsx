@@ -7,7 +7,7 @@ export default {
   title: "Components/Button",
   component: Button,
   args: {
-    children: "Button",
+    text: "Button",
     variant: "outlined",
   },
 } as ComponentMeta<typeof Button>;
@@ -42,4 +42,10 @@ export const Error = Template.bind({});
 
 Error.args = {
   color: "error",
+};
+
+export const Disabled = Template.bind({});
+
+Disabled.args = {
+  disabled:true,
 };

@@ -44,7 +44,7 @@ Required.args = {
 
 export const Action = Template.bind({});
 Action.args = {
-  action: { text: "Add" },
+  action: { text: "Action" },
 };
 
 export const Disabled = Template.bind({});

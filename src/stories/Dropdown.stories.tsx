@@ -10,6 +10,7 @@ export default {
     label: "Enter Name",
     size: "small",
     placeholder: "Kunal",
+    
   },
 } as ComponentMeta<typeof Dropdown>;
 
@@ -22,10 +23,6 @@ Size.args = {
   size: "medium",
 };
 
-export const Width = Template.bind({});
-Width.args = {
-  width: 250,
-};
 
 export const Alert = Template.bind({});
 Alert.args = {

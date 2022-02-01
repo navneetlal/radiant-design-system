@@ -14,7 +14,6 @@ import UnCheckedIcon from "../../icons/UncheckedIcon/UncheckedIcon";
 export interface ICheckboxProps extends CheckboxProps {
   size?: "small" | "medium";
   label?: string;
-  reverse?: boolean;
   alert?: boolean;
   disabled?: boolean;
   [key: string]: any;
@@ -22,7 +21,6 @@ export interface ICheckboxProps extends CheckboxProps {
 const Checkbox = ({
   size = "medium",
   label,
-  reverse = false,
   disabled = false,
   alert,
   ...otherProps
@@ -37,7 +35,7 @@ const Checkbox = ({
             ? theme.palette.grey[100]
             : theme.palette.common.black,
           alignItems: "center",
-          flexDirection: reverse ? "row-reverse" : "row",
+          flexDirection: "row",
           width: "max-content",
           fontFamily: "'Source Sans Pro', sans-serif",
           "& svg": {

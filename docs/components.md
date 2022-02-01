@@ -1,7 +1,7 @@
 # Atomic Components
 - Autocomplete
 - Table ❌
-- CustomChipDropdown
+- CustomChipDropdown ❌
 - SelectChipDropdown
 
 -> 01/02/2022

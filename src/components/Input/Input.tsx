@@ -41,7 +41,7 @@ const Input = ({
       <MuiInputBase
         sx={{
           "& .MuiInputBase-input": {
-            ...(size && styles[size]),
+            ...(size ? styles[size] : styles['small']),
             borderTop: "auto",
             outline: "none",
             border: `1px solid ${theme.palette.grey[350]}`,

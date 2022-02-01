@@ -56,7 +56,7 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               padding: size === "small" ? "8px 12px" : "10px 16px",
               cursor: disabled ? "not-allowed" : "pointer",
               caretColor: "transparent",
-              backgroundImage: `${DropdownIcon}`,
+              backgroundImage: `url(${'https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png'})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
               backgroundSize: "8px",

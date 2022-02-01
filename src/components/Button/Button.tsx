@@ -7,6 +7,7 @@ import type { ButtonProps } from '@mui/material/Button'
 export interface IButtonProps extends ButtonProps {
   variant?: "outlined" | "contained" | "text";
   color?: "primary" | "secondary" | "error" | "warning" | "success";
+  text ?: string;
   children?: React.ReactNode;
   inputSize?: 'small' | 'medium';
   inputAlert?: boolean;
@@ -16,11 +17,12 @@ export interface IButtonProps extends ButtonProps {
 }
 
 const Button = ({
-  variant = "text",
+  variant = "contained",
   color = "primary",
   children,
   inputSize,
   inputAlert,
+  text,
   inputReq,
   inputLabel,
   disabled = false,
@@ -68,16 +70,15 @@ const Button = ({
           right: '12px',
           height: inputSize === 'small' ? '16px' : '20px',
           top: inputReq || inputLabel ? (inputSize === 'medium' ? '39px' : '29px') : (inputSize === 'medium' ? '11px' : '9px'),
-          color: disabled || inputAlert ? theme.palette.grey[100] : 'inherit',
+          color: disabled || inputAlert ? theme.palette.grey[100] : '',
           padding: "8px 8px",
           alignSelf: "center",
           backgroundColor: "transparent",
           ...theme.typography.body2,
-          fontFamily: 'Poppins'
         },
       ]}
     >
-      {children}
+      {text ? text : children}
     </MuiButton>
   );
 };

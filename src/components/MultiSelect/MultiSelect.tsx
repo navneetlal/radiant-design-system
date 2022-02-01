@@ -103,6 +103,7 @@ export default function MultiSelect({
       <div>
         <div>
           <MuiInputLabel
+          disabled = {disabled}
             sx={{
               ...theme.typography.h6,
               color: "#1A1A1A",
