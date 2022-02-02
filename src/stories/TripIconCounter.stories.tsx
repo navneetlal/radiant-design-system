@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import TripIconCounter from "../molecules/TripIconCounter";
 import CompletedTruckIcon from "../icons/CompletedTruckIcon";
 export default {
-  title: "Components/TripIconCounter",
+  title: "Components/molecules/TripIconCounter",
   component: TripIconCounter,
   args: {
       number : 10,
