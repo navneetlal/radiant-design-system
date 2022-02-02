@@ -73,10 +73,6 @@ lightTheme = createTheme(lightTheme, {
   components: {
     MuiButton: {
       styleOverrides: {
-        startIcon: {
-          marginRight: 0,
-          marginLeft: 0,
-        },
         sizeSmall: {
           minWidth: '98px',
           height: 32,
@@ -186,6 +182,16 @@ lightTheme = createTheme(lightTheme, {
           },
         },
       },
+    },
+    MuiInputBase : {
+      styleOverrides : {
+        input : (props:any) => ({
+          "&::placeholder" : {
+            color : props.disabled ?  lightTheme.palette.grey[100] : lightTheme.palette.grey[650],
+            opacity : `1 !important`
+          }
+        })
+      }
     },
 
     MuiCheckbox: {

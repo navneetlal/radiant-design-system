@@ -165,6 +165,7 @@ const Textbox = ({
           disabled={disabled}
           onClick={action.onClick}
           inputAlert={alert}
+          fromTextbox
           inputSize={size}
           inputReq={required}
           inputLabel={!!label && label.length > 0}

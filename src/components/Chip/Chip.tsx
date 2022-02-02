@@ -4,7 +4,7 @@ import MuiChip from "@mui/material/Chip";
 import { useTheme } from "@mui/material/styles";
 import type { ChipProps } from "@mui/material/Chip";
 
-import ChipIcon from "../../icons/Chip";
+import ChipIcon from "../../icons/Chip/Chip";
 
 export interface IChipsProps extends ChipProps {
   selected?: boolean;

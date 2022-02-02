@@ -6,7 +6,6 @@ import MuiInputLabel from "@mui/material/InputLabel";
 import MuiPaper from "@mui/material/Paper";
 import MuiBox from "@mui/material/Box";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import DropdownIcon from "../../icons/DropdownIcon/DropdownIcon";
 import { useTheme } from "@mui/material/styles";
 
 import type { InputBaseProps } from "@mui/material/InputBase";
@@ -35,6 +34,9 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
       <MuiInputBase
         sx={[
           {
+            "& .MuiInputBase-input.Mui-disabled" : {
+              WebkitTextFillColor : 'unset'
+            },
             "& .MuiInputBase-input": {
 
               borderRadius: "4px",
@@ -59,13 +61,8 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               backgroundImage: `url(${'https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png'})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
+              
               backgroundSize: "8px",
-              "&::placeholder": {
-                opacity: `1 !important`,
-                color: disabled
-                  ? `${theme.palette.grey[100]} !important`
-                  : `#1A1A1A !important`,
-              },
               width:
                 size === "small"
                   ? width

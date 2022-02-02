@@ -11,6 +11,7 @@ export interface IButtonProps extends ButtonProps {
   children?: React.ReactNode;
   inputSize?: 'small' | 'medium';
   inputAlert?: boolean;
+  fromTextbox ?:boolean;
   inputReq?: boolean;
   inputLabel?: boolean;
   [key: string]: any;
@@ -21,6 +22,7 @@ const Button = ({
   color = "primary",
   children,
   inputSize,
+  fromTextbox = false,
   inputAlert,
   text,
   inputReq,
@@ -64,7 +66,7 @@ const Button = ({
             borderColor: "#000000",
           },
         },
-        variant === 'text' && {
+        (variant === 'text' && fromTextbox) && {
           minWidth: "50px !important",
           position: `absolute`,
           right: '12px',
@@ -73,9 +75,23 @@ const Button = ({
           color: disabled || inputAlert ? theme.palette.grey[100] : '',
           padding: "8px 8px",
           alignSelf: "center",
+          fontWeight : 600,
           backgroundColor: "transparent",
           ...theme.typography.body2,
         },
+        (variant === 'text') && {
+          fontWeight : 600,
+          "&:hover" : {
+            backgroundColor : 'inherit',
+            color : theme.palette[color].dark
+          }
+        },
+        {
+          "& .MuiButton-startIcon":{
+            justifyContent : 'center',
+            marginLeft: 0,
+          }
+        }
       ]}
     >
       {text ? text : children}

@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Button from "../components/Button";
+import Add from "../icons/Add";
 
 export default {
   title: "Components/Button",
@@ -48,4 +49,11 @@ export const Disabled = Template.bind({});
 
 Disabled.args = {
   disabled:true,
+};
+
+export const TextIcon = Template.bind({});
+
+TextIcon.args = {
+  startIcon:<Add />,
+  variant : 'text'
 };

@@ -200,10 +200,9 @@ export default function Autocomplete({
             placeholder={placeholder}
             required={required}
             width={width}
-            height={height}
             disabled={disabled}
             style={{
-              height: "40px",
+              height: height === 'small' ? '32px' : "40px",
               backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",

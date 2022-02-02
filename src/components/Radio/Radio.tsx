@@ -15,7 +15,7 @@ export interface IRadioProps extends RadioProps {
 }
 
 const Radio = ({
-  checked = true,
+  checked = false,
   size = "medium",
   label,
   disabled = false,
