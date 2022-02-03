@@ -16,7 +16,7 @@ const Root = styled("div")(
 );
 
 const InputWrapper = styled("div")(
-  () => `
+  ({theme}) => `
   width: 300px;
   border: 1px solid #C7C7C7;
   background-color: #fff;
@@ -25,16 +25,22 @@ const InputWrapper = styled("div")(
   display: flex;
   flex-wrap: wrap;
 
-  &:hover {
-    border-color: #40a9ff;
-  }
+
 
   &.focused {
     border-color: #396de7;
     
   }
+  & input:disabled {
+    ::placeholder {
+      color : ${theme.palette.grey[100]}
+    }
+  }
 
   & input {
+    ::placeholder {
+      color : ${theme.palette.common.black}
+    }
     background-color: #fff;
     color: 'rgba(0,0,0,.85)'
     height: 32px;
@@ -42,7 +48,7 @@ const InputWrapper = styled("div")(
     padding: 4px 12px;
     overflow : hidden;
     width: 0;
-    min-width: 32px;
+    min-width: 100px;
     flex-grow: 1;
     border: 0;
     margin: 0;
@@ -110,6 +116,7 @@ export interface ISelectChipsProps {
   width?: number;
   alert?: boolean;
   required?: boolean;
+  disabled ?: boolean;
   options?: {
     id: number;
     name: string;
@@ -150,6 +157,7 @@ export default function MultipleSelectChip({
   onChange,
   width,
   alert,
+  disabled,
   options,
   required,
   selectedOptions,
@@ -182,19 +190,29 @@ export default function MultipleSelectChip({
     <Root>
       {inputGlobalStyles}
       <div {...getRootProps()}>
-        <InputLabel
-          {...getInputLabelProps()}
+        {(label || required) && (
+          <InputLabel
+            {...getInputLabelProps()}
+            sx={{
+              ...theme.typography.h6,
+              color: disabled ? theme.palette.grey[100] : theme.palette.common.black,
+              marginBottom: "4px !important",
+            }}
+          >
+            {label && label} <span>{required && "*"}</span>
+          </InputLabel>
+        )}
+        <InputWrapper
+          ref={setAnchorEl}
+          className={focused ? "focused" : ""}
           sx={{
-            ...theme.typography.h6,
-            color: theme.palette.common.black,
-            "&>span": {
-              color: theme.palette.error.main,
-            },
+            ...(alert && {
+              borderColor: theme.palette.support?.error?.main,
+              
+            }),
+            backgroundColor : disabled ? theme.palette.grey[150] : '',
           }}
         >
-          {label}
-        </InputLabel>
-        <InputWrapper ref={setAnchorEl} className={focused ? "focused" : ""}>
           {value.map((option: any, index: number) => (
             <Chip
               label={option.name}
@@ -208,8 +226,13 @@ export default function MultipleSelectChip({
             {...getInputProps()}
             placeholder={placeholder}
             required={required}
+            disabled={disabled}
             style={{
               height: "40px",
+              flexGrow: "1px",
+              
+              backgroundColor : disabled ? theme.palette.grey[150] : '',
+              color : disabled ? theme.palette.grey[100] : '',
               backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",

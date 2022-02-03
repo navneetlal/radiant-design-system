@@ -1,22 +1,15 @@
 import React from 'react';
 import { SvgIcon as MuiSvgIcon } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles(() => ({
-  root: {
-    width: 11,
-    height: 11,
-  },
-}));
+
 export interface IAddIconProps {
   color?: string;
   [key: string]: any;
 }
 
 const AddIcon = ({ color, ...otherProps }: IAddIconProps) => {
-  const classes = useStyles();
   return (
-    <MuiSvgIcon {...otherProps} className={classes.root} viewBox="0 0 12 12">
+    <MuiSvgIcon {...otherProps} sx = {{width : '11px', height : '11px'}} viewBox="0 0 12 12">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

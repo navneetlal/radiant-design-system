@@ -5,14 +5,12 @@ import { useTheme } from "@mui/material/styles";
 import type { TooltipProps } from "@mui/material/Tooltip";
 
 export interface ITooltipProps extends TooltipProps {
-  children: JSX.Element;
   color: "light" | "dark";
   size: "small" | "medium";
   [key: string]: any;
 }
 
 const Tooltip = ({
-  children,
   color,
   placement,
   ...otherProps
@@ -67,7 +65,7 @@ const Tooltip = ({
         }
       }}
     >
-      <span>{children}</span>
+      {otherProps.children}
     </MuiTooltip>
   );
 };

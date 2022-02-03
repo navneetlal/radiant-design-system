@@ -169,7 +169,7 @@ lightTheme = createTheme(lightTheme, {
             "&:hover": {
               backgroundColor: lightTheme.palette.primary.contrastText,
             },
-          },
+          }
         },
       },
     },

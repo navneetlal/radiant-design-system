@@ -3,10 +3,9 @@ import React, { forwardRef, useState, useEffect } from "react";
 import MuiTypography from "@mui/material/Typography";
 import MuiInputBase from "@mui/material/InputBase";
 import MuiInputLabel from "@mui/material/InputLabel";
-import MuiPaper from "@mui/material/Paper";
+
 import MuiBox from "@mui/material/Box";
-import PerfectScrollbar from "react-perfect-scrollbar";
-import { useTheme } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 
 import type { InputBaseProps } from "@mui/material/InputBase";
 
@@ -34,11 +33,10 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
       <MuiInputBase
         sx={[
           {
-            "& .MuiInputBase-input.Mui-disabled" : {
-              WebkitTextFillColor : 'unset'
+            "& .MuiInputBase-input.Mui-disabled": {
+              WebkitTextFillColor: "unset",
             },
             "& .MuiInputBase-input": {
-
               borderRadius: "4px",
               position: "relative",
               ...(size === "small"
@@ -58,10 +56,10 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               padding: size === "small" ? "8px 12px" : "10px 16px",
               cursor: disabled ? "not-allowed" : "pointer",
               caretColor: "transparent",
-              backgroundImage: `url(${'https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png'})`,
+              backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
-              
+
               backgroundSize: "8px",
               width:
                 size === "small"
@@ -85,6 +83,58 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
       />
     );
   }
+);
+
+const Listbox = styled("ul")(
+  ({ theme }) => `
+  width: 300px;
+  margin: 2px 0 0;
+  padding: 0;
+  position: absolute;
+  list-style: none;
+  background-color: #fff;
+  overflow: auto;
+  max-height: 200px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  & p {
+    padding: 8px 12px;
+    order :2;
+    display: flex;
+    cursor: pointer;
+    & span {
+      flex-grow: 1;
+    }
+
+    & svg {
+      color: transparent;
+    }
+    
+
+    
+  }
+  
+  
+  & p[aria-selected='true'] {
+    & svg {
+      color: #1890ff;
+    }
+  }
+  & li:hover {
+    background-color : ${theme.palette.primary.contrastText}
+    
+    
+  }
+  & p[data-focus='true'] {
+    & svg {
+      color: ${theme.palette.common.black};
+    },
+  }
+  
+
+  
+`
 );
 
 export interface IDropDown {
@@ -164,28 +214,26 @@ const Dropdown = ({
           disabled={disabled}
         />
       </MuiBox>
-      <MuiPaper
-        elevation={elevation ?? 1}
-        sx={{
-          display: isOpen ? "block" : "none",
-          width: width ? `${width}px` : "312px",
-        }}
-      >
-        <PerfectScrollbar style={{ maxHeight: "180px" }}>
-          {options && (
+
+      {options && options.length > 0 ? (
+        <Listbox sx={{ display: isOpen ? "block" : "none" }}>
+          {options &&
             options.map((option, index) => (
-              <MuiTypography
-                variant="body1"
-                key={index}
-                onMouseDown={() => handleSelect(option)}
-              >
-                {option.name}
-              </MuiTypography>
-            ))
-          )}
-        </PerfectScrollbar>
-        {children}
-      </MuiPaper>
+              <li key={index}>
+                <MuiTypography
+                  onMouseDown={() => handleSelect(option)}
+                  variant="body1"
+                  sx={{
+                    ...theme.typography.body1,
+                  }}
+                >
+                  {option.name}
+                </MuiTypography>
+              </li>
+            ))}
+          {children}
+        </Listbox>
+      ) : null}
     </MuiBox>
   );
 };

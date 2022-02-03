@@ -1,38 +1,31 @@
-import React from 'react';
-import { SvgIcon as MuiSvgIcon } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import React from "react";
+import { SvgIcon as MuiSvgIcon } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
-
-
-const useStyles = makeStyles((theme:any) => ({
-  root: {
-    width: 20,
-    height: 20,
-    '&>path': {
-        //@ts-ignore
-      stroke: ({ alert }: any) => (alert ? theme.palette?.support?.error?.main : theme.palette.grey[100]),
-      fill : ({disabled} :any) => (disabled && theme.palette?.grey[150]),
-      '&:hover': {
-          //@ts-ignore
-        stroke: theme.palette.primary.main,
-        fill: '#F5F8FF',
-      },
-    }
-    
-  },
-}));
-
-const UnCheckedIcon = ({ alert,disabled }: any) => {
-  const classes = useStyles({ alert, disabled});
+const UnCheckedIcon = ({ alert, disabled }: any) => {
+  const theme = useTheme();
   const styles = {
-    border: '1px solid gray',
+    border: "1px solid gray",
   };
   return (
     <MuiSvgIcon
-      className={classes.root}
+      sx={{
+        width: "20px",
+        height: "20px",
+        "&>path": {
+          stroke: alert
+            ? theme.palette?.support?.error?.main
+            : theme.palette.grey[100],
+          fill: disabled ? theme.palette?.grey[150] : "",
+          "&:hover": {
+            stroke: theme.palette.primary.main,
+            fill: theme.palette.primary[50],
+          },
+        },
+      }}
       viewBox="0 0 20 20"
       style={{
-        margin: 'auto',
+        margin: "auto",
       }}
     >
       <path

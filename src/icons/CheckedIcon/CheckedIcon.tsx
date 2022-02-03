@@ -1,20 +1,9 @@
 import React from 'react';
 import { SvgIcon as MuiSvgIcon } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 
-
-const useStyles = makeStyles((theme:any) => ({
-  root: {
-    width: 20,
-    height: 20,
-    margin: 'auto',
-    
-  },
-}));
 const CheckIcon = ({disabled} :any) => {
-  const classes = useStyles();
   return (
-    <MuiSvgIcon className={classes.root} viewBox="0 0 20 20">
+    <MuiSvgIcon sx= {{width : '20px' , height : '20px' , margin : 'auto'}} viewBox="0 0 20 20">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
