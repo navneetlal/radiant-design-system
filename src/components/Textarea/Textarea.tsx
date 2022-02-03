@@ -1,11 +1,8 @@
-
 import React from "react";
 import MuiInputLabel from "@mui/material/InputLabel";
 import InputBase from "@mui/material/InputBase";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
-
-
 
 export interface ITextAreaProps {
   label?: string;
@@ -35,19 +32,21 @@ const TextArea = ({
   const theme = useTheme();
   return (
     <Box sx={{ flexWrap: "flex" }}>
-      <MuiInputLabel
-        sx={{
-          ...theme.typography.h6,
-          marginBottom: "4px",
-          color: disabled ? "#A1A1A1" : theme.palette.common.black,
-          "&>span": {
-            color: theme.palette?.support?.error?.main,
-          },
-        }}
-        htmlFor={id}
-      >
-        {label} <span>{required ? "*" : ""}</span>
-      </MuiInputLabel>
+      {(label || required) && (
+        <MuiInputLabel
+          sx={{
+            ...theme.typography.h6,
+            marginBottom: "4px",
+            color: disabled ? "#A1A1A1" : theme.palette.common.black,
+            "&>span": {
+              color: theme.palette?.support?.error?.main,
+            },
+          }}
+          htmlFor={id}
+        >
+          {label} <span>{required ? "*" : ""}</span>
+        </MuiInputLabel>
+      )}
       <InputBase
         multiline
         rows={3}
@@ -59,10 +58,12 @@ const TextArea = ({
           ...theme.typography.body2,
           border: `1px solid ${theme.palette.grey[350]}`,
           backgroundColor: disabled ? "#F2F2F2" : theme.palette.common.white,
-          width: width || "408px",
-          borderColor: alert
-            ? theme.palette?.support?.error?.main
-            : theme.palette.grey[350],
+          width: width,
+          borderColor: disabled
+            ? theme.palette.grey[100]
+            : alert
+            ? theme.palette.error.main
+            : "",
           alignSelf: "flex-end",
           padding: "8px 12px",
           "&:focus": {

@@ -17,7 +17,6 @@ const Root = styled("div")(
 
 const InputWrapper = styled("div")(
   ({theme}) => `
-  width: 300px;
   border: 1px solid #C7C7C7;
   background-color: #fff;
   border-radius: 4px;
@@ -39,7 +38,7 @@ const InputWrapper = styled("div")(
 
   & input {
     ::placeholder {
-      color : ${theme.palette.common.black}
+      color : ${theme.palette.grey[650]}
     }
     background-color: #fff;
     color: 'rgba(0,0,0,.85)'
@@ -59,7 +58,6 @@ const InputWrapper = styled("div")(
 
 const Listbox = styled("ul")(
   ({ theme }) => `
-  width: 300px;
   margin: 2px 0 0;
   padding: 0;
   position: absolute;
@@ -155,7 +153,7 @@ export default function MultipleSelectChip({
   label,
   placeholder,
   onChange,
-  width,
+  width = 200,
   alert,
   disabled,
   options,
@@ -197,6 +195,9 @@ export default function MultipleSelectChip({
               ...theme.typography.h6,
               color: disabled ? theme.palette.grey[100] : theme.palette.common.black,
               marginBottom: "4px !important",
+              "&>span": {
+                color: theme.palette.error.main,
+              },
             }}
           >
             {label && label} <span>{required && "*"}</span>
@@ -206,11 +207,13 @@ export default function MultipleSelectChip({
           ref={setAnchorEl}
           className={focused ? "focused" : ""}
           sx={{
-            ...(alert && {
-              borderColor: theme.palette.support?.error?.main,
-              
-            }),
+            borderColor: disabled
+              ? theme.palette.grey[100]
+              : alert
+              ? theme.palette.error.main
+              : "",
             backgroundColor : disabled ? theme.palette.grey[150] : '',
+            width : width
           }}
         >
           {value.map((option: any, index: number) => (
@@ -228,11 +231,11 @@ export default function MultipleSelectChip({
             required={required}
             disabled={disabled}
             style={{
-              height: "40px",
+              height: '40px',
               flexGrow: "1px",
-              
-              backgroundColor : disabled ? theme.palette.grey[150] : '',
-              color : disabled ? theme.palette.grey[100] : '',
+              cursor:'pointer',
+              backgroundColor : disabled ? theme.palette.grey[150] : theme.palette.common.white,
+              color : disabled ? theme.palette.grey[100] : theme.palette.grey[650],
               backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
@@ -243,7 +246,7 @@ export default function MultipleSelectChip({
         </InputWrapper>
       </div>
       {groupedOptions.length > 0 ? (
-        <Listbox {...getListboxProps()}>
+        <Listbox {...getListboxProps()} sx={{width : width}}>
           {groupedOptions.map((option, index) => (
             <li {...getOptionProps({ option, index })}>
               <Typography

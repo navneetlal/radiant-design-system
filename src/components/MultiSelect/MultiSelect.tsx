@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import MuiInputBase from '@mui/material/InputBase';
-import MuiInputLabel from '@mui/material/InputLabel';
-import MuiGrid from '@mui/material/Grid';
-import MuiBox from '@mui/material/Box';
-import NoSsr from '@mui/material/NoSsr';
+import MuiInputBase from "@mui/material/InputBase";
+import MuiInputLabel from "@mui/material/InputLabel";
+import MuiGrid from "@mui/material/Grid";
+import MuiBox from "@mui/material/Box";
+import NoSsr from "@mui/material/NoSsr";
 
 import { useTheme } from "@mui/material/styles";
 import Chips from "../Chip/Chip";
@@ -27,8 +27,7 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
           },
           flexGrow: 1,
           WebkitBoxFlex: 1,
-          paddingBottom : '0px !important',
-            
+          paddingBottom: "0px !important",
 
           "& .MuiInputBase-input": {
             order: "3px",
@@ -38,9 +37,10 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
               ? theme.palette?.support?.error?.main
               : theme.palette.grey[100],
             alignSelf: "flex-end",
-            height: '32px',
+            height: "32px",
             color: `${theme.palette.common.black} !important`,
-            minWidth: '50px',
+            minWidth: "50px",
+            cursor: "pointer",
           },
         }}
         inputRef={ref}
@@ -59,6 +59,7 @@ export interface IMultiSelectProps {
   width?: number;
   alert?: boolean;
   options?: string[];
+  required?: boolean;
   selectedOptions?: any;
   disabled?: boolean;
   [key: string]: any;
@@ -66,7 +67,7 @@ export interface IMultiSelectProps {
 
 const tempFunc = () => {
   console.log();
-}
+};
 
 export default function MultiSelect({
   label,
@@ -74,6 +75,7 @@ export default function MultiSelect({
   onChange = tempFunc,
   width,
   alert,
+  required = false,
   options,
   disabled,
 }: IMultiSelectProps) {
@@ -102,15 +104,22 @@ export default function MultiSelect({
     <NoSsr>
       <div>
         <div>
-          <MuiInputLabel
-          disabled = {disabled}
-            sx={{
-              ...theme.typography.h6,
-              color: "#1A1A1A",
-            }}
-          >
-            {label}
-          </MuiInputLabel>
+          {(label || required) && (
+            <MuiInputLabel
+              disabled={disabled}
+              sx={{
+                ...theme.typography.h6,
+                color: "#1A1A1A",
+                "&>span": {
+                  color: theme.palette.error.main,
+                },
+              }}
+            >
+              {label && label}
+              <span>{required && "*"}</span>
+            </MuiInputLabel>
+          )}
+
           <MuiBox
             sx={{
               "label + &": {
@@ -119,16 +128,16 @@ export default function MultiSelect({
               },
               display: "flex",
               flexWrap: "wrap",
-              borderRadius: '4px',
+              borderRadius: "4px",
               position: "relative",
               ...theme.typography.body2,
               border: `1px solid ${theme.palette.grey[100]}`,
-              backgroundColor: "#ffffff",
+              backgroundColor: disabled ? theme.palette.grey[150] : "#ffffff",
               borderColor: alert
                 ? theme.palette?.support?.error?.main
                 : theme.palette.grey[100],
               alignSelf: "flex-end",
-              minHeight: '32px', 
+              minHeight: "32px",
               overflow: "hidden",
               padding: "4px 12px",
               paddingRight: 0,
@@ -153,7 +162,7 @@ export default function MultiSelect({
               <BootstrapInput
                 placeholder={placeholder}
                 width={width}
-                style={{ flexGrow: '1px', paddingBottom: '4px' }}
+                style={{ flexGrow: "1px", paddingBottom: "4px" }}
                 value={value}
                 alert={alert}
                 // onChange={(e: any) => setValue(e.target.value)}

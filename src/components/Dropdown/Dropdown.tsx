@@ -47,9 +47,11 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
                     ...theme.typography.body1,
                   }),
               border: `1px solid ${theme.palette.grey[100]}`,
-              borderColor: alert
-                ? theme.palette?.support?.error?.main
-                : theme.palette.grey[100],
+              borderColor: disabled
+              ? theme.palette.grey[100]
+              : alert
+              ? theme.palette.error.main
+              : "",
               backgroundColor: disabled ? theme.palette.grey[150] : "#ffffff",
               alignSelf: "flex-end",
               height: size === "small" ? "14px" : "18px",
@@ -109,6 +111,8 @@ const Listbox = styled("ul")(
 
     & svg {
       color: transparent;
+      padding : 4px 6px;
+      margin : 0;
     }
     
 
@@ -116,15 +120,15 @@ const Listbox = styled("ul")(
   }
   
   
-  & p[aria-selected='true'] {
-    & svg {
-      color: #1890ff;
-    }
-  }
   & li:hover {
-    background-color : ${theme.palette.primary.contrastText}
+    background-color : ${theme.palette.primary.contrastText}!important;
     
     
+  }
+  & p:active {
+    
+    font-weight: 600;
+    background-color : #e6f7ff
   }
   & p[data-focus='true'] {
     & svg {
@@ -151,6 +155,7 @@ export interface IDropDown {
   };
   onChange?: any;
   children?: React.ReactNode;
+  childrenPlacement?: "top" | "bottom";
   disabled?: boolean;
   [key: string]: any;
 }
@@ -161,12 +166,13 @@ const Dropdown = ({
   required,
   width,
   alert,
-  options,
+  options = [],
   value,
   size = "small",
   onChange,
   children,
   disabled,
+  childrenPlacement = "top",
   elevation,
 }: IDropDown) => {
   const [data, setData] = useState(value);
@@ -193,7 +199,6 @@ const Dropdown = ({
                     ...theme.typography.h5,
                   },
               {
-                color: disabled ? theme.palette.grey[100] : "#1A1A1A",
                 "&>span": {
                   color: theme.palette?.support?.error?.main,
                 },
@@ -215,25 +220,25 @@ const Dropdown = ({
         />
       </MuiBox>
 
-      {options && options.length > 0 ? (
-        <Listbox sx={{ display: isOpen ? "block" : "none" }}>
+      <Listbox sx={{ display: isOpen ? "block" : "none" }}>
+      <li style={{position : 'sticky', top : '0',backgroundColor : theme.palette.common.white}}>{childrenPlacement === "top" && children}</li>
           {options &&
-            options.map((option, index) => (
-              <li key={index}>
-                <MuiTypography
-                  onMouseDown={() => handleSelect(option)}
-                  variant="body1"
-                  sx={{
-                    ...theme.typography.body1,
-                  }}
-                >
-                  {option.name}
-                </MuiTypography>
-              </li>
-            ))}
-          {children}
-        </Listbox>
-      ) : null}
+          options.length > 0 &&
+          options.map((option, index) => (
+            <li key={option.id}>
+              <MuiTypography
+                onMouseDown={() => handleSelect(option)}
+                variant="body1"
+                sx={{
+                  ...theme.typography.body1,
+                }}
+              >
+                {option.name}
+              </MuiTypography>
+            </li>
+          ))}
+        <li  style={{position : 'sticky', bottom : '0',backgroundColor : theme.palette.common.white}}>{childrenPlacement === "bottom" && children}</li>
+      </Listbox>
     </MuiBox>
   );
 };

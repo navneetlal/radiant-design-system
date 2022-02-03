@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, GlobalStyles, useAutocomplete } from "@mui/material";
+import { Box, GlobalStyles, Paper, useAutocomplete } from "@mui/material";
 
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
@@ -13,8 +13,7 @@ const Root = styled("div")(
 );
 
 const InputWrapper = styled("div")(
-  () => `
-  width: 300px;
+  ({ theme }) => `
   border: 1px solid #C7C7C7;
   background-color: #fff;
   border-radius: 4px;
@@ -22,23 +21,26 @@ const InputWrapper = styled("div")(
   display: flex;
   flex-wrap: wrap;
 
-  &:hover {
-    border-color: #40a9ff;
-  }
-
+ 
   &.focused {
     border-color: #396de7;
     
   }
+  & input:disabled {
+    ::placeholder {
+      color : ${theme.palette.grey[100]}
+    }
+  }
 
   & input {
     background-color: #fff;
-    color: 'rgba(0,0,0,.85)'
-    height: 32px;
+    color: 'rgba(0,0,0,.85)';
+    ::placeholder {
+      color : ${theme.palette.grey[650]}
+    }
     box-sizing: border-box;
     padding: 4px 12px;
     overflow : hidden;
-    width: 0;
     min-width: 32px;
     flex-grow: 1;
     border: 0;
@@ -50,7 +52,6 @@ const InputWrapper = styled("div")(
 
 const Listbox = styled("ul")(
   ({ theme }) => `
-  width: 300px;
   margin: 2px 0 0;
   padding: 0;
   position: absolute;
@@ -62,12 +63,16 @@ const Listbox = styled("ul")(
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   z-index: 999;
   
+  
   & p {
     padding: 8px 12px;
     order :2;
     display: flex;
     cursor: pointer;
-
+    & svg {
+      padding : 4px 6px;
+      margin : 0;
+    }
     
 
     
@@ -80,7 +85,7 @@ const Listbox = styled("ul")(
     
   }
   & li:hover {
-    background-color : ${theme.palette.primary.contrastText}
+    background-color : ${theme.palette.primary.contrastText}!important;
   }
   
 `
@@ -115,10 +120,10 @@ export interface ISelectChipsProps {
   label?: string;
   placeholder?: string;
   required?: boolean;
-  width: number;
-  height: "small" | "medium";
+  width?: number;
+  size?: "small" | "medium";
   alert?: boolean;
-  options: any[];
+  options?: any[];
   value?: {
     id: number;
     name: string;
@@ -126,7 +131,7 @@ export interface ISelectChipsProps {
   childrenPlacement?: "top" | "bottom";
   onChange?: any;
   children?: React.ReactElement;
-  disable?: boolean;
+  disabled?: boolean;
   onInputChange?: any;
   [key: string]: any;
 }
@@ -135,11 +140,11 @@ export default function Autocomplete({
   label,
   placeholder,
   required,
-  width,
-  height,
+  width = 312,
+  size = "medium",
   childrenPlacement = "top",
   alert,
-  options,
+  options = [],
   value,
   onChange,
   onInputChange,
@@ -169,11 +174,15 @@ export default function Autocomplete({
     isOptionEqualToValue: (t, v) => t.name === v.name,
   });
   const theme = useTheme();
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <Root {...otherProps}>
       {inputGlobalStyles}
       <Box
         {...getRootProps()}
+        onFocus={() => setIsOpen(true)}
+          onBlur={() => setIsOpen(false)}
+          
         sx={{
           "&:focus-within": {
             "&+$listbox": {
@@ -182,53 +191,108 @@ export default function Autocomplete({
           },
         }}
       >
-        <InputLabel
-          {...getInputLabelProps()}
+        {(label || required) && (
+          <InputLabel
+            {...getInputLabelProps()}
+            sx={{
+              ...theme.typography.h6,
+              color: disabled
+                ? theme.palette.grey[100]
+                : theme.palette.common.black,
+              "&>span": {
+                color: theme.palette.error.main,
+              },
+            }}
+          >
+            {label} <span>{required && "*"}</span>
+          </InputLabel>
+        )}
+
+        <InputWrapper
+          className={focused ? "focused" : ""}
           sx={{
-            ...theme.typography.h6,
-            color: theme.palette.common.black,
-            "&>span": {
-              color: theme.palette.error.main,
-            },
+            width: width,
+            borderColor: disabled
+              ? theme.palette.grey[100]
+              : alert
+              ? theme.palette.error.main
+              : "",
+            backgroundColor: disabled
+              ? theme.palette.grey[150]
+              : theme.palette.common.white,
           }}
         >
-          {label} <span>{required && label ? "*" : ""}</span>
-        </InputLabel>
-        <InputWrapper className={focused ? "focused" : ""}>
           <input
+            type="text"
             {...getInputProps()}
             placeholder={placeholder}
             required={required}
-            width={width}
             disabled={disabled}
             style={{
-              height: height === 'small' ? '32px' : "40px",
+              height: size === "small" ? "24px" : "32px",
               backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
+              color: disabled
+                ? theme.palette.grey[100]
+                : theme.palette.grey[650],
+
               backgroundRepeat: "no-repeat",
+              backgroundColor: disabled
+                ? theme.palette.grey[150]
+                : theme.palette.common.white,
               backgroundPosition: "95% 50%",
               backgroundSize: "8px",
+              cursor: disabled ? "not-allowed" : "pointer",
             }}
           />
         </InputWrapper>
       </Box>
-      {groupedOptions.length > 0 ? (
-        <Listbox {...getListboxProps()}>
-          {childrenPlacement === "top" && children}
-          {groupedOptions.map((option, index) => (
-            <li {...getOptionProps({ option, index })}>
-              <Typography
-                sx={{
-                  ...theme.typography.body1,
-                }}
-                {...getOptionProps({ option, index })}
-              >
-                {option.name}
-              </Typography>
-            </li>
-          ))}
-          {childrenPlacement === "bottom" && children}
+
+      {(groupedOptions.length > 0 || !options || options.length === 0) && (
+        <Listbox
+          {...getListboxProps()}
+          sx={{
+            width: `${width}px`,
+            display:
+              (!options || options.length === 0) && !isOpen
+                ? "none"
+                : (!options || options.length === 0) && !isOpen
+                ? "block"
+                : "",
+          }}
+        >
+          <li
+            style={{
+              position: "sticky",
+              top: "0",
+              backgroundColor: theme.palette.common.white,
+            }}
+          >
+            {childrenPlacement === "top" && children}
+          </li>
+          {groupedOptions &&
+            groupedOptions.map((option, index) => (
+              <li {...getOptionProps({ option, index })}>
+                <Typography
+                  sx={{
+                    ...theme.typography.body1,
+                  }}
+                  {...getOptionProps({ option, index })}
+                >
+                  {option.name}
+                </Typography>
+              </li>
+            ))}
+          <li
+            style={{
+              position: "sticky",
+              bottom: "0",
+              backgroundColor: theme.palette.common.white,
+            }}
+          >
+            {childrenPlacement === "bottom" && children}
+          </li>
         </Listbox>
-      ) : null}
+      )}
     </Root>
   );
 }
