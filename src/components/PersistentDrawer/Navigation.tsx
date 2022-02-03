@@ -1,44 +1,9 @@
 import React, { lazy, Suspense } from "react";
-import { Typography as MuiTypography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import ToolTip from "../Tooltip";
+import MuiTypography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import ToolTip from "../Tooltip/Tooltip";
+import { useTheme } from "@mui/material/styles";
 
-const useStyles = makeStyles((theme: any) => ({
-  navItem: {
-    display: "flex",
-    alignItems: "center",
-    height: 56,
-    color: "#2c63e5",
-    // color: theme.palette.primary.main,
-    padding: "0 16px",
-    cursor: "pointer",
-    textDecoration: "none !important",
-    "&:hover": {
-      backgroundColor: "#f5f8ff",
-      //   backgroundColor: theme.palette.primary.contrastText,
-    },
-  },
-  icon: {
-    marginRight: 16,
-    display: "flex",
-    alignItems: "center",
-    color: ({ active }: any) => (active ? "#fff" : "#91b0fa"),
-    // color: ({ active }: any) => (active ? "#fff" : theme.palette.primary.light),
-  },
-  text: {
-    marginLeft: 16,
-  },
-  active: {
-    // color: theme.palette.blackAndWhite.light,
-    color: "#ffffff",
-    backgroundColor: "#2c63e5",
-    // backgroundColor: theme.palette.primary.main,
-    "&:hover": {
-      //   backgroundColor: theme.palette.primary.dark,
-      backgroundColor: "#264ca4",
-    },
-  },
-}));
 
 export interface IMyIconProps {
   color?: string;
@@ -84,16 +49,47 @@ const NavItem = ({
     },
   },
 }: INavItemProps) => {
+  const theme = useTheme();
   const MyIcon: any = React.useMemo(
     () => lazy(() => import(`../../icons/${icon}`)),
     [icon]
   );
-  const classes = useStyles({ active });
   return (
     <LinkElement href={path} {...linkElementProps}>
       {expanded ? (
-        <span className={`${classes.navItem} ${active && classes.active}`}>
-          <span className={classes.icon}>
+        <Box
+          component="span"
+          sx={[
+            {
+              display: "flex",
+              alignItems: "center",
+              height: "56px",
+              color: theme.palette.primary.main,
+              padding: "0 16px",
+              cursor: "pointer",
+              textDecoration: "none !important",
+              "&:hover": {
+                backgroundColor: theme.palette.primary.contrastText,
+              },
+            },
+            active && {
+              color: "#ffffff",
+              backgroundColor: theme.palette.primary.main,
+              "&:hover": {
+                backgroundColor: theme.palette.primary.dark,
+              },
+            },
+          ]}
+        >
+          <Box
+            component="span"
+            sx={{
+              marginRight: "16px",
+              display: "flex",
+              alignItems: "center",
+              color: active ? "#fff" : theme.palette.primary.light,
+            }}
+          >
             {MyIcon && (
               <MyIcon
                 color="currentColor"
@@ -101,29 +97,69 @@ const NavItem = ({
                   height: 24,
                   width: 24,
                 }}
+                component="span"
               />
             )}
-          </span>
+          </Box>
 
-          <MuiTypography variant="h6" className={classes.text} color="inherit">
+          <MuiTypography
+            variant="h6"
+            sx={{
+              text: {
+                marginLeft: "16px",
+              },
+            }}
+            color="inherit"
+          >
             {name}
           </MuiTypography>
-        </span>
+        </Box>
       ) : (
         <ToolTip title={name} color="dark" placement="top" size="small">
-          <span className={`${classes.navItem} ${active && classes.active}`}>
-            <span className={classes.icon}>
+          <Box
+            component="span"
+            sx={[
+              {
+                display: "flex",
+                alignItems: "center",
+                height: "56px",
+                color: theme.palette.primary.main,
+                padding: "0 16px",
+                cursor: "pointer",
+                textDecoration: "none !important",
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.contrastText,
+                },
+              },
+              active && {
+                color: "#ffffff",
+                backgroundColor: theme.palette.primary.main,
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.dark,
+                },
+              },
+            ]}
+          >
+            <Box
+              component="span"
+              sx={{
+                marginRight: '16px',
+                display: "flex",
+                alignItems: "center",
+                color: active ? "#fff" : theme.palette.primary.light,
+              }}
+            >
               {MyIcon && (
                 <MyIcon
                   color="currentColor"
                   style={{
-                    height: 24,
-                    width: 24,
+                    height: '24px',
+                    width: '24px',
                   }}
                 />
               )}
-            </span>
-          </span>
+            </Box>
+          </Box>
         </ToolTip>
       )}
     </LinkElement>

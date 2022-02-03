@@ -16,6 +16,7 @@ export { default as MultiSelect } from "./MultiSelect";
 export { default as Tabs } from "./Tabs";
 export { default as Textarea } from "./Textarea";
 export { default as Textbox } from "./Textbox";
+export {default as PersistentDrawer} from './PersistentDrawer';
 
 
 

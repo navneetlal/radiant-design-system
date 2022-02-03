@@ -1,52 +1,59 @@
 import React from "react";
-import { makeStyles } from "@mui/styles";
+import Box from "@mui/material/Box";
 
-const useStyles = makeStyles((theme: any) => ({
-  topnav: {
-    width: "auto",
-    height: 64,
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    borderBottom: "1px solid #bfd2fd",
-    // borderBottom: `1px solid ${theme.palette.primary['200']}`,
-  },
-  flex: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  brand: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    minHeight: 64,
-    maxHeight: 64,
-    borderBottom: "1px solid #bfd2fd",
-    // borderBottom: `1px solid ${theme.palette.primary[200]}`,
-  },
-  brandLogo: {
-    height: 64,
-    width: "calc(100% - 64px)",
-    textAlign: "center",
-  },
-}));
 const Header = ({ brandURL, expanded }: any) => {
-  const classes = useStyles();
-
+  
   return (
-    <div className={classes.topnav}>
-      <div className={`${classes.flex}`}>
-        <div className={classes.brand}>
+    <Box
+      sx={{
+        width: "auto",
+        height: '64px',
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        borderBottom: "1px solid #bfd2fd",
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            minHeight: '64',
+            maxHeight: '64',
+            borderBottom: "1px solid #bfd2fd",
+          }}
+        >
           {!expanded && (
-            <div className={classes.brandLogo}>
+            <Box
+              sx={{
+                brandLogo: {
+                  height: '64',
+                  width: "calc(100% - 64px)",
+                  textAlign: "center",
+                },
+              }}
+            >
               <img alt="brand logo" style={{ height: "75%" }} src={brandURL} />
-            </div>
+            </Box>
           )}
-        </div>
-      </div>
-      <div className={classes.flex}></div>
-    </div>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      ></Box>
+    </Box>
   );
 };
 
