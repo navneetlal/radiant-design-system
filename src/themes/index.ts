@@ -41,4 +41,3 @@ export const theme = {
   darkTheme
 }
 
-export default lightTheme
