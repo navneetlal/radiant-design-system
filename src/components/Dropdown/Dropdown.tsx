@@ -48,10 +48,10 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
                   }),
               border: `1px solid ${theme.palette.grey[100]}`,
               borderColor: disabled
-              ? theme.palette.grey[100]
-              : alert
-              ? theme.palette.error.main
-              : "",
+                ? theme.palette.grey[100]
+                : alert
+                ? theme.palette.error.main
+                : "",
               backgroundColor: disabled ? theme.palette.grey[150] : "#ffffff",
               alignSelf: "flex-end",
               height: size === "small" ? "14px" : "18px",
@@ -115,21 +115,22 @@ const Listbox = styled("ul")(
       margin : 0;
     }
     
+    
 
     
   }
-  
+  & li:visited {
+    
+    background-color : #e6f7ff!important;
+  }
+
   
   & li:hover {
     background-color : ${theme.palette.primary.contrastText}!important;
-    
-    
   }
-  & p:active {
     
-    font-weight: 600;
-    background-color : #e6f7ff
-  }
+    
+  
   & p[data-focus='true'] {
     & svg {
       color: ${theme.palette.common.black};
@@ -221,14 +222,23 @@ const Dropdown = ({
       </MuiBox>
 
       <Listbox sx={{ display: isOpen ? "block" : "none" }}>
-      <li style={{position : 'sticky', top : '0',backgroundColor : theme.palette.common.white}}>{childrenPlacement === "top" && children}</li>
-          {options &&
+        <li
+          style={{
+            position: "sticky",
+            top: "0",
+            backgroundColor: theme.palette.common.white,
+          }}
+        >
+          {childrenPlacement === "top" && children}
+        </li>
+        {options &&
           options.length > 0 &&
           options.map((option, index) => (
-            <li key={option.id}>
+            <li key={option.id} style={{color : data?.id === option.id ? theme.palette.primary.dark : ''}}>
               <MuiTypography
                 onMouseDown={() => handleSelect(option)}
                 variant="body1"
+                
                 sx={{
                   ...theme.typography.body1,
                 }}
@@ -237,7 +247,15 @@ const Dropdown = ({
               </MuiTypography>
             </li>
           ))}
-        <li  style={{position : 'sticky', bottom : '0',backgroundColor : theme.palette.common.white}}>{childrenPlacement === "bottom" && children}</li>
+        <li
+          style={{
+            position: "sticky",
+            bottom: "0",
+            backgroundColor: theme.palette.common.white,
+          }}
+        >
+          {childrenPlacement === "bottom" && children}
+        </li>
       </Listbox>
     </MuiBox>
   );

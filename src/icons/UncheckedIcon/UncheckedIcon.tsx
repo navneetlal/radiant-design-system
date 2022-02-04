@@ -1,8 +1,15 @@
 import React from "react";
-import { SvgIcon as MuiSvgIcon } from "@mui/material";
+import { SvgIcon as MuiSvgIcon, SvgIconProps } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-const UnCheckedIcon = ({ alert, disabled }: any) => {
+
+export interface IUncheckedIcon extends SvgIconProps{
+  alert ?: boolean;
+  disabled ?: boolean;
+}
+
+
+const UnCheckedIcon = ({ alert = false, disabled = false, ...otherProps }: any) => {
   const theme = useTheme();
   const styles = {
     border: "1px solid gray",
@@ -17,16 +24,13 @@ const UnCheckedIcon = ({ alert, disabled }: any) => {
             ? theme.palette?.support?.error?.main
             : theme.palette.grey[100],
           fill: disabled ? theme.palette?.grey[150] : "",
-          "&:hover": {
-            stroke: theme.palette.primary.main,
-            fill: theme.palette.primary[50],
-          },
-        },
+        }
       }}
       viewBox="0 0 20 20"
       style={{
         margin: "auto",
       }}
+      {...otherProps}
     >
       <path
         fillRule="evenodd"

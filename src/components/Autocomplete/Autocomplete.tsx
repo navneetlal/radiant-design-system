@@ -80,7 +80,6 @@ const Listbox = styled("ul")(
   
   
   & p[aria-selected='true'] {
-    font-weight: 600;
     background-color : #e6f7ff
     
   }
@@ -247,15 +246,15 @@ export default function Autocomplete({
         </InputWrapper>
       </Box>
 
-      {(groupedOptions.length > 0 || !options || options.length === 0) && (
+      {(groupedOptions.length > 0 || options.length === 0) && (
         <Listbox
           {...getListboxProps()}
           sx={{
             width: `${width}px`,
             display:
-              (!options || options.length === 0) && !isOpen
+              (options.length === 0) && !isOpen
                 ? "none"
-                : (!options || options.length === 0) && !isOpen
+                : (options.length === 0) && !isOpen
                 ? "block"
                 : "",
           }}
