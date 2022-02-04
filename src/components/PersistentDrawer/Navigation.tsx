@@ -5,7 +5,7 @@ import ToolTip from "../Tooltip/Tooltip";
 import { useTheme } from "@mui/material/styles";
 
 
-export interface IMyIconProps {
+export interface IiconProps {
   color?: string;
   style?: {
     height: number;
@@ -14,7 +14,7 @@ export interface IMyIconProps {
 }
 
 export interface INavItemProps {
-  icon: any;
+  Icon: React.FunctionComponent<any>;
   name: any;
   path: any;
   navigation: any;
@@ -36,7 +36,7 @@ export interface INavigationProps {
 }
 
 const NavItem = ({
-  icon,
+  Icon,
   name,
   path,
   expanded,
@@ -50,10 +50,6 @@ const NavItem = ({
   },
 }: INavItemProps) => {
   const theme = useTheme();
-  const MyIcon: any = React.useMemo(
-    () => lazy(() => import(`../../icons/${icon}`)),
-    [icon]
-  );
   return (
     <LinkElement href={path} {...linkElementProps}>
       {expanded ? (
@@ -90,8 +86,8 @@ const NavItem = ({
               color: active ? "#fff" : theme.palette.primary.light,
             }}
           >
-            {MyIcon && (
-              <MyIcon
+            {Icon && (
+              <Icon
                 color="currentColor"
                 style={{
                   height: 24,
@@ -149,8 +145,8 @@ const NavItem = ({
                 color: active ? "#fff" : theme.palette.primary.light,
               }}
             >
-              {MyIcon && (
-                <MyIcon
+              {Icon && (
+                <Icon
                   color="currentColor"
                   style={{
                     height: '24px',
