@@ -18,16 +18,16 @@ const IconButton = ({ variant = "contained", color = "primary", size = "medium",
       color={color}
       sx={[
         {
-          minWidth: 32,
+          minWidth: '32px',
           '& $text': {
             maxWidth: 0,
             overflow: 'hidden',
             transition: 'all .2s ease-out',
           },
           '&:hover $text': {
-            maxWidth: 500,
+            maxWidth: '500px',
             transition: 'all .2s ease-in',
-            paddingLeft: 5,
+            paddingLeft: '5px',
           },
         },
         variant === 'contained' && {
@@ -54,6 +54,7 @@ const IconButton = ({ variant = "contained", color = "primary", size = "medium",
           '& svg': {
             width: '16px',
             height: '16px',
+            paddingLeft : '12px'
           },
         },
         size === 'medium' && {
@@ -63,6 +64,7 @@ const IconButton = ({ variant = "contained", color = "primary", size = "medium",
           '& svg': {
             width: '20px',
             height: '20px',
+            paddingLeft : '12px'
           },
         },
         size === 'large' && {
@@ -73,6 +75,7 @@ const IconButton = ({ variant = "contained", color = "primary", size = "medium",
           '& svg': {
             width: '24px',
             height: '24px',
+            paddingLeft : '12px'
           },
         }
       ]}

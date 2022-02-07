@@ -234,11 +234,17 @@ const Dropdown = ({
         {options &&
           options.length > 0 &&
           options.map((option, index) => (
-            <li key={option.id} style={{color : data?.id === option.id ? theme.palette.primary.dark : ''}}>
+            <li
+              key={option.id}
+              style={{
+                color: data?.id === option.id ? theme.palette.primary.dark : "",
+                backgroundColor:
+                  data?.id === option.id ? '#e6f7ff' : "",
+              }}
+            >
               <MuiTypography
                 onMouseDown={() => handleSelect(option)}
                 variant="body1"
-                
                 sx={{
                   ...theme.typography.body1,
                 }}

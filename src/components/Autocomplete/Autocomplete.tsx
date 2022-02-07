@@ -80,7 +80,8 @@ const Listbox = styled("ul")(
   
   
   & p[aria-selected='true'] {
-    background-color : #e6f7ff
+    background-color : #e6f7ff;
+    color : ${theme.palette.primary.dark};
     
   }
   & li:hover {
