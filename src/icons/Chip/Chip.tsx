@@ -16,6 +16,7 @@ const ChipIcon = ({ color="#ffffff", ...otherProps }: IChipIconProps) => {
         marginRight: "12px",
 
       }}
+      style={{ marginRight: 12 }}
       viewBox="0 0 8 8"
     >
       <path
