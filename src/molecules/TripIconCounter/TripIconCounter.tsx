@@ -1,7 +1,8 @@
 import React from "react";
 
 import { useTheme } from "@mui/material/styles";
-import { Box, Typography } from "@mui/material";
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography'
 
 
 
@@ -9,15 +10,15 @@ export interface ICounterProps {
   number: number;
   status: string;
   icon?: any;
-  selected: Boolean;
-  onClick: any;
+  selected?: Boolean;
+  onClick?: any;
 }
 
 const Counter = ({
   number,
   status,
   icon,
-  selected,
+  selected = false,
   onClick,
 }: ICounterProps) => {
   const theme = useTheme();

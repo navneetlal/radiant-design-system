@@ -44,5 +44,17 @@ Options.args = {
   options: [
     { id: 0, name: "Text" },
     { id: 1, name: "Number" },
+    
+    { id: 3, name: "Text" },
+    { id: 4, name: "Number" },
+    
+    { id: 5, name: "Text" },
+    { id: 6, name: "Number" },
+    
+    { id: 7, name: "Text" },
+    { id: 8, name: "Number" },
+    
+    { id: 9, name: "Text" },
+    { id: 10, name: "Number" },
   ],
 };

@@ -22,6 +22,7 @@ const Button = ({
   color = "primary",
   children,
   inputSize,
+  size = "small",
   fromTextbox = false,
   inputAlert,
   text,
@@ -36,13 +37,16 @@ const Button = ({
       variant={variant}
       color={color}
       disabled = {disabled}
+      size={size}
       {...otherProps}
       sx={[
         variant === "outlined" && {
-          color: `${theme.palette[color].main}`,
+          //@ts-ignore
+          color: `${theme.palette[color === 'secondary' ? 'grey' : color][color === 'secondary' ? '350' : 'main']}`,
           backgroundColor: `#ffffff`,
           border: `1px solid`,
-          borderColor: `${theme.palette[color].main}`,
+          //@ts-ignore
+          borderColor: `${theme.palette[color === 'secondary' ? 'grey' : color][color === 'secondary' ? '350' : 'main']}`,
           "&:hover": {
             backgroundColor: color !== 'secondary' ? `${theme.palette[color].contrastText}` : 'inherit',
           },
@@ -54,8 +58,12 @@ const Button = ({
         },
         variant === "contained" && {
           color: "#ffffff",
+          ...color === 'secondary' && {
+            backgroundColor : theme.palette.grey[350]
+          },
           "&:hover": {
-            background: `${theme.palette[color].dark}`,
+            //@ts-ignore
+            background: `${theme.palette[color === 'secondary' ? 'grey' : color][color  === 'secondary' ? '650' : 'dark']}`,
           },
           boxShadow: `none !important`,
         },
@@ -75,15 +83,22 @@ const Button = ({
           color: disabled || inputAlert ? theme.palette.grey[100] : '',
           padding: "8px 8px",
           alignSelf: "center",
-          fontWeight : 600,
+          fontWeight : 500,
           backgroundColor: "transparent",
           ...theme.typography.body2,
         },
         (variant === 'text') && {
-          fontWeight : 600,
+          fontWeight : 500,
+          height: size === 'small' ? '16px' : '20px',
+          ...color === 'secondary' && {
+            color : theme.palette.grey[350]
+          },
+          
+          
           "&:hover" : {
             backgroundColor : 'inherit',
-            color : theme.palette[color].dark
+            //@ts-ignore
+            color : theme.palette[color === 'secondary' ? 'grey' : color][color === 'secondary' ? '650' : 'dark']
           }
         },
         {

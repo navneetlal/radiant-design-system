@@ -23,7 +23,7 @@ const Chip = ({
   const theme = useTheme();
   return (
     <MuiChip
-      deleteIcon={<ChipIcon />}
+      deleteIcon={<ChipIcon color={(selected && !disabled) ? '#ffffff' : disabled ? theme.palette.grey[100] : '#1A1A1A'}/>}
       disabled = {disabled}
       sx={[
         {

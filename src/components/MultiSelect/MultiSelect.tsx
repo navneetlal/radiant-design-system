@@ -22,9 +22,6 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
     return (
       <MuiInputBase
         sx={{
-          "label + &": {
-            marginTop: theme.spacing(1),
-          },
           flexGrow: 1,
           WebkitBoxFlex: 1,
           paddingBottom: "0px !important",
@@ -32,6 +29,7 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
           "& .MuiInputBase-input": {
             order: "3px",
             padding: 0,
+            marginLeft : '16px',
             ...theme.typography.body2,
             borderColor: alert
               ? theme.palette?.support?.error?.main
@@ -39,7 +37,7 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
             alignSelf: "flex-end",
             height: "32px",
             color: `${theme.palette.common.black} !important`,
-            minWidth: "50px",
+            width: width,
             cursor: "pointer",
           },
         }}
@@ -73,7 +71,7 @@ export default function MultiSelect({
   label,
   placeholder,
   onChange = tempFunc,
-  width,
+  width = 312,
   alert,
   required = false,
   options,
@@ -122,10 +120,7 @@ export default function MultiSelect({
 
           <MuiBox
             sx={{
-              "label + &": {
-                marginTop: theme.spacing(1),
-                marginBottom: theme.spacing(1),
-              },
+              
               display: "flex",
               flexWrap: "wrap",
               borderRadius: "4px",
@@ -141,7 +136,7 @@ export default function MultiSelect({
               overflow: "hidden",
               padding: "4px 12px",
               paddingRight: 0,
-              width: width ? `${width - 24}px` : `${200 - 24}px`,
+              width: `${width - 8}px`,
               "&:focus-within": {
                 borderColor: theme.palette.primary.main,
               },

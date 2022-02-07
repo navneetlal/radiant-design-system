@@ -25,10 +25,17 @@ const Template: ComponentStory<typeof Autocomplete> = (args) => (
 );
 
 
-export const Default = Template.bind({});
-Default.args = {
-  //selectedOptions : {id: 1, name: "Siddhant"}
+export const Small = Template.bind({});
+Small.args = {
+  size : 'small'
 };
+
+export const Medium = Template.bind({});
+Medium.args = {
+  size : 'medium'
+};
+
+
 
 
 

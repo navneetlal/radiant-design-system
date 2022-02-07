@@ -153,7 +153,7 @@ export default function MultipleSelectChip({
   label,
   placeholder,
   onChange,
-  width = 200,
+  width = 312,
   alert,
   disabled,
   options,

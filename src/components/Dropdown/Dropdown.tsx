@@ -8,7 +8,7 @@ import MuiBox from "@mui/material/Box";
 import { styled, useTheme } from "@mui/material/styles";
 
 import type { InputBaseProps } from "@mui/material/InputBase";
-
+import { inputGlobalStyles } from "../Autocomplete/Autocomplete";
 export interface IBootstrapInputProps extends InputBaseProps {
   alert?: boolean;
   width?: number;
@@ -165,7 +165,7 @@ const Dropdown = ({
   label,
   placeholder,
   required,
-  width,
+  width = 312,
   alert,
   options = [],
   value,
@@ -188,6 +188,7 @@ const Dropdown = ({
   const theme = useTheme();
   return (
     <MuiBox sx={{ position: "relative" }}>
+      {inputGlobalStyles}
       <MuiBox onFocus={() => setIsOpen(true)} onBlur={() => setIsOpen(false)}>
         {(label || required) && (
           <MuiInputLabel
@@ -204,6 +205,7 @@ const Dropdown = ({
                   color: theme.palette?.support?.error?.main,
                 },
                 marginBottom: size === "small" ? "4px" : "8px",
+                color: disabled ? theme.palette.grey[100] : `#1A1A1A !important`,
               },
             ]}
           >
@@ -221,7 +223,7 @@ const Dropdown = ({
         />
       </MuiBox>
 
-      <Listbox sx={{ display: isOpen ? "block" : "none" }}>
+      <Listbox sx={{ display: isOpen ? "block" : "none", width : {width} }}>
         <li
           style={{
             position: "sticky",

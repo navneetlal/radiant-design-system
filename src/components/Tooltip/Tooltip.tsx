@@ -5,14 +5,14 @@ import { useTheme } from "@mui/material/styles";
 import type { TooltipProps } from "@mui/material/Tooltip";
 
 export interface ITooltipProps extends TooltipProps {
-  color: "light" | "dark";
+  color?: "light" | "dark";
   size: "small" | "medium";
   [key: string]: any;
 }
 
 const Tooltip = ({
-  color,
-  placement,
+  color = "dark",
+  placement = "top",
   ...otherProps
 }: ITooltipProps) => {
   const theme = useTheme();

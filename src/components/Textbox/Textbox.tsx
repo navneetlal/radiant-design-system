@@ -39,11 +39,6 @@ export const BootstrapInput = ({
             },
           },
         {
-          "& .MuiInputBase-root": {
-            "label + &": {
-              marginTop: label && theme.spacing(1),
-            },
-          },
 
           "& .MuiInputBase-input": {
             borderRadius: "4px",

@@ -10,20 +10,25 @@ import type { InputBaseProps } from "@mui/material/InputBase";
 
 export interface IInputProps extends InputBaseProps {
   label?: string;
-  disabled ?: boolean;
+  disabled?: boolean;
   size?: "small" | "medium";
   [key: string]: any;
 }
 
-const Input = ({ label, size = "medium", required = false,disabled = false ,...otherProps }: IInputProps) => {
+const Input = ({
+  label,
+  size = "medium",
+  width = 312,
+  required = false,
+  disabled = false,
+  ...otherProps
+}: IInputProps) => {
   const styles = {
     medium: {
       height: "40px",
-      width: "256px",
     },
     small: {
       height: "32px",
-      width: "216px",
     },
   };
   const theme = useTheme();
@@ -38,27 +43,31 @@ const Input = ({ label, size = "medium", required = false,disabled = false ,...o
               : theme.palette.common.black,
           }}
         >
-          {label}<span>{required && "*"}</span>
+          {label}
+          <span>{required && "*"}</span>
         </MuiInputLable>
       )}
 
       <MuiInputBase
-      disabled = {disabled}
+        disabled={disabled}
         sx={{
           "& .MuiInputBase-input.Mui-disabled": {
             WebkitTextFillColor: "unset",
           },
           "& .MuiInputBase-input": {
             ...(size ? styles[size] : styles["small"]),
+            width: width,
             borderTop: "auto",
             outline: "none",
-            border: `1px solid ${ disabled ? theme.palette.grey[100] : theme.palette.grey[350]}`,
+            border: `1px solid ${
+              disabled ? theme.palette.grey[100] : theme.palette.grey[350]
+            }`,
             borderRadius: "4px",
             padding: 0,
             paddingLeft: "12px",
             color: "black",
             ...theme.typography.body2,
-            
+
             "&:focus": {
               outline: "none",
               border: `1px solid ${theme.palette.primary.main} !important`,

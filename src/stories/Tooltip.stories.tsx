@@ -9,7 +9,8 @@ export default {
   args: {
     title: "I am tooltip",
     size: "small",
-    open: true,
+    placement : 'top',
+    children :  <span style={{marginTop : '20rem'}}>This is a tooltip</span>
   },
 } as ComponentMeta<typeof Tooltip>;
 
@@ -17,12 +18,13 @@ const Template: ComponentStory<typeof Tooltip> = (args) => (
   <Tooltip {...args} />
 );
 
-export const Placement = Template.bind({});
-Placement.args = {
-  placement: "bottom",
-};
+
 
 export const Color = Template.bind({});
 Color.args = {
   color: "dark",
+};
+export const Light = Template.bind({});
+Light.args = {
+  color: "light",
 };

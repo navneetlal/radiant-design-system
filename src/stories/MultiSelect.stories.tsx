@@ -8,9 +8,10 @@ export default {
   component: MultiSelect,
   args: {
     label: "Add email addresses",
+    required : true,
     placeholder: "Type here",
     name: "emails",
-    width: 416,
+    // width : 200
   },
 } as ComponentMeta<typeof MultiSelect>;
 

@@ -9,6 +9,7 @@ export interface ISnackbarProps extends SnackbarProps {
 
 const Snackbar = ({
   color,
+  anchorOrigin={ vertical: "bottom", horizontal: "right" },
   ...otherProps
 }: ISnackbarProps) => {
   const theme = useTheme();
@@ -31,6 +32,7 @@ const Snackbar = ({
   return (
     <MUISnackbar
       autoHideDuration={3000}
+      anchorOrigin={anchorOrigin}
       ContentProps={{
         sx: {
           backgroundColor: getBackgroundColor(color),

@@ -28,15 +28,18 @@ const InputWrapper = styled("div")(
   }
   & input:disabled {
     ::placeholder {
-      color : ${theme.palette.grey[100]}
+      color : ${theme.palette.grey[100]};
     }
+  }
+  & input:focus {
+    color : ${theme.palette.common.black}!important;
   }
 
   & input {
     background-color: #fff;
     color: 'rgba(0,0,0,.85)';
     ::placeholder {
-      color : ${theme.palette.grey[650]}
+      color : ${theme.palette.grey[650]};
     }
     box-sizing: border-box;
     padding: 4px 12px;
@@ -91,7 +94,7 @@ const Listbox = styled("ul")(
 `
 );
 
-const inputGlobalStyles = (
+export const inputGlobalStyles = (
   <GlobalStyles
     styles={{
       scrollbarColor: "#264ca4 #f5f8ff !important",
@@ -229,7 +232,7 @@ export default function Autocomplete({
             required={required}
             disabled={disabled}
             style={{
-              height: size === "small" ? "24px" : "32px",
+              height: size === "small" ? "32px" : "40px",
               backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
               color: disabled
                 ? theme.palette.grey[100]
