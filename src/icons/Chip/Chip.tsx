@@ -5,7 +5,7 @@ export interface IChipIconProps {
   color?: string;
   [key: string]: any;
 }
-const ChipIcon = ({ color, ...otherProps }: IChipIconProps) => {
+const ChipIcon = ({ color="#ffffff", ...otherProps }: IChipIconProps) => {
   return (
     <MuiSvgIcon
       {...otherProps}
@@ -14,8 +14,8 @@ const ChipIcon = ({ color, ...otherProps }: IChipIconProps) => {
         height: "8px",
         cursor: "pointer",
         marginRight: "12px",
+
       }}
-      style={{ marginRight: 12 }}
       viewBox="0 0 8 8"
     >
       <path

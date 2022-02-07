@@ -36,7 +36,7 @@ const Counter3 = ({
       elevation={0}
     >
       {Icon && (
-        <Tooltip color="dark" size="medium" title={infoMessage}>
+        <Tooltip color="dark" size="small" title={infoMessage}>
           <Icon
             color="warning"
             sx={{
