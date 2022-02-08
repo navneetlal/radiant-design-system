@@ -8,7 +8,7 @@ export default {
   title: "Components/Atoms/Button",
   component: Button,
   args: {
-    text: "Button",
+    text: "Button text is this",
     variant: "outlined",
   },
 } as ComponentMeta<typeof Button>;

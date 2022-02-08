@@ -31,13 +31,11 @@ const InputWrapper = styled("div")(
       color : ${theme.palette.grey[100]};
     }
   }
-  & input:focus {
-    color : ${theme.palette.common.black}!important;
-  }
+  
 
   & input {
     background-color: #fff;
-    color: 'rgba(0,0,0,.85)';
+    color: ${theme.palette.common.black}!important;
     ::placeholder {
       color : ${theme.palette.grey[650]};
     }

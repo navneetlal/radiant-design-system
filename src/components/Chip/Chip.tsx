@@ -23,8 +23,18 @@ const Chip = ({
   const theme = useTheme();
   return (
     <MuiChip
-      deleteIcon={<ChipIcon fillColor={(selected && !disabled) ? '#ffffff' : disabled ? theme.palette.grey[100] : '#1A1A1A'}/>}
-      disabled = {disabled}
+      deleteIcon={
+        <ChipIcon
+          fillColor={
+            selected && !disabled
+              ? "#ffffff"
+              : disabled
+              ? theme.palette.grey[100]
+              : "#1A1A1A"
+          }
+        />
+      }
+      disabled={disabled}
       sx={[
         {
           backgroundColor: selected
@@ -41,8 +51,7 @@ const Chip = ({
           },
           "&:hover": {
             backgroundColor: selected
-            ? theme.palette.primary.main
-            //@ts-ignore
+              ? theme.palette.primary.main
               : theme.palette.primary[100],
             color: selected ? "#ffffff" : "#1A1A1A",
             "& path": {
@@ -58,7 +67,7 @@ const Chip = ({
         fromSelectChip && {
           marginRight: "4px",
           marginBottom: "4px",
-          marginTop : '4px'
+          marginTop: "4px",
         },
       ]}
       {...otherProps}

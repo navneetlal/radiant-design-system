@@ -89,7 +89,13 @@ const Button = ({
         },
         (variant === 'text') && {
           fontWeight : 500,
+          ...theme.typography.body2,
           height: size === 'small' ? '16px' : '20px',
+          minWidth: "50px !important",
+          padding : 0,
+          
+
+
           ...color === 'secondary' && {
             color : theme.palette.grey[350]
           },

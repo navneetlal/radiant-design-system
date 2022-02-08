@@ -11,7 +11,7 @@ export default {
     required : true,
     placeholder: "Type here",
     name: "emails",
-    // width : 200
+    //width : 200
   },
 } as ComponentMeta<typeof MultiSelect>;
 

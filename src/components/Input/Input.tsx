@@ -12,6 +12,7 @@ export interface IInputProps extends InputBaseProps {
   label?: string;
   disabled?: boolean;
   size?: "small" | "medium";
+  width ?: number
   [key: string]: any;
 }
 
@@ -25,10 +26,10 @@ const Input = ({
 }: IInputProps) => {
   const styles = {
     medium: {
-      height: "40px",
+      height: "38px",
     },
     small: {
-      height: "32px",
+      height: "30px",
     },
   };
   const theme = useTheme();
@@ -56,7 +57,7 @@ const Input = ({
           },
           "& .MuiInputBase-input": {
             ...(size ? styles[size] : styles["small"]),
-            width: width,
+            width: `${width - 14}px`,
             borderTop: "auto",
             outline: "none",
             border: `1px solid ${

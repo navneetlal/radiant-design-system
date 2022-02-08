@@ -8,6 +8,7 @@ export default {
   component: Input,
   args: {
     placeholder: "Search",
+    width : 200
   },
 } as ComponentMeta<typeof Input>;
 

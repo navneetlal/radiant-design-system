@@ -22,6 +22,7 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
     return (
       <MuiInputBase
         sx={{
+          
           flexGrow: 1,
           WebkitBoxFlex: 1,
           paddingBottom: "0px !important",
@@ -37,7 +38,9 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
             alignSelf: "flex-end",
             height: "32px",
             color: `${theme.palette.common.black} !important`,
-            width: width,
+            //width: width,
+            minWidth: '50px',
+    
             cursor: "pointer",
           },
         }}
@@ -136,7 +139,7 @@ export default function MultiSelect({
               overflow: "hidden",
               padding: "4px 12px",
               paddingRight: 0,
-              width: `${width - 8}px`,
+              width: `${width - 14}px`,
               "&:focus-within": {
                 borderColor: theme.palette.primary.main,
               },
@@ -157,10 +160,9 @@ export default function MultiSelect({
               <BootstrapInput
                 placeholder={placeholder}
                 width={width}
-                style={{ flexGrow: "1px", paddingBottom: "4px" }}
+                style={{ flexGrow: "1px" }}
                 value={value}
                 alert={alert}
-                // onChange={(e: any) => setValue(e.target.value)}
                 onChange={(e: any) => {
                   setValue(e.target.value);
                 }}
