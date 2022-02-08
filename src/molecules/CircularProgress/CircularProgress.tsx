@@ -25,7 +25,9 @@ const CircularProgress = ({
         height: "100px",
         backgroundColor: "#ffffff",
         borderRadius: "10px",
-        margin: "70px",
+        marginTop: "70px",
+        marginLeft : "30px",
+        marginRight : "40px"
       }}
       component={Box}
     >

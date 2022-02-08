@@ -6,7 +6,7 @@ export default {
   title: "Components/molecules/CircularProgress",
   component: CircularProgress,
   args: {
-      label : 'Delivered',
+      label : 'EPOD Delivered vs Not and Testing',
       value : 10
   },
 } as ComponentMeta<typeof CircularProgress>;
