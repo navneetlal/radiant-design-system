@@ -2,6 +2,8 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Autocomplete from "../components/Autocomplete";
+import { Typography } from "@mui/material";
+import AddIcon from "../icons/Add";
 
 export default {
   title: "Components/Autocomplete",
@@ -9,6 +11,16 @@ export default {
   args: {
     label: "Select Chip",
     placeholder: "Choose",
+    children: (
+      <Typography
+        variant="body1"
+        color="primary"
+        onMouseDown={() => alert("hello world")}
+      >
+        <AddIcon />
+        Add New Transporter
+      </Typography>
+    ),
     options: [
       { id: 1, name: "Siddhant" },
       { id: 2, name: "Kunal" },
@@ -24,18 +36,12 @@ const Template: ComponentStory<typeof Autocomplete> = (args) => (
   <Autocomplete {...args} />
 );
 
-
 export const Small = Template.bind({});
 Small.args = {
-  size : 'small'
+  size: "small",
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
-  size : 'medium'
+  size: "medium",
 };
-
-
-
-
-

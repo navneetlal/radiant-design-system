@@ -110,7 +110,6 @@ const Listbox = styled("ul")(
     }
 
     & svg {
-      color: transparent;
       padding : 4px 6px;
       margin : 0;
     }

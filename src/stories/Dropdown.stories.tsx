@@ -2,6 +2,8 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Dropdown from "../components/Dropdown";
+import { Typography } from "@mui/material";
+import AddIcon from "../icons/Add";
 
 export default {
   title: "Components/Dropdown",
@@ -10,6 +12,16 @@ export default {
     label: "Enter Name",
     size: "small",
     placeholder: "Kunal",
+    children: (
+      <Typography
+        variant="body1"
+        color="primary"
+        onMouseDown={() => alert("hello world")}
+      >
+        <AddIcon />
+        Add New Transporter
+      </Typography>
+    ),
     
   },
 } as ComponentMeta<typeof Dropdown>;
