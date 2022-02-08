@@ -1,15 +1,20 @@
 import React from 'react';
-import { SvgIcon as MuiSvgIcon } from '@mui/material';
+import MuiSvgIcon from '@mui/material/SvgIcon';
+import type { SvgIconProps } from '@mui/material/SvgIcon'
 
-const CheckIcon = ({disabled} :any) => {
+export interface ICheckIconProps extends SvgIconProps {
+  disabled?: boolean
+}
+
+const CheckIcon = ({ disabled = false, ...props }: ICheckIconProps) => {
   return (
-    <MuiSvgIcon sx= {{width : '20px' , height : '20px' , margin : 'auto'}} viewBox="0 0 20 20">
+    <MuiSvgIcon {...props} sx={{ width: '20px', height: '20px', margin: 'auto' }} viewBox="0 0 20 20">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M0 6C0 3.79086 1.79086 2 4 2H12C14.2091 2 16 3.79086 16 6V14C16 16.2091 14.2091 18 12 18H4C1.79086 18 0 16.2091 0 14V6Z"
-        fill= { disabled === true ? "#A1A1A1" : "#2C63E5"}
-        stroke={ disabled === true ? "#A1A1A1" : "#2C63E5"}
+        fill={disabled === true ? "#A1A1A1" : "#2C63E5"}
+        stroke={disabled === true ? "#A1A1A1" : "#2C63E5"}
         strokeWidth="1px"
         transform="translate(1 0)"
       />

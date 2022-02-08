@@ -1,1 +1,1 @@
-export {default} from './TrendCounter';
+export { default } from './TrendCounter';

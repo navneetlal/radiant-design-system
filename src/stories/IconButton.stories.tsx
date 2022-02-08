@@ -5,7 +5,7 @@ import Close from "@mui/icons-material/Close";
 import IconButton from "../components/IconButton";
 
 export default {
-  title: "Components/IconButton",
+  title: "Components/Atoms/IconButton",
   component: IconButton,
   args: {
     variant: "outlined",

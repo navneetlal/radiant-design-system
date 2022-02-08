@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Layout from "../components/PersistentDrawer/Layout";
 
 export default {
-  title: "Components/Layout",
+  title: "Components/Molecules/Layout",
   component: Layout,
   args: {
     brandURL:

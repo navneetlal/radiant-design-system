@@ -1,13 +1,8 @@
 import React from 'react';
-import { SvgIcon as MuiSvgIcon } from '@mui/material';
+import MuiSvgIcon from '@mui/material/SvgIcon';
+import type { SvgIconProps } from '@mui/material/SvgIcon'
 
-
-export interface IAddIconProps {
-  color?: string;
-  [key: string]: any;
-}
-
-const AddIcon = ({ color, ...otherProps }: IAddIconProps) => {
+const AddIcon = ({ color, ...otherProps }: SvgIconProps) => {
   return (
     <MuiSvgIcon {...otherProps} sx = {{width : '11px', height : '11px'}} viewBox="0 0 12 12">
       <path

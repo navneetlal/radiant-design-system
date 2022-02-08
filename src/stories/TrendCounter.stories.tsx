@@ -4,7 +4,7 @@ import HelpIcon from "@mui/icons-material/Help";
 
 import TrendCounter from "../molecules/TrendCounter";
 export default {
-  title: "Components/molecules/TrendCounter",
+  title: "Components/Molecules/TrendCounter",
   component: TrendCounter,
   args: {
       label : 'Tracked Consignments',

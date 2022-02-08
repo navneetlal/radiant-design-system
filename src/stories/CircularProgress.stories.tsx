@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import CircularProgress from "../molecules/CircularProgress";
 export default {
-  title: "Components/molecules/CircularProgress",
+  title: "Components/Molecules/CircularProgress",
   component: CircularProgress,
   args: {
       label : 'EPOD Delivered vs Not and Testing',

@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Textbox from "../components/Textbox";
 
 export default {
-  title: "Components/Textbox",
+  title: "Components/Atoms/Textbox",
   component: Textbox,
   args: {
     label: "Enter Name",

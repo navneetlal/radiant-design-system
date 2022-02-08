@@ -4,7 +4,7 @@ import HelpIcon from "@mui/icons-material/Help";
 
 import Dialog from "../molecules/Dialog";
 export default {
-  title: "Components/molecules/Dialog",
+  title: "Components/Molecules/Dialog",
   component: Dialog,
   args: {
       open : true,

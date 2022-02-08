@@ -6,7 +6,7 @@ import { Typography } from "@mui/material";
 import AddIcon from "../icons/Add";
 
 export default {
-  title: "Components/Autocomplete",
+  title: "Components/Atoms/Autocomplete",
   component: Autocomplete,
   args: {
     label: "Select Chip",

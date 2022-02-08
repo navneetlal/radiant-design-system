@@ -1,9 +1,9 @@
+import React from "react";
 import MuiCircularProgress, {
   CircularProgressProps,
 } from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
-import React from "react";
-import Typography from "@mui/material/Typography";
+import MuiBox from "@mui/material/Box";
+import MuiTypography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 
 export interface ICircularProgress extends CircularProgressProps {
@@ -17,7 +17,7 @@ const CircularProgress = ({
 }: ICircularProgress) => {
   const theme = useTheme();
   return (
-    <Box
+    <MuiBox
       sx={{
         position: "relative",
         display: "inline-flex",
@@ -26,23 +26,21 @@ const CircularProgress = ({
         backgroundColor: "#ffffff",
         borderRadius: "10px",
         marginTop: "70px",
-        marginLeft : "30px",
-        marginRight : "40px"
+        marginLeft: "30px",
+        marginRight: "40px"
       }}
-      component={Box}
     >
-      <Box
+      <MuiBox
         sx={{
           bottom: "145px",
           left: "45px",
-
           position: "absolute",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Typography
+        <MuiTypography
           variant="h5"
           sx={{
             position: "absolute",
@@ -53,9 +51,8 @@ const CircularProgress = ({
           color="text.secondary"
         >
           {label}
-        </Typography>
-      </Box>
-
+        </MuiTypography>
+      </MuiBox>
       <MuiCircularProgress
         variant="determinate"
         value={value}
@@ -70,7 +67,7 @@ const CircularProgress = ({
         }}
         {...otherProps}
       />
-      <Box
+      <MuiBox
         sx={{
           top: 0,
           left: 5,
@@ -82,13 +79,13 @@ const CircularProgress = ({
           justifyContent: "center",
         }}
       >
-        <Typography
+        <MuiTypography
           variant="h2"
           component="div"
           sx={{ fontWeight: "600", lineHeight: "36px" }}
-        >{`${Math.round(value)}%`}</Typography>
-      </Box>
-    </Box>
+        >{`${Math.round(value)}%`}</MuiTypography>
+      </MuiBox>
+    </MuiBox>
   );
 };
 

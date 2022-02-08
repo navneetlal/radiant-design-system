@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Tooltip from "../components/Tooltip";
 
 export default {
-  title: "Components/Tooltip",
+  title: "Components/Atoms/Tooltip",
   component: Tooltip,
   args: {
     title: "I am tooltip",

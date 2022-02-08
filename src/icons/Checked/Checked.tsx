@@ -1,9 +1,10 @@
 import React from 'react';
-import { SvgIcon as MuiSvgIcon } from '@mui/material';
+import MuiSvgIcon from '@mui/material/SvgIcon';
+import type { SvgIconProps } from '@mui/material/SvgIcon'
 
-const CheckIcon = () => {
+const CheckIcon = (props: SvgIconProps) => {
   return (
-    <MuiSvgIcon sx= {{width : '20px' , height : '20px' , margin : 'auto'}} viewBox="0 0 20 20">
+    <MuiSvgIcon {...props} sx={{ width: '20px', height: '20px', margin: 'auto' }} viewBox="0 0 20 20">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

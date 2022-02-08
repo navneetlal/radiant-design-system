@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import TripIconCounter from "../molecules/TripIconCounter";
 import CompletedTruckIcon from "../icons/CompletedTruckIcon";
 export default {
-  title: "Components/molecules/TripIconCounter",
+  title: "Components/Molecules/TripIconCounter",
   component: TripIconCounter,
   args: {
       number : 10,
@@ -24,5 +24,5 @@ Selected.args = {
 export const Icon = Template.bind({});
 
 Icon.args = {
-    icon : <CompletedTruckIcon color="#2C63E5"/>
+    icon : <CompletedTruckIcon fillColor="#2C63E5"/>
 }

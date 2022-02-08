@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PersistentDrawer from "../components/PersistentDrawer";
 
 export default {
-  title: "Components/PersistentDrawer",
+  title: "Components/Molecules/PersistentDrawer",
   component: PersistentDrawer,
   args: {
     brandURL:

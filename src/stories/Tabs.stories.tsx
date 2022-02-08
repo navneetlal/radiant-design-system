@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Tabs from "../components/Tabs";
 
 export default {
-  title: "Components/Tabs",
+  title: "Components/Atoms/Tabs",
   component: Tabs,
   args: {
     tabs: [

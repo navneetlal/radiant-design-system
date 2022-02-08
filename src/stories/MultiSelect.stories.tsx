@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import MultiSelect from "../components/MultiSelect";
 
 export default {
-  title: "Components/MultiSelect",
+  title: "Components/Atoms/MultiSelect",
   component: MultiSelect,
   args: {
     label: "Add email addresses",

@@ -1,10 +1,8 @@
 import React from "react";
 
+import MuiBox from '@mui/material/Box';
+import MuiTypography from '@mui/material/Typography'
 import { useTheme } from "@mui/material/styles";
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography'
-
-
 
 export interface ICounterProps {
   number: number;
@@ -23,7 +21,7 @@ const Counter = ({
 }: ICounterProps) => {
   const theme = useTheme();
   return (
-    <Box
+    <MuiBox
       sx={{
         width: "max-content",
         height: "74px",
@@ -45,8 +43,8 @@ const Counter = ({
       }}
       onClick={onClick}
     >
-      <Box sx={{ justifyContent: "column" }}>
-        <Typography
+      <MuiBox sx={{ justifyContent: "column" }}>
+        <MuiTypography
           sx={{
             ...theme.typography.h4,
             marginBottom: 0,
@@ -54,8 +52,8 @@ const Counter = ({
           }}
         >
           {number}
-        </Typography>
-        <Typography
+        </MuiTypography>
+        <MuiTypography
           sx={{
             ...theme.typography.h5,
             color: selected ? theme.palette.grey[150] : theme.palette.grey[650],
@@ -63,10 +61,10 @@ const Counter = ({
           }}
         >
           {status}
-        </Typography>
-      </Box>
+        </MuiTypography>
+      </MuiBox>
       {icon && (
-        <Box
+        <MuiBox
           sx={{
             paddingLeft: "30px",
             color: selected
@@ -75,9 +73,9 @@ const Counter = ({
           }}
         >
           {icon}
-        </Box>
+        </MuiBox>
       )}
-    </Box>
+    </MuiBox>
   );
 };
 

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import StatusButton from "../molecules/StatusButton";
 export default {
-  title: "Components/molecules/StatusButton",
+  title: "Components/Molecules/StatusButton",
   component: StatusButton,
   args: {
     number: 0,

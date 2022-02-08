@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Breadcrumb from "../components/Breadcrumbs";
 
 export default {
-  title: "Components/Breadcrumb",
+  title: "Components/Atoms/Breadcrumb",
   component: Breadcrumb,
   args: {
     text: "TMS",

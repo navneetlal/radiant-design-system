@@ -1,17 +1,17 @@
 import React from "react";
 
+import MuiBox from "@mui/material/Box";
 import MuiDialog from "@mui/material/Dialog";
 import MuiDialogActions from "@mui/material/DialogActions";
 import MuiDialogContent from "@mui/material/DialogContent";
-import MuiTypography from "@mui/material/Typography";
 import MuiGrid from "@mui/material/Grid";
 import MuiIconButton from "@mui/material/IconButton";
-import Box from "@mui/material/Box";
-import { Close as CloseIcon } from "@mui/icons-material";
+import MuiTypography from "@mui/material/Typography";
+
+import CloseIcon from "@mui/icons-material/Close";
 import { useTheme } from "@mui/material/styles";
 
 import Button from "../../components/Button/Button";
-
 
 export interface IDialog {
   open?: boolean;
@@ -37,7 +37,6 @@ const Dialog = ({
   headerMessage = "Confirmation",
   confirmBtnText = "Confirm",
   discardBtnText = "Cancel"
-
 }: IDialog) => {
   const theme = useTheme();
   return (
@@ -47,7 +46,7 @@ const Dialog = ({
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <Box
+        <MuiBox
           sx={{
             backgroundColor: theme.palette.primary.main,
             display: "flex",
@@ -72,7 +71,7 @@ const Dialog = ({
               sx={{ color: theme.palette.common.white, cursor: "pointer" }}
             />
           </MuiIconButton>
-        </Box>
+        </MuiBox>
         <MuiDialogContent sx={{ padding: "40px", minWidth: "416px" }}>
           <MuiTypography
             variant="subtitle2"

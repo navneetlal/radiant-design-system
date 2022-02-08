@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import SelectChipDropdown from "../components/SelectChipDropdown";
 
 export default {
-  title: "Components/SelectChipDropdown",
+  title: "Components/Atoms/SelectChipDropdown",
   component: SelectChipDropdown,
   args: {
     label: "Select Chip",

@@ -1,8 +1,15 @@
-import { Card, CardContent, Grid, Typography } from "@mui/material";
 import React from "react";
-import { useTheme } from "@mui/material/styles";
+
+import MuiCard from '@mui/material/Card';
+import MuiCardContent from '@mui/material/CardContent';
+import MuiGrid from '@mui/material/Grid';
+import MuiTypography from '@mui/material/Typography';
+
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import  Tooltip  from "../../components/Tooltip/Tooltip";
+import { useTheme } from "@mui/material/styles";
+
+import Tooltip from "../../components/Tooltip/Tooltip";
+
 export interface ICounter3 {
   number?: number;
   Icon?: React.FunctionComponent<any>;
@@ -25,7 +32,7 @@ const Counter3 = ({
   const theme = useTheme();
 
   return (
-    <Card
+    <MuiCard
       sx={{
         width: "max-content",
         position: "relative",
@@ -51,9 +58,8 @@ const Counter3 = ({
           />
         </Tooltip>
       )}
-
-      <CardContent>
-        <Typography
+      <MuiCardContent>
+        <MuiTypography
           variant="h5"
           sx={{
             color: theme.palette.grey[650],
@@ -65,8 +71,8 @@ const Counter3 = ({
           }}
         >
           {label}
-        </Typography>
-        <Typography
+        </MuiTypography>
+        <MuiTypography
           variant="h2"
           sx={{
             ...theme.typography.h2,
@@ -78,16 +84,16 @@ const Counter3 = ({
           }}
         >
           {number?.toLocaleString()}
-        </Typography>
+        </MuiTypography>
         {changeValue && (
-          <Grid
+          <MuiGrid
             container
             spacing={0}
             direction={"row"}
             justifyContent="center"
             alignItems="center"
           >
-            <Grid item>
+            <MuiGrid item>
               <ArrowForwardIcon
                 color={changeColor}
                 sx={{
@@ -97,9 +103,9 @@ const Counter3 = ({
                       : "rotate(135deg)",
                 }}
               />
-            </Grid>
-            <Grid item>
-              <Typography
+            </MuiGrid>
+            <MuiGrid item>
+              <MuiTypography
                 variant="subtitle2"
                 sx={{
                   fontWeight: "normal",
@@ -114,12 +120,12 @@ const Counter3 = ({
                 }}
               >
                 {`${Math.round(changeValue)}%`}
-              </Typography>
-            </Grid>
-          </Grid>
+              </MuiTypography>
+            </MuiGrid>
+          </MuiGrid>
         )}
-      </CardContent>
-    </Card>
+      </MuiCardContent>
+    </MuiCard>
   );
 };
 

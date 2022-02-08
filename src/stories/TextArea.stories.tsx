@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Textarea from "../components/Textarea";
 
 export default {
-  title: "Components/Textarea",
+  title: "Components/Atoms/Textarea",
   component: Textarea,
   args: {
     label: "Home",

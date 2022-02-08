@@ -6,7 +6,7 @@ import { Typography } from "@mui/material";
 import AddIcon from "../icons/Add";
 
 export default {
-  title: "Components/Dropdown",
+  title: "Components/Atoms/Dropdown",
   component: Dropdown,
   args: {
     label: "Enter Name",

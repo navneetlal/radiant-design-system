@@ -1,1 +1,1 @@
-export {default} from './TripIconCounter';
+export { default } from './TripIconCounter';

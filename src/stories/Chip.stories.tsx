@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Chip from "../components/Chip";
 
 export default {
-  title: "Components/Chip",
+  title: "Components/Atoms/Chip",
   component: Chip,
   args: {
     label: "Chip",

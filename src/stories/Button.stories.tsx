@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import Add from "../icons/Add";
 
 export default {
-  title: "Components/Button",
+  title: "Components/Atoms/Button",
   component: Button,
   args: {
     text: "Button",
