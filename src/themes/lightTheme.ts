@@ -21,7 +21,8 @@ export let lightTheme = createTheme({
     secondary: {
       light: '#FFF7E6',
       main: '#FFCD59',
-      dark: '#CC981F'
+      dark: '#CC981F',
+      50 : '#FFF7E5'
     },
     support: {
       success: {

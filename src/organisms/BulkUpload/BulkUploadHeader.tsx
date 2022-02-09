@@ -4,14 +4,14 @@ import MuiGrid from "@mui/material/Grid";
 import MuiBox from "@mui/material/Box";
 import MuiTypography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
-import IconButton from "../components/IconButton";
-import Button from "../components/Button";
-import AddIcon from "../icons/Add";
-import Breadcrumbs from "../components/Breadcrumbs";
-import BreadcrumbArrow from "../icons/BreadcrumbArrow";
-import CutIcon from "../icons/CutIcon";
-import Header from "../components/Header";
-import Dialog from "../molecules/Dialog";
+import IconButton from "../../components/IconButton";
+import Button from "../../components/Button";
+import AddIcon from "../../icons/Add";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import BreadcrumbArrow from "../../icons/BreadcrumbArrow";
+import CutIcon from "../../icons/CutIcon";
+import Header from "../../components/Header";
+import Dialog from "../../molecules/Dialog";
 
 export interface IBulkUploadHeader {
   links: {

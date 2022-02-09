@@ -9,7 +9,7 @@ import { useDropzone } from "react-dropzone";
 import DeleteIcon from "../../icons/DeleteIcon";
 import UpdateIcon from "../../icons/UpdateIcon";
 import TickIcon from "../../icons/TickIcon";
-import MaxFileUploadAlert from "../../icons/MaxFieldUploadAlert";
+import MaxFileUploadAlert from "../../icons/MaxFileUploadAlert";
 import { Box } from "@mui/material";
 import EditIcon from "../../icons/EditIcon";
 import { Button, IconButton } from "../..";
