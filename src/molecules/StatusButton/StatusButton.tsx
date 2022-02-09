@@ -9,7 +9,7 @@ export interface IStatusButtonsProps {
   number: number;
   color?: "primary" | "secondary" | "error" | "warning" | "success";
   text: string;
-  selected?: Boolean;
+  selected?: boolean;
   onClick?: any;
   [key: string]: any;
 }
