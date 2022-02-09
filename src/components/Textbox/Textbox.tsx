@@ -39,11 +39,6 @@ export const BootstrapInput = ({
             },
           },
         {
-          "& .MuiInputBase-root": {
-            "label + &": {
-              marginTop: label && theme.spacing(1),
-            },
-          },
 
           "& .MuiInputBase-input": {
             borderRadius: "4px",
@@ -165,6 +160,7 @@ const Textbox = ({
           disabled={disabled}
           onClick={action.onClick}
           inputAlert={alert}
+          fromTextbox
           inputSize={size}
           inputReq={required}
           inputLabel={!!label && label.length > 0}

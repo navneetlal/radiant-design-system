@@ -2,12 +2,13 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Button from "../components/Button";
+import Add from "../icons/Add";
 
 export default {
-  title: "Components/Button",
+  title: "Components/Atoms/Button",
   component: Button,
   args: {
-    children: "Button",
+    text: "Button text is this",
     variant: "outlined",
   },
 } as ComponentMeta<typeof Button>;
@@ -42,4 +43,17 @@ export const Error = Template.bind({});
 
 Error.args = {
   color: "error",
+};
+
+export const Disabled = Template.bind({});
+
+Disabled.args = {
+  disabled:true,
+};
+
+export const TextIcon = Template.bind({});
+
+TextIcon.args = {
+  startIcon:<Add />,
+  variant : 'text'
 };

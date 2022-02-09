@@ -1,12 +1,12 @@
 import React from "react";
 
-import MuiBox from '@mui/material/Box';
+import MuiBox from "@mui/material/Box";
 import MuiCheckbox from "@mui/material/Checkbox";
 import MuiTypography from "@mui/material/Typography";
 
 import { useTheme } from "@mui/material/styles";
 
-import type { CheckboxProps } from '@mui/material/Checkbox'
+import type { CheckboxProps } from "@mui/material/Checkbox";
 
 import CheckIcon from "../../icons/CheckedIcon/CheckedIcon";
 import UnCheckedIcon from "../../icons/UncheckedIcon/UncheckedIcon";
@@ -14,7 +14,6 @@ import UnCheckedIcon from "../../icons/UncheckedIcon/UncheckedIcon";
 export interface ICheckboxProps extends CheckboxProps {
   size?: "small" | "medium";
   label?: string;
-  reverse?: boolean;
   alert?: boolean;
   disabled?: boolean;
   [key: string]: any;
@@ -22,7 +21,6 @@ export interface ICheckboxProps extends CheckboxProps {
 const Checkbox = ({
   size = "medium",
   label,
-  reverse = false,
   disabled = false,
   alert,
   ...otherProps
@@ -37,7 +35,7 @@ const Checkbox = ({
             ? theme.palette.grey[100]
             : theme.palette.common.black,
           alignItems: "center",
-          flexDirection: reverse ? "row-reverse" : "row",
+          flexDirection: "row",
           width: "max-content",
           fontFamily: "'Source Sans Pro', sans-serif",
           "& svg": {
@@ -52,13 +50,23 @@ const Checkbox = ({
       ]}
     >
       <MuiCheckbox
-        checkedIcon={<CheckIcon disabled={disabled} />}
+        checkedIcon={<CheckIcon disabled={disabled}/>}
         icon={<UnCheckedIcon alert={alert} disabled={disabled} />}
         size={size}
         disabled={disabled}
         disableRipple
         color="primary"
         {...otherProps}
+        sx={{
+          "&:hover": {
+            "& svg": {
+              "&>path": {
+                stroke: !otherProps.checked ? theme.palette.primary.main : '',
+                fill: !otherProps.checked ? theme.palette.primary[50] : '',
+              },
+            },
+          },
+        }}
       />
       {!!label && (
         <MuiTypography

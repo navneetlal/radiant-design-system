@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Snackbar from "../components/Snackbar";
 
 export default {
-  title: "Components/Snackbar",
+  title: "Components/Atoms/Snackbar",
   component: Snackbar,
   args: {
     message: "I am Snackbar",

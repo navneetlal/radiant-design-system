@@ -3,14 +3,12 @@ import React, { forwardRef, useState, useEffect } from "react";
 import MuiTypography from "@mui/material/Typography";
 import MuiInputBase from "@mui/material/InputBase";
 import MuiInputLabel from "@mui/material/InputLabel";
-import MuiPaper from "@mui/material/Paper";
-import MuiBox from "@mui/material/Box";
 
-import PerfectScrollbar from "react-perfect-scrollbar";
-import { useTheme } from "@mui/material/styles";
+import MuiBox from "@mui/material/Box";
+import { styled, useTheme } from "@mui/material/styles";
 
 import type { InputBaseProps } from "@mui/material/InputBase";
-
+import { inputGlobalStyles } from "../Autocomplete/Autocomplete";
 export interface IBootstrapInputProps extends InputBaseProps {
   alert?: boolean;
   width?: number;
@@ -23,7 +21,7 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
   (
     {
       alert = false,
-      width = 300,
+      width = 312,
       disabled = false,
       size = "small",
       ...otherProps
@@ -35,6 +33,9 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
       <MuiInputBase
         sx={[
           {
+            "& .MuiInputBase-input.Mui-disabled": {
+              WebkitTextFillColor: "unset",
+            },
             "& .MuiInputBase-input": {
               borderRadius: "4px",
               position: "relative",
@@ -46,25 +47,22 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
                     ...theme.typography.body1,
                   }),
               border: `1px solid ${theme.palette.grey[100]}`,
-              borderColor: alert
-                ? theme.palette?.support?.error?.main
-                : theme.palette.grey[100],
+              borderColor: disabled
+                ? theme.palette.grey[100]
+                : alert
+                ? theme.palette.error.main
+                : "",
               backgroundColor: disabled ? theme.palette.grey[150] : "#ffffff",
               alignSelf: "flex-end",
               height: size === "small" ? "14px" : "18px",
               padding: size === "small" ? "8px 12px" : "10px 16px",
               cursor: disabled ? "not-allowed" : "pointer",
               caretColor: "transparent",
-              backgroundImage: `url(/DropdownIcon.svg)`,
+              backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
+
               backgroundSize: "8px",
-              "&::placeholder": {
-                opacity: `1 !important`,
-                color: disabled
-                  ? `${theme.palette.grey[100]} !important`
-                  : `#1A1A1A !important`,
-              },
               width:
                 size === "small"
                   ? width
@@ -89,6 +87,60 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
   }
 );
 
+const Listbox = styled("ul")(
+  ({ theme }) => `
+  width: 300px;
+  margin: 2px 0 0;
+  padding: 0;
+  position: absolute;
+  list-style: none;
+  background-color: #fff;
+  overflow: auto;
+  max-height: 200px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  & p {
+    padding: 8px 12px;
+    order :2;
+    display: flex;
+    cursor: pointer;
+    & span {
+      flex-grow: 1;
+    }
+
+    & svg {
+      padding : 4px 6px;
+      margin : 0;
+    }
+    
+    
+
+    
+  }
+  & li:visited {
+    
+    background-color : #e6f7ff!important;
+  }
+
+  
+  & li:hover {
+    background-color : ${theme.palette.primary.contrastText}!important;
+  }
+    
+    
+  
+  & p[data-focus='true'] {
+    & svg {
+      color: ${theme.palette.common.black};
+    },
+  }
+  
+
+  
+`
+);
+
 export interface IDropDown {
   label?: string;
   placeholder?: string;
@@ -103,6 +155,7 @@ export interface IDropDown {
   };
   onChange?: any;
   children?: React.ReactNode;
+  childrenPlacement?: "top" | "bottom";
   disabled?: boolean;
   [key: string]: any;
 }
@@ -111,14 +164,15 @@ const Dropdown = ({
   label,
   placeholder,
   required,
-  width,
+  width = 312,
   alert,
-  options,
+  options = [],
   value,
   size = "small",
   onChange,
   children,
   disabled,
+  childrenPlacement = "top",
   elevation,
 }: IDropDown) => {
   const [data, setData] = useState(value);
@@ -133,6 +187,7 @@ const Dropdown = ({
   const theme = useTheme();
   return (
     <MuiBox sx={{ position: "relative" }}>
+      {inputGlobalStyles}
       <MuiBox onFocus={() => setIsOpen(true)} onBlur={() => setIsOpen(false)}>
         {(label || required) && (
           <MuiInputLabel
@@ -145,11 +200,11 @@ const Dropdown = ({
                     ...theme.typography.h5,
                   },
               {
-                color: disabled ? theme.palette.grey[100] : "#1A1A1A",
                 "&>span": {
                   color: theme.palette?.support?.error?.main,
                 },
                 marginBottom: size === "small" ? "4px" : "8px",
+                color: disabled ? theme.palette.grey[100] : `#1A1A1A !important`,
               },
             ]}
           >
@@ -166,28 +221,49 @@ const Dropdown = ({
           disabled={disabled}
         />
       </MuiBox>
-      <MuiPaper
-        elevation={elevation ?? 1}
-        sx={{
-          display: isOpen ? "block" : "none",
-          width: width ? `${width}px` : "312px",
-        }}
-      >
-        <PerfectScrollbar style={{ maxHeight: "180px" }}>
-          {options && (
-            options.map((option, index) => (
+
+      <Listbox sx={{ display: isOpen ? "block" : "none", width : {width} }}>
+        <li
+          style={{
+            position: "sticky",
+            top: "0",
+            backgroundColor: theme.palette.common.white,
+          }}
+        >
+          {childrenPlacement === "top" && children}
+        </li>
+        {options &&
+          options.length > 0 &&
+          options.map((option, index) => (
+            <li
+              key={option.id}
+              style={{
+                color: data?.id === option.id ? theme.palette.primary.dark : "",
+                backgroundColor:
+                  data?.id === option.id ? '#e6f7ff' : "",
+              }}
+            >
               <MuiTypography
-                variant="body1"
-                key={index}
                 onMouseDown={() => handleSelect(option)}
+                variant="body1"
+                sx={{
+                  ...theme.typography.body1,
+                }}
               >
                 {option.name}
               </MuiTypography>
-            ))
-          )}
-        </PerfectScrollbar>
-        {children}
-      </MuiPaper>
+            </li>
+          ))}
+        <li
+          style={{
+            position: "sticky",
+            bottom: "0",
+            backgroundColor: theme.palette.common.white,
+          }}
+        >
+          {childrenPlacement === "bottom" && children}
+        </li>
+      </Listbox>
     </MuiBox>
   );
 };

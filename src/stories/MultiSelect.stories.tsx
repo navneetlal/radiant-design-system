@@ -4,13 +4,14 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import MultiSelect from "../components/MultiSelect";
 
 export default {
-  title: "Components/MultiSelect",
+  title: "Components/Atoms/MultiSelect",
   component: MultiSelect,
   args: {
     label: "Add email addresses",
-    placeholder: "Type here",
+    required : true,
+    placeholder: "Placeholder",
     name: "emails",
-    width: 416,
+    width : 400
   },
 } as ComponentMeta<typeof MultiSelect>;
 

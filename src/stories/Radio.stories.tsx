@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Radio from "../components/Radio";
 
 export default {
-  title: "Components/Radio",
+  title: "Components/Atoms/Radio",
   component: Radio,
   args: {
     label: " I am Radio forever",

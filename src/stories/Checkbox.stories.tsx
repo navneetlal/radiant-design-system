@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Checkbox from "../components/Checkbox";
 
 export default {
-  title: "Components/Checkbox",
+  title: "Components/Atoms/Checkbox",
   component: Checkbox,
   args: {
     label: "Checkbox",

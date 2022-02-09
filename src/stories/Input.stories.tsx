@@ -4,10 +4,11 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Input from "../components/Input";
 
 export default {
-  title: "Components/Input",
+  title: "Components/Atoms/Input",
   component: Input,
   args: {
     placeholder: "Search",
+    width : 200
   },
 } as ComponentMeta<typeof Input>;
 

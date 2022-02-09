@@ -7,20 +7,25 @@ import type { ButtonProps } from '@mui/material/Button'
 export interface IButtonProps extends ButtonProps {
   variant?: "outlined" | "contained" | "text";
   color?: "primary" | "secondary" | "error" | "warning" | "success";
+  text ?: string;
   children?: React.ReactNode;
   inputSize?: 'small' | 'medium';
   inputAlert?: boolean;
+  fromTextbox ?:boolean;
   inputReq?: boolean;
   inputLabel?: boolean;
   [key: string]: any;
 }
 
 const Button = ({
-  variant = "text",
+  variant = "contained",
   color = "primary",
   children,
   inputSize,
+  size = "small",
+  fromTextbox = false,
   inputAlert,
+  text,
   inputReq,
   inputLabel,
   disabled = false,
@@ -31,13 +36,17 @@ const Button = ({
     <MuiButton
       variant={variant}
       color={color}
+      disabled = {disabled}
+      size={size}
       {...otherProps}
       sx={[
         variant === "outlined" && {
-          color: `${theme.palette[color].main}`,
+          //@ts-ignore
+          color: `${theme.palette[color === 'secondary' ? 'grey' : color][color === 'secondary' ? '350' : 'main']}`,
           backgroundColor: `#ffffff`,
           border: `1px solid`,
-          borderColor: `${theme.palette[color].main}`,
+          //@ts-ignore
+          borderColor: `${theme.palette[color === 'secondary' ? 'grey' : color][color === 'secondary' ? '350' : 'main']}`,
           "&:hover": {
             backgroundColor: color !== 'secondary' ? `${theme.palette[color].contrastText}` : 'inherit',
           },
@@ -49,8 +58,12 @@ const Button = ({
         },
         variant === "contained" && {
           color: "#ffffff",
+          ...color === 'secondary' && {
+            backgroundColor : theme.palette.grey[350]
+          },
           "&:hover": {
-            background: `${theme.palette[color].dark}`,
+            //@ts-ignore
+            background: `${theme.palette[color === 'secondary' ? 'grey' : color][color  === 'secondary' ? '650' : 'dark']}`,
           },
           boxShadow: `none !important`,
         },
@@ -61,22 +74,48 @@ const Button = ({
             borderColor: "#000000",
           },
         },
-        variant === 'text' && {
+        (variant === 'text' && fromTextbox) && {
           minWidth: "50px !important",
           position: `absolute`,
           right: '12px',
           height: inputSize === 'small' ? '16px' : '20px',
           top: inputReq || inputLabel ? (inputSize === 'medium' ? '39px' : '29px') : (inputSize === 'medium' ? '11px' : '9px'),
-          color: disabled || inputAlert ? theme.palette.grey[100] : 'inherit',
+          color: disabled || inputAlert ? theme.palette.grey[100] : '',
           padding: "8px 8px",
           alignSelf: "center",
+          fontWeight : 500,
           backgroundColor: "transparent",
           ...theme.typography.body2,
-          fontFamily: 'Poppins'
         },
+        (variant === 'text') && {
+          fontWeight : 500,
+          ...theme.typography.body2,
+          height: size === 'small' ? '16px' : '20px',
+          minWidth: "50px !important",
+          padding : 0,
+          
+
+
+          ...color === 'secondary' && {
+            color : theme.palette.grey[350]
+          },
+          
+          
+          "&:hover" : {
+            backgroundColor : 'inherit',
+            //@ts-ignore
+            color : theme.palette[color === 'secondary' ? 'grey' : color][color === 'secondary' ? '650' : 'dark']
+          }
+        },
+        {
+          "& .MuiButton-startIcon":{
+            justifyContent : 'center',
+            marginLeft: 0,
+          }
+        }
       ]}
     >
-      {children}
+      {text ? text : children}
     </MuiButton>
   );
 };

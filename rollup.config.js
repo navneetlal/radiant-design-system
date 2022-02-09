@@ -27,13 +27,13 @@ export default [
     plugins: [
       peerDepsExternal(),
       json(),
-      resolve(),
+      resolve({ browser: true }),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss(),
       // terser(),
     ],
-    external: ["react", "react-dom", "@mui/material", "@mui/styles", "@mui/icons-material", "@emotion/react", "@emotion/styled"]
+    external: ["react", "react-dom", "@mui/material", "@mui/icons-material", "@emotion/react", "@emotion/styled"]
   },
   {
     input: "dist/esm/types/index.d.ts",

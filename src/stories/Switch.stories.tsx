@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Switch from "../components/Switch";
 
 export default {
-  title: "Components/Switch",
+  title: "Components/Atoms/Switch",
   component: Switch,
   args: {
     label: "Switch",

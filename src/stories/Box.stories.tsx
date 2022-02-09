@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Box from "../components/Box";
 
 export default {
-  title: "Components/Box",
+  title: "Components/Atoms/Box",
   component: Box,
   args: {
     color: "primary",

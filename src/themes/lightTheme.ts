@@ -73,10 +73,6 @@ lightTheme = createTheme(lightTheme, {
   components: {
     MuiButton: {
       styleOverrides: {
-        startIcon: {
-          marginRight: 0,
-          marginLeft: 0,
-        },
         sizeSmall: {
           minWidth: '98px',
           height: 32,
@@ -140,7 +136,11 @@ lightTheme = createTheme(lightTheme, {
         root: {
           ...lightTheme.typography.body2,
           height: 32,
-          color: lightTheme.palette.primary.main,
+          
+          "& ul>li>button.Mui-selected" : {
+            backgroundColor: lightTheme.palette.primary.main,
+            color : lightTheme.palette.common.white
+          },
           "& ul>li>button:hover": {
             backgroundColor: `rgba(0, 0, 0, 0.04)`,
           },
@@ -173,19 +173,32 @@ lightTheme = createTheme(lightTheme, {
             "&:hover": {
               backgroundColor: lightTheme.palette.primary.contrastText,
             },
-          },
+          }
         },
       },
     },
     MuiInputLabel: {
       styleOverrides: {
         root: {
-          marginBottom: "8px",
+          marginBottom: "4px",
+          
           "&>span": {
             color: lightTheme.palette.support?.error?.main,
           },
         },
       },
+    },
+    MuiInputBase : {
+      styleOverrides : {
+        input : (props:any) => ({
+          "&::placeholder" : {
+            color : props.disabled ?  lightTheme.palette.grey[100] : lightTheme.palette.grey[650],
+            opacity : `1 !important`
+          },
+          backgroundColor : props.disabled ? lightTheme.palette.grey[150] : lightTheme.palette.common.white
+        }),
+        
+      }
     },
 
     MuiCheckbox: {

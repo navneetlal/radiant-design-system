@@ -5,7 +5,7 @@ import Button from "../components/Button/Button";
 import Badge from "../components/Badge";
 
 export default {
-  title: "Components/Badge",
+  title: "Components/Atoms/Badge",
   component: Badge,
   args: {
     badgeContent : '5',

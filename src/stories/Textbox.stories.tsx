@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Textbox from "../components/Textbox";
 
 export default {
-  title: "Components/Textbox",
+  title: "Components/Atoms/Textbox",
   component: Textbox,
   args: {
     label: "Enter Name",
@@ -44,7 +44,7 @@ Required.args = {
 
 export const Action = Template.bind({});
 Action.args = {
-  action: { text: "Add" },
+  action: { text: "Action" },
 };
 
 export const Disabled = Template.bind({});
