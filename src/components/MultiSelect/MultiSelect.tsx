@@ -38,8 +38,7 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
             alignSelf: "flex-end",
             height: "32px",
             color: `${theme.palette.common.black} !important`,
-            //width: width,
-            minWidth: '50px',
+            width : 'auto',
     
             cursor: "pointer",
           },
