@@ -115,7 +115,7 @@ export default function MultiSelect({
                 },
               }}
             >
-              {label && label}
+              {label}
               <span>{required && "*"}</span>
             </MuiInputLabel>
           )}

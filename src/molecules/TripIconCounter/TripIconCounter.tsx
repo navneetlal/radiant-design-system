@@ -8,7 +8,7 @@ export interface ICounterProps {
   number: number;
   status: string;
   icon?: any;
-  selected?: Boolean;
+  selected?: boolean;
   onClick?: any;
 }
 

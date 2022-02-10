@@ -63,6 +63,7 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               backgroundPosition: "95% 50%",
 
               backgroundSize: "8px",
+
               width:
                 size === "small"
                   ? width

@@ -200,7 +200,7 @@ export default function MultipleSelectChip({
               },
             }}
           >
-            {label && label} <span>{required && "*"}</span>
+            {label} <span>{required && "*"}</span>
           </InputLabel>
         )}
         <InputWrapper

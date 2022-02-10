@@ -164,7 +164,7 @@ export default function Autocomplete({
   } = useAutocomplete({
     defaultValue: value,
     multiple: false,
-    options: options!,
+    options: options,
     onChange: (_, v) => {
       if (onChange) onChange(v);
     },

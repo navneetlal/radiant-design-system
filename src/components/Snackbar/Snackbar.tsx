@@ -14,7 +14,7 @@ const Snackbar = ({
 }: ISnackbarProps) => {
   const theme = useTheme();
 
-  const getBackgroundColor = (color: ISnackbarProps['color']) => {
+  const getBackgroundColor = () => {
     switch (color) {
       case "primary":
         return theme.palette.primary.main;
@@ -35,7 +35,7 @@ const Snackbar = ({
       anchorOrigin={anchorOrigin}
       ContentProps={{
         sx: {
-          backgroundColor: getBackgroundColor(color),
+          backgroundColor: getBackgroundColor(),
           cursor: 'pointer'
         }
       }}
