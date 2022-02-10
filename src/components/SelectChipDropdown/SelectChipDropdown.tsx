@@ -8,14 +8,15 @@ import useTheme from "@mui/material/styles/useTheme";
 import styled from "@mui/material/styles/styled";
 import InputLabel from "@mui/material/InputLabel";
 import GlobalStyles from "@mui/material/GlobalStyles";
-const Root = styled("div")(
+
+export const Root = styled("div")(
   () => `
   color: 'rgba(0,0,0,.85)';
   font-size: 14px;
 `
 );
 
-const InputWrapper = styled("div")(
+export const InputWrapper = styled("div")(
   ({ theme }) => `
   border: 1px solid #C7C7C7;
   background-color: #fff;
@@ -41,7 +42,7 @@ const InputWrapper = styled("div")(
       color : ${theme.palette.grey[650]}
     }
     background-color: #fff;
-    color: 'rgba(0,0,0,.85)'
+    color: ${theme.palette.common.black}!important;
     height: 32px;
     box-sizing: border-box;
     padding: 4px 12px;
@@ -123,7 +124,7 @@ export interface ISelectChipsProps {
   [key: string]: any;
 }
 
-const inputGlobalStyles = (
+export const inputGlobalStyles = (
   <GlobalStyles
     styles={{
       scrollbarColor: "#264ca4 #f5f8ff !important",

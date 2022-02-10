@@ -3,6 +3,7 @@ import typography from "./typography.json";
 
 import type { TypographyOptions } from "@mui/material/styles/createTypography";
 
+
 export let lightTheme = createTheme({
   palette: {
     mode: "light",

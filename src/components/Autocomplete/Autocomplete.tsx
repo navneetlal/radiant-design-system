@@ -1,58 +1,13 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import GlobalStyles from "@mui/material/GlobalStyles";
 import useAutocomplete from "@mui/material/useAutocomplete";
 import Typography from "@mui/material/Typography";
 import useTheme from "@mui/material/styles/useTheme";
 import styled from "@mui/material/styles/styled";
 import InputLabel from "@mui/material/InputLabel";
-
-const Root = styled("div")(
-  () => `
-  color: 'rgba(0,0,0,.85)';
-  font-size: 14px;
-`
-);
-
-const InputWrapper = styled("div")(
-  ({ theme }) => `
-  border: 1px solid #C7C7C7;
-  background-color: #fff;
-  border-radius: 4px;
-  padding: 1px;
-  display: flex;
-  flex-wrap: wrap;
-
- 
-  &.focused {
-    border-color: #396de7;
-    
-  }
-  & input:disabled {
-    ::placeholder {
-      color : ${theme.palette.grey[100]};
-    }
-  }
-  
-
-  & input {
-    background-color: #fff;
-    color: ${theme.palette.common.black}!important;
-    ::placeholder {
-      color : ${theme.palette.grey[650]};
-    }
-    box-sizing: border-box;
-    padding: 4px 12px;
-    overflow : hidden;
-    min-width: 32px;
-    flex-grow: 1;
-    border: 0;
-    margin: 0;
-    outline: 0;
-  }
-`
-);
-
+import { Root } from "../SelectChipDropdown/SelectChipDropdown";
+import { InputWrapper } from "../SelectChipDropdown/SelectChipDropdown";
+import { inputGlobalStyles } from "../SelectChipDropdown/SelectChipDropdown";
 const Listbox = styled("ul")(
   ({ theme }) => `
   margin: 2px 0 0;
@@ -94,31 +49,7 @@ const Listbox = styled("ul")(
 `
 );
 
-export const inputGlobalStyles = (
-  <GlobalStyles
-    styles={{
-      scrollbarColor: "#264ca4 #f5f8ff !important",
-      "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
-        width: "6px",
-        height: "6px",
-        position: "absolute",
-      },
-      "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
-        borderRadius: "4px",
-        backgroundColor: "#264ca4",
-        minWidth: "6px",
-        minHeight: "6px",
-      },
-      "&::-webkit-scrollbar-track": {
-        background: "#f5f8ff",
-        position: "absolute",
-      },
-      "&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover": {
-        background: "#12285a",
-      },
-    }}
-  />
-);
+
 export interface ISelectChipsProps {
   label?: string;
   placeholder?: string;

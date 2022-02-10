@@ -8,7 +8,7 @@ import MuiBox from "@mui/material/Box";
 import { styled, useTheme } from "@mui/material/styles";
 
 import type { InputBaseProps } from "@mui/material/InputBase";
-import { inputGlobalStyles } from "../Autocomplete/Autocomplete";
+import { inputGlobalStyles } from "../SelectChipDropdown/SelectChipDropdown";
 export interface IBootstrapInputProps extends InputBaseProps {
   alert?: boolean;
   width?: number;
