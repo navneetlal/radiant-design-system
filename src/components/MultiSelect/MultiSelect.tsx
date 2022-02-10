@@ -22,7 +22,6 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
     return (
       <MuiInputBase
         sx={{
-          
           flexGrow: 1,
           WebkitBoxFlex: 1,
           paddingBottom: "0px !important",
@@ -30,7 +29,7 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
           "& .MuiInputBase-input": {
             order: "3px",
             padding: 0,
-            marginLeft : '16px',
+            marginLeft: "16px",
             ...theme.typography.body2,
             borderColor: alert
               ? theme.palette?.support?.error?.main
@@ -38,8 +37,8 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
             alignSelf: "flex-end",
             height: "32px",
             color: `${theme.palette.common.black} !important`,
-            width : 'auto',
-    
+            width: "auto",
+
             cursor: "pointer",
           },
         }}
@@ -65,14 +64,10 @@ export interface IMultiSelectProps {
   [key: string]: any;
 }
 
-const tempFunc = () => {
-  console.log();
-};
-
 export default function MultiSelect({
   label,
   placeholder,
-  onChange = tempFunc,
+  onChange,
   width = 312,
   alert,
   required = false,
@@ -86,8 +81,10 @@ export default function MultiSelect({
   }, [options]);
 
   useEffect(() => {
-    onChange([...option]);
-  }, [option]);
+    if (!!onChange) {
+      onChange([...option]);
+    }
+  }, [option, onChange]);
 
   const handleAdd = () => {
     option.add(value);
@@ -122,7 +119,6 @@ export default function MultiSelect({
 
           <MuiBox
             sx={{
-              
               display: "flex",
               flexWrap: "wrap",
               borderRadius: "4px",

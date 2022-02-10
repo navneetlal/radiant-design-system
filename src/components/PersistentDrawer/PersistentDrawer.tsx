@@ -213,7 +213,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
               <Typography variant="body1" color="textSecondary">
                 {announcement.content}
               </Typography>
-              <a target="_blank" href="https://www.intugine.com/">
+              <a target="_blank" href="https://www.intugine.com/" rel="noreferrer">
                 <Button {...announcement.action} />
               </a>
             </Box>
@@ -244,7 +244,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
           backgroundColor: theme.palette.primary.contrastText,
         }}
       >
-        <img src={footer.brandLogo} style={{ width: 40, height: 40 }} />
+        <img src={footer.brandLogo} style={{ width: 40, height: 40 }} alt= "footer-brandLogo" />
         {expanded && <Typography variant="body2">{footer.tagLine}</Typography>}
       </Box>
     </Box>

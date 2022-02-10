@@ -4,26 +4,25 @@
 // import { Formik } from 'formik';
 // import PerfectScrollbar from 'react-perfect-scrollbar';
 
+// import EditIcon from '../../icons/EditIcon';
 
-// import EditIcon from '@common/icons/EditIcon';
+// // import {
+// //   deleteMastersCustomer,
+// //   resetCustomerMapHeader,
+// //   retrieveCustomerMapHeaders,
+// //   uploadCustomerFile,
+// // } from '@store/masters/actions';
+// // import { addNewCustomerMapHeader } from '@store/masters/actions';
+// // import { RootState } from '@store/store';
 
-// import {
-//   deleteMastersCustomer,
-//   resetCustomerMapHeader,
-//   retrieveCustomerMapHeaders,
-//   uploadCustomerFile,
-// } from '@store/masters/actions';
-// import { addNewCustomerMapHeader } from '@store/masters/actions';
-// import { RootState } from '@store/store';
+// import { convertTableToExcel } from './xlsxParser';
+// const XlsxParse = await import('./xlsxParser');
 
-// import { convertTableToExcel } from 'services/xlsxParser';
-// const XlsxParse = await import('services/xlsxParser');
-
-// import Table from '../components/Table';
-// import Alert from '../components/Alert';
-// import BulkUploadHeader from '../components/BulkUploadHeader';
-// import ProgressSteps from '../components/ProgressSteps';
-// import UploadFile from '../components/UploadFile';
+// // import Table from '../components/Table';
+// import Alert from './Alert';
+// import BulkUploadHeader from './BulkUploadHeader';
+// import ProgressSteps from './ProgressSteps';
+// import UploadFile from './UploadFile';
 
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -42,7 +41,7 @@
 // const Customer = () => {
 //   const classes = useStyles();
 //   const dispatch = useDispatch();
-//   const router = useRouter();
+//   //const router = useRouter();
 //   React.useEffect(() => {
 //     dispatch(retrieveCustomerMapHeaders({}));
 //   }, []);
@@ -183,6 +182,7 @@
 // };
 
 // export default Customer;
+
 
 
 export {};
