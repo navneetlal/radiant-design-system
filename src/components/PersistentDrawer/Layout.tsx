@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import PersistentDrawer, { IPersistentDrawer } from "./PersistentDrawer";
+import PersistentDrawer from "./PersistentDrawer";
+import { IPersistentDrawer } from "./PersistentDrawer";
 import Header from "./Header";
 import Box from "@mui/material/Box";
 

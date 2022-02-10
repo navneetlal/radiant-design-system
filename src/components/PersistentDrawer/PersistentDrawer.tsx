@@ -1,11 +1,15 @@
-import React, { useState } from "react";
-import { IconButton as MuiIconButton, Typography } from "@mui/material";
+import React from "react";
+import { IconButton as MuiIconButton } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import { Box } from "@mui/material";
-import Button, { IButtonProps } from "../Button/Button";
+import Button from "../Button/Button";
+import { IButtonProps } from "../Button/Button";
 import ToolTip from "../Tooltip/Tooltip";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
-import Navigation, { INavigationProps } from "./Navigation";
+import ChevronLeft from "@mui/icons-material/ChevronLeft";
+import ChevronRight from "@mui/icons-material/ChevronRight";
+import Navigation from "./Navigation";
+import { INavigationProps } from "./Navigation";
 
 export interface IExpandableNavigation {
   name: string;

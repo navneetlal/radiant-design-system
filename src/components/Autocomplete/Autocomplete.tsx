@@ -1,10 +1,12 @@
 import * as React from "react";
-import { Box, GlobalStyles, Paper, useAutocomplete } from "@mui/material";
-
+import Box from "@mui/material/Box";
+import GlobalStyles from "@mui/material/GlobalStyles";
+import useAutocomplete from "@mui/material/useAutocomplete";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
+import useTheme from "@mui/material/styles/useTheme";
+import styled from "@mui/material/styles/styled";
 import InputLabel from "@mui/material/InputLabel";
-import { useTheme } from "@mui/material/styles";
+
 const Root = styled("div")(
   () => `
   color: 'rgba(0,0,0,.85)';
@@ -182,8 +184,7 @@ export default function Autocomplete({
       <Box
         {...getRootProps()}
         onFocus={() => setIsOpen(true)}
-          onBlur={() => setIsOpen(false)}
-          
+        onBlur={() => setIsOpen(false)}
         sx={{
           "&:focus-within": {
             "&+$listbox": {
@@ -254,9 +255,9 @@ export default function Autocomplete({
           sx={{
             width: `${width}px`,
             display:
-              (options.length === 0) && !isOpen
+              options.length === 0 && !isOpen
                 ? "none"
-                : (options.length === 0) && !isOpen
+                : options.length === 0 && !isOpen
                 ? "block"
                 : "",
           }}
