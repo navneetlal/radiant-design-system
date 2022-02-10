@@ -1,8 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
+import  ArrowLeft  from "../icons/ArrowLeft";
 import PersistentDrawer from "../components/PersistentDrawer";
-
 
 export default {
   title: "Components/Molecules/PersistentDrawer",
@@ -11,6 +10,12 @@ export default {
     brandURL:
       "http://app.tms.intugine.s3-website.ap-south-1.amazonaws.com/Intugine.png",
     callToActionButton: true,
+    callToActionButtonProps: {
+      variant: "contained",
+      color: "success",
+      size: "medium",
+      text: "Add New Trip",
+    },
   },
 } as ComponentMeta<typeof PersistentDrawer>;
 
@@ -23,29 +28,29 @@ Navigation.args = {
   topNavigation: [
     {
       name: "Dashboard",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/",
     },
     {
       name: "Track & Trace",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/tnt/trips",
     },
     {
       name: "Reports",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/reports",
     },
   ],
   bottomNavigation: [
     {
       name: "Settings",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/settings",
     },
     {
       name: "Help",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/help",
     },
   ],
