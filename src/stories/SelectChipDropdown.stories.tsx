@@ -9,6 +9,7 @@ export default {
   args: {
     label: "Select Chip",
     placeholder: "Enter Data",
+    width : 200,
     options: [
       { id: 1, name: "Siddhant" },
       { id: 2, name: "Kunal" },

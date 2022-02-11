@@ -74,8 +74,8 @@ const ExpandedBox = ({ active, Icon, name, expanded = true }: any) => {
           <Icon
             color="currentColor"
             style={{
-              height: 24,
-              width: 24,
+              height: '24px',
+              width: '24px',
             }}
             component="span"
           />
@@ -113,19 +113,21 @@ const NavItem = ({
     },
   },
 }: INavItemProps) => {
+  const theme = useTheme();
   return (
     <LinkElement href={path} {...linkElementProps}>
       {expanded ? (
         <ExpandedBox active={active} name={name} Icon={Icon} />
       ) : (
-        <ToolTip title={name} color="dark" placement="top" size="small">
-          <ExpandedBox
+        <>
+           {/* <ExpandedBox
             active={active}
             name={name}
             expanded={false}
             Icon={Icon}
-          />
-          {/* <Box
+          />  */}
+        <ToolTip title={name} color="dark" placement="top" size="small">
+          <Box
             component="span"
             sx={[
               {
@@ -168,8 +170,9 @@ const NavItem = ({
                 />
               )}
             </Box>
-          </Box> */}
+          </Box>
         </ToolTip>
+        </>
       )}
     </LinkElement>
   );

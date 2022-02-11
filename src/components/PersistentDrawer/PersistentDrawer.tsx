@@ -10,6 +10,7 @@ import ChevronLeft from "@mui/icons-material/ChevronLeft";
 import ChevronRight from "@mui/icons-material/ChevronRight";
 import Navigation from "./Navigation";
 import { INavigationProps } from "./Navigation";
+import AddIcon from "../../icons/AddIcon/AddIcon";
 
 export interface IExpandableNavigation {
   name: string;
@@ -95,8 +96,8 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
         top: 0,
         left: 0,
         zIndex: 1,
-        minWidth: expanded ? width : 50,
-        maxWidth: expanded ? width : 50,
+        minWidth: expanded ? width :  '50px',
+        maxWidth: expanded ? width : '50px',
         backgroundColor: theme.palette.common.white,
         maxHeight: "100vh",
         minHeight: "100vh",
@@ -121,8 +122,8 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
             width: "100%",
             display: "flex",
             alignItems: "center",
-            minHeight: 64,
-            maxHeight: 64,
+            minHeight: '64px',
+            maxHeight: '64px',
             borderBottom: `1px solid ${theme.palette.primary[200]}`,
           }}
         >
@@ -156,7 +157,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
             ) : (
               <ToolTip title="Add New Trip" color="dark" size="small">
                 <MuiIconButton {...callToActionButtonCollapseProps}>
-                  {/* <AddIcon  /> */}
+                  <AddIcon fillColor={theme.palette.primary.light} />
                 </MuiIconButton>
               </ToolTip>
             )}
@@ -170,8 +171,8 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
             display: "flex",
             flexDirection: "column",
             "&::-webkit-scrollbar": {
-              width: 6,
-              height: 6,
+              width: '6px',
+              height: '6px',
               position: "absolute",
             },
             "&::-webkit-scrollbar-track": {
@@ -184,7 +185,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
 
             "&::-webkit-scrollbar-thumb": {
               background: " #264ca4",
-              borderRadius: 4,
+              borderRadius: '4px',
             },
           }}
         >
@@ -236,15 +237,15 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
       <Box
         sx={{
           width: "100%",
-          maxHeight: 56,
-          minHeight: 56,
+          maxHeight: '56px',
+          minHeight: '56px',
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: theme.palette.primary.contrastText,
         }}
       >
-        <img src={footer.brandLogo} style={{ width: 40, height: 40 }} alt= "footer-brandLogo" />
+        <img src={footer.brandLogo} style={{ width: '40px', height: '40px' }} alt= "footer-brandLogo" />
         {expanded && <Typography variant="body2">{footer.tagLine}</Typography>}
       </Box>
     </Box>

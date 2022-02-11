@@ -174,7 +174,6 @@ export default function MultipleSelectChip({
     focused,
     setAnchorEl,
   } = useAutocomplete({
-    id: "customized-hook-demo",
     defaultValue: selectedOptions,
     multiple: true,
     options: options!,

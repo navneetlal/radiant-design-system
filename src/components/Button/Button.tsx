@@ -2,16 +2,16 @@ import React from "react";
 import MuiButton from "@mui/material/Button";
 
 import { useTheme } from "@mui/material/styles";
-import type { ButtonProps } from '@mui/material/Button'
+import type { ButtonProps } from "@mui/material/Button";
 
 export interface IButtonProps extends ButtonProps {
   variant?: "outlined" | "contained" | "text";
   color?: "primary" | "secondary" | "error" | "warning" | "success";
-  text ?: string;
+  text?: string;
   children?: React.ReactNode;
-  inputSize?: 'small' | 'medium';
+  inputSize?: "small" | "medium";
   inputAlert?: boolean;
-  fromTextbox ?:boolean;
+  fromTextbox?: boolean;
   inputReq?: boolean;
   inputLabel?: boolean;
   [key: string]: any;
@@ -36,83 +36,107 @@ const Button = ({
     <MuiButton
       variant={variant}
       color={color}
-      disabled = {disabled}
+      disabled={disabled}
       size={size}
       {...otherProps}
       sx={[
         variant === "outlined" && {
-          //@ts-ignore
-          color: `${theme.palette[color === 'secondary' ? 'grey' : color][color === 'secondary' ? '350' : 'main']}`,
+          color: `${
+            theme.palette[color === "secondary" ? "grey" : color][
+              color === "secondary" ? 350 : "main"
+            ]
+          }`,
           backgroundColor: `#ffffff`,
           border: `1px solid`,
-          //@ts-ignore
-          borderColor: `${theme.palette[color === 'secondary' ? 'grey' : color][color === 'secondary' ? '350' : 'main']}`,
+          borderColor: `${
+            theme.palette[color === "secondary" ? "grey" : color][
+              color === "secondary" ? 350 : "main"
+            ]
+          }`,
           "&:hover": {
-            backgroundColor: color !== 'secondary' ? `${theme.palette[color].contrastText}` : 'inherit',
+            backgroundColor:
+              color !== "secondary"
+                ? `${theme.palette[color].contrastText}`
+                : "inherit",
           },
         },
         disabled && {
           color: `${theme.palette.grey[100]} !important`,
-          backgroundColor: variant === 'contained' ? `${theme.palette.grey[150]} !important` : '#ffffff',
-          borderColor: variant === 'outlined' ? `${theme.palette.grey[100]}` : 'inherit'
+          backgroundColor:
+            variant === "contained"
+              ? `${theme.palette.grey[150]} !important`
+              : "#ffffff",
+          borderColor:
+            variant === "outlined" ? `${theme.palette.grey[100]}` : "inherit",
         },
         variant === "contained" && {
           color: "#ffffff",
-          ...color === 'secondary' && {
-            backgroundColor : theme.palette.grey[350]
-          },
+          ...(color === "secondary" && {
+            backgroundColor: theme.palette.grey[350],
+          }),
           "&:hover": {
-            //@ts-ignore
-            background: `${theme.palette[color === 'secondary' ? 'grey' : color][color  === 'secondary' ? '650' : 'dark']}`,
+            background: `${
+              theme.palette[color === "secondary" ? "grey" : color][
+                color === "secondary" ? 650 : "dark"
+              ]
+            }`,
           },
           boxShadow: `none !important`,
         },
-        color === "secondary" && variant === 'outlined' && {
-          color: "#000000",
-          background: `#ffffff`,
+        color === "secondary" &&
+          variant === "outlined" && {
+            color: "#000000",
+            background: `#ffffff`,
+            "&:hover": {
+              borderColor: "#000000",
+            },
+          },
+        variant === "text" &&
+          fromTextbox && {
+            minWidth: "50px !important",
+            position: `absolute`,
+            right: "12px",
+            height: inputSize === "small" ? "16px" : "20px",
+            top:
+              inputReq || inputLabel
+                ? inputSize === "medium"
+                  ? "39px"
+                  : "29px"
+                : inputSize === "medium"
+                ? "11px"
+                : "9px",
+            color: disabled || inputAlert ? theme.palette.grey[100] : "",
+            padding: "8px 8px",
+            alignSelf: "center",
+            fontWeight: 500,
+            backgroundColor: "transparent",
+            ...theme.typography.body2,
+          },
+        variant === "text" && {
+          fontWeight: 500,
+          ...theme.typography.body2,
+          height: size === "small" ? "16px" : "20px",
+          minWidth: "50px !important",
+          padding: 0,
+
+          ...(color === "secondary" && {
+            color: theme.palette.grey[350],
+          }),
+
           "&:hover": {
-            borderColor: "#000000",
+            backgroundColor: "inherit",
+            color:
+              theme.palette[color === "secondary" ? "grey" : color][
+                color === "secondary" ? "650" : "dark"
+              ],
           },
-        },
-        (variant === 'text' && fromTextbox) && {
-          minWidth: "50px !important",
-          position: `absolute`,
-          right: '12px',
-          height: inputSize === 'small' ? '16px' : '20px',
-          top: inputReq || inputLabel ? (inputSize === 'medium' ? '39px' : '29px') : (inputSize === 'medium' ? '11px' : '9px'),
-          color: disabled || inputAlert ? theme.palette.grey[100] : '',
-          padding: "8px 8px",
-          alignSelf: "center",
-          fontWeight : 500,
-          backgroundColor: "transparent",
-          ...theme.typography.body2,
-        },
-        (variant === 'text') && {
-          fontWeight : 500,
-          ...theme.typography.body2,
-          height: size === 'small' ? '16px' : '20px',
-          minWidth: "50px !important",
-          padding : 0,
-          
-
-
-          ...color === 'secondary' && {
-            color : theme.palette.grey[350]
-          },
-          
-          
-          "&:hover" : {
-            backgroundColor : 'inherit',
-            //@ts-ignore
-            color : theme.palette[color === 'secondary' ? 'grey' : color][color === 'secondary' ? '650' : 'dark']
-          }
         },
         {
-          "& .MuiButton-startIcon":{
-            justifyContent : 'center',
+          "& .MuiButton-startIcon": {
+            justifyContent: "center",
             marginLeft: 0,
-          }
-        }
+          },
+        },
       ]}
     >
       {text ? text : children}

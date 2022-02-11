@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Autocomplete from "../components/Autocomplete";
 import { Typography } from "@mui/material";
-import AddIcon from "../icons/Add";
+import AddIcon from "../icons/AddIcon";
 
 export default {
   title: "Components/Atoms/Autocomplete",

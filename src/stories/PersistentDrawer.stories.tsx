@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import  ArrowLeft  from "../icons/ArrowLeft";
+import  ArrowLeft  from "../icons/ArrowLeftIcon";
 import PersistentDrawer from "../components/PersistentDrawer";
 
 export default {
@@ -62,29 +62,29 @@ Collapsed.args = {
   topNavigation: [
     {
       name: "Dashboard",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/",
     },
     {
       name: "Track & Trace",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/tnt/trips",
     },
     {
       name: "Reports",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/reports",
     },
   ],
   bottomNavigation: [
     {
       name: "Settings",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/settings",
     },
     {
       name: "Help",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/help",
     },
   ],
@@ -99,29 +99,29 @@ Toggle.args = {
   topNavigation: [
     {
       name: "Dashboard",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/",
     },
     {
       name: "Track & Trace",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/tnt/trips",
     },
     {
       name: "Reports",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/reports",
     },
   ],
   bottomNavigation: [
     {
       name: "Settings",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/settings",
     },
     {
       name: "Help",
-      icon: "ArrowLeft",
+      icon: <ArrowLeft />,
       path: "/help",
     },
   ],
