@@ -6,7 +6,7 @@ import MuiTypography from '@mui/material/Typography';
 
 import { useTheme } from '@mui/material/styles';
 
-import BreadcrumbArrow from '../../icons/BreadcrumbArrow/BreadcrumbArrow';
+import BreadcrumbArrow from '../../icons/BreadcrumbArrowIcon/BreadcrumbArrowIcon';
 
 import type { BreadcrumbsProps } from '@mui/material/Breadcrumbs';
 

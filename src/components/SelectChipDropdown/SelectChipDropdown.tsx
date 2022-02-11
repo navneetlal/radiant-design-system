@@ -4,19 +4,20 @@ import CheckIcon from "@mui/icons-material/Check";
 
 import Chip from "../Chip";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
+import useTheme from "@mui/material/styles/useTheme";
+import styled from "@mui/material/styles/styled";
 import InputLabel from "@mui/material/InputLabel";
-import { useTheme } from "@mui/material/styles";
 import GlobalStyles from "@mui/material/GlobalStyles";
-const Root = styled("div")(
+
+export const Root = styled("div")(
   () => `
   color: 'rgba(0,0,0,.85)';
   font-size: 14px;
 `
 );
 
-const InputWrapper = styled("div")(
-  ({theme}) => `
+export const InputWrapper = styled("div")(
+  ({ theme }) => `
   border: 1px solid #C7C7C7;
   background-color: #fff;
   border-radius: 4px;
@@ -41,7 +42,7 @@ const InputWrapper = styled("div")(
       color : ${theme.palette.grey[650]}
     }
     background-color: #fff;
-    color: 'rgba(0,0,0,.85)'
+    color: ${theme.palette.common.black}!important;
     height: 32px;
     box-sizing: border-box;
     padding: 4px 12px;
@@ -114,7 +115,7 @@ export interface ISelectChipsProps {
   width?: number;
   alert?: boolean;
   required?: boolean;
-  disabled ?: boolean;
+  disabled?: boolean;
   options?: {
     id: number;
     name: string;
@@ -123,7 +124,7 @@ export interface ISelectChipsProps {
   [key: string]: any;
 }
 
-const inputGlobalStyles = (
+export const inputGlobalStyles = (
   <GlobalStyles
     styles={{
       scrollbarColor: "#264ca4 #f5f8ff !important",
@@ -173,7 +174,6 @@ export default function MultipleSelectChip({
     focused,
     setAnchorEl,
   } = useAutocomplete({
-    id: "customized-hook-demo",
     defaultValue: selectedOptions,
     multiple: true,
     options: options!,
@@ -193,14 +193,16 @@ export default function MultipleSelectChip({
             {...getInputLabelProps()}
             sx={{
               ...theme.typography.h6,
-              color: disabled ? theme.palette.grey[100] : theme.palette.common.black,
+              color: disabled
+                ? theme.palette.grey[100]
+                : theme.palette.common.black,
               marginBottom: "4px !important",
               "&>span": {
                 color: theme.palette.error.main,
               },
             }}
           >
-            {label && label} <span>{required && "*"}</span>
+            {label} <span>{required && "*"}</span>
           </InputLabel>
         )}
         <InputWrapper
@@ -212,8 +214,8 @@ export default function MultipleSelectChip({
               : alert
               ? theme.palette.error.main
               : "",
-            backgroundColor : disabled ? theme.palette.grey[150] : '',
-            width : width
+            backgroundColor: disabled ? theme.palette.grey[150] : "",
+            width: width,
           }}
         >
           {value.map((option: any, index: number) => (
@@ -231,11 +233,15 @@ export default function MultipleSelectChip({
             required={required}
             disabled={disabled}
             style={{
-              height: '40px',
+              height: "40px",
               flexGrow: "1px",
-              cursor:'pointer',
-              backgroundColor : disabled ? theme.palette.grey[150] : theme.palette.common.white,
-              color : disabled ? theme.palette.grey[100] : theme.palette.grey[650],
+              cursor: "pointer",
+              backgroundColor: disabled
+                ? theme.palette.grey[150]
+                : theme.palette.common.white,
+              color: disabled
+                ? theme.palette.grey[100]
+                : theme.palette.grey[650],
               backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
@@ -246,7 +252,7 @@ export default function MultipleSelectChip({
         </InputWrapper>
       </div>
       {groupedOptions.length > 0 ? (
-        <Listbox {...getListboxProps()} sx={{width : width}}>
+        <Listbox {...getListboxProps()} sx={{ width: width }}>
           {groupedOptions.map((option, index) => (
             <li {...getOptionProps({ option, index })}>
               <Typography

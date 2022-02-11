@@ -37,7 +37,7 @@ const Tabs = ({
     if (onTabChange) {
       onTabChange(value);
     }
-  }, [value]);
+  }, [value, onTabChange]);
   return (
     <Box sx={{ borderColor: "divider", width : `${width}%`}}>
       <MuiTabs

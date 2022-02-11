@@ -8,7 +8,8 @@ export default {
   component: SelectChipDropdown,
   args: {
     label: "Select Chip",
-    placeholder: "Choose",
+    placeholder: "Enter Data",
+    width : 200,
     options: [
       { id: 1, name: "Siddhant" },
       { id: 2, name: "Kunal" },
@@ -24,11 +25,7 @@ const Template: ComponentStory<typeof SelectChipDropdown> = (args) => (
   <SelectChipDropdown {...args} />
 );
 
-
 export const Default = Template.bind({});
 Default.args = {
   //selectedOptions : {id: 1, name: "Siddhant"}
 };
-
-
-

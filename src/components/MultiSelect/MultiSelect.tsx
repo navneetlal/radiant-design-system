@@ -29,7 +29,7 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
           "& .MuiInputBase-input": {
             order: "3px",
             padding: 0,
-            marginLeft : '16px',
+            marginLeft: "16px",
             ...theme.typography.body2,
             borderColor: alert
               ? theme.palette?.support?.error?.main
@@ -37,7 +37,8 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
             alignSelf: "flex-end",
             height: "32px",
             color: `${theme.palette.common.black} !important`,
-            width: width,
+            width: "auto",
+
             cursor: "pointer",
           },
         }}
@@ -63,14 +64,10 @@ export interface IMultiSelectProps {
   [key: string]: any;
 }
 
-const tempFunc = () => {
-  console.log();
-};
-
 export default function MultiSelect({
   label,
   placeholder,
-  onChange = tempFunc,
+  onChange,
   width = 312,
   alert,
   required = false,
@@ -84,8 +81,10 @@ export default function MultiSelect({
   }, [options]);
 
   useEffect(() => {
-    onChange([...option]);
-  }, [option]);
+    if (!!onChange) {
+      onChange([...option]);
+    }
+  }, [option, onChange]);
 
   const handleAdd = () => {
     option.add(value);
@@ -113,14 +112,13 @@ export default function MultiSelect({
                 },
               }}
             >
-              {label && label}
+              {label}
               <span>{required && "*"}</span>
             </MuiInputLabel>
           )}
 
           <MuiBox
             sx={{
-              
               display: "flex",
               flexWrap: "wrap",
               borderRadius: "4px",
@@ -136,7 +134,7 @@ export default function MultiSelect({
               overflow: "hidden",
               padding: "4px 12px",
               paddingRight: 0,
-              width: `${width - 8}px`,
+              width: `${width - 14}px`,
               "&:focus-within": {
                 borderColor: theme.palette.primary.main,
               },
@@ -157,10 +155,9 @@ export default function MultiSelect({
               <BootstrapInput
                 placeholder={placeholder}
                 width={width}
-                style={{ flexGrow: "1px", paddingBottom: "4px" }}
+                style={{ flexGrow: "1px" }}
                 value={value}
                 alert={alert}
-                // onChange={(e: any) => setValue(e.target.value)}
                 onChange={(e: any) => {
                   setValue(e.target.value);
                 }}

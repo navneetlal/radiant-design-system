@@ -3,15 +3,21 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import MultiSelect from "../components/MultiSelect";
 
+const printData = (data:any) => {
+  console.log(data);
+}
+
+
 export default {
   title: "Components/Atoms/MultiSelect",
   component: MultiSelect,
   args: {
     label: "Add email addresses",
     required : true,
-    placeholder: "Type here",
+    placeholder: "Placeholder",
     name: "emails",
-    // width : 200
+    onChange : printData,
+    width : 400
   },
 } as ComponentMeta<typeof MultiSelect>;
 

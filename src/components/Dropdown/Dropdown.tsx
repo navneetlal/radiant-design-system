@@ -8,7 +8,7 @@ import MuiBox from "@mui/material/Box";
 import { styled, useTheme } from "@mui/material/styles";
 
 import type { InputBaseProps } from "@mui/material/InputBase";
-import { inputGlobalStyles } from "../Autocomplete/Autocomplete";
+import { inputGlobalStyles } from "../SelectChipDropdown/SelectChipDropdown";
 export interface IBootstrapInputProps extends InputBaseProps {
   alert?: boolean;
   width?: number;
@@ -63,6 +63,7 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               backgroundPosition: "95% 50%",
 
               backgroundSize: "8px",
+
               width:
                 size === "small"
                   ? width

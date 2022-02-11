@@ -2,13 +2,13 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Button from "../components/Button";
-import Add from "../icons/Add";
+import Add from "../icons/AddIcon";
 
 export default {
   title: "Components/Atoms/Button",
   component: Button,
   args: {
-    text: "Button",
+    text: "Button text is this",
     variant: "outlined",
   },
   argTypes: {

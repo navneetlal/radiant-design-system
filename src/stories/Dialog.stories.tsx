@@ -1,6 +1,5 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import HelpIcon from "@mui/icons-material/Help";
 
 import Dialog from "../molecules/Dialog";
 export default {
