@@ -51,7 +51,7 @@ const Checkbox = ({
     >
       <MuiCheckbox
         checkedIcon={<CheckIcon disabled={disabled}/>}
-        icon={<UnCheckedIcon alert={alert} disabled={disabled} />}
+        icon={<UnCheckedIcon alert={alert} disabled={disabled} id = "unchecked" />}
         size={size}
         disabled={disabled}
         disableRipple
@@ -59,10 +59,10 @@ const Checkbox = ({
         {...otherProps}
         sx={{
           "&:hover": {
-            "& svg": {
+            "#unchecked": {
               "&>path": {
-                stroke: !otherProps.checked ? theme.palette.primary.main : '',
-                fill: !otherProps.checked ? theme.palette.primary[50] : '',
+                stroke: theme.palette.primary.main,
+                fill: theme.palette.primary[50],
               },
             },
           },
