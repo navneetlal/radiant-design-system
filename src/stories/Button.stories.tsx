@@ -7,6 +7,7 @@ import Add from "../icons/AddIcon";
 export default {
   title: "Components/Atoms/Button",
   component: Button,
+  parameters: { controls: { exclude: [ 'inputAlert' ] } },
   args: {
     text: "Button text is this",
     variant: "outlined",
@@ -41,7 +42,11 @@ export default {
     },
     focusVisibleClassName: {
       control: false
-    }
+    },
+    // inputAlert: {
+    //   type: 'boolean',
+    //   control: 'boolean'
+    // }
   },
 } as ComponentMeta<typeof Button>;
 
