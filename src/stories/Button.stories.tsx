@@ -11,6 +11,38 @@ export default {
     text: "Button",
     variant: "outlined",
   },
+  argTypes: {
+    children: {
+      control: false
+    },
+    startIcon: {
+      control: false
+    },
+    endIcon: {
+      control: false
+    },
+    classes: {
+      control: false
+    },
+    sx: {
+      control: false
+    },
+    action: {
+      control: false
+    },
+    LinkComponent: {
+      control: false
+    },
+    onFocusVisible: {
+      control: false
+    },
+    TouchRippleProps: {
+      control: false
+    },
+    focusVisibleClassName: {
+      control: false
+    }
+  },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
