@@ -43,7 +43,6 @@ const Box = ({ color = "primary", children, size = "medium", style, ...otherProp
         size === 'large' && {
           ...theme.typography.subtitle2
         }
-
       ]}
       style={style}
       {...otherProps}

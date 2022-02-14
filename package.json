@@ -1,6 +1,6 @@
 {
   "name": "@intugine-technologies/mui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -41,6 +41,7 @@
     "react-scripts": "^5.0.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.63.0",
+    "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-dts": "^4.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
