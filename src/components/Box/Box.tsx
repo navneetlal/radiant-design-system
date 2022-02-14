@@ -2,14 +2,22 @@ import React from 'react';
 import MuiBox from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 
-import type { BoxProps } from '@mui/material/Box';
 
-export interface IBoxProps extends BoxProps {
+export interface IBoxProps{
+  /**
+   * The background Color of Box
+   */
   color?: 'primary' | 'secondary' | 'error' | 'success' | 'warning';
+
+  /**
+   * Content Inside the Box
+   */
   children?: React.ReactNode;
   size?: 'small' | 'medium' | 'large';
+  /**
+   * CSS Styling
+   */
   style?: any;
-  variant?: string
 }
 
 const Box = ({ color = "primary", children, size = "medium", style, ...otherProps }: IBoxProps) => {

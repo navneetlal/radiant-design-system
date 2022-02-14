@@ -11,6 +11,9 @@ import BreadcrumbArrow from '../../icons/BreadcrumbArrowIcon/BreadcrumbArrowIcon
 import type { BreadcrumbsProps } from '@mui/material/Breadcrumbs';
 
 export interface IBreadcrumbsProps extends BreadcrumbsProps {
+  /**
+   * Add the Links to be displayed
+   */
   links: {
     name: string;
     url?: string;

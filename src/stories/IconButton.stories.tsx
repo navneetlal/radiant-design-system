@@ -6,12 +6,30 @@ import IconButton from "../components/IconButton";
 
 export default {
   title: "Components/Atoms/IconButton",
+  
   component: IconButton,
   args: {
     variant: "outlined",
     size: "small",
     startIcon: <Close />,
   },
+  argTypes : {
+    startIcon : {
+      control : false
+    },
+    color : {
+      description : 'The color of the component. It supports those theme colors that make sense for this component.',
+      defaultValue : `primary`,
+      control : false
+    },
+    size : {
+      description : 'Size of the component, `"small"`  `"medium"`  `"large"` '
+    },
+    variant : {
+      description : 'Variant of the Button , `"outlined"` `"contained"` '
+    }
+
+  }
 } as ComponentMeta<typeof IconButton>;
 
 const Template: ComponentStory<typeof IconButton> = (args) => (

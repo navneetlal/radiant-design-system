@@ -53,21 +53,39 @@ const Listbox = styled("ul")(
 
 
 export interface ISelectChipsProps {
+  
   label?: string;
   placeholder?: string;
   required?: boolean;
   width?: number;
   size?: "small" | "medium";
   alert?: boolean;
+  /**
+   * Options inside the dropdown
+   */
   options?: any[];
+  /**
+   * Default Value
+   */
   value?: {
     id: number;
     name: string;
   };
+  /**
+   * Whether you want the child to stick to the top or the bottom of the dropdown
+   */
   childrenPlacement?: "top" | "bottom";
   onChange?: any;
+
+  /**
+   * This element will stick to the top or bottom
+   */
   children?: React.ReactElement;
   disabled?: boolean;
+
+  /**
+   * Callback on Input Change
+   */
   onInputChange?: any;
   [key: string]: any;
 }

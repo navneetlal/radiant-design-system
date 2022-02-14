@@ -10,6 +10,12 @@ export default {
     color: "primary",
     size: "medium",
   },
+  argTypes : {
+    style : {
+      control : false
+    },
+
+  }
 } as ComponentMeta<typeof Box>;
 
 const Template: ComponentStory<typeof Box> = (args) => <Box {...args} />;

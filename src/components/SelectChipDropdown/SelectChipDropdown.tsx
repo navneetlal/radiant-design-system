@@ -109,17 +109,52 @@ const Listbox = styled("ul")(
 );
 
 export interface ISelectChipsProps {
+  /**
+   * Input Label
+   */
   label?: string;
+
+  /**
+   * Input Placeholder
+   */
   placeholder?: string;
+
+  /**
+   * OnChange handler
+   */
   onChange?: any;
+
+  /**
+   * Custom Width
+   */
   width?: number;
+  
+  /**
+   * If true border color will become red
+   */
   alert?: boolean;
+
+  /**
+   * Set true if input is compulsory
+   */
   required?: boolean;
+
+  /**
+   * If true component would be disabled
+   */
   disabled?: boolean;
+
+  /**
+   * Dropdown Options which should appear
+   */
   options?: {
     id: number;
     name: string;
   }[];
+
+  /**
+   * Options which are selected from dropdown
+   */
   selectedOptions?: any;
   [key: string]: any;
 }

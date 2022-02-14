@@ -16,6 +16,53 @@ export default {
       },
     ],
   },
+  argTypes: {
+    tabs: {
+      control: false,
+      description: "Tabs to be added",
+    },
+    onTabChange: {
+      control: false,
+      description: "Handler Function",
+    },
+    action: {
+      control: false,
+    },
+    children: {
+      control: false,
+    },
+
+    classes: {
+      control: false,
+    },
+    ScrollButtonComponent: {
+      control: false,
+    },
+    scrollButtons: {
+      control: false,
+    },
+    TabIndicatorProps: {
+      control: false,
+    },
+    TabScrollButtonProps: {
+      control: false,
+    },
+    value: {
+      control: false,
+    },
+    sx: {
+      control: false,
+    },
+    LinkComponent: {
+      control: false,
+    },
+    onFocusVisible: {
+      control: false,
+    },
+    TouchRippleProps: {
+      control: false,
+    },
+  },
 } as ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;

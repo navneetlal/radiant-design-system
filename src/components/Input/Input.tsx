@@ -9,9 +9,15 @@ import { useTheme } from "@mui/material/styles";
 import type { InputBaseProps } from "@mui/material/InputBase";
 
 export interface IInputProps extends InputBaseProps {
+  /**
+   * Input Label
+   */
   label?: string;
   disabled?: boolean;
   size?: "small" | "medium";
+  /**
+   * Custom width for the component
+   */
   width ?: number
   [key: string]: any;
 }

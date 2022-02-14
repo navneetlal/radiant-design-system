@@ -7,6 +7,9 @@ import type { ChipProps } from "@mui/material/Chip";
 import ChipIcon from "../../icons/ChipIcon/ChipIcon";
 
 export interface IChipsProps extends ChipProps {
+  /**
+   * Selected Chip Styles would be applied if true
+   */
   selected?: boolean;
   fromMultiSelect?: boolean;
   fromSelectChip?: boolean;

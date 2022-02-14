@@ -4,11 +4,25 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import CircularProgress from "../molecules/CircularProgress";
 export default {
   title: "Components/Molecules/CircularProgress",
+  parameters: { controls: { exclude: [ 'ref' ] } },
+  
   component: CircularProgress,
   args: {
       label : 'EPOD Delivered vs Not and Testing',
       value : 10
   },
+  argTypes : {
+    label : {
+      description : 'Label to be appeared on the top'
+    },
+    value : {
+      description : 'Progress Value'
+    },
+    color : {
+      description : 'Color  of the Progress `"primary" "secondary" "success" "warning" "error"`',
+      control : false
+    }
+  }
 } as ComponentMeta<typeof CircularProgress>;
 
 const Template: ComponentStory<typeof CircularProgress> = (args) => (

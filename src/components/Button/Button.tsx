@@ -7,6 +7,9 @@ import type { ButtonProps } from "@mui/material/Button";
 export interface IButtonProps extends ButtonProps {
   variant?: "outlined" | "contained" | "text";
   color?: "primary" | "secondary" | "error" | "warning" | "success";
+  /**
+   * Button Text
+   */
   text?: string;
   children?: React.ReactNode;
   inputSize?: "small" | "medium";
@@ -110,11 +113,21 @@ const Button = ({
             alignSelf: "center",
             fontWeight: 500,
             backgroundColor: "transparent",
-            ...theme.typography.body2,
           },
         variant === "text" && {
           fontWeight: 500,
-          ...theme.typography.body2,
+          ...size === 'small' && {
+            
+            ...theme.typography.h6,
+          },
+          ...size === 'medium' && {
+              
+            ...theme.typography.h5,
+          },
+          ...size === 'large' && {
+            
+            ...theme.typography.h4,
+          },
           height: size === "small" ? "16px" : "20px",
           minWidth: "50px !important",
           padding: 0,

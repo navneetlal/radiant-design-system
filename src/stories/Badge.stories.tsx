@@ -12,6 +12,28 @@ export default {
     size: "small",
     color: "primary",
   },
+  argTypes : {
+    children : {
+      control : false
+    },
+    classes : {
+      control : false
+    },
+    sx : {
+      control : false
+    },
+    anchorOrigin : {
+      control : false
+    },
+    components : {
+      control : false
+    },
+    componentsProps : {
+      control : false
+    },
+
+
+  }
 } as ComponentMeta<typeof Badge>;
 
 const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
@@ -19,6 +41,10 @@ const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
 export const Rounded = Template.bind({});
 Rounded.args = {
   rounded: true,
+};
+export const Invisible = Template.bind({});
+Invisible.args = {
+  invisible: true,
 };
 export const Children = Template.bind({});
 Children.args = {

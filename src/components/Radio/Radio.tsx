@@ -10,6 +10,10 @@ export interface IRadioProps extends RadioProps {
   checked?: boolean;
   label?: string;
   disabled?: boolean;
+
+  /**
+   * If true border color will become red
+   */
   alert?: boolean;
   [key: string]: any;
 }

@@ -10,8 +10,19 @@ import { styled, useTheme } from "@mui/material/styles";
 import type { InputBaseProps } from "@mui/material/InputBase";
 import { inputGlobalStyles } from "../SelectChipDropdown/SelectChipDropdown";
 export interface IBootstrapInputProps extends InputBaseProps {
+  /**
+   * Input Border Color would turn red if true
+   */
   alert?: boolean;
+
+  /**
+   * Set Custom Width for the component
+   */
   width?: number;
+
+  /**
+   * If True component would be disabled
+   */
   disabled?: boolean;
   size?: "small" | "medium";
   [key: string]: any;
@@ -143,18 +154,51 @@ const Listbox = styled("ul")(
 );
 
 export interface IDropDown {
+  /**
+   * Input Label Text
+   */
   label?: string;
+  /**
+   * Input Placeholder text
+   */
   placeholder?: string;
+  /**
+   * Whether the input if compulsary or not
+   */
   required?: boolean;
+
+  /**
+   * Set Custom width for the component
+   */
   width?: number;
+
+  /**
+   * If true Input Border Color would turn to red
+   */
   alert?: boolean;
+
+  /**
+   * Dropdown options
+   */
   options?: any[];
   size?: "small" | "medium";
+
+  /**
+   * Default Value for the dropdown
+   */
   value?: {
     id: number;
     name: string;
   };
+
+  /**
+   * OnChange Handler
+   */
   onChange?: any;
+
+  /**
+   * Element would stick to the top or bottom in the dropdown
+   */
   children?: React.ReactNode;
   childrenPlacement?: "top" | "bottom";
   disabled?: boolean;

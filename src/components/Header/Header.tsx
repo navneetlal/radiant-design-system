@@ -3,9 +3,10 @@ import MuiBox from "@mui/material/Box";
 
 import { useTheme } from "@mui/material/styles";
 
-import type { BoxProps } from "@mui/material/Box";
-
-export interface IHeaderProps extends BoxProps {
+export interface IHeaderProps {
+  /**
+   * Content inside the Box
+   */
   children: React.ReactNode;
 }
 

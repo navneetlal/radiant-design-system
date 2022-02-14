@@ -11,6 +11,27 @@ export default {
     action: "Click",
     open: true,
   },
+  argTypes: {
+    ref: {
+      control: false,
+    },
+    message: {
+      type: "string",
+      description: "The message to be displayed",
+    },
+    action: {
+      description:
+        "The action to display. It renders after the message, at the end of the snackbar.",
+    },
+    open: {
+      description: "If true snackbar will appear",
+    },
+    anchorOrigin: {
+      description:
+        "The anchor of the Snackbar On smaller screens, the component grows to occupy all the available width, the horizontal alignment is ignored.",
+      defaultValue: {vertical: 'bottom', horizontal: 'left'},
+    },
+  },
 } as ComponentMeta<typeof Snackbar>;
 
 const Template: ComponentStory<typeof Snackbar> = (args) => (

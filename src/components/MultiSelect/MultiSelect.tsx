@@ -52,11 +52,34 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
 );
 
 export interface IMultiSelectProps {
+  /**
+   * Input Label
+   */
   label?: string;
+
+  /**
+   * Input Placeholder
+   */
   placeholder?: string;
+
+  /**
+   * OnChange Handler
+   */
   onChange?: any;
+
+  /**
+   * Set Custom width
+   */
   width?: number;
+
+  /**
+   * If true border color will become red
+   */
   alert?: boolean;
+
+  /**
+   * Values added to the input
+   */
   options?: string[];
   required?: boolean;
   selectedOptions?: any;

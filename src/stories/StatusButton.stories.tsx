@@ -9,6 +9,17 @@ export default {
     number: 0,
     text: "Halted",
   },
+  argTypes : {
+    number : {
+      description : 'Number to be displayed'
+    },
+    text : {
+      description : 'Text to be displayed'
+    },
+    selected : {
+      description : 'If True Background Color would be primary dark'
+    }
+  }
 } as ComponentMeta<typeof StatusButton>;
 
 const Template: ComponentStory<typeof StatusButton> = (args) => (

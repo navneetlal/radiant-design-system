@@ -10,6 +10,30 @@ export default {
     label: "Switch",
     size: "medium",
   },
+  argTypes : {
+    action : {
+      control : false
+    },
+    focusVisibleClassName : {
+      control : false
+    },
+    LinkComponent: {
+      control : false
+    },
+    onFocusVisible: {
+      control : false
+    },
+    TouchRippleProps :{
+      control : false
+    },
+    size : {
+      description : 'Size of the Switch `small` `medium` '
+    },
+    checked :{
+      description : 'If true switch would be checked'
+    }
+
+  }
 } as ComponentMeta<typeof Switch>;
 
 const Template: ComponentStory<typeof Switch> = (args) => <Switch {...args} />;

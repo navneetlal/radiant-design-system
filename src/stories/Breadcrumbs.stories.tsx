@@ -9,6 +9,23 @@ export default {
   args: {
     text: "TMS",
   },
+  argTypes : {
+    links : {
+      control : false
+    },
+    children : {
+      control : false
+    },
+    classes : {
+      control : false
+    },
+    separator : {
+      control : false
+    },
+    sx : {
+      control : false
+    },
+  }
 } as ComponentMeta<typeof Breadcrumb>;
 
 const Template: ComponentStory<typeof Breadcrumb> = (args) => (

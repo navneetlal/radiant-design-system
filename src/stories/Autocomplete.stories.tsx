@@ -30,6 +30,20 @@ export default {
       { id: 6, name: "Nikhil" },
     ],
   },
+  argTypes : {
+      children : {
+        control : false
+      },
+      options : {
+        control : false
+      },
+      onChange : {
+        control : false
+      },
+      onInputChange : {
+        control : false
+      }
+  }
 } as ComponentMeta<typeof Autocomplete>;
 
 const Template: ComponentStory<typeof Autocomplete> = (args) => (

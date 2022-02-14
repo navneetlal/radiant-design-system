@@ -19,6 +19,40 @@ export default {
       { id: 6, name: "Nikhil" },
     ],
   },
+  argTypes : {
+    options : {
+      control : false,
+      description : 'Dropdown Options which should appear'
+    },
+    label : {
+      description : 'Input Label'
+    },
+    placeholder : {
+      description : 'Input Placeholder'
+    },
+    onChange : {
+      description : 'OnChange handler'
+    },
+    width : {
+      description : 'Custom Input Width'
+    },
+    alert : {
+      type : 'boolean',
+      description : 'If true border color will become red'
+    },
+    required : {
+      type : 'boolean',
+      
+      description : 'Set true if input is compulsory'
+    },
+    disabled : {
+      type : 'boolean',
+      description : 'If true component would be disabled'
+    },
+    selectedOptions : {
+      description : 'Options which are selected from dropdown'
+    }
+  }
 } as ComponentMeta<typeof SelectChipDropdown>;
 
 const Template: ComponentStory<typeof SelectChipDropdown> = (args) => (

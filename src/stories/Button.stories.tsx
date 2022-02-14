@@ -7,7 +7,7 @@ import Add from "../icons/AddIcon";
 export default {
   title: "Components/Atoms/Button",
   component: Button,
-  parameters: { controls: { exclude: [ 'inputAlert' ] } },
+  parameters: { controls: { exclude: [ 'inputAlert', 'inputSize' ,'fromTextbox','inputReq' ,'inputLabel' ] } },
   args: {
     text: "Button text is this",
     variant: "outlined",

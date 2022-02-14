@@ -11,6 +11,11 @@ export default {
       "http://app.tms.intugine.s3-website.ap-south-1.amazonaws.com/Intugine.png",
     callToActionButton: true,
   },
+  argTypes : {
+    brandURL : {
+      control : false
+    }
+  }
 } as ComponentMeta<typeof Layout>;
 
 const Template: ComponentStory<typeof Layout> = (args) => <Layout />;

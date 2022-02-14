@@ -24,6 +24,22 @@ export default {
     ),
     
   },
+  argTypes : {
+    children : {
+      control : false
+    },
+    options : {
+      control : false
+    },
+    value : {
+      control : false
+    },
+    onChange : {
+      control : false
+    },
+    
+
+  }
 } as ComponentMeta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = (args) => (

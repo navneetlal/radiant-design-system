@@ -19,6 +19,18 @@ export default {
     onChange : printData,
     width : 400
   },
+  argTypes : {
+    onChange : {
+      control : false
+    },
+    options : {
+      control : false
+    },
+    selectedOptions : {
+      control : false
+    },
+
+  }
 } as ComponentMeta<typeof MultiSelect>;
 
 const Template: ComponentStory<typeof MultiSelect> = (args) => (

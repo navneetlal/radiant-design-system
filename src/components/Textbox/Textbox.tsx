@@ -5,7 +5,7 @@ import MuiInputBase from "@mui/material/InputBase";
 import MuiInputLabel from "@mui/material/InputLabel";
 
 import { useTheme } from "@mui/material/styles";
-import type { InputBaseProps } from '@mui/material/InputBase'
+import type { InputBaseProps } from "@mui/material/InputBase";
 
 import Button from "../Button/Button";
 export interface IBootstrapInputProps extends InputBaseProps {
@@ -29,17 +29,16 @@ export const BootstrapInput = ({
       sx={[
         size === "small"
           ? {
-            "& .MuiInputBase-input": {
-              ...theme.typography.h6,
-            },
-          }
+              "& .MuiInputBase-input": {
+                ...theme.typography.h6,
+              },
+            }
           : {
-            "& .MuiInputBase-input": {
-              ...theme.typography.h5,
+              "& .MuiInputBase-input": {
+                ...theme.typography.h5,
+              },
             },
-          },
         {
-
           "& .MuiInputBase-input": {
             borderRadius: "4px",
             position: "relative",
@@ -60,11 +59,11 @@ export const BootstrapInput = ({
             alignSelf: "flex-end",
             ...(size === "small"
               ? {
-                ...theme.typography.body2,
-              }
+                  ...theme.typography.body2,
+                }
               : {
-                ...theme.typography.body1,
-              }),
+                  ...theme.typography.body1,
+                }),
             height: size === "small" ? "32px" : "40px",
             padding: size === "small" ? "8px 12px" : "10px 16px",
             color: disabled ? theme.palette.grey[100] : `#1A1A1A`,
@@ -94,7 +93,7 @@ export interface ITextboxProps extends InputBaseProps {
   alert?: boolean;
   id?: string;
   children?: React.ReactElement;
-  action?: any;
+  action?: { text: string; onClick?: any };
   [key: string]: any;
 }
 
@@ -118,8 +117,8 @@ const Textbox = ({
           width: "max-content",
           ...(!label &&
             !required && {
-            height: size === "small" ? "32px" : "40px",
-          }),
+              height: size === "small" ? "32px" : "40px",
+            }),
         },
       ]}
     >

@@ -14,6 +14,9 @@ import UnCheckedIcon from "../../icons/UncheckedIcon/UncheckedIcon";
 export interface ICheckboxProps extends CheckboxProps {
   size?: "small" | "medium";
   label?: string;
+  /**
+   * Border Color of the component becomes Red
+   */
   alert?: boolean;
   disabled?: boolean;
   [key: string]: any;

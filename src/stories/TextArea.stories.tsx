@@ -11,6 +11,25 @@ export default {
     placeholder: "Address",
     width: 408,
   },
+  argTypes : {
+    label : {
+      description : 'Input Label',
+      type : "string"
+    },
+    placeholder : {
+      description : 'Input Placeholder',
+      type : "string"
+    },
+    width : {
+      description : 'Custom Width',
+      type : 'number'
+    },
+    value : {
+      description : 'Input Value',
+      type : 'string'
+    }
+
+  }
 } as ComponentMeta<typeof Textarea>;
 
 const Template: ComponentStory<typeof Textarea> = (args) => (

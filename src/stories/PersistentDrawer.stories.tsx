@@ -17,6 +17,35 @@ export default {
       text: "Add New Trip",
     },
   },
+  argTypes : {
+    brandURL : {
+      control : false
+    },
+    callToActionButtonProps : {
+      control : false
+    },
+    topNavigation : {
+      control : false
+    },
+    bottomNavigation : {
+      control : false
+    },
+    callToActionButtonCollapseProps : {
+      control : false
+    },
+    ExpandIcon : {
+      control : false
+    },
+    CollapseIcon : {
+      control : false
+    },
+    onToggleIconClick : {
+      control : false
+    },
+    navigationProps : {
+      control : false
+    }
+  }
 } as ComponentMeta<typeof PersistentDrawer>;
 
 const Template: ComponentStory<typeof PersistentDrawer> = (args) => (

@@ -5,12 +5,25 @@ import Textbox from "../components/Textbox";
 
 export default {
   title: "Components/Atoms/Textbox",
+  parameters: { controls: { exclude: [ 'ref' ] } },
+  
   component: Textbox,
   args: {
     label: "Enter Name",
     size: "small",
     placeholder: "Kunal",
   },
+  argTypes : {
+    placeholder : {
+      type : 'string',
+      description : 'Input Placeholder'
+    },
+    action : {
+      description : 'Element in this will be placed at the right end of Textbox',
+      control : false,
+    },
+    
+  }
 } as ComponentMeta<typeof Textbox>;
 
 const Template: ComponentStory<typeof Textbox> = (args) => (
