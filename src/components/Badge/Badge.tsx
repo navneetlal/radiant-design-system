@@ -14,7 +14,7 @@ export interface IBadgeProps extends BadgeProps {
 
 const Badge = ({
   rounded = true,
-  color = "primary",
+  color = "error",
   children,
   size = "medium",
   ...otherProps
@@ -22,13 +22,13 @@ const Badge = ({
   const theme = useTheme();
   return (
     <MuiBadge
-      style={{ margin: "9rem" }}
       sx={[
         {
           "& .MuiBadge-badge": {
             backgroundColor: theme.palette[color].light,
-            color: `1A1A1A`,
-            borderRadius: "4px",
+            color: `${theme.palette[color][600]} !important`,
+            borderRadius: "5000px",
+            border : `1px solid #ffffff`,
             fontFamily: '"Source Sans Pro", sans-serif',
           },
         },
@@ -36,7 +36,7 @@ const Badge = ({
           "& .MuiBadge-badge": {
             height: "24px",
             width: "24px",
-            transform: "scale(1) translate(90%, -50%)",
+            transform: "scale(1) translate(60%, -50%)",
             ...theme.typography.body2,
           },
         },
@@ -44,7 +44,7 @@ const Badge = ({
           "& .MuiBadge-badge": {
             height: "32px",
             width: "32px",
-            transform: "scale(1) translate(90%, -60%)",
+            transform: "scale(1) translate(60%, -60%)",
             ...theme.typography.body1,
           },
         },
@@ -52,7 +52,7 @@ const Badge = ({
           "& .MuiBadge-badge": {
             height: "40px  ",
             width: "40px",
-            transform: "scale(1) translate(90%, -70%)",
+            transform: "scale(1) translate(60%, -70%)",
             ...theme.typography.subtitle2,
           },
         },

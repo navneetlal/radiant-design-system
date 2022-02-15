@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Button from "../components/Button/Button";
+import { Error } from "@mui/icons-material";
 
 import Badge from "../components/Badge";
 
@@ -9,8 +10,9 @@ export default {
   component: Badge,
   args: {
     badgeContent : '5',
-    size: "small",
-    color: "primary",
+    size: "medium",
+    color: "warning",
+    overlap : 'circular'
   },
   argTypes : {
     children : {
@@ -48,6 +50,6 @@ Invisible.args = {
 };
 export const Children = Template.bind({});
 Children.args = {
-  children: <Button variant="outlined" color="success">Button</Button>,
+  children: <Error sx = {{width : '32px' , height : '32px'}}/>,
   rounded: true,
 };

@@ -3,7 +3,6 @@ import typography from "./typography.json";
 
 import type { TypographyOptions } from "@mui/material/styles/createTypography";
 
-
 export let lightTheme = createTheme({
   palette: {
     mode: "light",
@@ -12,51 +11,54 @@ export let lightTheme = createTheme({
       light: "#91B0FA", // primary300
       main: "#2C63E5", // primary500
       dark: "#264CA4", // primary600
-      900: '#151E33',
-      800: '#24428A',
-      200: '#BFD2FD',
-      100: '#D7E3FE',
-      50: '#F5F8FF',
+      900: "#151E33",
+      800: "#24428A",
+      600: "#264CA4",
+      200: "#BFD2FD",
+      100: "#D7E3FE",
+      50: "#F5F8FF",
       contrastText: "#F5F8FF",
     },
     secondary: {
-      light: '#FFF7E6',
-      main: '#FFCD59',
-      dark: '#CC981F',
-      50 : '#FFF7E5'
+      light: "#FFF7E6",
+      main: "#FFCD59",
+      dark: "#CC981F",
+      50: "#FFF7E5",
     },
     support: {
       success: {
         light: "#C2FAEA",
         main: "#00C28B",
         dark: "#008F66",
-        contrastText: '#C2FAEA'
+        600: "#008F66",
+        contrastText: "#C2FAEA",
       },
       error: {
         light: "#F9D7D7",
         main: "#FF5757",
         dark: "#CC3333",
-        contrastText: '#F9D7D7'
+        600: "#CC3333",
+        contrastText: "#F9D7D7",
       },
       warning: {
         light: "#FFECDB",
         main: "#F2984A",
         dark: "#D97E2E",
-        600 : "#D97F30",
-        contrastText: '#FFECDB'
-      }
+        600: "#D97F30",
+        contrastText: "#FFECDB",
+      },
     },
     grey: {
-      100 : '#A1A1A1',
-      150: '#F2F2F2', // grey50
-      300: '#E3E3E3', // grey100
-      350: '#C7C7C7', // grey200
-      650: '#666666' // grey500
+      100: "#A1A1A1",
+      150: "#F2F2F2", // grey50
+      300: "#E3E3E3", // grey100
+      350: "#C7C7C7", // grey200
+      650: "#666666", // grey500
     },
     common: {
-      black: '#1A1A1A',
-      white: '#ffffff'
-    }
+      black: "#1A1A1A",
+      white: "#ffffff",
+    },
   },
   typography: {
     ...(typography as TypographyOptions),
@@ -67,31 +69,31 @@ lightTheme = createTheme(lightTheme, {
   palette: {
     warning: lightTheme.palette?.support?.warning,
     error: lightTheme.palette?.support?.error,
-    success: lightTheme.palette?.support?.success
-  }
-})
+    success: lightTheme.palette?.support?.success,
+  },
+});
 
 lightTheme = createTheme(lightTheme, {
   components: {
     MuiButton: {
       styleOverrides: {
         sizeSmall: {
-          minWidth: '98px',
+          minWidth: "98px",
           height: 32,
           ...lightTheme.typography.h6,
           padding: "8px 16px",
           textTransform: "none",
         },
         sizeMedium: {
-          minWidth: '120px',
-          height: '40px',
+          minWidth: "120px",
+          height: "40px",
           ...lightTheme.typography.h5,
           padding: "10px 24px",
           textTransform: "none",
         },
         sizeLarge: {
-          minWidth: '161px',
-          height: '48px',
+          minWidth: "161px",
+          height: "48px",
           ...lightTheme.typography.h4,
           padding: "12px 32px",
           textTransform: "none",
@@ -138,10 +140,10 @@ lightTheme = createTheme(lightTheme, {
         root: {
           ...lightTheme.typography.body2,
           height: 32,
-          
-          "& ul>li>button.Mui-selected" : {
+
+          "& ul>li>button.Mui-selected": {
             backgroundColor: lightTheme.palette.primary.main,
-            color : lightTheme.palette.common.white
+            color: lightTheme.palette.common.white,
           },
           "& ul>li>button:hover": {
             backgroundColor: `rgba(0, 0, 0, 0.04)`,
@@ -175,7 +177,7 @@ lightTheme = createTheme(lightTheme, {
             "&:hover": {
               backgroundColor: lightTheme.palette.primary.contrastText,
             },
-          }
+          },
         },
       },
     },
@@ -183,24 +185,27 @@ lightTheme = createTheme(lightTheme, {
       styleOverrides: {
         root: {
           marginBottom: "4px",
-          
+
           "&>span": {
             color: lightTheme.palette.support?.error?.main,
           },
         },
       },
     },
-    MuiInputBase : {
-      styleOverrides : {
-        input : (props:any) => ({
-          "&::placeholder" : {
-            color : props.disabled ?  lightTheme.palette.grey[100] : lightTheme.palette.grey[650],
-            opacity : `1 !important`
+    MuiInputBase: {
+      styleOverrides: {
+        input: (props: any) => ({
+          "&::placeholder": {
+            color: props.disabled
+              ? lightTheme.palette.grey[100]
+              : lightTheme.palette.grey[650],
+            opacity: `1 !important`,
           },
-          backgroundColor : props.disabled ? lightTheme.palette.grey[150] : lightTheme.palette.common.white
+          backgroundColor: props.disabled
+            ? lightTheme.palette.grey[150]
+            : lightTheme.palette.common.white,
         }),
-        
-      }
+      },
     },
 
     MuiCheckbox: {
@@ -234,4 +239,3 @@ lightTheme = createTheme(lightTheme, {
 });
 
 export default lightTheme;
-
