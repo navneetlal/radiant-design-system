@@ -4,7 +4,7 @@ import {
   SvgIcon as MuiSvgIcon,
 } from "@mui/material";
 
-export interface IShareIconProps {
+export interface IShareIconProps extends MuiSvgIconProps {
   fillColor?: string;
   [key: string]: any;
 }

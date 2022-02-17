@@ -18,7 +18,7 @@ function usePagination({
 
   useEffect(() => {
     onChange && onChange(pagination.page, pagination.pageSize);
-  }, [pagination.page, pagination.pageSize]);
+  }, [pagination.page, pagination.pageSize, onChange]);
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, page: number) =>
     setPagination({ ...pagination, page });

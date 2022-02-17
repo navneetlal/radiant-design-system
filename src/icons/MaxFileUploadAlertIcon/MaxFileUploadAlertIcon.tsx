@@ -2,13 +2,10 @@ import React from "react";
 import {
   SvgIconProps as MuiSvgIconProps,
   SvgIcon as MuiSvgIcon,
-  Theme,
 } from "@mui/material";
-import { SxProps, SystemStyleObject } from "@mui/system";
 
 export interface IMaxFileUploadAlertProps extends MuiSvgIconProps {
   fillColor?: string;
-  sx?: SystemStyleObject<Theme>;
 }
 
 const MaxFileUploadAlert = ({

@@ -6,7 +6,6 @@ import MuiInputLable from "@mui/material/InputLabel";
 import { useTheme } from "@mui/material/styles";
 
 import type { InputBaseProps } from "@mui/material/InputBase";
-import {SystemStyleObject } from "@mui/system";
 import { mergeDeep } from "../../utils/deepMerge";
 export interface IInputProps extends InputBaseProps {
   /**

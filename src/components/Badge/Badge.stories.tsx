@@ -1,6 +1,5 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Button from "../Button/Button";
 import { Error } from "@mui/icons-material";
 
 import Badge from ".";

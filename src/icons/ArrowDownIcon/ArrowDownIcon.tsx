@@ -5,7 +5,7 @@ import {
 } from "@mui/material";
 
 
-const ArrowDown = ({...props}) => {
+const ArrowDown = ({...props}: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       {...props}
