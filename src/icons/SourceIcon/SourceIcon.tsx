@@ -6,7 +6,7 @@ import {
 
 const SourceIcon = ({ ...props }: MuiSvgIconProps) => {
   return (
-    <MuiSvgIcon sx={{ width: "24px", height: "24px" }} viewBox="0 0 24 24" {...props}>
+    <MuiSvgIcon style={{ width: "24px", height: "24px" }} viewBox="0 0 24 24" {...props}>
       <rect
         x="1.89453"
         y="2.52637"

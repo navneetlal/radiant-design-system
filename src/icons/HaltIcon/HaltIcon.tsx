@@ -8,7 +8,7 @@ const Halt = ({ ...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       {...props}
-      sx={{ width: "25px", height: "24px", backgroundColor: "#ffffff" }}
+      style={{ width: "25px", height: "24px", backgroundColor: "#ffffff" }}
       viewBox="0 0 25 24"
     >
       <g clipPath="url(#clip0)">

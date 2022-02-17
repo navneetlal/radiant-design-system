@@ -12,7 +12,7 @@ export interface IEditIconProps extends MuiSvgIconProps {
 const EditIcon = ({ fillColor, ...otherProps }: IEditIconProps) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "16px", height: "16px" }}
+      style={{ width: "16px", height: "16px" }}
       viewBox="0 0 16 16"
       {...otherProps}
     >

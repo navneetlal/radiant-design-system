@@ -9,7 +9,7 @@ const ChevronLeftIcon = ({...props} : MuiSvgIconProps) => {
   const theme = useTheme();
   return (
     <MuiSvgIcon
-      sx={{ width: "24px", height: "24px", fill: theme.palette.common.white }}
+      style={{ width: "24px", height: "24px", fill: theme.palette.common.white }}
       viewBox="0 0 24 24"
       {...props}
     >

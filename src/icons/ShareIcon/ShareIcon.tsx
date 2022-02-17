@@ -12,7 +12,7 @@ const ShareIcon = ({ fillColor, ...otherProps }: IShareIconProps) => {
   return (
     <MuiSvgIcon
       {...otherProps}
-      sx={{ width: "16px", height: "16px" }}
+      style={{ width: "16px", height: "16px" }}
       viewBox="0 0 16 16"
     >
       <path

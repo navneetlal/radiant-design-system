@@ -13,14 +13,13 @@ export interface IMaxFileUploadAlertProps extends MuiSvgIconProps {
 
 const MaxFileUploadAlert = ({
   fillColor,
-  sx,
   ...otherProps
 }: IMaxFileUploadAlertProps) => {
   return (
     
     <MuiSvgIcon
       viewBox="0 0 16 16"
-      sx={[{ width: "16px", height: "16px", ...sx }]}
+      style={{ width: "16px", height: "16px" }}
       {...otherProps}
     >
       <path

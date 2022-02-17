@@ -12,7 +12,7 @@ export interface ITripsArrowIconProps extends MuiSvgIconProps {
 const TripsArrowIcon = ({ fillColor, ...otherProps }: ITripsArrowIconProps) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "12px", height: "12px" }}
+      style={{ width: "12px", height: "12px" }}
       viewBox="0 0 12 12"
       {...otherProps}
     >

@@ -4,9 +4,10 @@ import {
   SvgIcon as MuiSvgIcon,
 } from "@mui/material";
 
-const icon = ({ color, fontSize, className, style }: MuiSvgIconProps) => {
+const icon = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
+    {...props}
       style={style}
       color={color}
       fontSize={fontSize}

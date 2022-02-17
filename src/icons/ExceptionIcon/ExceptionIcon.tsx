@@ -7,7 +7,7 @@ import {
 const Exception = ({ ...otherProps }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "12px", height: "12px" }}
+      style={{ width: "12px", height: "12px" }}
       viewBox="0 0 12 12"
       {...otherProps}
     >

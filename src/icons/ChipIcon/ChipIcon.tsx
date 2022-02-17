@@ -11,13 +11,12 @@ const ChipIcon = ({ fillColor = "#ffffff", ...otherProps }: IChipIconProps) => {
   return (
     <MuiSvgIcon
       {...otherProps}
-      sx={{
+      style={{
         width: "8px",
         height: "8px",
         cursor: "pointer",
         marginRight: "12px",
       }}
-      style={{ marginRight: 12 }}
       viewBox="0 0 8 8"
     >
       <path

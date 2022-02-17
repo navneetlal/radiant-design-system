@@ -1,5 +1,4 @@
 export { default as ArrowLeftIcon } from "./ArrowLeftIcon";
-export { default as Checked } from "./Checked";
 export { default as ChipIcon } from "./ChipIcon";
 export { default as CompletedTruckIcon } from "./CompletedTruckIcon";
 export { default as AddIcon } from "./AddIcon";
@@ -78,7 +77,6 @@ export { default as UpdateIcon } from "./UpdateIcon";
 export { default as UserIcon } from "./UserIcon";
 export { default as ViewBoxIcon } from "./ViewBoxIcon";
 export { default as WarehouseIcon } from "./WarehouseIcon";
-export { default as YellowFlag } from "./YellowFlag";
 export { default as YellowFlagIcon } from "./YellowFlagIcon";
 
 

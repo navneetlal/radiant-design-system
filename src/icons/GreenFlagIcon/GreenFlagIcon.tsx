@@ -5,9 +5,9 @@ import {
   } from "@mui/material";
 
 
-const GreenFlagIcon = ({ className, style }: MuiSvgIconProps) => {
+const GreenFlagIcon = ({ className, style,...props}: MuiSvgIconProps) => {
   return (
-    <MuiSvgIcon className={`${className}`} sx = {{width : '24px', height : '24px'}} viewBox="0 0 24 24" style={style}>
+    <MuiSvgIcon className={`${className}`} style = {{width : '24px', height : '24px'}} viewBox="0 0 24 24" {...props}>
       <path d="M7.875 1.875H15.375V9.375H7.875V1.875Z" fill="#00C28B" />
       <path
         d="M19.125 7.5L21.375 11.25H12.375L15.375 9.375V3.75H21.375L19.125 7.5Z"

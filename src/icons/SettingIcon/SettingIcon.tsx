@@ -9,7 +9,7 @@ export interface ISettingProps extends MuiSvgIconProps {
   [key: string]: any;
 }
 
-const Setting = ({ fillColor, ...otherProps }: ISettingProps) => (
+const SettingIcon = ({ fillColor, ...otherProps }: ISettingProps) => (
   <MuiSvgIcon {...otherProps}>
     <path
       fillRule="evenodd"
@@ -20,4 +20,4 @@ const Setting = ({ fillColor, ...otherProps }: ISettingProps) => (
   </MuiSvgIcon>
 );
 
-export default Setting;
+export default SettingIcon;

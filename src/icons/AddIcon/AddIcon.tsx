@@ -9,7 +9,7 @@ export interface IAddIconProps extends SvgIconProps {
 
 const AddIcon = ({ fillColor, ...otherProps }: IAddIconProps) => {
   return (
-    <MuiSvgIcon {...otherProps} sx = {{width : '11px', height : '11px'}} viewBox="0 0 12 12">
+    <MuiSvgIcon {...otherProps} style = {{width : '11px', height : '11px'}} viewBox="0 0 12 12">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

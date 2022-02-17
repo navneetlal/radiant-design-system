@@ -4,7 +4,7 @@ import {
     SvgIcon as MuiSvgIcon,
   } from "@mui/material";
 
-const Folder = ({ color, fontSize, className, style }: MuiSvgIconProps) => {
+const Folder = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       style={style}
@@ -12,6 +12,7 @@ const Folder = ({ color, fontSize, className, style }: MuiSvgIconProps) => {
       fontSize={fontSize}
       className={className}
       viewBox="0 0 24 24"
+      {...props}
     >
       <path
         fillRule="evenodd"

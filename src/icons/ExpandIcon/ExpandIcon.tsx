@@ -11,7 +11,7 @@ export interface IExpandIconProps extends MuiSvgIconProps {
 const ExpandIcon = ({ fillColor, ...otherProps }: IExpandIconProps) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "16px", height: "16px" }}
+      style={{ width: "16px", height: "16px" }}
       viewBox="0 0 16 16"
       {...otherProps}
     >

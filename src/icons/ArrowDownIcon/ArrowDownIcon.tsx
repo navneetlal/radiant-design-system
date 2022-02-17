@@ -5,10 +5,11 @@ import {
 } from "@mui/material";
 
 
-const ArrowDown = () => {
+const ArrowDown = ({...props}) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "16px", height: "16px", backgroundColor: "#ffffff" }}
+      {...props}
+      style={{ width: "16px", height: "16px", backgroundColor: "#ffffff" }}
       viewBox="0 0 16 16"
     >
       <path

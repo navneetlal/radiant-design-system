@@ -1,31 +1,36 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   SvgIconProps as MuiSvgIconProps,
   SvgIcon as MuiSvgIcon,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { mergeDeep } from "../../utils/deepMerge";
 
 const Active = ({
   color,
   fontSize,
+  sx,
   className,
   style,
   ...otherProps
 }: MuiSvgIconProps) => {
   const theme = useTheme();
+  const originalSx = {
+    ...(fontSize === "small" && {
+      fontSize: theme.typography.pxToRem(16),
+    }),
+    ...(fontSize === "medium" && {
+      fontSize: theme.typography.pxToRem(20),
+    }),
+    ...(fontSize === "large" && {
+      fontSize: theme.typography.pxToRem(24),
+    }),
+  };
+  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+
   return (
     <MuiSvgIcon
-      sx={[
-        fontSize === "small" && {
-          fontSize: theme.typography.pxToRem(16),
-        },
-        fontSize === "medium" && {
-          fontSize: theme.typography.pxToRem(20),
-        },
-        fontSize === "large" && {
-          fontSize: theme.typography.pxToRem(24),
-        },
-      ]}
+      sx={finalSx}
       style={style}
       color={color}
       fontSize={fontSize}

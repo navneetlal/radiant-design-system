@@ -218,7 +218,6 @@ const Dropdown = ({
   children,
   disabled,
   childrenPlacement = "top",
-  elevation,
 }: IDropDown) => {
   const [data, setData] = useState(value);
   const [isOpen, setIsOpen] = useState(false);

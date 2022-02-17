@@ -15,18 +15,14 @@ const Inactive = ({
   const theme = useTheme();
   return (
     <MuiSvgIcon
-      sx={[
-        fontSize === "small" && {
-          fontSize: theme.typography.pxToRem(16),
-        },
-        fontSize === "medium" && {
-          fontSize: theme.typography.pxToRem(20),
-        },
-        fontSize === "large" && {
-          fontSize: theme.typography.pxToRem(24),
-        },
-      ]}
-      style={style}
+      style={{
+        fontSize:
+          fontSize === "small"
+            ? theme.typography.pxToRem(16)
+            : fontSize === "medium"
+            ? theme.typography.pxToRem(20)
+            : theme.typography.pxToRem(24),
+      }}
       color={color}
       fontSize={fontSize}
       className={className}

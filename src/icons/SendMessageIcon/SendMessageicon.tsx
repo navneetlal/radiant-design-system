@@ -15,7 +15,7 @@ const SendMessageIcon = ({
 }: ISendMessageIconProps) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "24px", height: "24px" }}
+      style={{ width: "24px", height: "24px" }}
       viewBox="0 0 24 24"
       {...otherProps}
     >

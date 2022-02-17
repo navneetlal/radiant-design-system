@@ -5,9 +5,10 @@ import {
 } from "@mui/material";
 
 
-const Integrate = ({ color, fontSize, className, style }: MuiSvgIconProps) => {
+const Integrate = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
+    {...props}
       style={style}
       color={color}
       fontSize={fontSize}

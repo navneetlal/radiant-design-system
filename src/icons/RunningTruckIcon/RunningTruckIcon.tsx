@@ -16,7 +16,7 @@ const RunningTruckIcon = ({
   return (
     <MuiSvgIcon
       viewBox="0 0 40 40"
-      sx={{ width: "40px", height: "40px" }}
+      style={{ width: "40px", height: "40px" }}
       {...otherProps}
     >
       <g clipPath="url(#clip0)">

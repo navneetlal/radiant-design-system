@@ -8,7 +8,7 @@ const QuestionmarkIcon = ({...props} : MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       {...props}
-      sx={{ width: "16px", height: "16px", marginLeft: "10.5px" }}
+      style={{ width: "16px", height: "16px"}}
       viewBox="0 0 16 16"
     >
       <path

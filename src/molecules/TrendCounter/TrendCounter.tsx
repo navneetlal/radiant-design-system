@@ -11,23 +11,23 @@ import { useTheme } from "@mui/material/styles";
 import Tooltip from "../../components/Tooltip/Tooltip";
 
 export interface ICounter3 {
-  number?: number;
+  currentValue?: number;
   Icon?: React.FunctionComponent<any>;
   label?: string;
   infoMessage?: string;
-  changeDirection?: "up" | "down";
-  changeColor?: "primary" | "secondary" | "warning" | "success" | "error";
-  changeValue?: number;
+  direction?: "up" | "down";
+  color?: "primary" | "secondary" | "warning" | "success" | "error";
+  changeInPercent?: number;
 }
 
 const Counter3 = ({
-  number,
+  currentValue,
   Icon,
   label,
   infoMessage = "Enter Info Message here",
-  changeDirection = "up",
-  changeColor = "primary",
-  changeValue,
+  direction = "up",
+  color = "primary",
+  changeInPercent,
 }: ICounter3) => {
   const theme = useTheme();
 
@@ -36,7 +36,7 @@ const Counter3 = ({
       sx={{
         width: "max-content",
         position: "relative",
-        height: changeValue ? "160px" : "auto",
+        height: changeInPercent ? "160px" : "auto",
         backgroundColor: theme.palette.primary[50],
         borderRadius: "4px",
       }}
@@ -67,7 +67,7 @@ const Counter3 = ({
             paddingLeft: "8px",
             paddingRight: "8px",
             textAlign: "center",
-            width: changeValue ? "106px" : "200px",
+            width: changeInPercent ? "106px" : "200px",
           }}
         >
           {label}
@@ -83,9 +83,9 @@ const Counter3 = ({
             textAlign: "center",
           }}
         >
-          {number?.toLocaleString()}
+          {currentValue?.toLocaleString()}
         </MuiTypography>
-        {changeValue && (
+        {changeInPercent && (
           <MuiGrid
             container
             spacing={0}
@@ -95,10 +95,10 @@ const Counter3 = ({
           >
             <MuiGrid item>
               <ArrowForwardIcon
-                color={changeColor}
+                color={color}
                 sx={{
                   transform:
-                    changeDirection === "up"
+                    direction === "up"
                       ? "rotate(-45deg)"
                       : "rotate(135deg)",
                 }}
@@ -110,7 +110,7 @@ const Counter3 = ({
                 sx={{
                   fontWeight: "normal",
                   fontStyle: "normal",
-                  color: theme.palette[changeColor].main,
+                  color: theme.palette[color].main,
                   fontFamily: "Source Sans Pro",
 
                   paddingRight: "8px",
@@ -119,7 +119,7 @@ const Counter3 = ({
                   textAlign: "center",
                 }}
               >
-                {`${Math.round(changeValue)}%`}
+                {`${Math.round(changeInPercent)}%`}
               </MuiTypography>
             </MuiGrid>
           </MuiGrid>

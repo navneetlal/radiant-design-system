@@ -7,7 +7,7 @@ import {
 const DeviceTracking = ({ ...otherProps }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "20px", height: "20px" }}
+      style={{ width: "20px", height: "20px" }}
       viewBox="0 0 20 20"
       {...otherProps}
     >

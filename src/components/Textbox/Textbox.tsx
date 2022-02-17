@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import MuiBox from "@mui/material/Box";
 import MuiInputBase from "@mui/material/InputBase";
 import MuiInputLabel from "@mui/material/InputLabel";
-
+import { mergeDeep } from "../../utils/deepMerge";
 import { useTheme } from "@mui/material/styles";
 import type { InputBaseProps } from "@mui/material/InputBase";
 
@@ -15,6 +15,7 @@ export interface IBootstrapInputProps extends InputBaseProps {
 }
 
 export const BootstrapInput = ({
+  sx,
   alert = false,
   width = 312,
   size = "small",
@@ -23,61 +24,60 @@ export const BootstrapInput = ({
   ...otherProps
 }: IBootstrapInputProps) => {
   const theme = useTheme();
+
+  const originalSx = {
+    "& .MuiInputBase-input": {
+      ...(size === "small" && {
+        ...theme.typography.h6,
+      }),
+
+      ...(size === "medium" && {
+        ...theme.typography.h5,
+      }),
+      borderRadius: "4px",
+      position: "relative",
+      border: `1px solid ${theme.palette.grey[350]}`,
+      backgroundColor: disabled ? theme.palette.grey[150] : `#ffffff`,
+      width: width ? width : "312px",
+      cursor: disabled ? "not-allowed" : "pointer",
+      borderColor:
+        alert && !disabled
+          ? theme.palette?.support?.error?.main
+          : theme.palette.grey[100],
+      "&::placeholder": {
+        color: disabled
+          ? theme.palette.grey[100]
+          : `${theme.palette.grey[650]} !important`,
+        opacity: `1 !important`,
+      },
+      alignSelf: "flex-end",
+      ...(size === "small"
+        ? {
+            ...theme.typography.body2,
+          }
+        : {
+            ...theme.typography.body1,
+          }),
+      height: size === "small" ? "32px" : "40px",
+      padding: size === "small" ? "8px 12px" : "10px 16px",
+      color: disabled ? theme.palette.grey[100] : `#1A1A1A`,
+      "&:focus": {
+        borderColor: theme.palette.primary.main,
+      },
+      "&:not(:placeholder-shown):invalid": {
+        borderColor: theme.palette?.support?.error?.main,
+      },
+
+      boxSizing: "border-box",
+    },
+  };
+
+  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+
   return (
     <MuiInputBase
       size={size}
-      sx={[
-        size === "small"
-          ? {
-              "& .MuiInputBase-input": {
-                ...theme.typography.h6,
-              },
-            }
-          : {
-              "& .MuiInputBase-input": {
-                ...theme.typography.h5,
-              },
-            },
-        {
-          "& .MuiInputBase-input": {
-            borderRadius: "4px",
-            position: "relative",
-            border: `1px solid ${theme.palette.grey[350]}`,
-            backgroundColor: disabled ? theme.palette.grey[150] : `#ffffff`,
-            width: width ? width : "312px",
-            cursor: disabled ? "not-allowed" : "pointer",
-            borderColor:
-              alert && !disabled
-                ? theme.palette?.support?.error?.main
-                : theme.palette.grey[100],
-            "&::placeholder": {
-              color: disabled
-                ? theme.palette.grey[100]
-                : `${theme.palette.grey[650]} !important`,
-              opacity: `1 !important`,
-            },
-            alignSelf: "flex-end",
-            ...(size === "small"
-              ? {
-                  ...theme.typography.body2,
-                }
-              : {
-                  ...theme.typography.body1,
-                }),
-            height: size === "small" ? "32px" : "40px",
-            padding: size === "small" ? "8px 12px" : "10px 16px",
-            color: disabled ? theme.palette.grey[100] : `#1A1A1A`,
-            "&:focus": {
-              borderColor: theme.palette.primary.main,
-            },
-            "&:not(:placeholder-shown):invalid": {
-              borderColor: theme.palette?.support?.error?.main,
-            },
-
-            boxSizing: "border-box",
-          },
-        },
-      ]}
+      sx={finalSx}
       disabled={disabled}
       style={{
         width: "100%",
@@ -99,6 +99,7 @@ export interface ITextboxProps extends InputBaseProps {
 
 const Textbox = ({
   label,
+  sx,
   size = "small",
   alert,
   id,
@@ -146,6 +147,7 @@ const Textbox = ({
         required={required}
         alert={alert}
         id={id}
+        sx={sx}
         label={label}
         disabled={disabled}
         {...otherProps}

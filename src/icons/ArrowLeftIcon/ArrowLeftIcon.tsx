@@ -2,9 +2,10 @@ import React from 'react';
 import MuiSvgIcon from '@mui/material/SvgIcon';
 import type { SvgIconProps } from '@mui/material/SvgIcon'
 
-const icon = ({ color, fontSize, className, style }: SvgIconProps) => {
+const icon = ({ color, fontSize, className, style,...props }: SvgIconProps) => {
   return (
     <MuiSvgIcon
+    {...props}
       style={style}
       color={color}
       fontSize={fontSize}

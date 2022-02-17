@@ -4,11 +4,11 @@ import {
   SvgIcon as MuiSvgIcon,
 } from "@mui/material";
 
-const NoData = ({ ...props }: MuiSvgIconProps) => {
+const NoDataIcon = ({ ...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       {...props}
-      sx={{ width: "200px", height: "132px" }}
+      //style={{ width: "200px", height: "132px" }}
       viewBox="0 0 200 132"
       // xmlnsXlink="http://www.w3.org/1999/xlink"
     >
@@ -36,4 +36,4 @@ const NoData = ({ ...props }: MuiSvgIconProps) => {
   );
 };
 
-export default NoData;
+export default NoDataIcon;

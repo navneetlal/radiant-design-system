@@ -3,9 +3,10 @@ import {
   SvgIconProps as MuiSvgIconProps,
   SvgIcon as MuiSvgIcon,
 } from "@mui/material";
-const Users = ({ color, fontSize, className, style }: MuiSvgIconProps) => {
+const UserIcon = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
+    {...props}
       style={style}
       color={color}
       fontSize={fontSize}
@@ -22,4 +23,4 @@ const Users = ({ color, fontSize, className, style }: MuiSvgIconProps) => {
   );
 };
 
-export default Users;
+export default UserIcon;

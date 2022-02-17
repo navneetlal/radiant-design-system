@@ -5,13 +5,14 @@ import {
 } from "@mui/material";
 
 
-const Globe = ({ color, fontSize, className, style }: MuiSvgIconProps) => {
+const Globe = ({ color, fontSize, className, style ,...props}: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       style={style}
       color={color}
       fontSize={fontSize}
       className={className}
+      {...props}
       viewBox="0 0 24 24"
     >
       <path

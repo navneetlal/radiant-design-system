@@ -12,7 +12,7 @@ export interface IUpdateIconProps extends MuiSvgIconProps {
 const UpdateIcon = ({ fillColor, ...otherProps }: IUpdateIconProps) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "16px", height: "16px" }}
+      style={{ width: "16px", height: "16px" }}
       {...otherProps}
       viewBox="0 0 16 16"
     >

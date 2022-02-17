@@ -4,13 +4,12 @@ import {
   SvgIcon as MuiSvgIcon,
 } from "@mui/material";
 
-const warehouse = ({ style, className }: MuiSvgIconProps) => {
+const Warehouse = ({ style, className }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       className={`${className}`}
-      sx={{ width: "24px", height: "24px" }}
+      style={{ width: "24px", height: "24px" }}
       viewBox="0 0 24 24"
-      style={style}
     >
       <path
         d="M20.3331 10.4287H3.60022V23.9986H20.3331V10.4287Z"
@@ -60,4 +59,4 @@ const warehouse = ({ style, className }: MuiSvgIconProps) => {
   );
 };
 
-export default warehouse;
+export default Warehouse;

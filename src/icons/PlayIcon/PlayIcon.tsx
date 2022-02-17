@@ -12,7 +12,7 @@ export interface IPlayIconProps extends MuiSvgIconProps{
 }
 const PlayIcon = ({ fillColor, ...otherProps }: IPlayIconProps) => {
   return (
-    <MuiSvgIcon {...otherProps} sx = {{width : '16px' , height : '16px'}} viewBox="0 0 16 16">
+    <MuiSvgIcon {...otherProps} style = {{width : '16px' , height : '16px'}} viewBox="0 0 16 16">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
