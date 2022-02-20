@@ -22,7 +22,6 @@ export interface IInputProps extends InputBaseProps {
   [key: string]: any;
 }
 
-
 const Input = ({
   sx,
   label,
@@ -67,7 +66,6 @@ const Input = ({
     },
   };
 
-
   const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
   return (
     <MuiBox>
@@ -85,13 +83,7 @@ const Input = ({
         </MuiInputLable>
       )}
 
-      <MuiInputBase
-        disabled={disabled}
-        //@ts-ignore
-        sx = {finalSx}
-        
-        {...otherProps}
-      />
+      <MuiInputBase disabled={disabled} sx={finalSx} {...otherProps} />
     </MuiBox>
   );
 };

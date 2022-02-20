@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import MuiTypography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import MuiBox from "@mui/material/Box";
 import ToolTip from "../Tooltip/Tooltip";
 import { useTheme } from "@mui/material/styles";
 
@@ -37,7 +37,7 @@ export interface INavigationProps {
 const ExpandedBox = ({ active, Icon, name, expanded = true }: any) => {
   const theme = useTheme();
   return (
-    <Box
+    <MuiBox
       component="span"
       sx={[
         {
@@ -61,7 +61,7 @@ const ExpandedBox = ({ active, Icon, name, expanded = true }: any) => {
         },
       ]}
     >
-      <Box
+      <MuiBox
         component="span"
         sx={{
           marginRight: "16px",
@@ -80,7 +80,7 @@ const ExpandedBox = ({ active, Icon, name, expanded = true }: any) => {
             component="span"
           />
         )}
-      </Box>
+      </MuiBox>
 
       {expanded && (
         <MuiTypography
@@ -95,7 +95,7 @@ const ExpandedBox = ({ active, Icon, name, expanded = true }: any) => {
           {name}
         </MuiTypography>
       )}
-    </Box>
+    </MuiBox>
   );
 };
 
@@ -127,7 +127,7 @@ const NavItem = ({
             Icon={Icon}
           />  */}
         <ToolTip title={name} color="dark" placement="top" size="small">
-          <Box
+          <MuiBox
             component="span"
             sx={[
               {
@@ -151,7 +151,7 @@ const NavItem = ({
               },
             ]}
           >
-            <Box
+            <MuiBox
               component="span"
               sx={{
                 marginRight: '16px',
@@ -169,8 +169,8 @@ const NavItem = ({
                   }}
                 />
               )}
-            </Box>
-          </Box>
+            </MuiBox>
+          </MuiBox>
         </ToolTip>
         </>
       )}

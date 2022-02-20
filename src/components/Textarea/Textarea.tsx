@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import MuiInputLabel from "@mui/material/InputLabel";
-import InputBase from "@mui/material/InputBase";
-import Box from "@mui/material/Box";
+import MuiInputBase from "@mui/material/InputBase";
+import MuiBox from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 
 import { mergeDeep } from "../../utils/deepMerge";
@@ -60,7 +60,7 @@ const TextArea = ({
   const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
 
   return (
-    <Box sx={{ flexWrap: "flex" }}>
+    <MuiBox sx={{ flexWrap: "flex" }}>
       {(label || required) && (
         <MuiInputLabel
           sx={{
@@ -76,7 +76,7 @@ const TextArea = ({
           {label} <span>{required ? "*" : ""}</span>
         </MuiInputLabel>
       )}
-      <InputBase
+      <MuiInputBase
         multiline
         rows={3}
         sx={finalSx}
@@ -88,7 +88,7 @@ const TextArea = ({
         onClick={onClick}
         {...otherProps}
       />
-    </Box>
+    </MuiBox>
   );
 };
 

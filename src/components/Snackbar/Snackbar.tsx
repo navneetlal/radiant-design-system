@@ -1,5 +1,5 @@
 import React from 'react'
-import MUISnackbar from "@mui/material/Snackbar";
+import MuiSnackbar from "@mui/material/Snackbar";
 import { useTheme } from "@mui/material/styles";
 import type { SnackbarProps } from '@mui/material/Snackbar'
 export interface ISnackbarProps extends SnackbarProps {
@@ -30,7 +30,7 @@ const Snackbar = ({
   }
 
   return (
-    <MUISnackbar
+    <MuiSnackbar
       autoHideDuration={3000}
       anchorOrigin={anchorOrigin}
       ContentProps={{

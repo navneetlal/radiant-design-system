@@ -1,5 +1,4 @@
-import React from "react";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import MuiBox from "@mui/material/Box";
 import MuiCheckbox from "@mui/material/Checkbox";
 import MuiTypography from "@mui/material/Typography";
@@ -8,7 +7,7 @@ import { useTheme } from "@mui/material/styles";
 
 import type { CheckboxProps } from "@mui/material/Checkbox";
 import { mergeDeep } from "../../utils/deepMerge";
-import CheckIcon from "../../icons/CheckedIcon/CheckedIcon";
+import CheckedIcon from "../../icons/CheckedIcon/CheckedIcon";
 import UnCheckedIcon from "../../icons/UncheckedIcon/UncheckedIcon";
 
 export interface ICheckboxProps extends CheckboxProps {
@@ -68,7 +67,7 @@ const Checkbox = ({
       ]}
     >
       <MuiCheckbox
-        checkedIcon={<CheckIcon disabled={disabled} />}
+        checkedIcon={<CheckedIcon disabled={disabled} />}
         icon={
           <UnCheckedIcon alert={alert} disabled={disabled} id="unchecked" />
         }

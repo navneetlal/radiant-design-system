@@ -129,7 +129,7 @@ export default function MultiSelect({
               disabled={disabled}
               sx={{
                 ...theme.typography.h6,
-                color: "#1A1A1A",
+                color: theme.palette.common.black,
                 "&>span": {
                   color: theme.palette.error.main,
                 },

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PersistentDrawer from "./PersistentDrawer";
 import { IPersistentDrawer } from "./PersistentDrawer";
 import Header from "./Header";
-import Box from "@mui/material/Box";
+import MuiBox from "@mui/material/Box";
 
 const sidenavProps: IPersistentDrawer = {
   brandURL:
@@ -46,16 +46,16 @@ const Layout = ({ children }: any) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Box sx={{ display: "flex", height: "100vh" }}>
-      <Box>
+    <MuiBox sx={{ display: "flex", height: "100vh" }}>
+      <MuiBox>
         <PersistentDrawer
           expanded={open}
           onToggleIconClick={() => setOpen(!open)}
           {...sidenavProps}
         />
-      </Box>
+      </MuiBox>
 
-      <Box
+      <MuiBox
         sx={{
           position: "relative",
           overflow: "hidden ",
@@ -70,11 +70,11 @@ const Layout = ({ children }: any) => {
           brandURL="http://app.tms.intugine.s3-website.ap-south-1.amazonaws.com/Intugine.png"
         />
 
-        <Box sx={{ height: "calc(100vh - 65px)" }}>
-          <Box sx={{ height: "100%", overflow: "auto" }}>{children}</Box>
-        </Box>
-      </Box>
-    </Box>
+        <MuiBox sx={{ height: "calc(100vh - 65px)" }}>
+          <MuiBox sx={{ height: "100%", overflow: "auto" }}>{children}</MuiBox>
+        </MuiBox>
+      </MuiBox>
+    </MuiBox>
   );
 };
 

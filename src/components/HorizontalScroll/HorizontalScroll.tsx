@@ -1,6 +1,6 @@
 import React from "react";
 import { nanoid } from "nanoid";
-import Box from "@mui/material/Box";
+import MuiBox from "@mui/material/Box";
 
 export interface IHorizontalScroll {
   LeftButton?: any;
@@ -31,7 +31,7 @@ const HorizontalScoll = ({
     scroll?.scrollBy(200, 0);
   };
   return (
-    <Box sx={{ display: "flex" }}>
+    <MuiBox sx={{ display: "flex" }}>
       <LeftButton
         {...leftButtonProps}
         onClick={(e: any) => {
@@ -39,7 +39,7 @@ const HorizontalScoll = ({
           onLeftButtonClick && onLeftButtonClick(e);
         }}
       />
-      <Box
+      <MuiBox
         id={id}
         sx={{
           display: "flex",
@@ -51,7 +51,7 @@ const HorizontalScoll = ({
         }}
       >
         {children}
-      </Box>
+      </MuiBox>
       <RightButton
         {...rightButtonProps}
         onClick={(e: any) => {
@@ -59,7 +59,7 @@ const HorizontalScoll = ({
           onRightButtonClick && onLeftButtonClick(e);
         }}
       />
-    </Box>
+    </MuiBox>
   );
 };
 export default HorizontalScoll;

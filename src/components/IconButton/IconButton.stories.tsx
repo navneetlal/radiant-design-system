@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Close from "@mui/icons-material/Close";
+import CloseIcon from "@mui/icons-material/Close";
 
 import IconButton from ".";
 
@@ -11,7 +11,7 @@ export default {
   args: {
     variant: "outlined",
     size: "small",
-    startIcon: <Close />,
+    startIcon: <CloseIcon />,
   },
   argTypes : {
     startIcon : {

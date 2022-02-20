@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Button from ".";
-import Add from "../../icons/AddIcon";
+import AddIcon from "../../icons/AddIcon";
 
 export default {
   title: "Components/Atoms/Button",
@@ -91,6 +91,6 @@ Disabled.args = {
 export const TextIcon = Template.bind({});
 
 TextIcon.args = {
-  startIcon:<Add />,
+  startIcon:<AddIcon />,
   variant : 'text'
 };

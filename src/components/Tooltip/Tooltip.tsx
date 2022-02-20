@@ -26,7 +26,7 @@ const Tooltip = ({
           sx: {
             backgroundColor:
               color === "dark" ? theme.palette.primary.dark : "#ffffff",
-            color: color === "dark" ? "#ffffff" : "#1A1A1A",
+            color: color === "dark" ? "#ffffff" : theme.palette.common.black,
 
             height: otherProps.size === "medium" ? "18px" : "14px",
             border: `1px solid ${theme.palette.primary[200]}`,

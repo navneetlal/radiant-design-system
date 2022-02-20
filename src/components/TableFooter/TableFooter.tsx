@@ -1,14 +1,12 @@
 import React from "react";
 
-import {
-  Grid as MuiGrid,
-  MenuItem as MuiMenuItem,
-  Select as MuiSelect,
-  Typography as MuiTypography,
-  Pagination,
-  Box,
-} from "@mui/material";
-import { useTheme } from "@mui/material";
+import MuiGrid from '@mui/material/Grid';
+import MuiMenuItem from '@mui/material/MenuItem';
+import MuiSelect from '@mui/material/Select';
+import MuiTypography from '@mui/material/Typography';
+import MuiPagination from '@mui/material/Pagination';
+import MuiBox from '@mui/material/Box';
+import { useTheme }  from "@mui/material/styles";
 
 import usePagination from "../../hooks/usePagination";
 
@@ -21,7 +19,7 @@ const TableFooter = ({ totalTableCount, onChange }: any) => {
     });
   const handleSelect = (e: any) => handlePageSizeChange(e.target.value);
   return (
-    <Box
+    <MuiBox
       sx={{
         padding: "16px 40px 0 0px",
         display: "flex",
@@ -32,15 +30,15 @@ const TableFooter = ({ totalTableCount, onChange }: any) => {
     >
       <MuiTypography variant="body2">
         Showing{" "}
-        <Box component={"span"} sx={{ ...theme.typography.h6 }}>
+        <MuiBox component={"span"} sx={{ ...theme.typography.h6 }}>
           {page * pageSize > totalTableCount
             ? totalTableCount
             : page * pageSize}
-        </Box>{" "}
+        </MuiBox>{" "}
         of{" "}
-        <Box component={"span"} sx={{ ...theme.typography.h6 }}>
+        <MuiBox component={"span"} sx={{ ...theme.typography.h6 }}>
           {totalTableCount}
-        </Box>
+        </MuiBox>
       </MuiTypography>
       <MuiGrid
         item
@@ -65,13 +63,13 @@ const TableFooter = ({ totalTableCount, onChange }: any) => {
             </MuiMenuItem>
           ))}
         </MuiSelect>
-        <Pagination
+        <MuiPagination
           count={Math.ceil(totalTableCount / pageSize)}
           page={page}
           onChange={handlePageChange}
         />
       </MuiGrid>
-    </Box>
+    </MuiBox>
   );
 };
 export default TableFooter;

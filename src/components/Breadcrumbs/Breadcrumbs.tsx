@@ -1,12 +1,11 @@
-import React from "react";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import MuiBreadcrumbs from "@mui/material/Breadcrumbs";
 import MuiLink from "@mui/material/Link";
 import MuiTypography from "@mui/material/Typography";
 
 import { useTheme } from "@mui/material/styles";
 
-import BreadcrumbArrow from "../../icons/BreadcrumbArrowIcon/BreadcrumbArrowIcon";
+import BreadcrumbArrowIcon from "../../icons/BreadcrumbArrowIcon/BreadcrumbArrowIcon";
 
 import type { BreadcrumbsProps } from "@mui/material/Breadcrumbs";
 import { mergeDeep } from "../../utils/deepMerge";
@@ -31,7 +30,7 @@ const Breadcrumbs = ({ links, text, sx }: IBreadcrumbsProps) => {
   const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
 
   return (
-    <MuiBreadcrumbs separator={<BreadcrumbArrow />} aria-label="breadcrumb">
+    <MuiBreadcrumbs separator={<BreadcrumbArrowIcon />} aria-label="breadcrumb">
       <MuiTypography variant="body1" color="textPrimary">
         {text}
       </MuiTypography>

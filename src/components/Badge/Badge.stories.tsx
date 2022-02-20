@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Error } from "@mui/icons-material";
+import  ErrorIcon  from "@mui/icons-material/Error";
 
 import Badge from ".";
 
@@ -32,10 +32,10 @@ export default {
     componentsProps : {
       control : false
     },
-
-
   }
 } as ComponentMeta<typeof Badge>;
+
+
 
 const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
 
@@ -49,6 +49,6 @@ Invisible.args = {
 };
 export const Children = Template.bind({});
 Children.args = {
-  children: <Error sx = {{width : '32px' , height : '32px'}}/>,
+  children: <ErrorIcon sx = {{width : '32px' , height : '32px'}}/>,
   rounded: true,
 };

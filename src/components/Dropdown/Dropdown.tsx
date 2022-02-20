@@ -248,7 +248,7 @@ const Dropdown = ({
                   color: theme.palette?.support?.error?.main,
                 },
                 marginBottom: size === "small" ? "4px" : "8px",
-                color: disabled ? theme.palette.grey[100] : `#1A1A1A !important`,
+                color: disabled ? theme.palette.grey[100] : `${theme.palette.common.black} !important`,
               },
             ]}
           >

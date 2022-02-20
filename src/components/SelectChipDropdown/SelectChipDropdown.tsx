@@ -3,7 +3,7 @@ import { useAutocomplete } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 
 import Chip from "../Chip";
-import Typography from "@mui/material/Typography";
+import MuiTypography from "@mui/material/Typography";
 import useTheme from "@mui/material/styles/useTheme";
 import styled from "@mui/material/styles/styled";
 import InputLabel from "@mui/material/InputLabel";
@@ -162,7 +162,7 @@ export interface ISelectChipsProps {
 export const inputGlobalStyles = (
   <GlobalStyles
     styles={{
-      scrollbarColor: "#264ca4 #f5f8ff !important",
+      scrollbarColor: `$#264ca4 #f5f8ff !important`,
       "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
         width: "6px",
         height: "6px",
@@ -290,14 +290,14 @@ export default function MultipleSelectChip({
         <Listbox {...getListboxProps()} sx={{ width: width }}>
           {groupedOptions.map((option, index) => (
             <li {...getOptionProps({ option, index })}>
-              <Typography
+              <MuiTypography
                 sx={{
                   ...theme.typography.body1,
                 }}
                 {...getOptionProps({ option, index })}
               >
                 {option.name} <CheckIcon fontSize="small" />
-              </Typography>
+              </MuiTypography>
             </li>
           ))}
         </Listbox>

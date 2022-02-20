@@ -1,5 +1,4 @@
-import React from "react";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import MuiSwitch from "@mui/material/Switch";
 import MuiTypography from "@mui/material/Typography";
 import MuiBox from "@mui/material/Box";
@@ -74,11 +73,9 @@ const Switch = ({
         opacity: 1,
         backgroundColor: theme.palette[colored ? "success" : "error"].light,
       },
-
       "&.Mui-checked": {
         transform: `translateX(${styles[size].switchBase.transform}px)`,
         color: "#fff",
-
         "& + .MuiSwitch-track": {
           opacity: 1,
           border: 0,
@@ -95,14 +92,13 @@ const Switch = ({
       width: `${styles[size].thumb.width}px`,
       height: `${styles[size].thumb.height}px`,
       color: "#ffffff",
-
       boxShadow: "none",
     },
-
     "& .MuiSwitch-track": {
       opacity: 1,
     },
   };
+
   const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
 
   return (

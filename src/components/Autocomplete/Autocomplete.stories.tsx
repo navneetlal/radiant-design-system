@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Autocomplete from ".";
-import { Typography } from "@mui/material";
+import  MuiTypography  from "@mui/material/Typography";
 import AddIcon from "../../icons/AddIcon";
 
 export default {
@@ -12,14 +12,14 @@ export default {
     label: "Select Chip",
     placeholder: "Choose",
     children: (
-      <Typography
+      <MuiTypography
         variant="body1"
         color="primary"
         onMouseDown={() => alert("hello world")}
       >
         <AddIcon />
         Add New Transporter
-      </Typography>
+      </MuiTypography>
     ),
     options: [
       { id: 1, name: "Siddhant" },

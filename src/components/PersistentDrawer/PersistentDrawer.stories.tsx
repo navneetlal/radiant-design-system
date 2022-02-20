@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import  ArrowLeft  from "../../icons/ArrowLeftIcon";
+import  ArrowLeftIcon  from "../../icons/ArrowLeftIcon";
 import PersistentDrawer from ".";
 
 export default {
@@ -57,29 +57,29 @@ Navigation.args = {
   topNavigation: [
     {
       name: "Dashboard",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/",
     },
     {
       name: "Track & Trace",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/tnt/trips",
     },
     {
       name: "Reports",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/reports",
     },
   ],
   bottomNavigation: [
     {
       name: "Settings",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/settings",
     },
     {
       name: "Help",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/help",
     },
   ],
@@ -91,29 +91,29 @@ Collapsed.args = {
   topNavigation: [
     {
       name: "Dashboard",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/",
     },
     {
       name: "Track & Trace",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/tnt/trips",
     },
     {
       name: "Reports",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/reports",
     },
   ],
   bottomNavigation: [
     {
       name: "Settings",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/settings",
     },
     {
       name: "Help",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/help",
     },
   ],
@@ -128,29 +128,29 @@ Toggle.args = {
   topNavigation: [
     {
       name: "Dashboard",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/",
     },
     {
       name: "Track & Trace",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/tnt/trips",
     },
     {
       name: "Reports",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/reports",
     },
   ],
   bottomNavigation: [
     {
       name: "Settings",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/settings",
     },
     {
       name: "Help",
-      icon: <ArrowLeft />,
+      icon: <ArrowLeftIcon />,
       path: "/help",
     },
   ],

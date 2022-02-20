@@ -1,13 +1,13 @@
 import React from "react";
-import { IconButton as MuiIconButton } from "@mui/material";
-import Typography from "@mui/material/Typography";
+import MuiIconButton  from "@mui/material/IconButton";
+import MuiTypography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
-import { Box } from "@mui/material";
+import  MuiBox  from "@mui/material/Box";
 import Button from "../Button/Button";
 import { IButtonProps } from "../Button/Button";
 import ToolTip from "../Tooltip/Tooltip";
-import ChevronLeft from "@mui/icons-material/ChevronLeft";
-import ChevronRight from "@mui/icons-material/ChevronRight";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Navigation from "./Navigation";
 import { INavigationProps } from "./Navigation";
 import AddIcon from "../../icons/AddIcon/AddIcon";
@@ -64,8 +64,8 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
     callToActionButtonCollapseProps,
     topNavigation = [],
     bottomNavigation = [],
-    ExpandIcon = ChevronRight,
-    CollapseIcon = ChevronLeft,
+    ExpandIcon = ChevronRightIcon,
+    CollapseIcon = ChevronLeftIcon,
     onToggleIconClick,
     navigationProps,
   } = props;
@@ -90,7 +90,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
 
   const theme = useTheme();
   return (
-    <Box
+    <MuiBox
       sx={{
         position: "relative",
         top: 0,
@@ -109,7 +109,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
         justifyContent: "space-between",
       }}
     >
-      <Box
+      <MuiBox
         sx={{
           height: "calc(100% - 56px)",
           flexGrow: 1,
@@ -117,7 +117,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
           flexDirection: "column",
         }}
       >
-        <Box
+        <MuiBox
           sx={{
             width: "100%",
             display: "flex",
@@ -131,7 +131,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
             {expanded ? <CollapseIcon /> : <ExpandIcon />}
           </MuiIconButton>
           {expanded && (
-            <Box
+            <MuiBox
               sx={{
                 height: "64px",
                 width: "calc(100% - 64px)",
@@ -139,11 +139,11 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
               }}
             >
               <img alt="brand logo" style={{ height: "75%" }} src={brandURL} />
-            </Box>
+            </MuiBox>
           )}
-        </Box>
+        </MuiBox>
         {callToActionButton && (
-          <Box
+          <MuiBox
             sx={{
               minHeight: "88px",
               display: "flex",
@@ -161,9 +161,9 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
                 </MuiIconButton>
               </ToolTip>
             )}
-          </Box>
+          </MuiBox>
         )}
-        <Box
+        <MuiBox
           sx={{
             height: "calc(100% - 154px)",
             overflow: "auto",
@@ -184,22 +184,22 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
             },
 
             "&::-webkit-scrollbar-thumb": {
-              background: " #264ca4",
+              background: theme.palette.primary.dark,
               borderRadius: '4px',
             },
           }}
         >
-          <Box style={{ flexGrow: 1 }}>
+          <MuiBox style={{ flexGrow: 1 }}>
             <Navigation
               navigation={topNavigation}
               expanded={expanded}
               {...navigationProps}
               //   onClick={() => setSettingsNav(!settingsNav)}
             />
-          </Box>
+          </MuiBox>
 
           {expanded && (
-            <Box
+            <MuiBox
               sx={{
                 margin: "2px 24px",
                 padding: "16px",
@@ -210,16 +210,16 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
                 },
               }}
             >
-              <Typography variant="h4">{announcement.title}</Typography>
-              <Typography variant="body1" color="textSecondary">
+              <MuiTypography variant="h4">{announcement.title}</MuiTypography>
+              <MuiTypography variant="body1" color="textSecondary">
                 {announcement.content}
-              </Typography>
+              </MuiTypography>
               <a target="_blank" href="https://www.intugine.com/" rel="noreferrer">
                 <Button {...announcement.action} />
               </a>
-            </Box>
+            </MuiBox>
           )}
-          <Box
+          <MuiBox
             sx={{
               height: "144px",
               borderBottom: "1px solid #bfd2fd",
@@ -231,10 +231,10 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
               {...navigationProps}
               //   onClick={() => setSettingsNav(!settingsNav)}
             />
-          </Box>
-        </Box>
-      </Box>
-      <Box
+          </MuiBox>
+        </MuiBox>
+      </MuiBox>
+      <MuiBox
         sx={{
           width: "100%",
           maxHeight: '56px',
@@ -246,9 +246,9 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
         }}
       >
         <img src={footer.brandLogo} style={{ width: '40px', height: '40px' }} alt= "footer-brandLogo" />
-        {expanded && <Typography variant="body2">{footer.tagLine}</Typography>}
-      </Box>
-    </Box>
+        {expanded && <MuiTypography variant="body2">{footer.tagLine}</MuiTypography>}
+      </MuiBox>
+    </MuiBox>
   );
 };
 

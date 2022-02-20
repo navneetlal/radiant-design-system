@@ -1,14 +1,15 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
+import MuiBox from "@mui/material/Box";
 import useAutocomplete from "@mui/material/useAutocomplete";
-import Typography from "@mui/material/Typography";
+import MuiTypography from "@mui/material/Typography";
 import useTheme from "@mui/material/styles/useTheme";
 import styled from "@mui/material/styles/styled";
-import InputLabel from "@mui/material/InputLabel";
-import { Root } from "../SelectChipDropdown/SelectChipDropdown";
-import { InputWrapper } from "../SelectChipDropdown/SelectChipDropdown";
-import { inputGlobalStyles } from "../SelectChipDropdown/SelectChipDropdown";
-
+import MuiInputLabel from "@mui/material/InputLabel";
+import {
+  Root,
+  InputWrapper,
+  inputGlobalStyles,
+} from "../SelectChipDropdown/SelectChipDropdown";
 
 const Listbox = styled("ul")(
   ({ theme }) => `
@@ -51,9 +52,7 @@ const Listbox = styled("ul")(
 `
 );
 
-
 export interface ISelectChipsProps {
-  
   label?: string;
   placeholder?: string;
   required?: boolean;
@@ -132,7 +131,7 @@ export default function Autocomplete({
   return (
     <Root {...otherProps}>
       {inputGlobalStyles}
-      <Box
+      <MuiBox
         {...getRootProps()}
         onFocus={() => setIsOpen(true)}
         onBlur={() => setIsOpen(false)}
@@ -145,7 +144,7 @@ export default function Autocomplete({
         }}
       >
         {(label || required) && (
-          <InputLabel
+          <MuiInputLabel
             {...getInputLabelProps()}
             sx={{
               ...theme.typography.h6,
@@ -158,7 +157,7 @@ export default function Autocomplete({
             }}
           >
             {label} <span>{required && "*"}</span>
-          </InputLabel>
+          </MuiInputLabel>
         )}
 
         <InputWrapper
@@ -198,7 +197,7 @@ export default function Autocomplete({
             }}
           />
         </InputWrapper>
-      </Box>
+      </MuiBox>
 
       {(groupedOptions.length > 0 || options.length === 0) && (
         <Listbox
@@ -225,14 +224,14 @@ export default function Autocomplete({
           {groupedOptions &&
             groupedOptions.map((option, index) => (
               <li {...getOptionProps({ option, index })}>
-                <Typography
+                <MuiTypography
                   sx={{
                     ...theme.typography.body1,
                   }}
                   {...getOptionProps({ option, index })}
                 >
                   {option.name}
-                </Typography>
+                </MuiTypography>
               </li>
             ))}
           <li

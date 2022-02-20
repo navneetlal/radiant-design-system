@@ -1,5 +1,4 @@
-import React from "react";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import MuiChip from "@mui/material/Chip";
 import { useTheme } from "@mui/material/styles";
 import type { ChipProps } from "@mui/material/Chip";
@@ -30,7 +29,7 @@ const Chip = ({
     backgroundColor: selected
       ? theme.palette.primary.main
       : theme.palette.grey[300],
-    color: selected ? "#ffffff" : "#1A1A1A",
+    color: selected ? "#ffffff" : theme.palette.common.black,
     ...(fromMultiSelect && {
       marginRight: "4px",
     }),
@@ -43,9 +42,9 @@ const Chip = ({
       backgroundColor: selected
         ? theme.palette.primary.main
         : theme.palette.primary[100],
-      color: selected ? "#ffffff" : "#1A1A1A",
+      color: selected ? "#ffffff" : theme.palette.common.black,
       "& path": {
-        fill: selected ? "#ffffff" : "#1A1A1A",
+        fill: selected ? "#ffffff" : theme.palette.common.black,
       },
     },
     ...(disabled && {
@@ -61,7 +60,7 @@ const Chip = ({
   };
 
   const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
-  
+
   return (
     <MuiChip
       deleteIcon={
@@ -71,7 +70,7 @@ const Chip = ({
               ? "#ffffff"
               : disabled
               ? theme.palette.grey[100]
-              : "#1A1A1A"
+              : theme.palette.common.black
           }
         />
       }

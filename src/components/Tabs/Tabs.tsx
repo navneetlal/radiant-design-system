@@ -1,11 +1,11 @@
-import React, { useState,useMemo } from "react";
+import React, { useState, useMemo } from "react";
 
 import MuiTab from "@mui/material/Tab";
 import MuiTabs from "@mui/material/Tabs";
+import MuiBox from "@mui/material/Box";
 import { mergeDeep } from "../../utils/deepMerge";
 import { useTheme } from "@mui/material/styles";
 import type { TabsProps } from "@mui/material/Tabs";
-import { Box } from "@mui/material";
 
 export interface ITabProps extends TabsProps {
   tabs: any[];
@@ -52,9 +52,9 @@ const Tabs = ({
     },
   };
   const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
-  
+
   return (
-    <Box sx={{ borderColor: "divider", width: `${width}%` }}>
+    <MuiBox sx={{ borderColor: "divider", width: `${width}%` }}>
       <MuiTabs
         value={value}
         indicatorColor="primary"
@@ -74,7 +74,7 @@ const Tabs = ({
           <MuiTab {...otherProps} disabled={disabled} {...item} sx={finalSx} />
         ))}
       </MuiTabs>
-    </Box>
+    </MuiBox>
   );
 };
 

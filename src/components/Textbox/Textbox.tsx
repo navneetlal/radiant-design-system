@@ -60,7 +60,7 @@ export const BootstrapInput = ({
           }),
       height: size === "small" ? "32px" : "40px",
       padding: size === "small" ? "8px 12px" : "10px 16px",
-      color: disabled ? theme.palette.grey[100] : `#1A1A1A`,
+      color: disabled ? theme.palette.grey[100] : theme.palette.common.black,
       "&:focus": {
         borderColor: theme.palette.primary.main,
       },
@@ -134,7 +134,7 @@ const Textbox = ({
             },
             {
               marginBottom: size === "small" ? "4px" : "8px",
-              color: disabled ? theme.palette.grey[100] : `#1A1A1A !important`,
+              color: disabled ? theme.palette.grey[100] : `${theme.palette.common.black} !important`,
             },
           ]}
           htmlFor={id}

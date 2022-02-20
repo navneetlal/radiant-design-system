@@ -1,8 +1,7 @@
-import React from "react";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import MuiBox from "@mui/material/Box";
 import MuiRadio from "@mui/material/Radio";
-import {mergeDeep} from '../../utils/deepMerge'
+import { mergeDeep } from "../../utils/deepMerge";
 import { useTheme } from "@mui/material/styles";
 import type { RadioProps } from "@mui/material/Radio";
 
@@ -47,7 +46,7 @@ const Radio = ({
     }),
   };
   const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
-  
+
   return (
     <MuiBox
       sx={{
@@ -57,7 +56,9 @@ const Radio = ({
         width: "max-content",
         height: "auto",
         "&>p": {
-          color: disabled ? `${theme.palette.grey[100]} !important` : "#1A1A1A",
+          color: disabled
+            ? `${theme.palette.grey[100]} !important`
+            : theme.palette.common.black,
         },
         "&>span:hover": {
           backgroundColor: `transparent !important`,
@@ -102,7 +103,13 @@ const Radio = ({
         sx={finalSx}
       />
       {label && (
-        <p style={{ color: disabled ? theme.palette.grey[100] : "#1A1A1A" }}>
+        <p
+          style={{
+            color: disabled
+              ? theme.palette.grey[100]
+              : theme.palette.common.black,
+          }}
+        >
           {label}
         </p>
       )}

@@ -1,9 +1,9 @@
 import React from "react";
-import Box from "@mui/material/Box";
+import MuiBox from "@mui/material/Box";
 
 const Header = ({ brandURL, expanded }: any) => {
   return (
-    <Box
+    <MuiBox
       sx={{
         width: "auto",
         height: "64px",
@@ -13,14 +13,14 @@ const Header = ({ brandURL, expanded }: any) => {
         borderBottom: "1px solid #bfd2fd",
       }}
     >
-      <Box
+      <MuiBox
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <Box
+        <MuiBox
           sx={{
             width: "100%",
             display: "flex",
@@ -31,7 +31,7 @@ const Header = ({ brandURL, expanded }: any) => {
           }}
         >
           {!expanded && (
-            <Box
+            <MuiBox
               sx={{
                 height: "64px",
                 width: "calc(100% - 64px)",
@@ -39,18 +39,18 @@ const Header = ({ brandURL, expanded }: any) => {
               }}
             >
               <img alt="brand logo" style={{ height: "75%" }} src={brandURL} />
-            </Box>
+            </MuiBox>
           )}
-        </Box>
-      </Box>
-      <Box
+        </MuiBox>
+      </MuiBox>
+      <MuiBox
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
         }}
-      ></Box>
-    </Box>
+      ></MuiBox>
+    </MuiBox>
   );
 };
 
