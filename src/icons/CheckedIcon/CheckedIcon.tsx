@@ -8,7 +8,7 @@ export interface ICheckIconProps extends SvgIconProps {
 
 const CheckIcon = ({ disabled = false, ...props }: ICheckIconProps) => {
   return (
-    <MuiSvgIcon {...props} sx={{ width: '20px', height: '20px', margin: 'auto' }} viewBox="0 0 20 20">
+    <MuiSvgIcon {...props} style={{ width: '20px', height: '20px', margin: 'auto' }} viewBox="0 0 20 20">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

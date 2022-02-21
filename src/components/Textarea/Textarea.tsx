@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useMemo } from "react";
 import MuiInputLabel from "@mui/material/InputLabel";
-import InputBase from "@mui/material/InputBase";
-import Box from "@mui/material/Box";
+import MuiInputBase from "@mui/material/InputBase";
+import MuiBox from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
+
+import { mergeDeep } from "../../utils/deepMerge";
 
 export interface ITextAreaProps {
   label?: string;
@@ -18,6 +20,7 @@ export interface ITextAreaProps {
 }
 
 const TextArea = ({
+  sx,
   label,
   placeholder,
   width = 312,
@@ -30,8 +33,34 @@ const TextArea = ({
   ...otherProps
 }: ITextAreaProps) => {
   const theme = useTheme();
+
+  const originalSx = {
+    "& .MuiInputBase-input": {
+      resize: "none",
+      color: theme.palette.text.primary,
+      borderRadius: "4px",
+      position: "relative",
+      ...theme.typography.body2,
+      border: `1px solid ${theme.palette.grey[350]}`,
+      backgroundColor: disabled ? "#F2F2F2" : theme.palette.common.white,
+      width: width,
+      borderColor: disabled
+        ? theme.palette.grey[100]
+        : alert
+        ? theme.palette.error.main
+        : "",
+      alignSelf: "flex-end",
+      padding: "8px 12px",
+      "&:focus": {
+        borderColor: theme.palette.primary.main,
+      },
+    },
+  };
+
+  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+
   return (
-    <Box sx={{ flexWrap: "flex" }}>
+    <MuiBox sx={{ flexWrap: "flex" }}>
       {(label || required) && (
         <MuiInputLabel
           sx={{
@@ -47,33 +76,10 @@ const TextArea = ({
           {label} <span>{required ? "*" : ""}</span>
         </MuiInputLabel>
       )}
-      <InputBase
+      <MuiInputBase
         multiline
         rows={3}
-        sx={{
-          "& .MuiInputBase-input": {
-            resize: "none",
-            color: theme.palette.text.primary,
-            borderRadius: "4px",
-            position: "relative",
-            ...theme.typography.body2,
-            border: `1px solid ${theme.palette.grey[350]}`,
-            backgroundColor: disabled ? "#F2F2F2" : theme.palette.common.white,
-            width: width,
-            borderColor: disabled
-              ? theme.palette.grey[100]
-              : alert
-              ? theme.palette.error.main
-              : "",
-            alignSelf: "flex-end",
-            padding: "8px 12px",
-            "&:focus": {
-              borderColor: theme.palette.primary.main,
-              
-            },
-          
-          }
-        }}
+        sx={finalSx}
         placeholder={placeholder}
         value={value}
         id={id}
@@ -82,7 +88,7 @@ const TextArea = ({
         onClick={onClick}
         {...otherProps}
       />
-    </Box>
+    </MuiBox>
   );
 };
 

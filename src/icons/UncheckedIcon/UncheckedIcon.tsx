@@ -9,7 +9,7 @@ export interface IUncheckedIcon extends SvgIconProps {
   disabled?: boolean;
 }
 
-const UnCheckedIcon = ({ alert = false, disabled = false, ...otherProps }: any) => {
+const UnCheckedIcon = ({ alert = false, disabled = false,sx, ...otherProps }: IUncheckedIcon) => {
   const theme = useTheme();
   const styles = {
     border: "1px solid gray",
@@ -24,12 +24,12 @@ const UnCheckedIcon = ({ alert = false, disabled = false, ...otherProps }: any) 
             ? theme.palette?.support?.error?.main
             : theme.palette.grey[100],
           fill: disabled ? theme.palette?.grey[150] : "",
-        }
+        },
+        margin: "auto",
+        ...sx
       }}
       viewBox="0 0 20 20"
-      style={{
-        margin: "auto",
-      }}
+      
       {...otherProps}
     >
       <path

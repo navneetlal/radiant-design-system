@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useMemo } from "react";
 import MuiBox from "@mui/material/Box";
 import MuiInputBase from "@mui/material/InputBase";
 import MuiInputLable from "@mui/material/InputLabel";
@@ -7,16 +6,24 @@ import MuiInputLable from "@mui/material/InputLabel";
 import { useTheme } from "@mui/material/styles";
 
 import type { InputBaseProps } from "@mui/material/InputBase";
-
+import { mergeDeep } from "../../utils/deepMerge";
 export interface IInputProps extends InputBaseProps {
+  /**
+   * Input Label
+   */
+  //customSx: SystemStyleObject;
   label?: string;
   disabled?: boolean;
   size?: "small" | "medium";
-  width ?: number
+  /**
+   * Custom width for the component
+   */
+  width?: number;
   [key: string]: any;
 }
 
 const Input = ({
+  sx,
   label,
   size = "medium",
   width = 312,
@@ -33,6 +40,33 @@ const Input = ({
     },
   };
   const theme = useTheme();
+
+  const originalSx = {
+    "& .MuiInputBase-input.Mui-disabled": {
+      WebkitTextFillColor: "unset",
+    },
+    "& .MuiInputBase-input": {
+      ...(size ? styles[size] : styles["small"]),
+      width: `${width - 14}px`,
+      borderTop: "auto",
+      outline: "none",
+      border: `1px solid ${
+        disabled ? theme.palette.grey[100] : theme.palette.grey[350]
+      }`,
+      borderRadius: "4px",
+      padding: 0,
+      paddingLeft: "12px",
+      color: "black",
+      ...theme.typography.body2,
+
+      "&:focus": {
+        outline: "none",
+        border: `1px solid ${theme.palette.primary.main} !important`,
+      },
+    },
+  };
+
+  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
   return (
     <MuiBox>
       {(label || required) && (
@@ -49,34 +83,7 @@ const Input = ({
         </MuiInputLable>
       )}
 
-      <MuiInputBase
-        disabled={disabled}
-        sx={{
-          "& .MuiInputBase-input.Mui-disabled": {
-            WebkitTextFillColor: "unset",
-          },
-          "& .MuiInputBase-input": {
-            ...(size ? styles[size] : styles["small"]),
-            width: `${width - 14}px`,
-            borderTop: "auto",
-            outline: "none",
-            border: `1px solid ${
-              disabled ? theme.palette.grey[100] : theme.palette.grey[350]
-            }`,
-            borderRadius: "4px",
-            padding: 0,
-            paddingLeft: "12px",
-            color: "black",
-            ...theme.typography.body2,
-
-            "&:focus": {
-              outline: "none",
-              border: `1px solid ${theme.palette.primary.main} !important`,
-            },
-          },
-        }}
-        {...otherProps}
-      />
+      <MuiInputBase disabled={disabled} sx={finalSx} {...otherProps} />
     </MuiBox>
   );
 };

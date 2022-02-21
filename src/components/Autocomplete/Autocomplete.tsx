@@ -1,55 +1,15 @@
 import * as React from "react";
-import { Box, GlobalStyles, Paper, useAutocomplete } from "@mui/material";
-
-import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
-import InputLabel from "@mui/material/InputLabel";
-import { useTheme } from "@mui/material/styles";
-const Root = styled("div")(
-  () => `
-  color: 'rgba(0,0,0,.85)';
-  font-size: 14px;
-`
-);
-
-const InputWrapper = styled("div")(
-  ({ theme }) => `
-  border: 1px solid #C7C7C7;
-  background-color: #fff;
-  border-radius: 4px;
-  padding: 1px;
-  display: flex;
-  flex-wrap: wrap;
-
- 
-  &.focused {
-    border-color: #396de7;
-    
-  }
-  & input:disabled {
-    ::placeholder {
-      color : ${theme.palette.grey[100]};
-    }
-  }
-  
-
-  & input {
-    background-color: #fff;
-    color: ${theme.palette.common.black}!important;
-    ::placeholder {
-      color : ${theme.palette.grey[650]};
-    }
-    box-sizing: border-box;
-    padding: 4px 12px;
-    overflow : hidden;
-    min-width: 32px;
-    flex-grow: 1;
-    border: 0;
-    margin: 0;
-    outline: 0;
-  }
-`
-);
+import MuiBox from "@mui/material/Box";
+import useAutocomplete from "@mui/material/useAutocomplete";
+import MuiTypography from "@mui/material/Typography";
+import useTheme from "@mui/material/styles/useTheme";
+import styled from "@mui/material/styles/styled";
+import MuiInputLabel from "@mui/material/InputLabel";
+import {
+  Root,
+  InputWrapper,
+  inputGlobalStyles,
+} from "../SelectChipDropdown/SelectChipDropdown";
 
 const Listbox = styled("ul")(
   ({ theme }) => `
@@ -92,31 +52,6 @@ const Listbox = styled("ul")(
 `
 );
 
-export const inputGlobalStyles = (
-  <GlobalStyles
-    styles={{
-      scrollbarColor: "#264ca4 #f5f8ff !important",
-      "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
-        width: "6px",
-        height: "6px",
-        position: "absolute",
-      },
-      "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
-        borderRadius: "4px",
-        backgroundColor: "#264ca4",
-        minWidth: "6px",
-        minHeight: "6px",
-      },
-      "&::-webkit-scrollbar-track": {
-        background: "#f5f8ff",
-        position: "absolute",
-      },
-      "&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover": {
-        background: "#12285a",
-      },
-    }}
-  />
-);
 export interface ISelectChipsProps {
   label?: string;
   placeholder?: string;
@@ -124,15 +59,32 @@ export interface ISelectChipsProps {
   width?: number;
   size?: "small" | "medium";
   alert?: boolean;
+  /**
+   * Options inside the dropdown
+   */
   options?: any[];
+  /**
+   * Default Value
+   */
   value?: {
     id: number;
     name: string;
   };
+  /**
+   * Whether you want the child to stick to the top or the bottom of the dropdown
+   */
   childrenPlacement?: "top" | "bottom";
   onChange?: any;
+
+  /**
+   * This element will stick to the top or bottom
+   */
   children?: React.ReactElement;
   disabled?: boolean;
+
+  /**
+   * Callback on Input Change
+   */
   onInputChange?: any;
   [key: string]: any;
 }
@@ -164,7 +116,7 @@ export default function Autocomplete({
   } = useAutocomplete({
     defaultValue: value,
     multiple: false,
-    options: options!,
+    options: options,
     onChange: (_, v) => {
       if (onChange) onChange(v);
     },
@@ -179,11 +131,10 @@ export default function Autocomplete({
   return (
     <Root {...otherProps}>
       {inputGlobalStyles}
-      <Box
+      <MuiBox
         {...getRootProps()}
         onFocus={() => setIsOpen(true)}
-          onBlur={() => setIsOpen(false)}
-          
+        onBlur={() => setIsOpen(false)}
         sx={{
           "&:focus-within": {
             "&+$listbox": {
@@ -193,7 +144,7 @@ export default function Autocomplete({
         }}
       >
         {(label || required) && (
-          <InputLabel
+          <MuiInputLabel
             {...getInputLabelProps()}
             sx={{
               ...theme.typography.h6,
@@ -206,7 +157,7 @@ export default function Autocomplete({
             }}
           >
             {label} <span>{required && "*"}</span>
-          </InputLabel>
+          </MuiInputLabel>
         )}
 
         <InputWrapper
@@ -231,7 +182,8 @@ export default function Autocomplete({
             disabled={disabled}
             style={{
               height: size === "small" ? "32px" : "40px",
-              backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
+              backgroundImage: `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA9klEQVRIib3S3ypEURiG8Z99oiQ1Ug4UF6Ek3IWUcA9yA3IDmmuQmrmQkdyBOaQpJU5E+8yfg712pG1m7zVre+s7WLV6nrW+Xv4h2xjiM/EMsaUleDm3GTrJd/KdxQz9FgV9WMKL9Ot5xXKGZ3RbeP05HsvDfDikev0TFn4bTxIKjqu+NIv7BPC7wKrMQQLB/l9wmMFgCvh1YIzNOt4j4B/YmAQvcxkhuKgLhxW8NYDnWG0igLMGgtOmcJjDqAZ8FO5G5aiG4DAWTlG5qzHwGzVqOSmbigpW1XJnWniZXoWglwpOUcH8BzzHWkoB7OEhzG5qeHS+AGL7/4uMQPSDAAAAAElFTkSuQmCC)`,
+              
               color: disabled
                 ? theme.palette.grey[100]
                 : theme.palette.grey[650],
@@ -246,7 +198,7 @@ export default function Autocomplete({
             }}
           />
         </InputWrapper>
-      </Box>
+      </MuiBox>
 
       {(groupedOptions.length > 0 || options.length === 0) && (
         <Listbox
@@ -254,9 +206,9 @@ export default function Autocomplete({
           sx={{
             width: `${width}px`,
             display:
-              (options.length === 0) && !isOpen
+              options.length === 0 && !isOpen
                 ? "none"
-                : (options.length === 0) && !isOpen
+                : options.length === 0 && !isOpen
                 ? "block"
                 : "",
           }}
@@ -273,14 +225,14 @@ export default function Autocomplete({
           {groupedOptions &&
             groupedOptions.map((option, index) => (
               <li {...getOptionProps({ option, index })}>
-                <Typography
+                <MuiTypography
                   sx={{
                     ...theme.typography.body1,
                   }}
                   {...getOptionProps({ option, index })}
                 >
                   {option.name}
-                </Typography>
+                </MuiTypography>
               </li>
             ))}
           <li

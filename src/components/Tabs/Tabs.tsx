@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 import MuiTab from "@mui/material/Tab";
 import MuiTabs from "@mui/material/Tabs";
-
+import MuiBox from "@mui/material/Box";
+import { mergeDeep } from "../../utils/deepMerge";
 import { useTheme } from "@mui/material/styles";
 import type { TabsProps } from "@mui/material/Tabs";
-import { Box } from "@mui/material";
 
 export interface ITabProps extends TabsProps {
   tabs: any[];
 
-  width ?: number;
+  width?: number;
   onTabChange?: any;
   initialTabValue?: number;
   disabled?: boolean;
@@ -18,6 +18,7 @@ export interface ITabProps extends TabsProps {
 }
 const Tabs = ({
   tabs,
+  sx,
   width = 100,
   onTabChange,
   initialTabValue = 0,
@@ -37,9 +38,23 @@ const Tabs = ({
     if (onTabChange) {
       onTabChange(value);
     }
-  }, [value]);
+  }, [value, onTabChange]);
+
+  const originalSx = {
+    color: theme.palette.common.black,
+    borderBottom: `1px solid ${theme.palette.grey[350]}`,
+
+    textTransform: "none",
+    ...theme.typography.h5,
+    width: `${width}%`,
+    "&&:hover": {
+      color: theme.palette.primary.main,
+    },
+  };
+  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+
   return (
-    <Box sx={{ borderColor: "divider", width : `${width}%`}}>
+    <MuiBox sx={{ borderColor: "divider", width: `${width}%` }}>
       <MuiTabs
         value={value}
         indicatorColor="primary"
@@ -51,31 +66,15 @@ const Tabs = ({
             backgroundColor: `${
               !disabled ? theme.palette.primary.main : theme.palette.grey[350]
             }`,
-            
           },
         }}
         {...otherProps}
       >
         {tabs.map((item: any) => (
-          <MuiTab
-          {...otherProps}
-            disabled={disabled}
-            {...item}
-            sx={{
-              color: theme.palette.common.black,
-              borderBottom: `1px solid ${theme.palette.grey[350]}`,
-    
-              textTransform: "none",
-              ...theme.typography.h5,
-              width : `${width}%`,
-              "&&:hover": {
-                color: theme.palette.primary.main,
-              },
-            }}
-          />
+          <MuiTab {...otherProps} disabled={disabled} {...item} sx={finalSx} />
         ))}
       </MuiTabs>
-    </Box>
+    </MuiBox>
   );
 };
 

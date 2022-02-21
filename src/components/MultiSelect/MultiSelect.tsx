@@ -22,7 +22,6 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
     return (
       <MuiInputBase
         sx={{
-          
           flexGrow: 1,
           WebkitBoxFlex: 1,
           paddingBottom: "0px !important",
@@ -30,7 +29,7 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
           "& .MuiInputBase-input": {
             order: "3px",
             padding: 0,
-            marginLeft : '16px',
+            marginLeft: "16px",
             ...theme.typography.body2,
             borderColor: alert
               ? theme.palette?.support?.error?.main
@@ -38,8 +37,8 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
             alignSelf: "flex-end",
             height: "32px",
             color: `${theme.palette.common.black} !important`,
-            width : 'auto',
-    
+            width: "auto",
+
             cursor: "pointer",
           },
         }}
@@ -53,11 +52,34 @@ const BootstrapInput = React.forwardRef<any, IBootstrapInputProps>(
 );
 
 export interface IMultiSelectProps {
+  /**
+   * Input Label
+   */
   label?: string;
+
+  /**
+   * Input Placeholder
+   */
   placeholder?: string;
+
+  /**
+   * OnChange Handler
+   */
   onChange?: any;
+
+  /**
+   * Set Custom width
+   */
   width?: number;
+
+  /**
+   * If true border color will become red
+   */
   alert?: boolean;
+
+  /**
+   * Values added to the input
+   */
   options?: string[];
   required?: boolean;
   selectedOptions?: any;
@@ -65,14 +87,10 @@ export interface IMultiSelectProps {
   [key: string]: any;
 }
 
-const tempFunc = () => {
-  console.log();
-};
-
 export default function MultiSelect({
   label,
   placeholder,
-  onChange = tempFunc,
+  onChange,
   width = 312,
   alert,
   required = false,
@@ -86,8 +104,10 @@ export default function MultiSelect({
   }, [options]);
 
   useEffect(() => {
-    onChange([...option]);
-  }, [option]);
+    if (!!onChange) {
+      onChange([...option]);
+    }
+  }, [option, onChange]);
 
   const handleAdd = () => {
     option.add(value);
@@ -109,20 +129,19 @@ export default function MultiSelect({
               disabled={disabled}
               sx={{
                 ...theme.typography.h6,
-                color: "#1A1A1A",
+                color: theme.palette.common.black,
                 "&>span": {
                   color: theme.palette.error.main,
                 },
               }}
             >
-              {label && label}
+              {label}
               <span>{required && "*"}</span>
             </MuiInputLabel>
           )}
 
           <MuiBox
             sx={{
-              
               display: "flex",
               flexWrap: "wrap",
               borderRadius: "4px",

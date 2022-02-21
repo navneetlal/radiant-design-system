@@ -4,7 +4,7 @@ import {
   SvgIcon as MuiSvgIcon,
 } from "@mui/material";
 
-export interface IDotIconProps {
+export interface IDotIconProps extends MuiSvgIconProps{
   fillColor?: string;
   [key: string]: any;
 }
@@ -12,7 +12,7 @@ export interface IDotIconProps {
 const DotIcon = ({ fillColor, ...otherProps }: IDotIconProps) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "16px", height: "16px" }}
+      style={{ width: "16px", height: "16px" }}
       viewBox="0 0 8 8 "
       {...otherProps}
     >

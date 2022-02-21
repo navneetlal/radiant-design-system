@@ -1,14 +1,14 @@
 import React from "react";
 
-import MuiBox from '@mui/material/Box';
-import MuiTypography from '@mui/material/Typography'
+import MuiBox from "@mui/material/Box";
+import MuiTypography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 
 export interface ICounterProps {
   number: number;
   status: string;
   icon?: any;
-  selected?: Boolean;
+  selected?: boolean;
   onClick?: any;
 }
 

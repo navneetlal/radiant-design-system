@@ -17,7 +17,7 @@ export const ConsentIcon = ({
   return (
     <MuiSvgIcon
       {...otherProps}
-      sx={{ width: "16px", height: "16px", cursor: "pointer" }}
+      style={{ width: "16px", height: "16px", cursor: "pointer" }}
       viewBox="0 0 16 16"
     >
       <path

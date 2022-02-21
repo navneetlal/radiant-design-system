@@ -12,7 +12,7 @@ const CircleIcon = ({ fillColor, ...otherProps }: ICircleIconProps) => {
   return (
     <MuiSvgIcon
       {...otherProps}
-      sx={{ width: "12px", height: "12px", cursor: "pointer" }}
+      style={{ width: "12px", height: "12px", cursor: "pointer" }}
       viewBox="0 0 16 16"
     >
       <path

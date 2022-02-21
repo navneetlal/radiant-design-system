@@ -1,59 +1,56 @@
 import React from "react";
-import Box from "@mui/material/Box";
+import MuiBox from "@mui/material/Box";
 
 const Header = ({ brandURL, expanded }: any) => {
-  
   return (
-    <Box
+    <MuiBox
       sx={{
         width: "auto",
-        height: '64px',
+        height: "64px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
         borderBottom: "1px solid #bfd2fd",
       }}
     >
-      <Box
+      <MuiBox
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <Box
+        <MuiBox
           sx={{
             width: "100%",
             display: "flex",
             alignItems: "center",
-            minHeight: '64',
-            maxHeight: '64',
+            minHeight: "64px",
+            maxHeight: "64px",
             borderBottom: "1px solid #bfd2fd",
           }}
         >
           {!expanded && (
-            <Box
+            <MuiBox
               sx={{
-                brandLogo: {
-                  height: '64',
-                  width: "calc(100% - 64px)",
-                  textAlign: "center",
-                },
+                height: "64px",
+                width: "calc(100% - 64px)",
+                textAlign: "center",
               }}
             >
               <img alt="brand logo" style={{ height: "75%" }} src={brandURL} />
-            </Box>
+            </MuiBox>
           )}
-        </Box>
-      </Box>
-      <Box
+        </MuiBox>
+      </MuiBox>
+      <MuiBox
         sx={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
         }}
-      ></Box>
-    </Box>
+      ></MuiBox>
+    </MuiBox>
   );
 };
 

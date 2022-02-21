@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useMemo } from "react";
 import MuiBox from "@mui/material/Box";
 import MuiCheckbox from "@mui/material/Checkbox";
 import MuiTypography from "@mui/material/Typography";
@@ -7,25 +6,43 @@ import MuiTypography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 
 import type { CheckboxProps } from "@mui/material/Checkbox";
-
-import CheckIcon from "../../icons/CheckedIcon/CheckedIcon";
+import { mergeDeep } from "../../utils/deepMerge";
+import CheckedIcon from "../../icons/CheckedIcon/CheckedIcon";
 import UnCheckedIcon from "../../icons/UncheckedIcon/UncheckedIcon";
 
 export interface ICheckboxProps extends CheckboxProps {
   size?: "small" | "medium";
   label?: string;
+  /**
+   * Border Color of the component becomes Red
+   */
   alert?: boolean;
   disabled?: boolean;
   [key: string]: any;
 }
 const Checkbox = ({
   size = "medium",
+  sx,
   label,
   disabled = false,
   alert,
   ...otherProps
 }: ICheckboxProps) => {
   const theme = useTheme();
+
+  const originalSx = {
+    "&:hover": {
+      "#unchecked": {
+        "&>path": {
+          stroke: theme.palette.primary.main,
+          fill: theme.palette.primary[50],
+        },
+      },
+    },
+  };
+
+  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+
   return (
     <MuiBox
       sx={[
@@ -50,23 +67,16 @@ const Checkbox = ({
       ]}
     >
       <MuiCheckbox
-        checkedIcon={<CheckIcon disabled={disabled}/>}
-        icon={<UnCheckedIcon alert={alert} disabled={disabled} />}
+        checkedIcon={<CheckedIcon disabled={disabled} />}
+        icon={
+          <UnCheckedIcon alert={alert} disabled={disabled} id="unchecked" />
+        }
         size={size}
         disabled={disabled}
         disableRipple
         color="primary"
         {...otherProps}
-        sx={{
-          "&:hover": {
-            "& svg": {
-              "&>path": {
-                stroke: !otherProps.checked ? theme.palette.primary.main : '',
-                fill: !otherProps.checked ? theme.palette.primary[50] : '',
-              },
-            },
-          },
-        }}
+        sx={finalSx}
       />
       {!!label && (
         <MuiTypography

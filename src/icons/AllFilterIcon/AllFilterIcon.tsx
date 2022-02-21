@@ -13,7 +13,7 @@ const AllFilterIcon = ({ fillColor, ...otherProps }: IAllFilterIconProps) => {
   return (
     <MuiSvgIcon
       {...otherProps}
-      sx={{ width: "40px", height: "40px" }}
+      style={{ width: "40px", height: "40px" }}
       viewBox="0 0 40 40"
     >
       <g clipPath="url(#clip0)">

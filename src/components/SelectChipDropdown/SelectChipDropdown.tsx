@@ -3,20 +3,21 @@ import { useAutocomplete } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 
 import Chip from "../Chip";
-import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
+import MuiTypography from "@mui/material/Typography";
+import useTheme from "@mui/material/styles/useTheme";
+import styled from "@mui/material/styles/styled";
 import InputLabel from "@mui/material/InputLabel";
-import { useTheme } from "@mui/material/styles";
 import GlobalStyles from "@mui/material/GlobalStyles";
-const Root = styled("div")(
+
+export const Root = styled("div")(
   () => `
   color: 'rgba(0,0,0,.85)';
   font-size: 14px;
 `
 );
 
-const InputWrapper = styled("div")(
-  ({theme}) => `
+export const InputWrapper = styled("div")(
+  ({ theme }) => `
   border: 1px solid #C7C7C7;
   background-color: #fff;
   border-radius: 4px;
@@ -41,7 +42,7 @@ const InputWrapper = styled("div")(
       color : ${theme.palette.grey[650]}
     }
     background-color: #fff;
-    color: 'rgba(0,0,0,.85)'
+    color: ${theme.palette.common.black}!important;
     height: 32px;
     box-sizing: border-box;
     padding: 4px 12px;
@@ -108,25 +109,60 @@ const Listbox = styled("ul")(
 );
 
 export interface ISelectChipsProps {
+  /**
+   * Input Label
+   */
   label?: string;
+
+  /**
+   * Input Placeholder
+   */
   placeholder?: string;
+
+  /**
+   * OnChange handler
+   */
   onChange?: any;
+
+  /**
+   * Custom Width
+   */
   width?: number;
+  
+  /**
+   * If true border color will become red
+   */
   alert?: boolean;
+
+  /**
+   * Set true if input is compulsory
+   */
   required?: boolean;
-  disabled ?: boolean;
+
+  /**
+   * If true component would be disabled
+   */
+  disabled?: boolean;
+
+  /**
+   * Dropdown Options which should appear
+   */
   options?: {
     id: number;
     name: string;
   }[];
+
+  /**
+   * Options which are selected from dropdown
+   */
   selectedOptions?: any;
   [key: string]: any;
 }
 
-const inputGlobalStyles = (
+export const inputGlobalStyles = (
   <GlobalStyles
     styles={{
-      scrollbarColor: "#264ca4 #f5f8ff !important",
+      scrollbarColor: `$#264ca4 #f5f8ff !important`,
       "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
         width: "6px",
         height: "6px",
@@ -173,7 +209,6 @@ export default function MultipleSelectChip({
     focused,
     setAnchorEl,
   } = useAutocomplete({
-    id: "customized-hook-demo",
     defaultValue: selectedOptions,
     multiple: true,
     options: options!,
@@ -193,14 +228,16 @@ export default function MultipleSelectChip({
             {...getInputLabelProps()}
             sx={{
               ...theme.typography.h6,
-              color: disabled ? theme.palette.grey[100] : theme.palette.common.black,
+              color: disabled
+                ? theme.palette.grey[100]
+                : theme.palette.common.black,
               marginBottom: "4px !important",
               "&>span": {
                 color: theme.palette.error.main,
               },
             }}
           >
-            {label && label} <span>{required && "*"}</span>
+            {label} <span>{required && "*"}</span>
           </InputLabel>
         )}
         <InputWrapper
@@ -212,8 +249,8 @@ export default function MultipleSelectChip({
               : alert
               ? theme.palette.error.main
               : "",
-            backgroundColor : disabled ? theme.palette.grey[150] : '',
-            width : width
+            backgroundColor: disabled ? theme.palette.grey[150] : "",
+            width: width,
           }}
         >
           {value.map((option: any, index: number) => (
@@ -231,12 +268,16 @@ export default function MultipleSelectChip({
             required={required}
             disabled={disabled}
             style={{
-              height: '40px',
+              height: "40px",
               flexGrow: "1px",
-              cursor:'pointer',
-              backgroundColor : disabled ? theme.palette.grey[150] : theme.palette.common.white,
-              color : disabled ? theme.palette.grey[100] : theme.palette.grey[650],
-              backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
+              cursor: "pointer",
+              backgroundColor: disabled
+                ? theme.palette.grey[150]
+                : theme.palette.common.white,
+              color: disabled
+                ? theme.palette.grey[100]
+                : theme.palette.grey[650],
+              backgroundImage: `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA9klEQVRIib3S3ypEURiG8Z99oiQ1Ug4UF6Ek3IWUcA9yA3IDmmuQmrmQkdyBOaQpJU5E+8yfg712pG1m7zVre+s7WLV6nrW+Xv4h2xjiM/EMsaUleDm3GTrJd/KdxQz9FgV9WMKL9Ot5xXKGZ3RbeP05HsvDfDikev0TFn4bTxIKjqu+NIv7BPC7wKrMQQLB/l9wmMFgCvh1YIzNOt4j4B/YmAQvcxkhuKgLhxW8NYDnWG0igLMGgtOmcJjDqAZ8FO5G5aiG4DAWTlG5qzHwGzVqOSmbigpW1XJnWniZXoWglwpOUcH8BzzHWkoB7OEhzG5qeHS+AGL7/4uMQPSDAAAAAElFTkSuQmCC)`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
               backgroundSize: "8px",
@@ -246,17 +287,17 @@ export default function MultipleSelectChip({
         </InputWrapper>
       </div>
       {groupedOptions.length > 0 ? (
-        <Listbox {...getListboxProps()} sx={{width : width}}>
+        <Listbox {...getListboxProps()} sx={{ width: width }}>
           {groupedOptions.map((option, index) => (
             <li {...getOptionProps({ option, index })}>
-              <Typography
+              <MuiTypography
                 sx={{
                   ...theme.typography.body1,
                 }}
                 {...getOptionProps({ option, index })}
               >
                 {option.name} <CheckIcon fontSize="small" />
-              </Typography>
+              </MuiTypography>
             </li>
           ))}
         </Listbox>

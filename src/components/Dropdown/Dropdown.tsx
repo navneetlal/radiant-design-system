@@ -8,10 +8,21 @@ import MuiBox from "@mui/material/Box";
 import { styled, useTheme } from "@mui/material/styles";
 
 import type { InputBaseProps } from "@mui/material/InputBase";
-import { inputGlobalStyles } from "../Autocomplete/Autocomplete";
+import { inputGlobalStyles } from "../SelectChipDropdown/SelectChipDropdown";
 export interface IBootstrapInputProps extends InputBaseProps {
+  /**
+   * Input Border Color would turn red if true
+   */
   alert?: boolean;
+
+  /**
+   * Set Custom Width for the component
+   */
   width?: number;
+
+  /**
+   * If True component would be disabled
+   */
   disabled?: boolean;
   size?: "small" | "medium";
   [key: string]: any;
@@ -58,11 +69,12 @@ const BootstrapInput = forwardRef<any, IBootstrapInputProps>(
               padding: size === "small" ? "8px 12px" : "10px 16px",
               cursor: disabled ? "not-allowed" : "pointer",
               caretColor: "transparent",
-              backgroundImage: `url(${"https://img.icons8.com/external-those-icons-fill-those-icons/24/000000/external-down-arrows-those-icons-fill-those-icons-6.png"})`,
+              backgroundImage: `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA9klEQVRIib3S3ypEURiG8Z99oiQ1Ug4UF6Ek3IWUcA9yA3IDmmuQmrmQkdyBOaQpJU5E+8yfg712pG1m7zVre+s7WLV6nrW+Xv4h2xjiM/EMsaUleDm3GTrJd/KdxQz9FgV9WMKL9Ot5xXKGZ3RbeP05HsvDfDikev0TFn4bTxIKjqu+NIv7BPC7wKrMQQLB/l9wmMFgCvh1YIzNOt4j4B/YmAQvcxkhuKgLhxW8NYDnWG0igLMGgtOmcJjDqAZ8FO5G5aiG4DAWTlG5qzHwGzVqOSmbigpW1XJnWniZXoWglwpOUcH8BzzHWkoB7OEhzG5qeHS+AGL7/4uMQPSDAAAAAElFTkSuQmCC)`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "95% 50%",
 
               backgroundSize: "8px",
+
               width:
                 size === "small"
                   ? width
@@ -142,18 +154,51 @@ const Listbox = styled("ul")(
 );
 
 export interface IDropDown {
+  /**
+   * Input Label Text
+   */
   label?: string;
+  /**
+   * Input Placeholder text
+   */
   placeholder?: string;
+  /**
+   * Whether the input if compulsary or not
+   */
   required?: boolean;
+
+  /**
+   * Set Custom width for the component
+   */
   width?: number;
+
+  /**
+   * If true Input Border Color would turn to red
+   */
   alert?: boolean;
+
+  /**
+   * Dropdown options
+   */
   options?: any[];
   size?: "small" | "medium";
+
+  /**
+   * Default Value for the dropdown
+   */
   value?: {
     id: number;
     name: string;
   };
+
+  /**
+   * OnChange Handler
+   */
   onChange?: any;
+
+  /**
+   * Element would stick to the top or bottom in the dropdown
+   */
   children?: React.ReactNode;
   childrenPlacement?: "top" | "bottom";
   disabled?: boolean;
@@ -173,7 +218,6 @@ const Dropdown = ({
   children,
   disabled,
   childrenPlacement = "top",
-  elevation,
 }: IDropDown) => {
   const [data, setData] = useState(value);
   const [isOpen, setIsOpen] = useState(false);
@@ -204,7 +248,9 @@ const Dropdown = ({
                   color: theme.palette?.support?.error?.main,
                 },
                 marginBottom: size === "small" ? "4px" : "8px",
-                color: disabled ? theme.palette.grey[100] : `#1A1A1A !important`,
+                color: disabled
+                  ? theme.palette.grey[100]
+                  : `${theme.palette.common.black} !important`,
               },
             ]}
           >
@@ -222,7 +268,7 @@ const Dropdown = ({
         />
       </MuiBox>
 
-      <Listbox sx={{ display: isOpen ? "block" : "none", width : {width} }}>
+      <Listbox sx={{ display: isOpen ? "block" : "none", width: { width } }}>
         <li
           style={{
             position: "sticky",
@@ -239,8 +285,7 @@ const Dropdown = ({
               key={option.id}
               style={{
                 color: data?.id === option.id ? theme.palette.primary.dark : "",
-                backgroundColor:
-                  data?.id === option.id ? '#e6f7ff' : "",
+                backgroundColor: data?.id === option.id ? "#e6f7ff" : "",
               }}
             >
               <MuiTypography

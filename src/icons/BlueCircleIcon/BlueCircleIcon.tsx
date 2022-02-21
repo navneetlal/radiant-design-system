@@ -12,7 +12,7 @@ const BlueCircleIcon = ({ fillColor, ...otherProps }: IBlueCircleIconProps) => {
   return (
     <MuiSvgIcon
       {...otherProps}
-      sx={{ width: "16px", height: "16px" }}
+      style={{ width: "16px", height: "16px" }}
       viewBox="0 0 16 16"
     >
       <circle cx="8" cy="8" r="8" fill={fillColor || "#BFD2FD"} />

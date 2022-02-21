@@ -9,7 +9,7 @@ export interface IStatusButtonsProps {
   number: number;
   color?: "primary" | "secondary" | "error" | "warning" | "success";
   text: string;
-  selected?: Boolean;
+  selected?: boolean;
   onClick?: any;
   [key: string]: any;
 }
@@ -45,7 +45,7 @@ const StatusButtons = ({
         cursor: "pointer",
       }}
     >
-      <Base size="small" color={color} variant="body1">
+      <Base size="small" color={color}>
         {number}
       </Base>
       <MuiTypography sx={{ ...theme.typography.h6, padding: "8px 4px" }}>

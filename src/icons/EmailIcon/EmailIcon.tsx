@@ -5,7 +5,7 @@ import {
   SvgIcon as MuiSvgIcon,
 } from "@mui/material";
 
-export interface IEmailIconProps {
+export interface IEmailIconProps extends MuiSvgIconProps {
   fillColor?: string;
   [key: string]: any;
 }
@@ -13,7 +13,7 @@ export interface IEmailIconProps {
 const EmailIcon = ({ fillColor, ...otherProps }: IEmailIconProps) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "16px", height: "16px" }}
+      style={{ width: "16px", height: "16px" }}
       viewBox="0 0 16 16"
       {...otherProps}
     >

@@ -1,9 +1,8 @@
-import React, { lazy, Suspense } from "react";
+import React, { Suspense } from "react";
 import MuiTypography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import MuiBox from "@mui/material/Box";
 import ToolTip from "../Tooltip/Tooltip";
 import { useTheme } from "@mui/material/styles";
-
 
 export interface IiconProps {
   color?: string;
@@ -35,6 +34,71 @@ export interface INavigationProps {
   linkElementProps?: any;
 }
 
+const ExpandedBox = ({ active, Icon, name, expanded = true }: any) => {
+  const theme = useTheme();
+  return (
+    <MuiBox
+      component="span"
+      sx={[
+        {
+          display: "flex",
+          alignItems: "center",
+          height: "56px",
+          color: theme.palette.primary.main,
+          padding: "0 16px",
+          cursor: "pointer",
+          textDecoration: "none !important",
+          "&:hover": {
+            backgroundColor: theme.palette.primary.contrastText,
+          },
+        },
+        active && {
+          color: "#ffffff",
+          backgroundColor: theme.palette.primary.main,
+          "&:hover": {
+            backgroundColor: theme.palette.primary.dark,
+          },
+        },
+      ]}
+    >
+      <MuiBox
+        component="span"
+        sx={{
+          marginRight: "16px",
+          display: "flex",
+          alignItems: "center",
+          color: active ? "#fff" : theme.palette.primary.light,
+        }}
+      >
+        {Icon && (
+          <Icon
+            color="currentColor"
+            style={{
+              height: '24px',
+              width: '24px',
+            }}
+            component="span"
+          />
+        )}
+      </MuiBox>
+
+      {expanded && (
+        <MuiTypography
+          variant="h6"
+          sx={{
+            text: {
+              marginLeft: "16px",
+            },
+          }}
+          color="inherit"
+        >
+          {name}
+        </MuiTypography>
+      )}
+    </MuiBox>
+  );
+};
+
 const NavItem = ({
   Icon,
   name,
@@ -53,66 +117,17 @@ const NavItem = ({
   return (
     <LinkElement href={path} {...linkElementProps}>
       {expanded ? (
-        <Box
-          component="span"
-          sx={[
-            {
-              display: "flex",
-              alignItems: "center",
-              height: "56px",
-              color: theme.palette.primary.main,
-              padding: "0 16px",
-              cursor: "pointer",
-              textDecoration: "none !important",
-              "&:hover": {
-                backgroundColor: theme.palette.primary.contrastText,
-              },
-            },
-            active && {
-              color: "#ffffff",
-              backgroundColor: theme.palette.primary.main,
-              "&:hover": {
-                backgroundColor: theme.palette.primary.dark,
-              },
-            },
-          ]}
-        >
-          <Box
-            component="span"
-            sx={{
-              marginRight: "16px",
-              display: "flex",
-              alignItems: "center",
-              color: active ? "#fff" : theme.palette.primary.light,
-            }}
-          >
-            {Icon && (
-              <Icon
-                color="currentColor"
-                style={{
-                  height: 24,
-                  width: 24,
-                }}
-                component="span"
-              />
-            )}
-          </Box>
-
-          <MuiTypography
-            variant="h6"
-            sx={{
-              text: {
-                marginLeft: "16px",
-              },
-            }}
-            color="inherit"
-          >
-            {name}
-          </MuiTypography>
-        </Box>
+        <ExpandedBox active={active} name={name} Icon={Icon} />
       ) : (
+        <>
+           {/* <ExpandedBox
+            active={active}
+            name={name}
+            expanded={false}
+            Icon={Icon}
+          />  */}
         <ToolTip title={name} color="dark" placement="top" size="small">
-          <Box
+          <MuiBox
             component="span"
             sx={[
               {
@@ -136,7 +151,7 @@ const NavItem = ({
               },
             ]}
           >
-            <Box
+            <MuiBox
               component="span"
               sx={{
                 marginRight: '16px',
@@ -154,9 +169,10 @@ const NavItem = ({
                   }}
                 />
               )}
-            </Box>
-          </Box>
+            </MuiBox>
+          </MuiBox>
         </ToolTip>
+        </>
       )}
     </LinkElement>
   );

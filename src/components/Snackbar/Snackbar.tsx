@@ -1,5 +1,5 @@
 import React from 'react'
-import MUISnackbar from "@mui/material/Snackbar";
+import MuiSnackbar from "@mui/material/Snackbar";
 import { useTheme } from "@mui/material/styles";
 import type { SnackbarProps } from '@mui/material/Snackbar'
 export interface ISnackbarProps extends SnackbarProps {
@@ -14,7 +14,7 @@ const Snackbar = ({
 }: ISnackbarProps) => {
   const theme = useTheme();
 
-  const getBackgroundColor = (color: ISnackbarProps['color']) => {
+  const getBackgroundColor = () => {
     switch (color) {
       case "primary":
         return theme.palette.primary.main;
@@ -30,12 +30,12 @@ const Snackbar = ({
   }
 
   return (
-    <MUISnackbar
+    <MuiSnackbar
       autoHideDuration={3000}
       anchorOrigin={anchorOrigin}
       ContentProps={{
         sx: {
-          backgroundColor: getBackgroundColor(color),
+          backgroundColor: getBackgroundColor(),
           cursor: 'pointer'
         }
       }}

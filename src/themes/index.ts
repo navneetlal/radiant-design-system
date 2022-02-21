@@ -7,6 +7,8 @@ declare module '@mui/material' {
     150: string;
     350: string;
     650: string;
+    'dark': string;
+    'main' : string;
   }
 }
 
@@ -14,7 +16,9 @@ declare module '@mui/material/styles' {
   export interface PaletteColor {
     900: string,
     800: string,
+    650: string,
     600: string,
+    350: string,
     200: string,
     100: string,
     50: string,
@@ -40,4 +44,5 @@ export const theme = {
   lightTheme,
   darkTheme
 }
+
 
