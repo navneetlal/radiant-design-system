@@ -25,6 +25,7 @@ export { default as CollapseIcon } from "./CollapseIcon";
 export { default as ConsentIcon } from "./ConsentIcon";
 export { default as CopyIcon } from "./CopyIcon";
 export { default as CutIcon } from "./CutIcon";
+export { default as DeleteIcon } from "./DeleteIcon";
 export { default as DesktopIcon } from "./DesktopIcon";
 export { default as DeviceTrackingIcon } from "./DeviceTrackingIcon";
 export { default as DocumentIcon } from "./DocumentIcon";
@@ -59,6 +60,8 @@ export { default as OptionMenuIcon } from "./OptionMenuIcon";
 export { default as OverSpeedIcon } from "./OverSpeedIcon";
 export { default as PlayIcon } from "./PlayIcon";
 export { default as QuestionMarkIcon } from "./QuestionMarkIcon";
+export { default as ReportIcon } from "./ReportIcon";
+
 export { default as RunningTruckIcon } from "./QuestionMarkIcon";
 export { default as SaveIcon } from "./SaveIcon";
 export { default as SearchIcon } from "./SearchIcon";
@@ -78,78 +81,3 @@ export { default as UserIcon } from "./UserIcon";
 export { default as ViewBoxIcon } from "./ViewBoxIcon";
 export { default as WarehouseIcon } from "./WarehouseIcon";
 export { default as YellowFlagIcon } from "./YellowFlagIcon";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,12 +1,12 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
 
 const DropIcon = ({ ...props }: MuiSvgIconProps) => {
   return (
-    <MuiSvgIcon style={{ width: "40px", height: "40px" }} viewBox="0 0 40 40" {...props}>
+    <MuiSvgIcon viewBox="0 0 40 40" {...props}>
       <path
         d="M18.366 18.3823V37.5492L19.9999 40.0002V18.3823H18.366Z"
         fill="#A1A1A1"

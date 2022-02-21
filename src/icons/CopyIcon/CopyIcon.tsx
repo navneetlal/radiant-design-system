@@ -12,7 +12,6 @@ const CopyIcon = ({ fillColor, ...otherProps }: ICopyIconProps) => {
   return (
     <MuiSvgIcon
       {...otherProps}
-      style={{ width: "14px", height: "14px", cursor: "pointer" }}
       viewBox="0 0 16 16"
     >
       <path

@@ -1,16 +1,14 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
 
 const NoDataIcon = ({ ...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       {...props}
-      //style={{ width: "200px", height: "132px" }}
       viewBox="0 0 200 132"
-      // xmlnsXlink="http://www.w3.org/1999/xlink"
     >
       <rect width="200" height="132" fill="url(#pattern0)" />
       <defs>

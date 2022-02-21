@@ -65,6 +65,7 @@ const Chip = ({
     <MuiChip
       deleteIcon={
         <ChipIcon
+          style={{ marginRight: "12px", fontSize: "8px", cursor: "pointer" }}
           fillColor={
             selected && !disabled
               ? "#ffffff"

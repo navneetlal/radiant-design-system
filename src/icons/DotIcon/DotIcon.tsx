@@ -12,7 +12,6 @@ export interface IDotIconProps extends MuiSvgIconProps{
 const DotIcon = ({ fillColor, ...otherProps }: IDotIconProps) => {
   return (
     <MuiSvgIcon
-      style={{ width: "16px", height: "16px" }}
       viewBox="0 0 8 8 "
       {...otherProps}
     >

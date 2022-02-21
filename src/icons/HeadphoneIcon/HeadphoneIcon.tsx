@@ -1,8 +1,8 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
 
 export interface IHeadPhoneIconProps extends MuiSvgIconProps{
   fillColor?: string;
@@ -13,7 +13,6 @@ const HeadPhoneIcon = ({ fillColor, ...otherProps }: IHeadPhoneIconProps) => {
   return (
     <MuiSvgIcon
       viewBox="0 0 16 16"
-      style={{ width: "16px", height: "16px" }}
       {...otherProps}
     >
       <path

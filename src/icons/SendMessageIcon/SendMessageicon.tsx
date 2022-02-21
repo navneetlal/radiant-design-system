@@ -1,8 +1,7 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
 
 export interface ISendMessageIconProps extends MuiSvgIconProps {
   fillColor?: string;
@@ -15,7 +14,6 @@ const SendMessageIcon = ({
 }: ISendMessageIconProps) => {
   return (
     <MuiSvgIcon
-      style={{ width: "24px", height: "24px" }}
       viewBox="0 0 24 24"
       {...otherProps}
     >

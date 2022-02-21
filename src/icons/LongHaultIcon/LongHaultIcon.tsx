@@ -1,12 +1,12 @@
-import React from 'react';
-import {
-    SvgIconProps as MuiSvgIconProps,
-    SvgIcon as MuiSvgIcon,
-  } from "@mui/material";
+import React from "react";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
 
 const LongHalt = ({...props} : MuiSvgIconProps) => {
   return (
-    <MuiSvgIcon style = {{width : '24px' , height : '25px' , backgroundColor : '#ffffff'}} viewBox="0 0 24 24" {...props}>
+    <MuiSvgIcon viewBox="0 0 24 24" {...props}>
       <g clipPath="url(#clip0)">
         <path
           d="M12 11.5862V23.5862"

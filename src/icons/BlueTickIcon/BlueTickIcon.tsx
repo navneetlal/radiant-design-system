@@ -11,7 +11,6 @@ export interface IBlueTickProps extends MuiSvgIconProps {
 const BlueTick = ({ fillColor, ...otherDetails }: IBlueTickProps) => {
   return (
     <MuiSvgIcon
-      style={{ width: "16px", height: "16px" }}
       viewBox="0 0 16 16"
       {...otherDetails}
     >

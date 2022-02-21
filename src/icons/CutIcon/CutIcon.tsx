@@ -9,7 +9,7 @@ export interface ICutIconProps extends SvgIconProps{
 }
 const CutIcon = ({ fillColor, ...otherProps }: ICutIconProps) => {
   return (
-    <MuiSvgIcon {...otherProps} viewBox="0 0 16 16"style = {{width : '16px' , height : '16px'}}>
+    <MuiSvgIcon {...otherProps} viewBox="0 0 16 16">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

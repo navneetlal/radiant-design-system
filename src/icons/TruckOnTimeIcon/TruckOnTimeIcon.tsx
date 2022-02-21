@@ -1,15 +1,14 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
 
 
 const TruckOnTimeIcon = ({...props} : MuiSvgIconProps) => {
   return (
-    <MuiSvgIcon style = {{width : '72px', height : '40px'}} viewBox="0 0 24 30" {...props}>
+    <MuiSvgIcon viewBox="0 0 24 30" {...props}>
       <g filter="url(#filter0_d)">
         <path
           d="M0 19C0 10.1634 7.16344 3 16 3V3C24.8366 3 32 10.1634 32 19V19C32 27.8366 24.8366 35 16 35V35C7.16344 35 0 27.8366 0 19V19Z"

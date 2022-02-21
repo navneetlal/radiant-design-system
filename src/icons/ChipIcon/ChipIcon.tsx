@@ -4,19 +4,12 @@ import type { SvgIconProps } from '@mui/material/SvgIcon'
 
 export interface IChipIconProps extends SvgIconProps {
   fillColor?: string;
-  [key: string]: any;
 }
 
 const ChipIcon = ({ fillColor = "#ffffff", ...otherProps }: IChipIconProps) => {
   return (
     <MuiSvgIcon
       {...otherProps}
-      style={{
-        width: "8px",
-        height: "8px",
-        cursor: "pointer",
-        marginRight: "12px",
-      }}
       viewBox="0 0 8 8"
     >
       <path

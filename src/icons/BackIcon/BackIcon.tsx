@@ -12,7 +12,6 @@ const BackIcon = ({ fillColor, ...otherProps }: IBackIconProps) => {
   return (
     <MuiSvgIcon
       {...otherProps}
-      style={{ width: "20px", height: "8px" }}
       viewBox="0 0 12 8"
     >
       <path
