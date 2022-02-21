@@ -3,7 +3,7 @@ import MuiTypography from "@mui/material/Typography";
 import MuiBox from "@mui/material/Box";
 import ToolTip from "../Tooltip/Tooltip";
 import { useTheme } from "@mui/material/styles";
-
+import Help from "@mui/icons-material/Help";
 export interface IiconProps {
   color?: string;
   style?: {
@@ -13,7 +13,7 @@ export interface IiconProps {
 }
 
 export interface INavItemProps {
-  Icon: React.FunctionComponent<any>;
+  Icon: React.ReactNode;
   name: any;
   path: any;
   navigation: any;
@@ -34,7 +34,7 @@ export interface INavigationProps {
   linkElementProps?: any;
 }
 
-const ExpandedBox = ({ active, Icon, name, expanded = true }: any) => {
+const ExpandedBox = ({ active, Icon , name, expanded = true }: any) => {
   const theme = useTheme();
   return (
     <MuiBox
@@ -70,15 +70,8 @@ const ExpandedBox = ({ active, Icon, name, expanded = true }: any) => {
           color: active ? "#fff" : theme.palette.primary.light,
         }}
       >
-        {Icon && (
-          <Icon
-            color="currentColor"
-            style={{
-              height: '24px',
-              width: '24px',
-            }}
-            component="span"
-          />
+        {!!Icon && (
+          Icon
         )}
       </MuiBox>
 
@@ -92,7 +85,7 @@ const ExpandedBox = ({ active, Icon, name, expanded = true }: any) => {
           }}
           color="inherit"
         >
-          {name}
+          {name} 
         </MuiTypography>
       )}
     </MuiBox>
@@ -161,13 +154,7 @@ const NavItem = ({
               }}
             >
               {Icon && (
-                <Icon
-                  color="currentColor"
-                  style={{
-                    height: '24px',
-                    width: '24px',
-                  }}
-                />
+                Icon
               )}
             </MuiBox>
           </MuiBox>

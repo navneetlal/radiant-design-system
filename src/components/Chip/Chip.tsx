@@ -25,41 +25,42 @@ const Chip = ({
 }: IChipsProps) => {
   const theme = useTheme();
 
-  const originalSx = {
-    backgroundColor: selected
-      ? theme.palette.primary.main
-      : theme.palette.grey[300],
-    color: selected ? "#ffffff" : theme.palette.common.black,
-    ...(fromMultiSelect && {
-      marginRight: "4px",
-    }),
-    "&:focus": {
+  const finalSx = useMemo(() => {
+    const originalSx = {
       backgroundColor: selected
         ? theme.palette.primary.main
         : theme.palette.grey[300],
-    },
-    "&:hover": {
-      backgroundColor: selected
-        ? theme.palette.primary.main
-        : theme.palette.primary[100],
       color: selected ? "#ffffff" : theme.palette.common.black,
-      "& path": {
-        fill: selected ? "#ffffff" : theme.palette.common.black,
+      ...(fromMultiSelect && {
+        marginRight: "4px",
+      }),
+      "&:focus": {
+        backgroundColor: selected
+          ? theme.palette.primary.main
+          : theme.palette.grey[300],
       },
-    },
-    ...(disabled && {
-      backgroundColor: `${theme.palette.grey[300]} !important`,
-      opacity: `1 !important`,
-      color: theme.palette.grey[100],
-    }),
-    ...(fromSelectChip && {
-      marginRight: "4px",
-      marginBottom: "4px",
-      marginTop: "4px",
-    }),
-  };
-
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+      "&:hover": {
+        backgroundColor: selected
+          ? theme.palette.primary.main
+          : theme.palette.primary[100],
+        color: selected ? "#ffffff" : theme.palette.common.black,
+        "& path": {
+          fill: selected ? "#ffffff" : theme.palette.common.black,
+        },
+      },
+      ...(disabled && {
+        backgroundColor: `${theme.palette.grey[300]} !important`,
+        opacity: `1 !important`,
+        color: theme.palette.grey[100],
+      }),
+      ...(fromSelectChip && {
+        marginRight: "4px",
+        marginBottom: "4px",
+        marginTop: "4px",
+      }),
+    };
+    return mergeDeep(originalSx, sx);
+  }, [sx, disabled, selected, fromSelectChip, fromMultiSelect, theme]);
 
   return (
     <MuiChip

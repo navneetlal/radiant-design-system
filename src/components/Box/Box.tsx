@@ -33,26 +33,28 @@ const Box = ({
 }: IBoxProps) => {
   const theme = useTheme();
 
-  const originalSx = {
-    fontFamily: '"Source Sans Pro", sans-serif !important',
-    borderRadius: "4px !important",
-    width: "max-content",
-    padding: "4px 4px",
-    backgroundColor: theme.palette[color].light,
-    color: theme.palette.common.black,
-    ...(size === "small" && {
-      ...theme.typography.body2,
-    }),
-    ...(size === "medium" && {
-      ...theme.typography.body1,
-    }),
-    ...(size === "large" && {
-      ...theme.typography.subtitle2,
-    }),
-  };
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      fontFamily: '"Source Sans Pro", sans-serif !important',
+      borderRadius: "4px !important",
+      width: "max-content",
+      padding: "4px 4px",
+      backgroundColor: theme.palette[color].light,
+      color: theme.palette.common.black,
+      ...(size === "small" && {
+        ...theme.typography.body2,
+      }),
+      ...(size === "medium" && {
+        ...theme.typography.body1,
+      }),
+      ...(size === "large" && {
+        ...theme.typography.subtitle2,
+      }),
+    };
 
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
-  
+    return mergeDeep(originalSx, sx);
+  }, [sx, theme, color, size]);
+
   return (
     <MuiBox sx={finalSx} style={style} {...otherProps}>
       {children}

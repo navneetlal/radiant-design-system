@@ -53,53 +53,55 @@ const Switch = ({
 }: ISwitchProps) => {
   const theme = useTheme();
 
-  const originalSx = {
-    width: `${styles[size].root.width}px`,
-    height: `${styles[size].root.height}px`,
-    padding: 0,
-    borderRadius: "5000px",
-    "& .MuiSwitch-switchBase": {
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      width: `${styles[size].root.width}px`,
+      height: `${styles[size].root.height}px`,
       padding: 0,
-      margin: "1.5px",
-      transitionDuration: "300ms",
-      "& + .MuiSwitch-track": {
-        backgroundColor: `${
-          colored
-            ? theme.palette?.support?.success?.main
-            : theme.palette?.support?.error?.main
-        }`,
-      },
-      "&.Mui-disabled + .MuiSwitch-track": {
-        opacity: 1,
-        backgroundColor: theme.palette[colored ? "success" : "error"].light,
-      },
-      "&.Mui-checked": {
-        transform: `translateX(${styles[size].switchBase.transform}px)`,
-        color: "#fff",
+      borderRadius: "5000px",
+      "& .MuiSwitch-switchBase": {
+        padding: 0,
+        margin: "1.5px",
+        transitionDuration: "300ms",
         "& + .MuiSwitch-track": {
-          opacity: 1,
-          border: 0,
           backgroundColor: `${
             colored
-              ? theme.palette?.support?.success?.[disabled ? "light" : "main"]
-              : theme.palette?.support?.error?.[disabled ? "light" : "main"]
+              ? theme.palette?.support?.success?.main
+              : theme.palette?.support?.error?.main
           }`,
         },
+        "&.Mui-disabled + .MuiSwitch-track": {
+          opacity: 1,
+          backgroundColor: theme.palette[colored ? "success" : "error"].light,
+        },
+        "&.Mui-checked": {
+          transform: `translateX(${styles[size].switchBase.transform}px)`,
+          color: "#fff",
+          "& + .MuiSwitch-track": {
+            opacity: 1,
+            border: 0,
+            backgroundColor: `${
+              colored
+                ? theme.palette?.support?.success?.[disabled ? "light" : "main"]
+                : theme.palette?.support?.error?.[disabled ? "light" : "main"]
+            }`,
+          },
+        },
       },
-    },
-    "& .MuiSwitch-thumb": {
-      boxSizing: "border-box",
-      width: `${styles[size].thumb.width}px`,
-      height: `${styles[size].thumb.height}px`,
-      color: "#ffffff",
-      boxShadow: "none",
-    },
-    "& .MuiSwitch-track": {
-      opacity: 1,
-    },
-  };
+      "& .MuiSwitch-thumb": {
+        boxSizing: "border-box",
+        width: `${styles[size].thumb.width}px`,
+        height: `${styles[size].thumb.height}px`,
+        color: "#ffffff",
+        boxShadow: "none",
+      },
+      "& .MuiSwitch-track": {
+        opacity: 1,
+      },
+    };
 
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+    return mergeDeep(originalSx, sx);
+  }, [sx, theme, size, disabled, colored]);
 
   return (
     <MuiBox

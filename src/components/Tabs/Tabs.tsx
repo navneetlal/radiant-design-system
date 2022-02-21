@@ -40,18 +40,21 @@ const Tabs = ({
     }
   }, [value, onTabChange]);
 
-  const originalSx = {
-    color: theme.palette.common.black,
-    borderBottom: `1px solid ${theme.palette.grey[350]}`,
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      color: theme.palette.common.black,
+      borderBottom: `1px solid ${theme.palette.grey[350]}`,
 
-    textTransform: "none",
-    ...theme.typography.h5,
-    width: `${width}%`,
-    "&&:hover": {
-      color: theme.palette.primary.main,
-    },
-  };
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+      textTransform: "none",
+      ...theme.typography.h5,
+      width: `${width}%`,
+      "&&:hover": {
+        color: theme.palette.primary.main,
+      },
+    };
+
+    return mergeDeep(originalSx, sx);
+  }, [sx, theme, width]);
 
   return (
     <MuiBox sx={{ borderColor: "divider", width: `${width}%` }}>

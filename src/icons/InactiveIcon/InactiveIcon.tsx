@@ -3,7 +3,6 @@ import React from "react";
 import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
 import MuiSvgIcon from "@mui/material/SvgIcon";
 
-import { useTheme } from "@mui/material/styles";
 
 const Inactive = ({
   color,

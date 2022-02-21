@@ -18,7 +18,7 @@ export default {
         color="primary"
         onMouseDown={() => alert("hello world")}
       >
-        <AddIcon />
+        <AddIcon sx = {{fontSize : '12px'}} />
         Add New Transporter
       </MuiTypography>
     ),
