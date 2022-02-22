@@ -5,7 +5,7 @@ import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
 
-const ArrowDown = ({...props}: MuiSvgIconProps) => {
+const ArrowDownIcon = ({...props}: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       {...props}
@@ -21,4 +21,4 @@ const ArrowDown = ({...props}: MuiSvgIconProps) => {
   );
 };
 
-export default ArrowDown;
+export default ArrowDownIcon;

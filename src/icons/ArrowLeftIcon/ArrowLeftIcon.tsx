@@ -2,7 +2,7 @@ import React from 'react';
 import MuiSvgIcon from '@mui/material/SvgIcon';
 import type { SvgIconProps as MuiSvgIconProps } from '@mui/material/SvgIcon'
 
-const icon = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
+const ArrowLeftIcon = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
     {...props}
@@ -22,4 +22,4 @@ const icon = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) =
   );
 };
 
-export default icon;
+export default ArrowLeftIcon;
