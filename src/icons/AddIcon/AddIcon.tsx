@@ -1,15 +1,15 @@
 import React from 'react';
 import MuiSvgIcon from '@mui/material/SvgIcon';
-import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { SvgIconProps as MuiSvgIconProps } from '@mui/material/SvgIcon'
 
 
-export interface IAddIconProps extends SvgIconProps {
+export interface IAddIconProps extends MuiSvgIconProps {
   fillColor ?: string;
 }
 
 const AddIcon = ({ fillColor, ...otherProps }: IAddIconProps) => {
   return (
-    <MuiSvgIcon {...otherProps} style = {{width : '11px', height : '11px'}} viewBox="0 0 12 12">
+    <MuiSvgIcon {...otherProps} viewBox="0 0 12 12">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

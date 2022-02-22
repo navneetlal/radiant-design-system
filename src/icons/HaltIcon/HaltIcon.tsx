@@ -1,14 +1,13 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
 
 const Halt = ({ ...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       {...props}
-      style={{ width: "25px", height: "24px", backgroundColor: "#ffffff" }}
       viewBox="0 0 25 24"
     >
       <g clipPath="url(#clip0)">

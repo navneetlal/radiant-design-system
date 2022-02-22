@@ -1,15 +1,11 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
 
 const ChevronLeftIcon = ({...props} : MuiSvgIconProps) => {
-  const theme = useTheme();
   return (
     <MuiSvgIcon
-      style={{ width: "24px", height: "24px", fill: theme.palette.common.white }}
       viewBox="0 0 24 24"
       {...props}
     >

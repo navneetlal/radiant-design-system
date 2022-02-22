@@ -8,7 +8,7 @@ export default {
   
   component: CircularProgress,
   args: {
-      label : 'Consignment Delivered Vs POD Delivered',
+      label : 'Consignment Delivered Vs POD Uploaded',
       value : 10
   },
   argTypes : {

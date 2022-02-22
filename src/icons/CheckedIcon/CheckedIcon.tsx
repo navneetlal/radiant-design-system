@@ -1,14 +1,14 @@
 import React from 'react';
 import MuiSvgIcon from '@mui/material/SvgIcon';
-import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { SvgIconProps as MuiSvgIconProps } from '@mui/material/SvgIcon'
 
-export interface ICheckIconProps extends SvgIconProps {
+export interface ICheckIconProps extends MuiSvgIconProps {
   disabled?: boolean
 }
 
 const CheckIcon = ({ disabled = false, ...props }: ICheckIconProps) => {
   return (
-    <MuiSvgIcon {...props} style={{ width: '20px', height: '20px', margin: 'auto' }} viewBox="0 0 20 20">
+    <MuiSvgIcon {...props} viewBox="0 0 20 20">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

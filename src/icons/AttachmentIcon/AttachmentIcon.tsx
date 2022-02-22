@@ -1,8 +1,8 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
 
 export interface IAttachmentIconProps extends MuiSvgIconProps {
   fillColor?: string;
@@ -12,7 +12,6 @@ export interface IAttachmentIconProps extends MuiSvgIconProps {
 const AttachmentIcon = ({ fillColor, ...otherProps }: IAttachmentIconProps) => {
   return (
     <MuiSvgIcon
-      style={{ width: "16px", height: "16px" }}
       viewBox="0 0 16 16"
       {...otherProps}
     >

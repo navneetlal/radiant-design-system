@@ -1,13 +1,12 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
 
 const HomeIcon = ({ ...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
-      sx={{ width: "34px", height: "33px" }}
       viewBox="0 0 34 33"
       {...props}
     >

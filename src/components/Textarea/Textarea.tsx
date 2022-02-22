@@ -34,30 +34,32 @@ const TextArea = ({
 }: ITextAreaProps) => {
   const theme = useTheme();
 
-  const originalSx = {
-    "& .MuiInputBase-input": {
-      resize: "none",
-      color: theme.palette.text.primary,
-      borderRadius: "4px",
-      position: "relative",
-      ...theme.typography.body2,
-      border: `1px solid ${theme.palette.grey[350]}`,
-      backgroundColor: disabled ? "#F2F2F2" : theme.palette.common.white,
-      width: width,
-      borderColor: disabled
-        ? theme.palette.grey[100]
-        : alert
-        ? theme.palette.error.main
-        : "",
-      alignSelf: "flex-end",
-      padding: "8px 12px",
-      "&:focus": {
-        borderColor: theme.palette.primary.main,
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      "& .MuiInputBase-input": {
+        resize: "none",
+        color: theme.palette.text.primary,
+        borderRadius: "4px",
+        position: "relative",
+        ...theme.typography.body2,
+        border: `1px solid ${theme.palette.grey[350]}`,
+        backgroundColor: disabled ? "#F2F2F2" : theme.palette.common.white,
+        width: width,
+        borderColor: disabled
+          ? theme.palette.grey[100]
+          : alert
+          ? theme.palette.error.main
+          : "",
+        alignSelf: "flex-end",
+        padding: "8px 12px",
+        "&:focus": {
+          borderColor: theme.palette.primary.main,
+        },
       },
-    },
-  };
+    };
 
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+    return mergeDeep(originalSx, sx);
+  }, [sx, width, alert, disabled, theme]);
 
   return (
     <MuiBox sx={{ flexWrap: "flex" }}>
