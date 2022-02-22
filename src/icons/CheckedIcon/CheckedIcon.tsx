@@ -1,8 +1,8 @@
 import React from 'react';
 import MuiSvgIcon from '@mui/material/SvgIcon';
-import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { SvgIconProps as MuiSvgIconProps } from '@mui/material/SvgIcon'
 
-export interface ICheckIconProps extends SvgIconProps {
+export interface ICheckIconProps extends MuiSvgIconProps {
   disabled?: boolean
 }
 

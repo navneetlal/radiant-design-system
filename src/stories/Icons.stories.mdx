@@ -436,6 +436,13 @@ import { Tooltip, IconButton, Grid } from "@mui/material";
             </IconButton>
         </Tooltip>
     </Grid>
+    <Grid item>
+        <Tooltip title="RunningTruckIcon">
+            <IconButton variant="outlined" size="large">
+                <Icons.RunningTruckIcon sx = {{fontSize : '24px'}} />
+            </IconButton>
+        </Tooltip>
+    </Grid>
     
     <Grid item>
         <Tooltip title="SaveIcon">
@@ -523,11 +530,7 @@ import { Tooltip, IconButton, Grid } from "@mui/material";
     </Grid>
     <Grid item>
         <Tooltip title="UncheckedIcon">
-            <IconButton variant="outlined" size="large" sx = {{"&:hover" : {
-                backgroundColor : 'black'
-            },
-            backgroundColor : 'black'
-            }}>
+            <IconButton variant="outlined" size="large">
                 <Icons.UncheckedIcon sx = {{fontSize : '24px'}}/>
             </IconButton>
         </Tooltip>

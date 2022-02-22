@@ -61,8 +61,7 @@ export { default as OverSpeedIcon } from "./OverSpeedIcon";
 export { default as PlayIcon } from "./PlayIcon";
 export { default as QuestionMarkIcon } from "./QuestionMarkIcon";
 export { default as ReportIcon } from "./ReportIcon";
-
-export { default as RunningTruckIcon } from "./QuestionMarkIcon";
+export { default as RunningTruckIcon } from "./RunningTruckIcon";
 export { default as SaveIcon } from "./SaveIcon";
 export { default as SearchIcon } from "./SearchIcon";
 export { default as SendMessageIcon } from "./SendMessageIcon";

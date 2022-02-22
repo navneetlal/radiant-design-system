@@ -2,7 +2,7 @@ import * as React from "react";
 import MuiBox from "@mui/material/Box";
 import useAutocomplete from "@mui/material/useAutocomplete";
 import MuiTypography from "@mui/material/Typography";
-import useTheme from "@mui/material/styles/useTheme";
+import { useTheme } from "@mui/material/styles";
 import styled from "@mui/material/styles/styled";
 import MuiInputLabel from "@mui/material/InputLabel";
 import {
@@ -183,7 +183,7 @@ export default function Autocomplete({
             style={{
               height: size === "small" ? "32px" : "40px",
               backgroundImage: `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA9klEQVRIib3S3ypEURiG8Z99oiQ1Ug4UF6Ek3IWUcA9yA3IDmmuQmrmQkdyBOaQpJU5E+8yfg712pG1m7zVre+s7WLV6nrW+Xv4h2xjiM/EMsaUleDm3GTrJd/KdxQz9FgV9WMKL9Ot5xXKGZ3RbeP05HsvDfDikev0TFn4bTxIKjqu+NIv7BPC7wKrMQQLB/l9wmMFgCvh1YIzNOt4j4B/YmAQvcxkhuKgLhxW8NYDnWG0igLMGgtOmcJjDqAZ8FO5G5aiG4DAWTlG5qzHwGzVqOSmbigpW1XJnWniZXoWglwpOUcH8BzzHWkoB7OEhzG5qeHS+AGL7/4uMQPSDAAAAAElFTkSuQmCC)`,
-              
+
               color: disabled
                 ? theme.palette.grey[100]
                 : theme.palette.grey[650],

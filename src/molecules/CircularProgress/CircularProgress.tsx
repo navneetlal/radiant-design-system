@@ -4,9 +4,10 @@ import MuiCircularProgress, {
 } from "@mui/material/CircularProgress";
 import MuiBox from "@mui/material/Box";
 import MuiTypography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
-import { Card, CardContent, Typography } from "@mui/material";
+import MuiCard from "@mui/material/Card";
+import MuiCardContent from "@mui/material/CardContent";
 
+import { useTheme } from "@mui/material/styles";
 export interface ICircularProgress extends CircularProgressProps {
   label: string;
 }
@@ -18,7 +19,7 @@ const CircularProgress = ({
 }: ICircularProgress) => {
   const theme = useTheme();
   return (
-    <Card
+    <MuiCard
       sx={{
         width: "163px",
         height: "186px",
@@ -28,7 +29,7 @@ const CircularProgress = ({
       }}
       elevation={0}
     >
-      <CardContent
+      <MuiCardContent
         sx={{
           textAlign: "center",
           marginTop: 0,
@@ -36,7 +37,7 @@ const CircularProgress = ({
           padding: 0,
         }}
       >
-        <Typography
+        <MuiTypography
           sx={{
             textAlign: "center",
             width: "154px",
@@ -52,10 +53,10 @@ const CircularProgress = ({
           gutterBottom
         >
           {label}
-        </Typography>
-      </CardContent>
+        </MuiTypography>
+      </MuiCardContent>
 
-      <CardContent
+      <MuiCardContent
         sx={{
           position: "relative",
           display: "inline-flex",
@@ -98,8 +99,8 @@ const CircularProgress = ({
             }}
           >{`${Math.round(value)}%`}</MuiTypography>
         </MuiBox>
-      </CardContent>
-    </Card>
+      </MuiCardContent>
+    </MuiCard>
   );
 };
 

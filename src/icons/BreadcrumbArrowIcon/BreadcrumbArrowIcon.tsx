@@ -1,8 +1,8 @@
 import React from 'react';
 import MuiSvgIcon from '@mui/material/SvgIcon';
-import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { SvgIconProps as MuiSvgIconProps } from '@mui/material/SvgIcon'
 
-const BreadcrumbArrow = ({ color, ...otherProps }: SvgIconProps) => {
+const BreadcrumbArrow = ({ color, ...otherProps }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon {...otherProps} viewBox="0 0 9 9">
       <path

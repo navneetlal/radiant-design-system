@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 import MuiBox from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 import { SystemStyleObject } from "@mui/system";
-import { useMemo } from "react";
 import { mergeDeep } from "../../utils/deepMerge";
 
 export interface IBoxProps {

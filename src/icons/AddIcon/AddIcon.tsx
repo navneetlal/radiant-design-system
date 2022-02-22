@@ -1,9 +1,9 @@
 import React from 'react';
 import MuiSvgIcon from '@mui/material/SvgIcon';
-import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { SvgIconProps as MuiSvgIconProps } from '@mui/material/SvgIcon'
 
 
-export interface IAddIconProps extends SvgIconProps {
+export interface IAddIconProps extends MuiSvgIconProps {
   fillColor ?: string;
 }
 
