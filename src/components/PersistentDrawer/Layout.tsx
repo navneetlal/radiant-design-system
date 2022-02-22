@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import MuiBox from "@mui/material/Box";
 import PersistentDrawer from "./PersistentDrawer";
 import { IPersistentDrawer } from "./PersistentDrawer";
 import Header from "./Header";
-import MuiBox from "@mui/material/Box";
 
 const sidenavProps: IPersistentDrawer = {
   brandURL:

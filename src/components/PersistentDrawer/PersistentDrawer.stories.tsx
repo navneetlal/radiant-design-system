@@ -57,29 +57,29 @@ Navigation.args = {
   topNavigation: [
     {
       name: "Dashboard",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/",
     },
     {
       name: "Track & Trace",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/tnt/trips",
     },
     {
       name: "Reports",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/reports",
     },
   ],
   bottomNavigation: [
     {
       name: "Settings",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/settings",
     },
     {
       name: "Help",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/help",
     },
   ],
@@ -91,29 +91,29 @@ Collapsed.args = {
   topNavigation: [
     {
       name: "Dashboard",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/",
     },
     {
       name: "Track & Trace",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/tnt/trips",
     },
     {
       name: "Reports",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/reports",
     },
   ],
   bottomNavigation: [
     {
       name: "Settings",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/settings",
     },
     {
       name: "Help",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/help",
     },
   ],
@@ -128,29 +128,29 @@ Toggle.args = {
   topNavigation: [
     {
       name: "Dashboard",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/",
     },
     {
       name: "Track & Trace",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/tnt/trips",
     },
     {
       name: "Reports",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/reports",
     },
   ],
   bottomNavigation: [
     {
       name: "Settings",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/settings",
     },
     {
       name: "Help",
-      icon: <ArrowLeftIcon />,
+      Icon: <ArrowLeftIcon sx = {{color : '#000000'}}/>,
       path: "/help",
     },
   ],

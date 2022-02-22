@@ -1,8 +1,6 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+import { SvgIconProps as MuiSvgIconProps } from "@mui/material";
 
 export interface ICopyIconProps extends MuiSvgIconProps {
   fillColor?: string;
@@ -10,11 +8,7 @@ export interface ICopyIconProps extends MuiSvgIconProps {
 }
 const CopyIcon = ({ fillColor, ...otherProps }: ICopyIconProps) => {
   return (
-    <MuiSvgIcon
-      {...otherProps}
-      style={{ width: "14px", height: "14px", cursor: "pointer" }}
-      viewBox="0 0 16 16"
-    >
+    <MuiSvgIcon {...otherProps} viewBox="0 0 16 16">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

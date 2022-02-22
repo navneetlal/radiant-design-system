@@ -1,9 +1,8 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
 
 const Inactive = ({
   color,
@@ -12,17 +11,8 @@ const Inactive = ({
   style,
   ...otherProps
 }: MuiSvgIconProps) => {
-  const theme = useTheme();
   return (
     <MuiSvgIcon
-      style={{
-        fontSize:
-          fontSize === "small"
-            ? theme.typography.pxToRem(16)
-            : fontSize === "medium"
-            ? theme.typography.pxToRem(20)
-            : theme.typography.pxToRem(24),
-      }}
       color={color}
       fontSize={fontSize}
       className={className}

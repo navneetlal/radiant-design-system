@@ -1,8 +1,8 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
 
 export interface IAllFilterIconProps extends MuiSvgIconProps {
   fillColor?: string;
@@ -13,7 +13,6 @@ const AllFilterIcon = ({ fillColor, ...otherProps }: IAllFilterIconProps) => {
   return (
     <MuiSvgIcon
       {...otherProps}
-      style={{ width: "40px", height: "40px" }}
       viewBox="0 0 40 40"
     >
       <g clipPath="url(#clip0)">

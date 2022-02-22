@@ -22,12 +22,15 @@ export interface IBreadcrumbsProps extends BreadcrumbsProps {
 }
 const Breadcrumbs = ({ links, text, sx }: IBreadcrumbsProps) => {
   const theme = useTheme();
-  const originalSx = {
-    color: `${theme.palette.grey[650]} !important`,
-    height: "20px",
-    textDecoration: "none",
-  };
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      color: `${theme.palette.grey[650]} !important`,
+      height: "20px",
+      textDecoration: "none",
+    };
+
+    return mergeDeep(originalSx, sx);
+  }, [sx, theme]);
 
   return (
     <MuiBreadcrumbs separator={<BreadcrumbArrowIcon />} aria-label="breadcrumb">

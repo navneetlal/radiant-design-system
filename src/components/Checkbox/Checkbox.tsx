@@ -30,18 +30,20 @@ const Checkbox = ({
 }: ICheckboxProps) => {
   const theme = useTheme();
 
-  const originalSx = {
-    "&:hover": {
-      "#unchecked": {
-        "&>path": {
-          stroke: theme.palette.primary.main,
-          fill: theme.palette.primary[50],
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      "&:hover": {
+        "#unchecked": {
+          "&>path": {
+            stroke: theme.palette.primary.main,
+            fill: theme.palette.primary[50],
+          },
         },
       },
-    },
-  };
+    };
 
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+    return mergeDeep(originalSx, sx);
+  }, [sx, theme]);
 
   return (
     <MuiBox

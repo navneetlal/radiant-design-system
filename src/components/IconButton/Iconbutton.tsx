@@ -18,68 +18,71 @@ const IconButton = ({
 }: IButtonProps) => {
   const theme = useTheme();
 
-  const originalSx = {
-    minWidth: "32px",
-    "& $text": {
-      maxWidth: 0,
-      overflow: "hidden",
-      transition: "all .2s ease-out",
-    },
-    "&:hover $text": {
-      maxWidth: "500px",
-      transition: "all .2s ease-in",
-      paddingLeft: "5px",
-    },
-    ...(variant === "contained" && {
-      background: theme.palette[color].main,
-      color: `#ffffff`,
-      "&:hover": {
-        background: theme.palette[color].dark,
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      minWidth: "32px",
+      "& $text": {
+        maxWidth: 0,
+        overflow: "hidden",
+        transition: "all .2s ease-out",
       },
-      boxShadow: "none !important",
-    }),
-    ...(variant === "outlined" && {
-      color: theme.palette[color].main,
-      background: "#ffffff",
-      border: `1px solid`,
-      borderColor: theme.palette[color].main,
-      "&:hover": {
-        background: theme.palette[color].contrastText,
+      "&:hover $text": {
+        maxWidth: "500px",
+        transition: "all .2s ease-in",
+        paddingLeft: "5px",
       },
-    }),
-    ...(size === "small" && {
-      width: "32px",
-      height: "32px",
-      padding: "8px",
-      "& svg": {
-        width: "16px",
-        height: "16px",
-        paddingLeft: "12px",
-      },
-    }),
-    ...(size === "medium" && {
-      width: "40px",
-      height: "40px",
-      padding: "10px",
-      "& svg": {
-        width: "20px",
-        height: "20px",
-        paddingLeft: "12px",
-      },
-    }),
-    ...(size === "large" && {
-      width: "48px",
-      height: "48px",
-      ...theme.typography.h4,
-      padding: "12px",
-      "& svg": {
-        width: "24px",
-        height: "24px",
-        paddingLeft: "12px",
-      },
-    }),
-  };
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+      ...(variant === "contained" && {
+        background: theme.palette[color].main,
+        color: `#ffffff`,
+        "&:hover": {
+          background: theme.palette[color].dark,
+        },
+        boxShadow: "none !important",
+      }),
+      ...(variant === "outlined" && {
+        color: theme.palette[color].main,
+        background: "#ffffff",
+        border: `1px solid`,
+        borderColor: theme.palette[color].main,
+        "&:hover": {
+          background: theme.palette[color].contrastText,
+        },
+      }),
+      ...(size === "small" && {
+        width: "32px",
+        height: "32px",
+        padding: "8px",
+        "& svg": {
+          width: "16px",
+          height: "16px",
+          paddingLeft: "12px",
+        },
+      }),
+      ...(size === "medium" && {
+        width: "40px",
+        height: "40px",
+        padding: "10px",
+        "& svg": {
+          width: "20px",
+          height: "20px",
+          paddingLeft: "12px",
+        },
+      }),
+      ...(size === "large" && {
+        width: "48px",
+        height: "48px",
+        ...theme.typography.h4,
+        padding: "12px",
+        "& svg": {
+          width: "24px",
+          height: "24px",
+          paddingLeft: "12px",
+        },
+      }),
+    };
+
+    return mergeDeep(originalSx, sx);
+  }, [sx, theme, variant, color, size]);
 
   return (
     <MuiButton

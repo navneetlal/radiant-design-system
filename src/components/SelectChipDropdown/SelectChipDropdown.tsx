@@ -4,9 +4,8 @@ import CheckIcon from "@mui/icons-material/Check";
 
 import Chip from "../Chip";
 import MuiTypography from "@mui/material/Typography";
-import useTheme from "@mui/material/styles/useTheme";
-import styled from "@mui/material/styles/styled";
-import InputLabel from "@mui/material/InputLabel";
+import {useTheme, styled} from "@mui/material/styles";
+import MuiInputLabel from "@mui/material/InputLabel";
 import GlobalStyles from "@mui/material/GlobalStyles";
 
 export const Root = styled("div")(
@@ -224,7 +223,7 @@ export default function MultipleSelectChip({
       {inputGlobalStyles}
       <div {...getRootProps()}>
         {(label || required) && (
-          <InputLabel
+          <MuiInputLabel
             {...getInputLabelProps()}
             sx={{
               ...theme.typography.h6,
@@ -238,7 +237,7 @@ export default function MultipleSelectChip({
             }}
           >
             {label} <span>{required && "*"}</span>
-          </InputLabel>
+          </MuiInputLabel>
         )}
         <InputWrapper
           ref={setAnchorEl}

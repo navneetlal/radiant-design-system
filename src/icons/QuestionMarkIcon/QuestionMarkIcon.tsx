@@ -1,14 +1,13 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
 
 const QuestionmarkIcon = ({...props} : MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       {...props}
-      style={{ width: "16px", height: "16px"}}
       viewBox="0 0 16 16"
     >
       <path

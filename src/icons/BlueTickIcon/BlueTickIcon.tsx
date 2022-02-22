@@ -1,8 +1,6 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+import { SvgIconProps as MuiSvgIconProps } from "@mui/material";
 
 export interface IBlueTickProps extends MuiSvgIconProps {
   fillColor?: string;
@@ -10,11 +8,7 @@ export interface IBlueTickProps extends MuiSvgIconProps {
 }
 const BlueTick = ({ fillColor, ...otherDetails }: IBlueTickProps) => {
   return (
-    <MuiSvgIcon
-      style={{ width: "16px", height: "16px" }}
-      viewBox="0 0 16 16"
-      {...otherDetails}
-    >
+    <MuiSvgIcon viewBox="0 0 16 16" {...otherDetails}>
       <circle
         cx="8"
         cy="8"

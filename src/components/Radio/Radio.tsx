@@ -28,24 +28,27 @@ const Radio = ({
 }: IRadioProps) => {
   const theme = useTheme();
 
-  const originalSx = {
-    padding: `9px 9px 9px 0`,
-    ...(!checked && {
-      color: `#C7C7C7 !important`,
-      ...(alert &&
-        !disabled && {
-          color: `${theme.palette?.support?.error?.main} !important`,
-        }),
-    }),
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      padding: `9px 9px 9px 0`,
+      ...(!checked && {
+        color: `#C7C7C7 !important`,
+        ...(alert &&
+          !disabled && {
+            color: `${theme.palette?.support?.error?.main} !important`,
+          }),
+      }),
 
-    "&&:hover": {
-      color: `${theme.palette.primary.main} !important`,
-    },
-    ...(disabled && {
-      color: `${theme.palette.grey[100]} !important`,
-    }),
-  };
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+      "&&:hover": {
+        color: `${theme.palette.primary.main} !important`,
+      },
+      ...(disabled && {
+        color: `${theme.palette.grey[100]} !important`,
+      }),
+    };
+
+    return mergeDeep(originalSx, sx);
+  }, [sx, theme, checked, disabled, alert]);
 
   return (
     <MuiBox

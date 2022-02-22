@@ -21,7 +21,14 @@ export interface IInputProps extends InputBaseProps {
   width?: number;
   [key: string]: any;
 }
-
+const styles = {
+  medium: {
+    height: "38px",
+  },
+  small: {
+    height: "30px",
+  },
+};
 const Input = ({
   sx,
   label,
@@ -31,42 +38,37 @@ const Input = ({
   disabled = false,
   ...otherProps
 }: IInputProps) => {
-  const styles = {
-    medium: {
-      height: "38px",
-    },
-    small: {
-      height: "30px",
-    },
-  };
+  
   const theme = useTheme();
 
-  const originalSx = {
-    "& .MuiInputBase-input.Mui-disabled": {
-      WebkitTextFillColor: "unset",
-    },
-    "& .MuiInputBase-input": {
-      ...(size ? styles[size] : styles["small"]),
-      width: `${width - 14}px`,
-      borderTop: "auto",
-      outline: "none",
-      border: `1px solid ${
-        disabled ? theme.palette.grey[100] : theme.palette.grey[350]
-      }`,
-      borderRadius: "4px",
-      padding: 0,
-      paddingLeft: "12px",
-      color: "black",
-      ...theme.typography.body2,
-
-      "&:focus": {
-        outline: "none",
-        border: `1px solid ${theme.palette.primary.main} !important`,
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      "& .MuiInputBase-input.Mui-disabled": {
+        WebkitTextFillColor: "unset",
       },
-    },
-  };
+      "& .MuiInputBase-input": {
+        ...(size ? styles[size] : styles["small"]),
+        width: `${width - 14}px`,
+        borderTop: "auto",
+        outline: "none",
+        border: `1px solid ${
+          disabled ? theme.palette.grey[100] : theme.palette.grey[350]
+        }`,
+        borderRadius: "4px",
+        padding: 0,
+        paddingLeft: "12px",
+        color: "black",
+        ...theme.typography.body2,
 
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+        "&:focus": {
+          outline: "none",
+          border: `1px solid ${theme.palette.primary.main} !important`,
+        },
+      },
+    };
+
+    return mergeDeep(originalSx, sx);
+  }, [sx, theme, size, width, disabled]);
   return (
     <MuiBox>
       {(label || required) && (

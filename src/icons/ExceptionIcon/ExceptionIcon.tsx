@@ -1,13 +1,11 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
+
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
 
 const Exception = ({ ...otherProps }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
-      style={{ width: "12px", height: "12px" }}
       viewBox="0 0 12 12"
       {...otherProps}
     >

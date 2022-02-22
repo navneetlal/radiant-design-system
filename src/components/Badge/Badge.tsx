@@ -21,27 +21,30 @@ const Badge = ({
   ...otherProps
 }: IBadgeProps) => {
   const theme = useTheme();
-  const originalSx = {
-    "& .MuiBadge-badge": {
-      backgroundColor: theme.palette[color].light,
-      color: `${theme.palette[color][600]} !important`,
-      border: `1px solid #ffffff`,
-      fontFamily: '"Source Sans Pro", sans-serif',
 
-      height: size === "small" ? "24px" : size === "medium" ? "32px" : "40px",
-      width: size === "small" ? "24px" : size === "medium" ? "32px" : "40px",
-      transform:
-        size === "small"
-          ? "scale(1) translate(60%, -50%)"
-          : size === "medium"
-          ? "scale(1) translate(60%, -60%)"
-          : "scale(1) translate(60%, -70%)",
-      ...theme.typography.body2,
-      borderRadius: !!rounded ? "50%" : 0,
-    },
-  };
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      "& .MuiBadge-badge": {
+        backgroundColor: theme.palette[color].light,
+        color: `${theme.palette[color][600]} !important`,
+        border: `1px solid #ffffff`,
+        fontFamily: '"Source Sans Pro", sans-serif',
 
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+        height: size === "small" ? "24px" : size === "medium" ? "32px" : "40px",
+        width: size === "small" ? "24px" : size === "medium" ? "32px" : "40px",
+        transform:
+          size === "small"
+            ? "scale(1) translate(60%, -50%)"
+            : size === "medium"
+            ? "scale(1) translate(60%, -60%)"
+            : "scale(1) translate(60%, -70%)",
+        ...theme.typography.body2,
+        borderRadius: !!rounded ? "50%" : 0,
+      },
+    };
+
+    return mergeDeep(originalSx, sx);
+  }, [sx, theme, color, rounded, size]);
   return (
     <MuiBadge sx={finalSx} {...otherProps}>
       {children}

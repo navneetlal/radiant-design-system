@@ -1,10 +1,10 @@
 import React from 'react';
 import MuiSvgIcon from '@mui/material/SvgIcon';
-import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { SvgIconProps as MuiSvgIconProps } from '@mui/material/SvgIcon'
 
 import { useTheme } from "@mui/material/styles";
 
-export interface IUncheckedIcon extends SvgIconProps {
+export interface IUncheckedIcon extends MuiSvgIconProps {
   alert?: boolean;
   disabled?: boolean;
 }

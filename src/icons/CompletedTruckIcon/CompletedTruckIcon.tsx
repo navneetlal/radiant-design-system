@@ -1,8 +1,8 @@
 import React from 'react';
 import MuiSvgIcon from '@mui/material/SvgIcon';
-import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { SvgIconProps as MuiSvgIconProps } from '@mui/material/SvgIcon'
 
-export interface ICompletedTruckIconProps extends SvgIconProps {
+export interface ICompletedTruckIconProps extends MuiSvgIconProps {
   fillColor?: string;
   [key: string]: any;
 }
@@ -14,10 +14,6 @@ const CompletedTruckIcon = ({
   return (
     <MuiSvgIcon
       viewBox="0 0 40 40"
-      style={{
-        width: "40px",
-        height: "40px",
-      }}
       {...otherProps}
     >
       <g clipPath="url(#clip0)">

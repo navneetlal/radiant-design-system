@@ -1,14 +1,15 @@
 import React from "react";
-import {
-  SvgIconProps as MuiSvgIconProps,
-  SvgIcon as MuiSvgIcon,
-} from "@mui/material";
 
-const Warehouse = ({ style, className }: MuiSvgIconProps) => {
+import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
+import MuiSvgIcon from "@mui/material/SvgIcon";
+
+
+
+const Warehouse = ({ className  , ...props}: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
+     {...props}
       className={`${className}`}
-      style={{ width: "24px", height: "24px" }}
       viewBox="0 0 24 24"
     >
       <path

@@ -25,54 +25,56 @@ export const BootstrapInput = ({
 }: IBootstrapInputProps) => {
   const theme = useTheme();
 
-  const originalSx = {
-    "& .MuiInputBase-input": {
-      ...(size === "small" && {
-        ...theme.typography.h6,
-      }),
+  const finalSx = useMemo(() => {
+    const originalSx = {
+      "& .MuiInputBase-input": {
+        ...(size === "small" && {
+          ...theme.typography.h6,
+        }),
 
-      ...(size === "medium" && {
-        ...theme.typography.h5,
-      }),
-      borderRadius: "4px",
-      position: "relative",
-      border: `1px solid ${theme.palette.grey[350]}`,
-      backgroundColor: disabled ? theme.palette.grey[150] : `#ffffff`,
-      width: width ? width : "312px",
-      cursor: disabled ? "not-allowed" : "pointer",
-      borderColor:
-        alert && !disabled
-          ? theme.palette?.support?.error?.main
-          : theme.palette.grey[100],
-      "&::placeholder": {
-        color: disabled
-          ? theme.palette.grey[100]
-          : `${theme.palette.grey[650]} !important`,
-        opacity: `1 !important`,
-      },
-      alignSelf: "flex-end",
-      ...(size === "small"
-        ? {
-            ...theme.typography.body2,
-          }
-        : {
-            ...theme.typography.body1,
-          }),
-      height: size === "small" ? "32px" : "40px",
-      padding: size === "small" ? "8px 12px" : "10px 16px",
-      color: disabled ? theme.palette.grey[100] : theme.palette.common.black,
-      "&:focus": {
-        borderColor: theme.palette.primary.main,
-      },
-      "&:not(:placeholder-shown):invalid": {
-        borderColor: theme.palette?.support?.error?.main,
-      },
+        ...(size === "medium" && {
+          ...theme.typography.h5,
+        }),
+        borderRadius: "4px",
+        position: "relative",
+        border: `1px solid ${theme.palette.grey[350]}`,
+        backgroundColor: disabled ? theme.palette.grey[150] : `#ffffff`,
+        width: width ? width : "312px",
+        cursor: disabled ? "not-allowed" : "pointer",
+        borderColor:
+          alert && !disabled
+            ? theme.palette?.support?.error?.main
+            : theme.palette.grey[100],
+        "&::placeholder": {
+          color: disabled
+            ? theme.palette.grey[100]
+            : `${theme.palette.grey[650]} !important`,
+          opacity: `1 !important`,
+        },
+        alignSelf: "flex-end",
+        ...(size === "small"
+          ? {
+              ...theme.typography.body2,
+            }
+          : {
+              ...theme.typography.body1,
+            }),
+        height: size === "small" ? "32px" : "40px",
+        padding: size === "small" ? "8px 12px" : "10px 16px",
+        color: disabled ? theme.palette.grey[100] : theme.palette.common.black,
+        "&:focus": {
+          borderColor: theme.palette.primary.main,
+        },
+        "&:not(:placeholder-shown):invalid": {
+          borderColor: theme.palette?.support?.error?.main,
+        },
 
-      boxSizing: "border-box",
-    },
-  };
+        boxSizing: "border-box",
+      },
+    };
 
-  const finalSx = useMemo(() => mergeDeep(originalSx, sx), [originalSx, sx]);
+    return mergeDeep(originalSx, sx);
+  }, [sx, theme, alert, width, size, disabled]);
 
   return (
     <MuiInputBase
@@ -134,7 +136,9 @@ const Textbox = ({
             },
             {
               marginBottom: size === "small" ? "4px" : "8px",
-              color: disabled ? theme.palette.grey[100] : `${theme.palette.common.black} !important`,
+              color: disabled
+                ? theme.palette.grey[100]
+                : `${theme.palette.common.black} !important`,
             },
           ]}
           htmlFor={id}
