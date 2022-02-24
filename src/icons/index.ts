@@ -22,6 +22,8 @@ export { default as ChevronUpIcon } from "./ChevronUpIcon";
 export { default as CircleIcon } from "./CircleIcon";
 export { default as CloudDatabaseIcon } from "./CloudDatabaseIcon";
 export { default as CollapseIcon } from "./CollapseIcon";
+export { default as ContactIcon } from "./ContactIcon";
+
 export { default as ConsentIcon } from "./ConsentIcon";
 export { default as CopyIcon } from "./CopyIcon";
 export { default as CutIcon } from "./CutIcon";
@@ -70,6 +72,8 @@ export { default as ShareIcon } from "./ShareIcon";
 export { default as SimIcon } from "./SimIcon";
 export { default as SourceIcon } from "./SourceIcon";
 export { default as SubtractionIcon } from "./SubtractionIcon";
+export { default as SupportIcon } from "./SupportIcon";
+
 export { default as TickIcon } from "./TickIcon";
 export { default as TollIcon } from "./TollIcon";
 export { default as TripsArrowIcon } from "./TripsArrowIcon";

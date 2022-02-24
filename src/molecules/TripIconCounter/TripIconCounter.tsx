@@ -55,7 +55,7 @@ const Counter = ({
         </MuiTypography>
         <MuiTypography
           sx={{
-            ...theme.typography.h5,
+            ...theme.typography.h6,
             color: selected ? theme.palette.grey[150] : theme.palette.grey[650],
             marginTop: 0,
           }}
