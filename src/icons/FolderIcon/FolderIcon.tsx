@@ -4,7 +4,7 @@ import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
 import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
-const Folder = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
+const FolderIcon = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       style={style}
@@ -24,4 +24,4 @@ const Folder = ({ color, fontSize, className, style,...props }: MuiSvgIconProps)
   );
 };
 
-export default Folder;
+export default FolderIcon;

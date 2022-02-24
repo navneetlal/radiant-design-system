@@ -5,7 +5,7 @@ import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
 
-const Warehouse = ({ className  , ...props}: MuiSvgIconProps) => {
+const WarehouseIcon = ({ className  , ...props}: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
      {...props}
@@ -60,4 +60,4 @@ const Warehouse = ({ className  , ...props}: MuiSvgIconProps) => {
   );
 };
 
-export default Warehouse;
+export default WarehouseIcon;

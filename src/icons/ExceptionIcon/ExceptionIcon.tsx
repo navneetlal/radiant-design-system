@@ -3,7 +3,7 @@ import React from "react";
 import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
 import MuiSvgIcon from "@mui/material/SvgIcon";
 
-const Exception = ({ ...otherProps }: MuiSvgIconProps) => {
+const ExceptionIcon = ({ ...otherProps }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       viewBox="0 0 12 12"
@@ -15,4 +15,4 @@ const Exception = ({ ...otherProps }: MuiSvgIconProps) => {
   );
 };
 
-export default Exception;
+export default ExceptionIcon;

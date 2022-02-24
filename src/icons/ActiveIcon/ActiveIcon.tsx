@@ -3,7 +3,7 @@ import React from "react";
 import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
 import MuiSvgIcon from "@mui/material/SvgIcon";
 
-const Active = ({
+const ActiveIcon = ({
   color,
   fontSize,
   sx,
@@ -27,4 +27,4 @@ const Active = ({
   );
 };
 
-export default Active;
+export default ActiveIcon;
