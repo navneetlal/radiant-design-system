@@ -1,8 +1,8 @@
 import React from "react";
-import MuiIconButton  from "@mui/material/IconButton";
+import MuiIconButton from "@mui/material/IconButton";
 import MuiTypography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
-import  MuiBox  from "@mui/material/Box";
+import MuiBox from "@mui/material/Box";
 import Button from "../Button/Button";
 import { IButtonProps } from "../Button/Button";
 import ToolTip from "../Tooltip/Tooltip";
@@ -96,8 +96,8 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
         top: 0,
         left: 0,
         zIndex: 1,
-        minWidth: expanded ? width :  '50px',
-        maxWidth: expanded ? width : '50px',
+        minWidth: expanded ? width : "50px",
+        maxWidth: expanded ? width : "50px",
         backgroundColor: theme.palette.common.white,
         maxHeight: "100vh",
         minHeight: "100vh",
@@ -122,8 +122,8 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
             width: "100%",
             display: "flex",
             alignItems: "center",
-            minHeight: '64px',
-            maxHeight: '64px',
+            minHeight: "64px",
+            maxHeight: "64px",
             borderBottom: `1px solid ${theme.palette.primary[200]}`,
           }}
         >
@@ -171,8 +171,8 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
             display: "flex",
             flexDirection: "column",
             "&::-webkit-scrollbar": {
-              width: '6px',
-              height: '6px',
+              width: "6px",
+              height: "6px",
               position: "absolute",
             },
             "&::-webkit-scrollbar-track": {
@@ -185,7 +185,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
 
             "&::-webkit-scrollbar-thumb": {
               background: theme.palette.primary.dark,
-              borderRadius: '4px',
+              borderRadius: "4px",
             },
           }}
         >
@@ -214,7 +214,11 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
               <MuiTypography variant="body1" color="textSecondary">
                 {announcement.content}
               </MuiTypography>
-              <a target="_blank" href="https://www.intugine.com/" rel="noreferrer">
+              <a
+                target="_blank"
+                href="https://www.intugine.com/"
+                rel="noreferrer"
+              >
                 <Button {...announcement.action} />
               </a>
             </MuiBox>
@@ -237,16 +241,22 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
       <MuiBox
         sx={{
           width: "100%",
-          maxHeight: '56px',
-          minHeight: '56px',
+          maxHeight: "56px",
+          minHeight: "56px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: theme.palette.primary.contrastText,
         }}
       >
-        <img src={footer.brandLogo} style={{ width: '40px', height: '40px' }} alt= "footer-brandLogo" />
-        {expanded && <MuiTypography variant="body2">{footer.tagLine}</MuiTypography>}
+        <img
+          src={footer.brandLogo}
+          style={{ width: "40px", height: "40px" }}
+          alt="footer-brandLogo"
+        />
+        {expanded && (
+          <MuiTypography variant="body2">{footer.tagLine}</MuiTypography>
+        )}
       </MuiBox>
     </MuiBox>
   );
