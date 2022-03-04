@@ -13,20 +13,20 @@ import { useTheme } from "@mui/material/styles";
 
 import Button from "../../components/Button/Button";
 
-export interface IDialog {
+export interface IPopUpDialog {
   open?: boolean;
   setClose: any;
   onClickYes?: any;
   onClickNo?: any;
-  confirmBtnColor ?: "primary" | "secondary" | "warning" | "success" | "error";
-  discardBtnColor ?: "primary" | "secondary" | "warning" | "success" | "error";
-  headerMessage ?: string;
+  confirmBtnColor?: "primary" | "secondary" | "warning" | "success" | "error";
+  discardBtnColor?: "primary" | "secondary" | "warning" | "success" | "error";
+  headerMessage?: string;
   message: string;
-  confirmBtnText ?: string;
-  discardBtnText ?: string;
+  confirmBtnText?: string;
+  discardBtnText?: string;
 }
 
-const Dialog = ({
+const PopUpDialog = ({
   open = false,
   setClose,
   onClickYes,
@@ -36,8 +36,8 @@ const Dialog = ({
   discardBtnColor = "error",
   headerMessage = "Confirmation",
   confirmBtnText = "Confirm",
-  discardBtnText = "Cancel"
-}: IDialog) => {
+  discardBtnText = "Cancel",
+}: IPopUpDialog) => {
   const theme = useTheme();
   return (
     <>
@@ -121,4 +121,4 @@ const Dialog = ({
   );
 };
 
-export default Dialog;
+export default PopUpDialog;
