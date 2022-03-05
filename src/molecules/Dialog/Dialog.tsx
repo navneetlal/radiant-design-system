@@ -12,10 +12,10 @@ export interface IDialog {
   open: boolean;
   setClose: any;
   children: any;
-  buttonAction: any;
+  buttonAction?: any;
   heading: string;
-  height?: number;
-  width?: number;
+  height?: number | string;
+  width?: number | string;
 }
 
 const Dialog = ({

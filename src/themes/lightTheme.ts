@@ -200,6 +200,7 @@ lightTheme = createTheme(lightTheme, {
               ? lightTheme.palette.grey[100]
               : lightTheme.palette.grey[650],
             opacity: `1 !important`,
+            fontFamily: "Source Sans Pro, sans-serif, FontAwesome",
           },
           backgroundColor: props.disabled
             ? lightTheme.palette.grey[150]
