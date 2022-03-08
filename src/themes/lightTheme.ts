@@ -171,13 +171,13 @@ lightTheme = createTheme(lightTheme, {
           zIndex: 999,
           position: "absolute",
           //top: 58,
-          "& p": {
-            padding: "6px 16px",
-            cursor: "pointer",
-            "&:hover": {
-              backgroundColor: lightTheme.palette.primary.contrastText,
-            },
-          },
+          // "& p": {
+          //   padding: "6px 16px",
+          //   cursor: "pointer",
+          //   "&:hover": {
+          //     backgroundColor: lightTheme.palette.primary.contrastText,
+          //   },
+          // },
         },
       },
     },
