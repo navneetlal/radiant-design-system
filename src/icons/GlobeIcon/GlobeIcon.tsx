@@ -5,7 +5,7 @@ import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
 
-const Globe = ({ color, fontSize, className, style ,...props}: MuiSvgIconProps) => {
+const GlobelIcon = ({ color, fontSize, className, style ,...props}: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       style={style}
@@ -25,4 +25,4 @@ const Globe = ({ color, fontSize, className, style ,...props}: MuiSvgIconProps) 
   );
 };
 
-export default Globe;
+export default GlobelIcon;

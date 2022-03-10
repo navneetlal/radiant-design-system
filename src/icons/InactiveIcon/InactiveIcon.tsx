@@ -4,7 +4,7 @@ import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
 import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
-const Inactive = ({
+const InactiveIcon = ({
   color,
   fontSize,
   className,
@@ -25,4 +25,4 @@ const Inactive = ({
   );
 };
 
-export default Inactive;
+export default InactiveIcon;

@@ -2,8 +2,8 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Autocomplete from ".";
-import  MuiTypography  from "@mui/material/Typography";
-import AddIcon from "../../icons/AddIcon";
+import MuiTypography from "@mui/material/Typography";
+import AddIcon from "../../icons/AddIcon/AddIcon";
 
 export default {
   title: "Components/Atoms/Autocomplete",
@@ -17,7 +17,7 @@ export default {
         color="primary"
         onMouseDown={() => alert("hello world")}
       >
-        <AddIcon sx = {{fontSize : '12px'}}/>
+        <AddIcon sx={{ fontSize: "12px" }} />
         Add New Transporter
       </MuiTypography>
     ),
@@ -30,20 +30,20 @@ export default {
       { id: 6, name: "Nikhil" },
     ],
   },
-  argTypes : {
-      children : {
-        control : false
-      },
-      options : {
-        control : false
-      },
-      onChange : {
-        control : false
-      },
-      onInputChange : {
-        control : false
-      }
-  }
+  argTypes: {
+    children: {
+      control: false,
+    },
+    options: {
+      control: false,
+    },
+    onChange: {
+      control: false,
+    },
+    onInputChange: {
+      control: false,
+    },
+  },
 } as ComponentMeta<typeof Autocomplete>;
 
 const Template: ComponentStory<typeof Autocomplete> = (args) => (

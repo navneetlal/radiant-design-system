@@ -4,7 +4,7 @@ import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
 import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
-const DeviceTracking = ({ ...otherProps }: MuiSvgIconProps) => {
+const DeviceTrackingIcon = ({ ...otherProps }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       viewBox="0 0 20 20"
@@ -22,4 +22,4 @@ const DeviceTracking = ({ ...otherProps }: MuiSvgIconProps) => {
   );
 };
 
-export default DeviceTracking;
+export default DeviceTrackingIcon;

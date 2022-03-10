@@ -171,13 +171,13 @@ lightTheme = createTheme(lightTheme, {
           zIndex: 999,
           position: "absolute",
           //top: 58,
-          "& p": {
-            padding: "6px 16px",
-            cursor: "pointer",
-            "&:hover": {
-              backgroundColor: lightTheme.palette.primary.contrastText,
-            },
-          },
+          // "& p": {
+          //   padding: "6px 16px",
+          //   cursor: "pointer",
+          //   "&:hover": {
+          //     backgroundColor: lightTheme.palette.primary.contrastText,
+          //   },
+          // },
         },
       },
     },
@@ -200,6 +200,7 @@ lightTheme = createTheme(lightTheme, {
               ? lightTheme.palette.grey[100]
               : lightTheme.palette.grey[650],
             opacity: `1 !important`,
+            fontFamily: "Source Sans Pro, sans-serif, FontAwesome",
           },
           backgroundColor: props.disabled
             ? lightTheme.palette.grey[150]

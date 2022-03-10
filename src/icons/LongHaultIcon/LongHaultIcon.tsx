@@ -4,7 +4,7 @@ import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
 import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
-const LongHalt = ({...props} : MuiSvgIconProps) => {
+const LongHaltIcon = ({...props} : MuiSvgIconProps) => {
   return (
     <MuiSvgIcon viewBox="0 0 24 24" {...props}>
       <g clipPath="url(#clip0)">
@@ -33,4 +33,4 @@ const LongHalt = ({...props} : MuiSvgIconProps) => {
   );
 };
 
-export default LongHalt;
+export default LongHaltIcon;

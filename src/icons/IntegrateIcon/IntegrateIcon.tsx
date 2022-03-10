@@ -5,7 +5,7 @@ import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
 
-const Integrate = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
+const IntegrateIcon = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
     {...props}
@@ -23,4 +23,4 @@ const Integrate = ({ color, fontSize, className, style,...props }: MuiSvgIconPro
   );
 };
 
-export default Integrate;
+export default IntegrateIcon;

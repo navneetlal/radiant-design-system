@@ -3,7 +3,7 @@ import React from "react";
 import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
 import MuiSvgIcon from "@mui/material/SvgIcon";
 
-const icon = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
+const CloudDatabaseIcon = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
     {...props}
@@ -21,4 +21,4 @@ const icon = ({ color, fontSize, className, style,...props }: MuiSvgIconProps) =
   );
 };
 
-export default icon;
+export default CloudDatabaseIcon;
