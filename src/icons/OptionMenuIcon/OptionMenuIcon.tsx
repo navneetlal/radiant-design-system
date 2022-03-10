@@ -4,7 +4,7 @@ import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
 import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
-const OpenMenuIcon = (props: MuiSvgIconProps) => {
+const OptionMenuIcon = (props: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon {...props}>
       <path
@@ -15,4 +15,4 @@ const OpenMenuIcon = (props: MuiSvgIconProps) => {
     </MuiSvgIcon>
   );
 };
-export default OpenMenuIcon;
+export default OptionMenuIcon;

@@ -1,119 +1,99 @@
-import React from "react";
-
-import MuiBox from "@mui/material/Box";
 import MuiDialog from "@mui/material/Dialog";
 import MuiDialogActions from "@mui/material/DialogActions";
 import MuiDialogContent from "@mui/material/DialogContent";
-import MuiGrid from "@mui/material/Grid";
-import MuiIconButton from "@mui/material/IconButton";
 import MuiTypography from "@mui/material/Typography";
-
-import CloseIcon from "@mui/icons-material/Close";
+import { Grid as MuiGrid, IconButton as MuiIconButton } from "@mui/material/";
+import MuiCloseIcon from "@mui/icons-material/Close";
 import { useTheme } from "@mui/material/styles";
-
-import Button from "../../components/Button/Button";
+import Box from "@mui/material/Box";
+import React from "react";
 
 export interface IDialog {
-  open?: boolean;
+  open: boolean;
   setClose: any;
-  onClickYes?: any;
-  onClickNo?: any;
-  confirmBtnColor ?: "primary" | "secondary" | "warning" | "success" | "error";
-  discardBtnColor ?: "primary" | "secondary" | "warning" | "success" | "error";
-  headerMessage ?: string;
-  message: string;
-  confirmBtnText ?: string;
-  discardBtnText ?: string;
+  children: any;
+  buttonAction?: any;
+  heading: string;
+  height?: number | string;
+  width?: number | string;
 }
 
 const Dialog = ({
   open = false,
   setClose,
-  onClickYes,
-  onClickNo,
-  message,
-  confirmBtnColor = "success",
-  discardBtnColor = "error",
-  headerMessage = "Confirmation",
-  confirmBtnText = "Confirm",
-  discardBtnText = "Cancel"
+  children,
+  buttonAction,
+  heading,
+  height = 100,
+  width = 496,
 }: IDialog) => {
   const theme = useTheme();
+
   return (
     <>
       <MuiDialog
+        sx={{ overflowY: "visible" }}
         open={open}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        maxWidth="xl"
       >
-        <MuiBox
+        <Box
           sx={{
             backgroundColor: theme.palette.primary.main,
             display: "flex",
             justifyContent: "space-between",
-            padding: "20px 40px",
             alignItems: "center",
-            height: "32px",
+            width: width,
+            height: 72,
           }}
           id="alert-dialog-title"
         >
           <div>
             <MuiTypography
               variant="h3"
-              sx={{ color: theme.palette.common.white }}
+              sx={{ color: "#ffffff", marginLeft: "40px" }}
               color="textPrimary"
             >
-              {headerMessage}
+              {heading}
             </MuiTypography>
           </div>
-          <MuiIconButton onClick={setClose}>
-            <CloseIcon
-              sx={{ color: theme.palette.common.white, cursor: "pointer" }}
+          <MuiIconButton onClick={setClose} sx={{ marginRight: "40px" }}>
+            <MuiCloseIcon
+              sx={{ color: "#ffffff" }}
+              style={{ cursor: "pointer" }}
             />
           </MuiIconButton>
-        </MuiBox>
-        <MuiDialogContent sx={{ padding: "40px", minWidth: "416px" }}>
-          <MuiTypography
-            variant="subtitle2"
-            sx={{
-              ...theme.typography.subtitle2,
-              color: theme.palette.common.black,
-            }}
-          >
-            {message}
-          </MuiTypography>
+        </Box>
+        <MuiDialogContent
+          sx={{
+            padding: 0,
+            height: height,
+            width: width,
+          }}
+        >
+          {children}
         </MuiDialogContent>
         <MuiDialogActions
           sx={{
-            height: "80px",
-            padding: "0 40px",
-            backgroundColor: theme.palette.primary.contrastText,
-            borderTop: `1px solid  ${theme.palette.primary[200]}`,
+            height: 80,
+            width: width,
+            borderTop: `1px solid black`,
             borderColor: theme.palette.primary[200],
             display: "flex",
-            justifyContent: "flex-end",
             alignItems: "center",
+            padding: 0,
+            boxSizing: "border-box",
           }}
         >
-          <MuiGrid container spacing={3} justifyContent="end">
-            <MuiGrid item>
-              <Button
-                text={discardBtnText}
-                variant="outlined"
-                color={discardBtnColor}
-                size="small"
-                onClick={onClickNo}
-              />
-            </MuiGrid>
-            <MuiGrid item>
-              <Button
-                text={confirmBtnText}
-                variant="contained"
-                color={confirmBtnColor}
-                size="small"
-                onClick={onClickYes}
-              />
-            </MuiGrid>
+          <MuiGrid
+            sx={{
+              display: "flex",
+              justifyContent: "end",
+              marginRight: "40px",
+            }}
+          >
+            {buttonAction}
           </MuiGrid>
         </MuiDialogActions>
       </MuiDialog>

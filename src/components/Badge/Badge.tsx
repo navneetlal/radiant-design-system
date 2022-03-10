@@ -29,7 +29,6 @@ const Badge = ({
         color: `${theme.palette[color][600]} !important`,
         border: `1px solid #ffffff`,
         fontFamily: '"Source Sans Pro", sans-serif',
-
         height: size === "small" ? "24px" : size === "medium" ? "32px" : "40px",
         width: size === "small" ? "24px" : size === "medium" ? "32px" : "40px",
         transform:
@@ -53,3 +52,4 @@ const Badge = ({
 };
 
 export default Badge;
+

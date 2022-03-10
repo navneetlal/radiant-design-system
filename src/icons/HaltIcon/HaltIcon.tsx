@@ -4,7 +4,7 @@ import type { SvgIconProps as MuiSvgIconProps } from "@mui/material/SvgIcon";
 import MuiSvgIcon from "@mui/material/SvgIcon";
 
 
-const Halt = ({ ...props }: MuiSvgIconProps) => {
+const HaltIcon = ({ ...props }: MuiSvgIconProps) => {
   return (
     <MuiSvgIcon
       {...props}
@@ -41,4 +41,4 @@ const Halt = ({ ...props }: MuiSvgIconProps) => {
   );
 };
 
-export default Halt;
+export default HaltIcon;
