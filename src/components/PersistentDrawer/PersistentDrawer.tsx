@@ -124,6 +124,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
             alignItems: "center",
             minHeight: "64px",
             maxHeight: "64px",
+            boxSizing: "border-box",
             borderBottom: `1px solid ${theme.palette.primary[200]}`,
           }}
         >
@@ -205,7 +206,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
                 padding: "16px",
                 backgroundColor: theme.palette.primary.contrastText,
                 "&> *": {
-                  margin: "8px 0",
+                  margin: "8px 0 !important",
                   textDecoration: "none",
                 },
               }}
