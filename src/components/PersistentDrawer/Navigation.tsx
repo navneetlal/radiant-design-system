@@ -3,6 +3,7 @@ import MuiTypography from "@mui/material/Typography";
 import MuiBox from "@mui/material/Box";
 import ToolTip from "../Tooltip/Tooltip";
 import { useTheme } from "@mui/material/styles";
+import { Location, NavLink, useLocation } from "react-router-dom";
 export interface IiconProps {
   color?: string;
   style?: {
@@ -33,7 +34,7 @@ export interface INavigationProps {
   linkElementProps?: any;
 }
 
-const ExpandedBox = ({ active, Icon , name, expanded = true }: any) => {
+const ExpandedBox = ({ active, Icon, name, expanded = true }: any) => {
   const theme = useTheme();
   return (
     <MuiBox
@@ -69,9 +70,7 @@ const ExpandedBox = ({ active, Icon , name, expanded = true }: any) => {
           color: active ? "#fff" : theme.palette.primary.light,
         }}
       >
-        {!!Icon && (
-          Icon
-        )}
+        {!!Icon && Icon}
       </MuiBox>
 
       {expanded && (
@@ -84,7 +83,7 @@ const ExpandedBox = ({ active, Icon , name, expanded = true }: any) => {
           }}
           color="inherit"
         >
-          {name} 
+          {name}
         </MuiTypography>
       )}
     </MuiBox>
@@ -97,8 +96,7 @@ const NavItem = ({
   path,
   expanded,
   active,
-  onClick,
-  LinkElement = "a",
+  LinkElement = NavLink,
   linkElementProps = {
     style: {
       textDecoration: "none",
@@ -107,57 +105,50 @@ const NavItem = ({
 }: INavItemProps) => {
   const theme = useTheme();
   return (
-    <LinkElement href={path} {...linkElementProps}>
+    // @ts-ignore
+    <LinkElement to={path} href={path} {...linkElementProps}>
       {expanded ? (
         <ExpandedBox active={active} name={name} Icon={Icon} />
       ) : (
         <>
-           {/* <ExpandedBox
-            active={active}
-            name={name}
-            expanded={false}
-            Icon={Icon}
-          />  */}
-        <ToolTip title={name} color="dark" placement="top" size="small">
-          <MuiBox
-            component="span"
-            sx={[
-              {
-                display: "flex",
-                alignItems: "center",
-                height: "56px",
-                color: theme.palette.primary.main,
-                padding: "0 16px",
-                cursor: "pointer",
-                textDecoration: "none !important",
-                "&:hover": {
-                  backgroundColor: theme.palette.primary.contrastText,
-                },
-              },
-              active && {
-                color: "#ffffff",
-                backgroundColor: theme.palette.primary.main,
-                "&:hover": {
-                  backgroundColor: theme.palette.primary.dark,
-                },
-              },
-            ]}
-          >
+          <ToolTip title={name} color="dark" placement="top" size="small">
             <MuiBox
               component="span"
-              sx={{
-                marginRight: '16px',
-                display: "flex",
-                alignItems: "center",
-                color: active ? "#fff" : theme.palette.primary.light,
-              }}
+              sx={[
+                {
+                  display: "flex",
+                  alignItems: "center",
+                  height: "56px",
+                  color: theme.palette.primary.main,
+                  padding: "0 16px",
+                  cursor: "pointer",
+                  textDecoration: "none !important",
+                  "&:hover": {
+                    backgroundColor: theme.palette.primary.contrastText,
+                  },
+                },
+                active && {
+                  color: "#ffffff",
+                  backgroundColor: theme.palette.primary.main,
+                  "&:hover": {
+                    backgroundColor: theme.palette.primary.dark,
+                  },
+                },
+              ]}
             >
-              {Icon && (
-                Icon
-              )}
+              <MuiBox
+                component="span"
+                sx={{
+                  marginRight: "16px",
+                  display: "flex",
+                  alignItems: "center",
+                  color: active ? "#fff" : theme.palette.primary.light,
+                }}
+              >
+                {Icon}
+              </MuiBox>
             </MuiBox>
-          </MuiBox>
-        </ToolTip>
+          </ToolTip>
         </>
       )}
     </LinkElement>
@@ -168,10 +159,12 @@ const Navigation = ({
   navigation,
   expanded,
   onClick,
-  getActiveItem = (navItem: any) => window.location.pathname === navItem.path,
+  getActiveItem = (navItem: any, location: Location) =>
+    location.pathname === navItem.path,
   LinkElement,
   linkElementProps,
 }: INavigationProps) => {
+  const location = useLocation();
   return (
     <div>
       <Suspense fallback={<p>...loading</p>}>
@@ -179,7 +172,7 @@ const Navigation = ({
           <NavItem
             key={index}
             {...navItem}
-            active={getActiveItem(navItem)}
+            active={getActiveItem(navItem, location)}
             expanded={expanded}
             onClick={onClick}
             LinkElement={LinkElement}
