@@ -3,7 +3,7 @@ import React from "react";
 import MuiTypography from "@mui/material/Typography";
 import MuiButton from "@mui/material/Button";
 import { useTheme } from "@mui/material/styles";
-import { Base } from "../..";
+import Base from "../../components/Box";
 
 export interface IStatusButtonsProps {
   number: number;
