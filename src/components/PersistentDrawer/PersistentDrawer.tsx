@@ -85,7 +85,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
     tagLine: "Powered by Intugine",
     // brandLogo: "/Intugine.png",
     brandLogo:
-      "http://app.tms.intugine.s3-website.ap-south-1.amazonaws.com/Intugine.png",
+      "https://assetsstatic.s3.ap-south-1.amazonaws.com/intugine-logo.png",
   };
 
   const theme = useTheme();
@@ -202,7 +202,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
           {expanded && (
             <MuiBox
               sx={{
-                margin: "2px 24px",
+                margin: "24px 24px",
                 padding: "16px",
                 backgroundColor: theme.palette.primary.contrastText,
                 "&> *": {
