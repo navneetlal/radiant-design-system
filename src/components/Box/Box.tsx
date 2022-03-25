@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import MuiBox from "@mui/material/Box";
-import { useTheme } from "@mui/material/styles";
-import { SystemStyleObject } from "@mui/system";
+import { useTheme, SxProps, Theme } from "@mui/material/styles";
 import { mergeDeep } from "../../utils/deepMerge";
 
 export interface IBoxProps {
@@ -19,7 +18,7 @@ export interface IBoxProps {
    * CSS Styling
    */
   style?: any;
-  sx?: SystemStyleObject;
+  sx?: SxProps<Theme>;
 }
 
 const Box = ({

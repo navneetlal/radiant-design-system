@@ -1,6 +1,6 @@
 {
   "name": "@intugine-technologies/mui",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "private": false,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -10,7 +10,6 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "rollup": "yarn clean && rollup -c",
-    "prepublish": "yarn rollup",
     "clean": "rimraf dist/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
