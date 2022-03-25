@@ -160,7 +160,7 @@ const Navigation = ({
   expanded,
   onClick,
   getActiveItem = (navItem: any, location: Location) =>
-    location.pathname === navItem.path,
+    location.pathname?.split("/")[1] === navItem.path?.split("/")[1],
   LinkElement,
   linkElementProps,
 }: INavigationProps) => {

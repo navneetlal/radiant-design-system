@@ -8,14 +8,14 @@ import {useTheme, styled} from "@mui/material/styles";
 import MuiInputLabel from "@mui/material/InputLabel";
 import GlobalStyles from "@mui/material/GlobalStyles";
 
-export const Root = styled("div")(
+export const Root: any = styled("div")(
   () => `
   color: 'rgba(0,0,0,.85)';
   font-size: 14px;
 `
 );
 
-export const InputWrapper = styled("div")(
+export const InputWrapper: any = styled("div")(
   ({ theme }) => `
   border: 1px solid #C7C7C7;
   background-color: #fff;

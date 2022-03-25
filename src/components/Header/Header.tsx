@@ -1,14 +1,13 @@
 import React, { useMemo } from "react";
 import MuiBox from "@mui/material/Box";
 
-import { useTheme } from "@mui/material/styles";
+import { useTheme, SxProps, Theme } from "@mui/material/styles";
 import { mergeDeep } from "../../utils/deepMerge";
-import { SystemStyleObject } from "@mui/system";
 export interface IHeaderProps {
   /**
    * Content inside the Box
    */
-  sx?: SystemStyleObject;
+  sx?: SxProps<Theme>;
   children: React.ReactNode;
 }
 

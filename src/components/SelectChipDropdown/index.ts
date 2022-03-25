@@ -1,1 +1,1 @@
-export {default} from './SelectChipDropdown';
+export { default } from './SelectChipDropdown';
