@@ -2,8 +2,7 @@ import * as React from "react";
 import MuiBox from "@mui/material/Box";
 import useAutocomplete from "@mui/material/useAutocomplete";
 import MuiTypography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
-import styled from "@mui/material/styles/styled";
+import { useTheme, styled } from "@mui/material/styles";
 import MuiInputLabel from "@mui/material/InputLabel";
 import {
   Root,
