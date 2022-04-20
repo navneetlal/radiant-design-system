@@ -11,6 +11,7 @@ export interface IHeaderProps {
   children: React.ReactNode;
 }
 
+
 const Header = ({ children, sx, ...otherProps }: IHeaderProps) => {
   const theme = useTheme();
 

@@ -2,8 +2,7 @@ import * as React from "react";
 import MuiBox from "@mui/material/Box";
 import useAutocomplete from "@mui/material/useAutocomplete";
 import MuiTypography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
-import styled from "@mui/material/styles/styled";
+import { useTheme, styled } from "@mui/material/styles";
 import MuiInputLabel from "@mui/material/InputLabel";
 import {
   Root,
@@ -115,16 +114,17 @@ export default function Autocomplete({
     groupedOptions,
   } = useAutocomplete({
     defaultValue: value,
-    multiple: false,
-    options: options,
+    options,
     onChange: (_, v) => {
       if (onChange) onChange(v);
     },
     onInputChange: (e) => {
       if (onInputChange) onInputChange(e);
     },
+    value: value,
+    //@ts-ignore
+    getOptionSelected: (t: any, v: any) => t?.name === v?.name,
     getOptionLabel: (option) => (option.name ? option.name : ""),
-    isOptionEqualToValue: (t, v) => t.name === v.name,
   });
   const theme = useTheme();
   const [isOpen, setIsOpen] = React.useState(false);
@@ -181,7 +181,7 @@ export default function Autocomplete({
             required={required}
             disabled={disabled}
             style={{
-              height: size === "small" ? "32px" : "40px",
+              height: size === "small" ? "30px" : "38px",
               backgroundImage: `url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA9klEQVRIib3S3ypEURiG8Z99oiQ1Ug4UF6Ek3IWUcA9yA3IDmmuQmrmQkdyBOaQpJU5E+8yfg712pG1m7zVre+s7WLV6nrW+Xv4h2xjiM/EMsaUleDm3GTrJd/KdxQz9FgV9WMKL9Ot5xXKGZ3RbeP05HsvDfDikev0TFn4bTxIKjqu+NIv7BPC7wKrMQQLB/l9wmMFgCvh1YIzNOt4j4B/YmAQvcxkhuKgLhxW8NYDnWG0igLMGgtOmcJjDqAZ8FO5G5aiG4DAWTlG5qzHwGzVqOSmbigpW1XJnWniZXoWglwpOUcH8BzzHWkoB7OEhzG5qeHS+AGL7/4uMQPSDAAAAAElFTkSuQmCC)`,
 
               color: disabled

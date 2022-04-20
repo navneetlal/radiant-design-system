@@ -45,6 +45,7 @@ const TextArea = ({
         border: `1px solid ${theme.palette.grey[350]}`,
         backgroundColor: disabled ? "#F2F2F2" : theme.palette.common.white,
         width: width,
+        boxSizing: "border-box",
         borderColor: disabled
           ? theme.palette.grey[100]
           : alert

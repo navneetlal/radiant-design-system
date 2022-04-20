@@ -4,7 +4,7 @@ import CheckIcon from "@mui/icons-material/Check";
 
 import Chip from "../Chip";
 import MuiTypography from "@mui/material/Typography";
-import {useTheme, styled} from "@mui/material/styles";
+import { useTheme, styled } from "@mui/material/styles";
 import MuiInputLabel from "@mui/material/InputLabel";
 import GlobalStyles from "@mui/material/GlobalStyles";
 
@@ -12,6 +12,8 @@ export const Root: any = styled("div")(
   () => `
   color: 'rgba(0,0,0,.85)';
   font-size: 14px;
+  position: relative;
+  width: max-content;
 `
 );
 
@@ -127,7 +129,7 @@ export interface ISelectChipsProps {
    * Custom Width
    */
   width?: number;
-  
+
   /**
    * If true border color will become red
    */

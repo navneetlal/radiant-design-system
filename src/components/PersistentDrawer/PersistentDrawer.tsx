@@ -58,7 +58,7 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
   const {
     width = 260,
     expanded = true,
-    brandURL,
+    brandURL = 'https://assetsstatic.s3.ap-south-1.amazonaws.com/intugine-logo.png',
     callToActionButton,
     callToActionButtonProps,
     callToActionButtonCollapseProps,
@@ -139,7 +139,10 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
                 textAlign: "center",
               }}
             >
-              <img alt="brand logo" style={{ height: "75%" }} src={brandURL} />
+              <img alt="brand logo" style={{ 
+                margin: '8px',
+                height: "75%"
+                 }} src={brandURL} />
             </MuiBox>
           )}
         </MuiBox>
