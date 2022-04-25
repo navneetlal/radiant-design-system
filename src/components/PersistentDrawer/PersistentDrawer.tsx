@@ -136,18 +136,31 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
             </MuiIconButton>
             {expanded && (
               <MuiBox
+                // sx={{
+                //   height: "64px",
+                //   width: "calc(100% - 64px)",
+                //   textAlign: "center",
+                // }}
                 sx={{
                   height: "64px",
-                  width: "calc(100% - 64px)",
-                  textAlign: "center",
+                  width: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "2px 0px",
+                  boxSizing: "border-box",
                 }}
               >
-                <img
+                {/* <img
                   alt="brand logo"
                   style={{
                     margin: "8px",
                     height: "75%",
                   }}
+                  src={brandURL}
+                /> */}
+                <img
+                  alt="brand logo"
+                  style={{ margin: "auto 0px", height: "100%" }}
                   src={brandURL}
                 />
               </MuiBox>
