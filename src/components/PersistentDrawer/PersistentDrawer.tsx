@@ -53,6 +53,8 @@ export interface IPersistentDrawer {
   CollapseIcon?: any;
   onToggleIconClick?: any;
   navigationProps?: INavigationProps;
+  LinkElement?: any;
+  getActiveItem?: any;
 }
 
 const PersistentDrawer = (props: IPersistentDrawer) => {
@@ -65,6 +67,8 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
     callToActionButtonCollapseProps,
     topNavigation = [],
     bottomNavigation = [],
+    LinkElement,
+    getActiveItem,
     ExpandIcon = ChevronRightIcon,
     CollapseIcon = ChevronLeftIcon,
     onToggleIconClick,
@@ -91,66 +95,64 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
 
   const theme = useTheme();
   return (
-    <BrowserRouter>
-      {" "}
+    <MuiBox
+      sx={{
+        position: "relative",
+        top: 0,
+        left: 0,
+        zIndex: 1,
+        minWidth: expanded ? width : "50px",
+        maxWidth: expanded ? width : "50px",
+        backgroundColor: theme.palette.common.white,
+        maxHeight: "100vh",
+        minHeight: "100vh",
+        height: "100vh",
+        boxShadow: "0px 24px 40px rgb(26 26 26 / 16%)",
+        transition: "all 0.1s ease",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
       <MuiBox
         sx={{
-          position: "relative",
-          top: 0,
-          left: 0,
-          zIndex: 1,
-          minWidth: expanded ? width : "50px",
-          maxWidth: expanded ? width : "50px",
-          backgroundColor: theme.palette.common.white,
-          maxHeight: "100vh",
-          minHeight: "100vh",
-          height: "100vh",
-          boxShadow: "0px 24px 40px rgb(26 26 26 / 16%)",
-          transition: "all 0.1s ease",
+          height: "calc(100% - 56px)",
+          flexGrow: 1,
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
         }}
       >
         <MuiBox
           sx={{
-            height: "calc(100% - 56px)",
-            flexGrow: 1,
+            width: "100%",
             display: "flex",
-            flexDirection: "column",
+            alignItems: "center",
+            minHeight: "64px",
+            maxHeight: "64px",
+            boxSizing: "border-box",
+            borderBottom: `1px solid ${theme.palette.primary[200]}`,
           }}
         >
-          <MuiBox
-            sx={{
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              minHeight: "64px",
-              maxHeight: "64px",
-              boxSizing: "border-box",
-              borderBottom: `1px solid ${theme.palette.primary[200]}`,
-            }}
-          >
-            <MuiIconButton color="primary" onClick={onToggleIconClick}>
-              {expanded ? <CollapseIcon /> : <ExpandIcon />}
-            </MuiIconButton>
-            {expanded && (
-              <MuiBox
-                // sx={{
-                //   height: "64px",
-                //   width: "calc(100% - 64px)",
-                //   textAlign: "center",
-                // }}
-                sx={{
-                  height: "64px",
-                  width: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  padding: "2px 0px",
-                  boxSizing: "border-box",
-                }}
-              >
-                {/* <img
+          <MuiIconButton color="primary" onClick={onToggleIconClick}>
+            {expanded ? <CollapseIcon /> : <ExpandIcon />}
+          </MuiIconButton>
+          {expanded && (
+            <MuiBox
+              // sx={{
+              //   height: "64px",
+              //   width: "calc(100% - 64px)",
+              //   textAlign: "center",
+              // }}
+              sx={{
+                height: "64px",
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                padding: "2px 0px",
+                boxSizing: "border-box",
+              }}
+            >
+              {/* <img
                   alt="brand logo"
                   style={{
                     margin: "8px",
@@ -158,132 +160,135 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
                   }}
                   src={brandURL}
                 /> */}
-                <img
-                  alt="brand logo"
-                  style={{ margin: "auto 0px", height: "100%" }}
-                  src={brandURL}
-                />
-              </MuiBox>
+              <img
+                alt="brand logo"
+                style={{ margin: "auto 0px", height: "100%" }}
+                src={brandURL}
+              />
+            </MuiBox>
+          )}
+        </MuiBox>
+        {callToActionButton && (
+          <MuiBox
+            sx={{
+              minHeight: "88px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderBottom: `1px solid ${theme.palette.primary["200"]}`,
+            }}
+          >
+            {expanded ? (
+              <Button {...callToActionButtonProps} />
+            ) : (
+              <ToolTip title="Add New Trip" color="dark" size="small">
+                <MuiIconButton {...callToActionButtonCollapseProps}>
+                  <AddIcon fillColor={theme.palette.primary.light} />
+                </MuiIconButton>
+              </ToolTip>
             )}
           </MuiBox>
-          {callToActionButton && (
+        )}
+        <MuiBox
+          sx={{
+            height: "calc(100% - 154px)",
+            overflow: "auto",
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column",
+            "&::-webkit-scrollbar": {
+              width: "6px",
+              height: "6px",
+              position: "absolute",
+            },
+            "&::-webkit-scrollbar-track": {
+              background: " #f5f8ff",
+              position: "absolute",
+            },
+            "&::-webkit-scrollbar-track-piece": {
+              background: "transparent",
+            },
+
+            "&::-webkit-scrollbar-thumb": {
+              background: theme.palette.primary.dark,
+              borderRadius: "4px",
+            },
+          }}
+        >
+          <MuiBox style={{ flexGrow: 1 }}>
+            <Navigation
+              LinkElement={LinkElement}
+              getActiveItem={getActiveItem}
+              navigation={topNavigation}
+              expanded={expanded}
+              {...navigationProps}
+              //   onClick={() => setSettingsNav(!settingsNav)}
+            />
+          </MuiBox>
+
+          {expanded && (
             <MuiBox
               sx={{
-                minHeight: "88px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderBottom: `1px solid ${theme.palette.primary["200"]}`,
+                margin: "24px 24px",
+                padding: "16px",
+                backgroundColor: theme.palette.primary.contrastText,
+                "&> *": {
+                  margin: "8px 0 !important",
+                  textDecoration: "none",
+                },
               }}
             >
-              {expanded ? (
-                <Button {...callToActionButtonProps} />
-              ) : (
-                <ToolTip title="Add New Trip" color="dark" size="small">
-                  <MuiIconButton {...callToActionButtonCollapseProps}>
-                    <AddIcon fillColor={theme.palette.primary.light} />
-                  </MuiIconButton>
-                </ToolTip>
-              )}
+              <MuiTypography variant="h4">{announcement.title}</MuiTypography>
+              <MuiTypography variant="body1" color="textSecondary">
+                {announcement.content}
+              </MuiTypography>
+              <a
+                target="_blank"
+                href="https://www.intugine.com/"
+                rel="noreferrer"
+              >
+                <Button {...announcement.action} />
+              </a>
             </MuiBox>
           )}
           <MuiBox
             sx={{
-              height: "calc(100% - 154px)",
-              overflow: "auto",
-              flexGrow: 1,
-              display: "flex",
-              flexDirection: "column",
-              "&::-webkit-scrollbar": {
-                width: "6px",
-                height: "6px",
-                position: "absolute",
-              },
-              "&::-webkit-scrollbar-track": {
-                background: " #f5f8ff",
-                position: "absolute",
-              },
-              "&::-webkit-scrollbar-track-piece": {
-                background: "transparent",
-              },
-
-              "&::-webkit-scrollbar-thumb": {
-                background: theme.palette.primary.dark,
-                borderRadius: "4px",
-              },
+              height: "144px",
+              borderBottom: "1px solid #bfd2fd",
             }}
           >
-            <MuiBox style={{ flexGrow: 1 }}>
-              <Navigation
-                navigation={topNavigation}
-                expanded={expanded}
-                {...navigationProps}
-                //   onClick={() => setSettingsNav(!settingsNav)}
-              />
-            </MuiBox>
-
-            {expanded && (
-              <MuiBox
-                sx={{
-                  margin: "24px 24px",
-                  padding: "16px",
-                  backgroundColor: theme.palette.primary.contrastText,
-                  "&> *": {
-                    margin: "8px 0 !important",
-                    textDecoration: "none",
-                  },
-                }}
-              >
-                <MuiTypography variant="h4">{announcement.title}</MuiTypography>
-                <MuiTypography variant="body1" color="textSecondary">
-                  {announcement.content}
-                </MuiTypography>
-                <a
-                  target="_blank"
-                  href="https://www.intugine.com/"
-                  rel="noreferrer"
-                >
-                  <Button {...announcement.action} />
-                </a>
-              </MuiBox>
-            )}
-            <MuiBox
-              sx={{
-                height: "144px",
-                borderBottom: "1px solid #bfd2fd",
-              }}
-            >
-              <Navigation
-                navigation={bottomNavigation}
-                expanded={expanded}
-                {...navigationProps}
-                //   onClick={() => setSettingsNav(!settingsNav)}
-              />
-            </MuiBox>
+            <Navigation
+              LinkElement={LinkElement}
+              getActiveItem={getActiveItem}
+              navigation={bottomNavigation}
+              expanded={expanded}
+              {...navigationProps}
+              //   onClick={() => setSettingsNav(!settingsNav)}
+            />
           </MuiBox>
         </MuiBox>
-        <MuiBox
-          sx={{
-            width: "100%",
-            maxHeight: "56px",
-            minHeight: "56px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: theme.palette.primary.contrastText,
-          }}
-        >
-          <img
-            src={footer.brandLogo}
-            style={{ width: "40px", height: "40px" }}
-            alt="footer-brandLogo"
-          />
-          {expanded && (
-            <MuiTypography variant="body2">{footer.tagLine}</MuiTypography>
-          )}
-        </MuiBox>
       </MuiBox>
-    </BrowserRouter>
+      <MuiBox
+        sx={{
+          width: "100%",
+          maxHeight: "56px",
+          minHeight: "56px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: theme.palette.primary.contrastText,
+        }}
+      >
+        <img
+          src={footer.brandLogo}
+          style={{ width: "40px", height: "40px" }}
+          alt="footer-brandLogo"
+        />
+        {expanded && (
+          <MuiTypography variant="body2">{footer.tagLine}</MuiTypography>
+        )}
+      </MuiBox>
+    </MuiBox>
   );
 };
 

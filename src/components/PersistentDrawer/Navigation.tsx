@@ -3,7 +3,7 @@ import MuiTypography from "@mui/material/Typography";
 import MuiBox from "@mui/material/Box";
 import ToolTip from "../Tooltip/Tooltip";
 import { useTheme } from "@mui/material/styles";
-import { Location, NavLink, useLocation } from "react-router-dom";
+// import { Location, NavLink, useLocation } from "react-router-dom";
 export interface IiconProps {
   color?: string;
   style?: {
@@ -96,7 +96,7 @@ const NavItem = ({
   path,
   expanded,
   active,
-  LinkElement = NavLink,
+  LinkElement = "a",
   linkElementProps = {
     style: {
       textDecoration: "none",
@@ -164,15 +164,15 @@ const Navigation = ({
   LinkElement,
   linkElementProps,
 }: INavigationProps) => {
-  const location = useLocation();
+  // const location = useLocation();
   return (
     <div>
       <Suspense fallback={<p>...loading</p>}>
-        {navigation.map((navItem: any, index: number) => (
+        {navigation?.map((navItem: any, index: number) => (
           <NavItem
             key={index}
             {...navItem}
-            active={getActiveItem(navItem, location)}
+            active={getActiveItem(navItem, window.location)}
             expanded={expanded}
             onClick={onClick}
             LinkElement={LinkElement}
