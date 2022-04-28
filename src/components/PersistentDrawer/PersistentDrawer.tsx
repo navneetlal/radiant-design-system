@@ -52,18 +52,22 @@ export interface IPersistentDrawer {
   CollapseIcon?: any;
   onToggleIconClick?: any;
   navigationProps?: INavigationProps;
+  LinkElement?: any;
+  getActiveItem?: any;
 }
 
 const PersistentDrawer = (props: IPersistentDrawer) => {
   const {
     width = 260,
     expanded = true,
-    brandURL = 'https://assetsstatic.s3.ap-south-1.amazonaws.com/intugine-logo.png',
+    brandURL = "https://assetsstatic.s3.ap-south-1.amazonaws.com/intugine-logo.png",
     callToActionButton,
     callToActionButtonProps,
     callToActionButtonCollapseProps,
     topNavigation = [],
     bottomNavigation = [],
+    LinkElement,
+    getActiveItem,
     ExpandIcon = ChevronRightIcon,
     CollapseIcon = ChevronLeftIcon,
     onToggleIconClick,
@@ -133,16 +137,33 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
           </MuiIconButton>
           {expanded && (
             <MuiBox
+              // sx={{
+              //   height: "64px",
+              //   width: "calc(100% - 64px)",
+              //   textAlign: "center",
+              // }}
               sx={{
                 height: "64px",
-                width: "calc(100% - 64px)",
-                textAlign: "center",
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                padding: "2px 0px",
+                boxSizing: "border-box",
               }}
             >
-              <img alt="brand logo" style={{ 
-                margin: '8px',
-                height: "75%"
-                 }} src={brandURL} />
+              {/* <img
+                  alt="brand logo"
+                  style={{
+                    margin: "8px",
+                    height: "75%",
+                  }}
+                  src={brandURL}
+                /> */}
+              <img
+                alt="brand logo"
+                style={{ margin: "auto 0px", height: "100%" }}
+                src={brandURL}
+              />
             </MuiBox>
           )}
         </MuiBox>
@@ -195,6 +216,8 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
         >
           <MuiBox style={{ flexGrow: 1 }}>
             <Navigation
+              LinkElement={LinkElement}
+              getActiveItem={getActiveItem}
               navigation={topNavigation}
               expanded={expanded}
               {...navigationProps}
@@ -234,6 +257,8 @@ const PersistentDrawer = (props: IPersistentDrawer) => {
             }}
           >
             <Navigation
+              LinkElement={LinkElement}
+              getActiveItem={getActiveItem}
               navigation={bottomNavigation}
               expanded={expanded}
               {...navigationProps}
