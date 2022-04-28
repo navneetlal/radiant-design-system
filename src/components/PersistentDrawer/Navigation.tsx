@@ -3,7 +3,6 @@ import MuiTypography from "@mui/material/Typography";
 import MuiBox from "@mui/material/Box";
 import ToolTip from "../Tooltip/Tooltip";
 import { useTheme } from "@mui/material/styles";
-// import { Location, NavLink, useLocation } from "react-router-dom";
 export interface IiconProps {
   color?: string;
   style?: {
