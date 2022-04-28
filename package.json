@@ -1,6 +1,6 @@
 {
-  "name": "@intugine-technologies/mui",
-  "version": "1.0.7",
+  "name": "radiant",
+  "version": "2.0.0-alpha-0",
   "private": false,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
